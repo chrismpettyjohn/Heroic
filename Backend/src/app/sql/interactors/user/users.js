@@ -1,4 +1,4 @@
-import Hash from 'bcrypt'
+import Hash from 'bcryptjs'
 import Random from 'randomstring'
 import Model from '../../models/user/users'
 export default class Interactor {
@@ -162,17 +162,17 @@ export default class Interactor {
 
   static async subscription(data) {
     try {
-      // Check For Existence 
+      // Check For Existence
       await Interactor.exists(data.id, 'id')
       // Fetch user
       let user = await Interactor.read(data.id, 'id', true)
-      // Format 
+      // Format
       user = user.toJSON()
-      // Check Rank 
+      // Check Rank
       if (user.rank.id > data.rank) {
         data.rank = user.rank.id
       }
-      // Save 
+      // Save
       await Interactor.update({
         id: data.id,
         rank: data.rank,
