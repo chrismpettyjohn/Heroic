@@ -1,0 +1,25 @@
+<h1>Latest news</h1>
+<div class="main main--fixed">
+  <section>
+    <article class="news-header news-header--column" ng-repeat="article in articles">
+      <a ui-sref="user.community.news.article.view({ id : article.id })" class="news-header__link news-header__banner">
+        <figure class="news-header__viewport">
+          <img ng-src="/assets/img/articles/{{ article.image }}.png"class="news-header__image news-header__image--featured">
+          <img ng-src="/assets/img/articles/{{ article.image }}_thumb.png" class="news-header__image news-header__image--thumbnail">
+        </figure> 
+      </a>
+      <a ui-sref="user.community.news.article.view({ id : article.id })" class="news-header__link news-header__wrapper">
+        <h2 class="news-header__title" ng-bind="article.title"></h2>
+      </a>
+      <aside class="news-header__wrapper news-header__info">
+        <time class="news-header__date" ng-bind="article.timestamp | date : 'longDate'"></time>
+        <ul class="news-header__categories">
+          <li class="news-header__category">
+            <a ui-sref="user.community.news.category.view({ id : article.category.id })" class="news-header__category__link" ng-bind="article.category.title"></a>
+          </li>
+        </ul>
+      </aside>
+      <p class="news-header__wrapper news-header__summary" ng-bind="article.description"></p>
+    </article>
+  </section>
+</div>  

@@ -1,0 +1,12 @@
+<habbo-products>
+    <section>
+        <h3 class="inventory__section__title">Memberships and bundles</h3>
+        <habbo-accordion-grid class="inventory__grid">
+            <ul>
+                <habbo-accordion-item ng-repeat="product in products" style="width:45%;margin-left:1.5%;">
+                    <habbo-product-thumbnail product="product" ui-sref="user.store.products.view({ id : product.id })"></habbo-product-thumbnail>
+                </habbo-accordion-item>
+            </ul>
+        </habbo-accordion-grid>
+    </section>
+</habbo-products>

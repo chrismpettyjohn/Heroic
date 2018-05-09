@@ -1,0 +1,13 @@
+<li class="accordion-item" ng-class="{'accordion-item--expanded': show}">
+    <div class="inventory-thumbnail">
+        <div class="inventory-thumbnail__body">
+            <div class="credit-icon credit-icon--5"></div>
+            <div class="inventory-thumbnail__text">
+                <h3 ng-bind="product.title" class="inventory-thumbnail__title"></h3>
+            </div> 
+            <div class="inventory-thumbnail__banner">
+                <span ng-bind="'$' + {{ product.price }}" class="inventory-thumbnail__price"></span>
+            </div> 
+        </div>
+    </div>
+</li>

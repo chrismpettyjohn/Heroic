@@ -1,0 +1,157 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 100px;
+  margin: 0;
+  background-color: #0c3a65;
+  color: #7ecaee;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: Ubuntu,"Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+  font-size: 16px;
+  font-variant-ligatures: common-ligatures;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+  background-color: #0b6395;
+}
+
+.ng-invalid {
+  border-color: #903352;
+}
+
+.avatar-selector--selected:after {
+  background: none;
+}
+
+#delete {
+  background: #b71c1c;
+  border-color: #d32f2f;
+  float: left;
+  opacity: 0.85;
+}
+
+#delete:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+#footer_logo {
+  background: url('../img/x.png');
+  width: 204px;
+  height: 69px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+/* optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+.app.show-client .main-content {
+  height: 100% !important;
+  margin-top: 0 !important;
+}
+
+.app .main-content .content-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.app.show-client .main-content .content-container {
+  display: none;
+}
+
+.app .client-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.app.show-client .client-container {
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+.app .client-container object {
+  visibility: hidden;
+}
+
+.app:not(.show-client) .client-container button.return-web {
+  display: none;
+}
+
+.app.show-client .client-container object {
+  visibility: visible;
+  background: transparent !important;
+}
+
+.post__thumbnail {
+  box-shadow: 0 1px 0 2px rgba(0, 0, 0, .3);
+  background-color: #01353c;
+  border: 2px solid #267b91;
+  border-radius: 3px;
+  float: left;
+  height: 114px;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  position: relative;
+  width: 114px;
+}
+
+.photos__header__container {
+  height: 180px;
+} 
+
+.rooms__header__container {
+  height: 180px;
+} 
+
+.enable-flashplayer {
+  height: 100%;
+  width: 100%;
+  background-image: url(https://static.habbo-happy.net/img/articles/0be83e_hcspa.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+}
+.client-error {
+  background: black;
+  opacity: 0.8;
+  padding: 1.5%;
+  border-radius: 0.45px;
+}

@@ -1,0 +1,45 @@
+<header class="photos__header">
+    <div class="photos__header__container wrapper">
+        <div class="photos__header__image__wrapper">
+            <div class="photos__header__image"></div>
+        </div>
+        <div class="photos__header__content">
+            <h1 class="photos__header__title">Photos from Habbo</h1>
+            <p>Have a look at some of the great moments captured by Habbos around the hotel.</p>
+        </div>
+    </div>
+</header>
+<section class="wrapper wrapper--content" ng-show="photos.length > 0">
+    <habbo-columns-channel>
+        <div>
+            <div class="columns">
+                <habbo-card class="columns__column" ng-repeat="photo in photos">
+                    <div class="card">
+                        <div class="card__content">
+                            <a class="card__link">
+                                <div class="card__image__aligner">
+                                    <img ng-src="{{ photo.url }}" class="card__image card__image--photo">
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <habbo-avatar class="card__creator">
+                                <a ui-sref="user.home.profile({ id : photo.author.id })" class="avatar">
+                                    <habbo-imager class="avatar__image">
+                                        <img ng-src="https://avatar-retro.com/habbo-imaging/avatarimage?figure={{ photo.author.look }}&headonly=1" class="imager">
+                                    </habbo-imager>
+                                    <h6 ng-bind="photo.author.username" class="avatar__title"></h6>
+                                </a>
+                            </habbo-avatar>
+                        </div>
+                    </div>
+                </habbo-card>
+
+            </div>
+        </div>
+    </habbo-columns-channel>
+</section>
+<section class="wrapper wrapper--content" ng-show="photos.length==0">
+    <h3>Nothing posted</h3>
+    <p>Our users haven't shared any pictures yet!</p>
+</section>

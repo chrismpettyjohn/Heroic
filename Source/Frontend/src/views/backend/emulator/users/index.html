@@ -1,0 +1,13 @@
+<div class="columns small-12">
+    <ul class="Tabs u-mb-4 droplet-tabs">
+        <li ng-class="{'is-active': page.name=='admin.emulator.users.search'}">
+            <a ui-sref="admin.emulator.users.search">Search</a>
+        </li>
+        <li ng-class="{'is-active': page.name=='admin.emulator.users.view'}">
+            <a ui-sref="admin.emulator.users.view">View User</a>
+        </li>
+    </ul>
+</div>
+<div class="columns small-12">
+    <div ui-view></div>
+</div>   

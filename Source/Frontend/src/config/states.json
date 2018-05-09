@@ -1,0 +1,535 @@
+{
+	"errors": {
+		"name": "errors",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"errors.500": {
+		"name": "errors.500",
+		"title": "Server Error",
+		"templateUrl": "views/system/500.html"
+	},
+
+	"errors.message": {
+		"name": "errors.message",
+		"title": "Heroic Two",
+		"params": {
+			"message": {
+				"title": "Server Error",
+				"content": "What happened?"
+			}
+		},
+		"controller": "System.Message",
+		"templateUrl": "views/system/message.html"
+	},
+
+	"guest": {
+		"name": "guest",
+		"abstract": true,
+		"templateUrl": "views/frontend/guest/index.html"
+	},
+
+	"guest.login": {
+		"name": "guest.login",
+		"url": "/",
+		"title": "Login",
+		"controller": "Frontend.Guest.Login",
+		"templateUrl": "views/frontend/guest/login.html"
+	},
+
+	"guest.register": {
+		"name": "guest.register",
+		"url": "/register",
+		"title": "Register",
+		"controller": "Frontend.Guest.Register",
+		"templateUrl": "views/frontend/guest/register.html"
+	},
+
+	"user": {
+		"name": "user",
+		"abstract": true,
+		"templateUrl": "views/frontend/user/index.html"
+	},
+
+	"user.logout": {
+		"name": "user.logout",
+		"controller": "Frontend.User.Logout"
+	},
+
+	"user.home": {
+		"name": "user.home",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.home.me": {
+		"name": "user.home.me",
+		"url": "/me",
+		"title": "Me",
+		"templateUrl": "views/frontend/user/home/me.html"
+	},
+
+	"user.home.client": {
+		"name": "user.home.client",
+		"url": "/client",
+		"title": "Client",
+		"controller": "Frontend.User.Home.Client",
+		"templateUrl": "views/frontend/user/home/client.html"
+	},
+
+	"user.community": {
+		"name": "user.community",
+		"url": "/community",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.community.photos": {
+		"name": "user.community.photos",
+		"url": "/photos",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.community.photos.list": {
+		"name": "user.community.photos.list",
+		"url": "/",
+		"title": "Photos",
+		"controller": "Frontend.User.Community.Photos.List",
+		"templateUrl": "views/frontend/user/community/photos/list.html"
+	},
+
+	"user.community.photos.view": {
+		"name": "user.community.photos.view",
+		"url": "/:id",
+		"title": "Photos",
+		"controller": "Frontend.User.Community.Photos.View",
+		"templateUrl": "views/frontend/user/community/photos/view.html"
+	},
+
+	"user.community.rooms": {
+		"name": "user.community.rooms",
+		"url": "/rooms",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.community.rooms.list": {
+		"name": "user.community.rooms.list",
+		"url": "/",
+		"title": "Rooms",
+		"controller": "Frontend.User.Community.Rooms.List",
+		"templateUrl": "views/frontend/user/community/rooms/list.html"
+	},
+
+	"user.community.rooms.view": {
+		"name": "user.community.rooms.view",
+		"url": "/:id",
+		"title": "Viewing Room",
+		"controller": "Frontend.User.Community.Rooms.View",
+		"templateUrl": "views/frontend/user/community/rooms/view.html"
+	},
+
+	"user.community.news": {
+		"name": "user.community.news",
+		"url": "/news",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.community.news.category": {
+		"name": "user.community.news.category",
+		"url": "/category",
+		"abstract": true,
+		"controller": "Frontend.User.Community.News.Category.List",
+		"templateUrl": "views/frontend/user/community/news/category-header.html"
+	},
+
+	"user.community.news.category.list": {
+		"name": "user.community.news.category.list",
+		"url": "/all",
+		"title": "Everything",
+		"templateUrl": "views/frontend/user/community/news/category-list.html"
+	},
+
+	"user.community.news.category.view": {
+		"name": "user.community.news.category.view",
+		"url": "/:id",
+		"title": "News Category",
+		"controller": "Frontend.User.Community.News.Category.View",
+		"templateUrl": "views/frontend/user/community/news/category-view.html"
+	},
+
+	"user.community.news.article": {
+		"name": "user.community.news.article",
+		"url": "/article",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.community.news.article.view": {
+		"name": "user.community.news.article.view",
+		"url": "/:id",
+		"title": "News Article",
+		"controller": "Frontend.User.Community.News.Article.View",
+		"templateUrl": "views/frontend/user/community/news/article-view.html"
+	},
+
+	"user.community.staff": {
+		"name": "user.community.staff",
+		"url": "/staff",
+		"abstract": true,
+		"controller": "Frontend.User.Community.Staff.List",
+		"templateUrl": "views/frontend/user/community/staff/header.html"
+	},
+
+	"user.community.staff.list": {
+		"name": "user.community.staff.list",
+		"url": "",
+		"title": "Staff Team",
+		"templateUrl": "views/frontend/user/community/staff/list.html"
+	},
+
+	"user.community.staff.view": {
+		"name": "user.community.staff.view",
+		"url": "/:id",
+		"title": "Staff Team",
+		"controller": "Frontend.User.Community.Staff.View",
+		"templateUrl": "views/frontend/user/community/staff/view.html"
+	},
+
+	"user.store": {
+		"name": "user.store",
+		"url": "/shop",
+		"abstract": true,
+		"controller": "Frontend.User.Store",
+		"templateUrl": "views/frontend/user/store/index.html"
+	},
+
+	"user.store.products": {
+		"name": "user.store.products",
+		"abstract": true,
+		"templateUrl": "views/frontend/user/store/products/index.html"
+	},
+
+	"user.store.products.list": {
+		"name": "user.store.products.list",
+		"url": "",
+		"title": "Web Store",
+		"controller": "Frontend.User.Store.Products.List",
+		"templateUrl": "views/frontend/user/store/products/list.html"
+	},
+
+	"user.store.products.view": {
+		"name": "user.store.products.view",
+		"url": "/item/:id",
+		"title": "Web Store",
+		"controller": "Frontend.User.Store.Products.View",
+		"templateUrl": "views/frontend/user/store/products/view.html"
+	},
+
+	"user.store.history": {
+		"name": "user.store.history",
+		"url": "",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.store.history.list": {
+		"name": "user.store.history.list",
+		"url": "/history",
+		"title": "My Purchases",
+		"templateUrl": "views/frontend/user/store/history.html"
+	},
+
+	"user.store.history.purchase": {
+		"name": "user.store.history.purchase",
+		"url": "/purchase",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"user.store.history.purchase.success": {
+		"name": "user.store.history.purchase.success",
+		"url": "/success",
+		"title": "Web Store",
+		"params": {
+			"product": null,
+			"purchase": null
+		},
+		"controller": "Frontend.User.Store.Purchase.Success",
+		"templateUrl": "views/frontend/user/store/purchase/success.html"
+	},
+
+	"user.store.history.purchase.failed": {
+		"name": "user.store.history.purchase.failed",
+		"url": "/failed",
+		"title": "Web Store",
+		"templateUrl": "views/frontend/user/store/purchase/failed.html"
+	},
+
+
+	"admin": {
+		"name": "admin",
+		"url": "/admin",
+		"abstract": true,
+		"params": {
+			"message": null
+		},
+		"controller": "Backend.Controller",
+		"templateUrl": "views/backend/index.html"
+	},
+
+	"admin.home": {
+		"name": "admin.home",
+		"url": "/dashboard",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.home.dashboard": {
+		"name": "admin.home.dashboard",
+		"url": "/",
+		"title": "Dashboard",
+		"templateUrl": "views/backend/home/dashboard.html"
+	},
+
+	"admin.website": {
+		"name": "admin.website",
+		"url": "/website",
+		"abstract": true,
+		"templateUrl": "views/backend/website/index.html"
+	},
+
+	"admin.website.landing": {
+		"name": "admin.website.landing",
+		"url": "",
+		"title": "Website",
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.website.settings": {
+		"name": "admin.website.settings",
+		"url": "/settings",
+		"abstract": true,
+		"template": "<div ui-view></div>"
+	}, 
+
+
+	"admin.website.settings.view": {
+		"name": "admin.website.settings.view",
+		"url": "",
+		"title": "Manage Website",
+		"controller": "Backend.Website.Settings.View",
+		"templateUrl": "views/backend/website/settings.html"
+	},
+
+	"admin.website.settings.update": {
+		"name": "admin.website.settings.update",
+		"url": "",
+		"params": {
+			"website": {}
+		},
+		"title": "Manage Website",
+		"controller": "Backend.Website.Settings.Update"
+	},
+
+	"admin.website.news": {
+		"name": "admin.website.news",
+		"url": "/news",
+		"abstract": true,
+		"templateUrl": "views/backend/website/news/index.html"
+	},
+
+	"admin.website.news.article": {
+		"name": "admin.website.news.article",
+		"url": "/articles",
+		"abstract": true,
+		"controller": "Backend.Website.News.Article",
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.website.news.article.create": {
+		"name": "admin.website.news.article.create",
+		"url": "/create",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Article.Create",
+		"templateUrl": "views/backend/website/news/article/create.html"
+	},
+
+	"admin.website.news.article.list": {
+		"name": "admin.website.news.article.list",
+		"url": "/list",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Article.List",
+		"templateUrl": "views/backend/website/news/article/list.html"
+	},
+
+	"admin.website.news.article.view": {
+		"name": "admin.website.news.article.view",
+		"url": "/:id",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Article.View",
+		"templateUrl": "views/backend/website/news/article/view.html"
+	},
+
+	"admin.website.news.article.update": {
+		"name": "admin.website.news.article.update",
+		"params": {
+			"article": {}
+		},
+		"title": "Manage Website",
+		"controller": "Backend.Website.News.Article.Update"
+	},
+
+	"admin.website.news.article.delete": {
+		"name": "admin.website.news.article.delete",
+		"url": "/delete/:id",
+		"title": "Manage News",
+		"controller": "Backend.Website.News.Article.Delete"
+	},
+
+	"admin.website.news.category": {
+		"name": "admin.website.news.category",
+		"url": "/category",
+		"abstract": true,
+		"category": "Backend.Website.News.Category",
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.website.news.category.create": {
+		"name": "admin.website.news.category.create",
+		"url": "/create",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Category.Create",
+		"templateUrl": "views/backend/website/news/category/create.html"
+	},
+
+	"admin.website.news.category.list": {
+		"name": "admin.website.news.category.list",
+		"url": "/",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Category.List",
+		"templateUrl": "views/backend/website/news/category/list.html"
+	},
+
+	"admin.website.news.category.view": {
+		"name": "admin.website.news.category.view",
+		"url": "/:id",
+		"title": "Hotel News",
+		"controller": "Backend.Website.News.Category.View",
+		"templateUrl": "views/backend/website/news/category/view.html"
+	},
+
+	"admin.website.News.Category.update": {
+		"name": "admin.website.news.category.update",
+		"url": "",
+		"params": {
+			"category": {}
+		},
+		"title": "Manage Website",
+		"controller": "Backend.Website.News.Category.Update"
+	},
+
+	"admin.website.News.Category.delete": {
+		"name": "admin.website.news.category.delete",
+		"url": "/delete/:id",
+		"title": "Manage Website",
+		"controller": "Backend.Website.News.Category.Delete"
+	}, 
+
+	"admin.website.store": {
+		"name": "admin.website.store",
+		"url": "/store",
+		"abstract": true,
+		"templateUrl": "views/backend/website/store/index.html"
+	},
+
+	"admin.website.store.product": {
+		"name": "admin.website.store.product",
+		"url": "/products",
+		"abstract": true,
+		"controller": "Backend.Website.Store.Product",
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.website.store.product.create": {
+		"name": "admin.website.store.product.create",
+		"url": "/create",
+		"title": "Web Store",
+		"controller": "Backend.Website.Store.Product.Create",
+		"templateUrl": "views/backend/website/store/product/create.html"
+	},
+
+	"admin.website.store.product.list": {
+		"name": "admin.website.store.product.list",
+		"url": "/list",
+		"title": "Web Store",
+		"controller": "Backend.Website.Store.Product.List",
+		"templateUrl": "views/backend/website/store/product/list.html"
+	},
+
+	"admin.website.store.product.view": {
+		"name": "admin.website.store.product.view",
+		"url": "/:id",
+		"title": "Web Store",
+		"controller": "Backend.Website.Store.Product.View",
+		"templateUrl": "views/backend/website/store/product/view.html"
+	},
+
+	"admin.website.store.product.update": {
+		"name": "admin.website.store.product.update",
+		"url": "/update/:id",
+		"params": {
+			"product": null
+		},
+		"title": "Web Store",
+		"controller": "Backend.Website.Store.Product.Update"
+	},
+
+	"admin.website.store.product.delete": {
+		"name": "admin.website.store.product.delete",
+		"url": "/delete/:id",
+		"title": "Web Store",
+		"controller": "Backend.Website.Store.Product.Delete"
+	},
+
+	"admin.emulator": {
+		"name": "admin.emulator",
+		"url": "/emulator",
+		"abstract": true,
+		"templateUrl": "views/backend/emulator/index.html"
+	},
+
+	"admin.emulator.landing": {
+		"name": "admin.emulator.landing",
+		"url": "",
+		"title": "Emulator",
+		"template": "<div ui-view></div>"
+	},
+
+	"admin.emulator.users": {
+		"name": "admin.emulator.users",
+		"url": "/users",
+		"abstract": true,
+		"templateUrl": "views/backend/emulator/users/index.html"
+	},
+
+	"admin.emulator.users.search": {
+		"name": "admin.emulator.users.search",
+		"url": "/search",
+		"title": "User Lookup",
+		"controller": "Backend.Emulator.Users.Search",
+		"templateUrl": "views/backend/emulator/users/search.html"
+	},
+
+	"admin.emulator.users.view": {
+		"name": "admin.emulator.users.view",
+		"url": "/view/:username",
+		"title": "Viewing User",
+		"controller": "Backend.Emulator.Users.View",
+		"templateUrl": "views/backend/emulator/users/view.html"
+	}
+
+}
