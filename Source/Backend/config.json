@@ -2,11 +2,11 @@
   "database": {
     "host": "127.0.0.1",
     "username": "root",
-    "password": "root",
+    "password": "password",
     "database": "heroic-lts"
   },
   "http": {
     "port": 80
   },
-  "jwt": "!changeme"
+  "jwt": "@#%FZLZLL@$gfoOSOOSLQWED"
 }

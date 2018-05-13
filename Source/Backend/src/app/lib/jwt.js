@@ -16,6 +16,7 @@ export default class Library {
   }
 
   static async validate(session) {
+    const config = JSON.parse(File.readFileSync('./config.json', 'utf8')).jwt
     if (session) {
       try {
         return Token.verify(session, config)
