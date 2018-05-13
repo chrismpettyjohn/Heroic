@@ -1,0 +1,24 @@
+<section>
+    <div style="float:left;">
+        <h1 ng-bind="product.title"></h1>
+    </div>
+    <div style="float:right;">
+        <h3 ng-bind="'$' + product.price"></h3>
+    </div>
+</section>
+<section style="float:left;width:5%;">
+    <img ng-src="http://habboo-a.akamaihd.net/c_images/album1584/{{ product.rank.badge }}.gif">
+</section>
+<section style="float:right;width: 92.5%;">
+    <h3>Description</h3>
+    <p ng-bind-html="product.content"></p>
+    <h3>Benefits</h3>
+    <ul>
+        <li>{{ product.boost_credits | number }} credits</li>
+        <li>{{ product.boost_pixels | number }} pixels </li>
+        <li>{{ product.boost_points | number }} diamonds </li>
+        <li>Will be given the rank of {{ product.rank.rank_name }}</li>
+    </ul> 
+    <h3>Purchase</h3>
+    <payment-button product="product"></payment-button>
+</section> 

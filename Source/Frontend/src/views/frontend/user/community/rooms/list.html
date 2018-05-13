@@ -1,0 +1,29 @@
+<header class="rooms__header">
+    <div class="rooms__header__container wrapper">
+        <div class="rooms__header__image__wrapper">
+            <div class="rooms__header__image"></div>
+        </div>
+        <div class="rooms__header__content">
+            <h1 class="rooms__header__title">Room Gallery</h1>
+            <p translate="rooms_description">Check out some of the most popular rooms within Habbo right now!</p>
+        </div>
+    </div>
+</header> 
+<section class="wrapper wrapper--content rooms-wrapper"> 
+    <div ng-repeat="room in rooms" class="room-item">
+        <a ui-sref="user.community.rooms.view({ id : room.id })" class="room-item__link">
+            <div class="room-item__thumbnail">
+                <img ng-src="https://habbo-stories-content.s3.amazonaws.com/navigator-thumbnail/hhus/73188356.png" class="room-item__thumbnail__image">
+            </div>
+        </a>
+        <a ui-sref="user.community.rooms.view({ id : room.id })" class="room-item__link">
+            <h2 ng-bind="room.name" class="room-item__title"></h2>
+        </a>  
+        <habbo-avatar class="room-item__owner--user">
+            <a ui-sref="user.home.profile({ id : room.owner.id })" class="avatar">
+                <img ng-src="https://avatar-retro.com/habbo-imaging/avatarimage?figure={{ room.owner.look }}&headonly=1" class="imager">
+                <h6 ng-bind="room.owner.username" class="avatar__title"></h6>
+            </a> 
+        </habbo-avatar> 
+    </div> 
+</section>

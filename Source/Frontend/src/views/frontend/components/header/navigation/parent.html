@@ -1,0 +1,16 @@
+<nav class="navigation">
+  <ul class="navigation__menu">
+    <li ng-repeat="item in parents" class="navigation__item">
+      <a ui-sref="{{ item.url }}" class="navigation__link" style="color:#036;">
+        <i class="fa fa-{{ item.icon }}"></i> {{ item.name}}
+      </a>
+    </li>
+    <li class="navigation__item navigation__item--aside navigation__item--hotel">
+      <a ui-sref="user.home.client" class="hotel-button" id="ga-linkid-hotel" style="width:250px;"> 
+        <span class="hotel-button__text" style="overflow:auto;">Enter Hotel
+          <small style="font-size:10px;overflow:auto;"> {{ $root.website.online }} users online</small>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

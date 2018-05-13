@@ -1,0 +1,7 @@
+<div class="content">
+    <habbo-header-small ng-hide="page.name=='user.home.client'"></habbo-header-small>
+    <habbo-navigation ng-hide="page.name=='user.home.client'"></habbo-navigation>
+    <habbo-tabs page="$root.page" ng-hide="page.name=='user.home.client'"></habbo-tabs>
+    <main class="app content" ui-view></main>
+</div>
+<habbo-footer ng-hide="page.name=='user.home.client'"></habbo-footer>

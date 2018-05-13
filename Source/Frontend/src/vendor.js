@@ -1,0 +1,6 @@
+require('angular')
+require('angular-sanitize') 
+require('angular-aria')
+require('angular-ui-router')
+require('ngstorage')
+require('textAngular')

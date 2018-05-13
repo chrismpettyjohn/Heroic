@@ -1,6 +1,0 @@
-Users
--Changed account_created [timestamp, CURRENT_TIMESTAMP]
-
-Permissions
--Added cms_admin
--Added cms_mod

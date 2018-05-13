@@ -1,0 +1,13 @@
+<section class="wrapper wrapper--content">
+		<header class="news-category__header">
+	<span translate="news_show_more">Show me staff members ranked:</span>
+	<nav class="news-category__navigation">
+		<ul class="news-category__list">
+			<li class="news-category__item" ng-repeat="rank in ranks">
+                <a ui-sref="user.community.staff.view({ id : rank.id })" ng-class="{'news-category__link--active': parent==rank.id}" class="news-category__link" ng-bind="rank.rank_name"></a>
+			</li>
+		</ul>
+	</nav> 
+</header>
+<div ui-view></div> 
+</section>

@@ -1,0 +1,18 @@
+<div class="columns small-12">
+    <ul class="Tabs u-mb-4 droplet-tabs">
+        <li ng-class="{'is-active': page.name.indexOf('admin.website.news.article') > -1}">
+            <a ui-sref="admin.website.news.article.list">Articles</a>
+        </li>
+        <li ng-class="{'is-active': page.name.indexOf('admin.website.news.category') > -1}">
+            <a ui-sref="admin.website.news.category.list">Categories</a>
+        </li> 
+    </ul> 
+</div>
+<div class="columns small-12">
+    <div ng-show="message.type" click-off="message={}" class="Alert--{{ message.type}} u-mb-4">
+        <div class="Alert-content">
+            <p>{{ message.text }} </p>
+        </div>
+    </div>
+    <div ui-view></div>
+</div>

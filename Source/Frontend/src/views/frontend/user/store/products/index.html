@@ -1,0 +1,35 @@
+<main class="wrapper wrapper--content">
+    <section>
+        <div class="main" ui-view></div>
+        <habbo-purse class="aside aside--box">
+            <aside>
+                <h3>My Purse</h3>
+                <div class="purse">
+                    <div class="purse__columns">
+                        <div class="purse__column">
+                            <div class="purse__item purse__item--credits">{{ session.credits | number }} credits</div>
+                            <div class="purse__item purse__item--diamonds">{{ session.points | number }} diamonds</div>
+                        </div>
+                        <div class="purse__column">
+                            <div class="purse__item purse__item--habbo-club">
+                                <span>{{ session.rank.rank_name }} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </aside>
+        </habbo-purse>
+        <aside class="aside aside--box" ng-if="session.online==1">
+            <h3>Warning</h3>
+            <p>You will not be able to make any purchases until you exit the client.</p>
+        </aside>
+    </section> 
+    <habbo-shop-footer class="wrapper wrapper--content">
+        <footer class="shop-footer">
+            <section class="main shop-footer__main">
+                <h3 class="shop-footer__title">Please remember</h3>
+                <p class="shop-footer__text">If your payment is declined or chargebacked at a later time - your account will automatically be banned from our services.</p>
+            </section> 
+        </footer>
+    </habbo-shop-footer>
+</main>

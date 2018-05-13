@@ -1,0 +1,37 @@
+<table class="droplet-listing">
+    <thead>
+        <tr>
+            <th style="width:15%;text-align:center;">Badge</th>
+            <th style="width:45%;">Title</th>
+            <th style="width:10%;">Price</th>
+            <th style="width:15%;"> Manage </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in products" class="done">
+            <td style="text-align:center;">
+                <img ng-src="http://habboo-a.akamaihd.net/c_images/album1584/{{ product.rank.badge }}.gif"> </div>
+            </td>
+            <td>{{ product.title }}</td>
+            <td>${{ product.price }}</td> 
+            <td>
+                <a ui-sref="admin.website.store.product.view({ id : product.id  })">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a ui-sref="admin.website.store.product.delete({ id : product.id })">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <a ui-sref="admin.website.store.product.create">
+                    <i class="fa fa-plus-square"></i> Create
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

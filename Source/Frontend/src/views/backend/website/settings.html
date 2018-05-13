@@ -1,0 +1,107 @@
+<div class="columns small-12">
+    <ul class="Tabs u-mb-4 droplet-tabs">
+        <li ng-class="{'is-active': isActive('general')}">
+            <a ng-click="setActive('general')">General</a>
+        </li>
+        <li ng-class="{'is-active': isActive('client')}">
+            <a ng-click="setActive('client')">Client Settings</a>
+        </li>
+        <li ng-class="{'is-active': isActive('webstore')}">
+            <a ng-click="setActive('webstore')">Web Store</a>
+        </li>
+        <li ng-class="{'is-active': isActive('findretros')}">
+            <a ng-click="setActive('findretros')">Findretros</a>
+        </li>
+    </ul>
+</div>
+<div class="columns small-12 networkingPage">
+    <div class="u-mb-5">
+        <div class="small-6 columns">
+            <form>
+
+                <div ng-show="isActive('general')">
+                    <div>
+                        <label>Hotel Name</label>
+                        <input ng-model="website.site_name" type="text">
+                    </div>
+
+                    <div>
+                        <label>Website Link</label>
+                        <input ng-model="website.site_link" type="text">
+                    </div>
+                </div>
+
+
+                <div ng-show="isActive('client')">
+                    <div>
+                        <h3>Emulator</h3>
+                        <div>
+                            <label>Server IP</label>
+                            <input ng-model="website.server_ip" type="text">
+                        </div>
+                        <div>
+                            <label>Server Port</label>
+                            <input ng-model="website.server_port" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <h3>SWFs</h3>
+                        <div>
+                            <label>Production Base</label>
+                            <small>This contains the habbo.swf</small>
+                            <input ng-model="website.swf_base" type="text">
+                        </div>
+                        <div>
+                            <label>Gamedata Location</label>
+                            <small>External variables is stored here</small>
+                            <input ng-model="website.swf_gamedata" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="isActive('findretros')">
+                    <div>
+                        <label>Username</label>
+                        <input ng-model="website.findretros_user" type="text">
+                    </div>
+                    <div>
+                        <label>Force Voting</label>
+                        <select ng-model="website.findretros_enabled">
+                            <option value="true" ng-selected="website.findretros_enabled=='true'">Enabled</option>
+                            <option value="false" ng-selected="website.findretros_enabled=='false'">Disabled</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div ng-show="isActive('webstore')">
+                    <div>
+                        <label>Store Status</label>
+                        <select ng-model="website.store_enabled">
+                            <option value="true" ng-selected="website.store_enabled=='true'">Enabled</option>
+                            <option value="false" ng-selected="website.store_enabled=='false'">Disabled</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Paypal Client Key</label>
+                        <p>You can get this by going
+                            <a href="https://developer.paypal.com/developer/applications/" target="_blank">here</a>
+                        </p>
+                        <input ng-model="website.paypal_key" type="text">
+                    </div>
+
+                    <div>
+                        <label>Paypal Mode</label>
+                        <p>Learn more about sandbox mode
+                            <a href="https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/" target="_blank">here</a>
+                        </p>
+                        <input ng-model="website.paypal_mode" type="text">
+                    </div>
+                </div>
+
+                <div>
+                    <a ui-sref="admin.website.settings.update({ website : website })" class="Button Button--blue Button--large Button--fullWidth ">Save</a>
+                </div>
+            </form>
+        </div>
+    </div> 

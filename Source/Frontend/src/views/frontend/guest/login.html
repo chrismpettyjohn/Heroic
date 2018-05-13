@@ -1,0 +1,18 @@
+<div class="wrapper wrapper--content">
+  <form ng-submit="login()" class="form" style="width:40%;">
+    <fieldset class="form__fieldset form__fieldset--box">
+      <div class="form__field">
+        <label class="form__label">Username</label>
+        <input ng-model="user.username" ng-class="{'ng-invalid': error.username}"  class="form__input">
+      </div>
+      <label class="form__label">Password</label>
+      <div class="form__field">
+        <input ng-model="user.password" ng-class="{'ng-invalid': error.password}" type="password" class="form__input">
+        <i class="password-toggle-mask__icon"></i>
+      </div>
+    </fieldset>
+    <div class="form__footer">
+      <button class="form__submit" type="submit">Login</button>
+    </div>
+  </form>
+</div>

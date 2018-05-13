@@ -1,0 +1,22 @@
+<section class="wrapper wrapper--content">
+	<article>
+		<header class="news-header news-header--single">
+			<div class="news-header__banner">
+				<figure class="news-header__viewport">
+					<img ng-src="/assets/img/articles/{{ article.image }}.png" class="news-header__image news-header__image--featured">
+				</figure>
+			</div>
+			<h1 ng-bind="article.title" class="news-header__wrapper news-header__title"></h1>
+			<aside class="news-header__wrapper news-header__info">
+				<time ng-bind="article.timestamp | date : 'longDate'" class="news-header__date"></time>
+				<ul class="news-header__categories">
+					<li class="news-header__category">
+						<a ui-sref="user.community.news.category.view({ id : article.category.id })" ng-bind="article.category.title" class="news-header__category__link"></a>
+					</li>
+				</ul>
+			</aside>
+			<p ng-bind="article.description" class="news-header__wrapper news-header__summary"></p>
+		</header>
+		<div ng-bind-html="article.content" class="news-article"></div>
+	</article>
+</section> 

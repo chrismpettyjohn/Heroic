@@ -1,0 +1,59 @@
+<h1>Welcome Back</h1>
+<div class="row">
+    <div class="columns small-2">
+        <nav class="SideNav settings-side-nav js-settings-side-nav">
+            <div class="avatarWrapper">
+                <h3>
+                    <span class="context-avatar context-avatar-tiny">
+                        <img alt="avater" class="avatar-tiny" src="https://secure.gravatar.com/avatar/cc78ee33b980f6c0c6cf1e98070a50f1?default=https%3A%2F%2Fcloud.digitalocean.com%2Favatars%2Fdefault29.png&amp;secure=true">
+                    </span>
+                </h3>
+                <div class="ellipsis-text">
+                    <h3> {{ session.username }}</h3>
+                </div>
+            </div>
+            <ul class="List--noBullets">
+                <li>
+                    <a class="navLink active">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="columns small-10 settings">
+        <div class="settings-profile">
+            <div class="row u-mb-6">
+                <div class="small-12 columns">
+                    <div class="Box">
+                        <div class="row">
+                            <div class="small-2 columns">
+                                <div class="avatarWrapper">
+                                    <div class="avatar avatar-overlay"></div>
+                                    <img alt="avatar" class="avatar" src="https://secure.gravatar.com/avatar/cc78ee33b980f6c0c6cf1e98070a50f1?default=https%3A%2F%2Fcloud.digitalocean.com%2Favatars%2Fdefault29.png&amp;secure=true">
+                                </div>
+                            </div>
+                            <div class="small-7 columns">
+                                <h2 class="username">{{ session.username }}</h2>
+                                <ul class="List--noBullets">
+                                    <li>{{ session.rank.rank_name }}</li>
+                                </ul>
+                            </div>
+                            <div class="small-3 columns">
+                                <a ui-sref="user.logout" class="Button u-floatRight">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row social-accounts">
+                <div class="small-12 columns">
+                    <section class="Box u-mb-5 u-mt-5">
+                        <h2>Return to site
+                            <a ui-sref="user.home.me" class="Button Button--red Button--outline u-floatRight">Exit Administration</a>
+                        </h2>
+                        <span>This will take you back to the hotel and exit the admin panel.</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
