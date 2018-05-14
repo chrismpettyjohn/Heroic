@@ -5,7 +5,7 @@ Instructions on how to install Heroic (2) will be provided below.  Be sure to fo
 - [Node 10.0](https://nodejs.org/dist/v10.0.0/node-v10.0.0.pkg)
 - [MariaDB](https://downloads.mariadb.org/interstitial/mariadb-10.2.14/winx64-packages/mariadb-10.2.14-winx64.msi/from/http%3A//mirrors.syringanetworks.net/mariadb/)
 - [Navicat](https://www.navicat.com/en/download/navicat-premium)
-- [Heroic (2.1)](http://www.mediafire.com/file/99r8be7zwsn79xt/Archive.zip)
+- [Heroic](https://github.com/chrismpettyjohn/Heroic-Standalone)
 
 ### Steps
 1. Install Node 10 (First download link)

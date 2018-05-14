@@ -27,7 +27,7 @@ const run = function() {
 }
 
 // node_modules check
-if (file.existsSync('./node_modules')) {
+if (file.existsSync(`${path}/node_modules`)) {
   run()
 } else {
   // Notify User
@@ -36,8 +36,8 @@ if (file.existsSync('./node_modules')) {
 
   // Run Bash Commands
 
-  child('npm install', ((error, stdout, stderr) => {
-    run()
-  }))
-
+  child(`npm install`, {
+    cwd: path
+  }, ((error, stdout, stderr) => {}))
+  run()
 }
