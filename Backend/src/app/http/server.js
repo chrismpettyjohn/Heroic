@@ -3,9 +3,9 @@ import Path from 'path'
 import Fetch from 'glob'
 import Async from 'async'
 import Fastify from 'fastify'
+import Static from 'fastify-static'
 import Helmet from 'fastify-helmet'
 import Body from 'fastify-formbody'
-import Static from 'serve-static'
 import Session from './middleware/session'
 export default class Server {
 

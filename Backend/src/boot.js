@@ -26,7 +26,6 @@ if (process.pkg) {
 
 // Run()
 const run = function() {
-  global.path = path
   global.config = require(`${path}/config.json`)
   // Initiate Heroic
   require('./app/heroic').default.init()
