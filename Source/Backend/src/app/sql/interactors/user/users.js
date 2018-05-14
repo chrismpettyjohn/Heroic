@@ -47,7 +47,7 @@ export default class Interactor {
       switch (type) {
 
         case 'username':
-          regex = new RegExp('/^(?=.{5,20}$)[A-Z0-9]+(?:[_.][A-Z0-9]+)*$/i')
+          regex = new RegExp('^[a-zA-Z0-9]+([-_\.][a-zA-Z0-9]+)*[a-zA-Z0-9]$')
           if (regex.test(data)) {
             if (query) {
               let users = await Model.where('username', data).fetchAll({
