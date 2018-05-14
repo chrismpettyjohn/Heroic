@@ -1,4 +1,5 @@
 <center>
+<<<<<<< HEAD
   <img src="https://i.imgur.com/FFBVnrG.png">
 </center>
 
@@ -12,3 +13,7 @@
 <a href="https://devbest.com/threads/heroic-2-retro-web-application-node-10-express-bookshelf.85497/#post-434049">Devbest Development Thread</a>
 <p>Other Versions</p>
 <a href="https://github.com/chrismpettyjohn/Heroic/tree/Experimental">Experimental Build (3.0)</a>
+=======
+   <img src="https://i.imgur.com/FFBVnrG.png">
+ </center>
+>>>>>>> b4712c9daabdcb7533e6b0213d50c0f99c7e76b8
