@@ -1,6 +1,6 @@
-<center>
+<p align="center">
   <img src="https://i.imgur.com/FFBVnrG.png">
-</center>
+</p>
 <h3>About</h3>
 <p>Heroic is a content management system with the purpose of making it easier for beginners and experienced users alike to enjoy the benefits of modern code.</p>
 <h3>Quick Links</h3>
