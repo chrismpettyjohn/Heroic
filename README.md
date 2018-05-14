@@ -1,36 +1,16 @@
-## Heroic Instalation
-Instructions on how to install Heroic (2) will be provided below.  Be sure to follow each step directly to avoid error and or confusion.
-
-### Downloads 
-- [Node 10.0](https://nodejs.org/dist/v10.0.0/node-v10.0.0.pkg)
-- [MariaDB](https://downloads.mariadb.org/interstitial/mariadb-10.2.14/winx64-packages/mariadb-10.2.14-winx64.msi/from/http%3A//mirrors.syringanetworks.net/mariadb/)
-- [Navicat](https://www.navicat.com/en/download/navicat-premium)
-- [Heroic](http://www.mediafire.com/file/wq7jc47nd94dunw/Heroic%20Two.zip)
-
-#### Discord
-[https://discord.gg/y6szGk5](https://discord.gg/y6szGk5)
-
-### Steps 
-1. Install Node 10 (First download link)
-2. Install MariaDB (Second download link) (*Do not forget your password*)
-3. Install Navicat (option) to manage your database 
-4. Drag Heroic to your desktop 
-5. Import the "database.sql" into your database using Navicat 
-6. Open up command prompt and cd into your folder 
-7. run "npm i" and wait for it to finish
-8. Edit config.ini and check your database details 
-9. Right click Heroic.exe and click "start as administrator"
-
-### Issues?
-
-#### Heroic.exe closes upon open?
-1. Open up command prompt
-2. CD to the directory with your file (cd /dir)
-3. Run the command "heroic.exe"
-4. If any errors come out; you have found the problem.
-
-#### Port 80 in use 
-Try stopping IIS, or any other web servers that may take up port 80.  Also run as administrator.
-
-#### Need more help?
-Join the official Discord community at [https://discord.gg/y6szGk5](https://discord.gg/y6szGk5)
+<p align="center">
+  <img src="https://i.imgur.com/FFBVnrG.png">
+</p>
+<h3>Install</h3>
+<p>Installation intructions are available <a href="INSTALL.md">here</a></p>
+<h3>About</h3>
+<p>Heroic is a content management system with the purpose of making it easier for beginners and experienced users alike to enjoy the benefits of modern code.</p>
+<h3>Quick Links</h3>
+<h5>Community</h5>
+<a href="https://discord.gg/y6szGk5">Discord Server</a>
+<h5>Forums</h5>
+<a href="http://forum.ragezone.com/f331/heroic-node-web-app-1143696/#post8849377">Ragezone Development Thread</a>
+<br>
+<a href="https://devbest.com/threads/heroic-2-retro-web-application-node-10-express-bookshelf.85497/#post-434049">Devbest Development Thread</a>
+<h5>Other Versions</h5>
+<a href="https://github.com/chrismpettyjohn/Heroic/tree/Experimental">Experimental Build (3.0)</a>
