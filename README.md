@@ -3,6 +3,9 @@
 </p>
 <h3>Install</h3>
 <p>Installation intructions are available <a href="https://github.com/chrismpettyjohn/Heroic-Standalone">here</a></p>
+<h3>Release Builds</h3>
+<p>Source Code Releases: <a href="https://github.com/chrismpettyjohn/Heroic/releases/tag/v2.1.1">here</a></p>
+<p>Ready To Run Releases: <a href="https://github.com/chrismpettyjohn/Heroic-Standalone/releases/tag/v2.1.1">here</a></p>
 <h3>About</h3>
 <p>Heroic is a content management system with the purpose of making it easier for beginners and experienced users alike to enjoy the benefits of modern code.</p>
 <h3>Quick Links</h3>
