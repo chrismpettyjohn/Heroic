@@ -1,13 +1,13 @@
-import File from 'fs'
 import Website from './http/server'
 export default class Heroic {
 
   static async init() {
-    const config = JSON.parse(File.readFileSync(`${process.cwd()}/config.json`, 'utf8')).http
     try {
-      await Website.init(config.port)
+      await Website.init()
+      console.log(`Heroic has started on ${global.config.http.port}`)
     } catch (error) {
-      throw error
+      console.log(`${error}\nHeroic will now shutdown.`)
+      process.exit()
     }
   }
 

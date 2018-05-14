@@ -9,7 +9,7 @@ import Body from 'fastify-formbody'
 import Session from './middleware/session'
 export default class Server {
 
-  static async init(port) {
+  static async init() {
     return new Promise((resolve, reject) => {
       Async.waterfall([
         Server.configure, Server.routes
@@ -20,7 +20,7 @@ export default class Server {
           reply.type('text/html').send(stream)
         })
 
-        http.listen(port, (error => {
+        http.listen(global.config.http.port, (error => {
           if (error) {
             reject(`HTTP server cannot listen on port ${port}`)
           } else {

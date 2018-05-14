@@ -1,10 +1,19 @@
-import Heroic from './app/heroic'
 process.stdout.write('\x1B[2J')
-Heroic.init()
-  .then(() => {
-    console.log('Heroic has launched')
-  })
-  .catch(error => {
-    console.log(`${error}\nHeroic will now shutdown.`)
-    process.exit()
-  })
+
+//Config
+let path = ''
+if (process.pkg) {
+  path = process.argv[0]
+  path = path.split('/')
+  path.shift()
+  path.pop()
+  path = `/${path.join('/')}`
+} else {
+  path = process.cwd()
+}
+
+global.config = require(`${path}/config.json`)
+
+
+// Launch
+require('./app/heroic').default.init()

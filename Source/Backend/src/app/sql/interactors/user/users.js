@@ -47,7 +47,7 @@ export default class Interactor {
       switch (type) {
 
         case 'username':
-          regex = new RegExp('^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')
+          regex = new RegExp('/^(?=.{5,20}$)[A-Z0-9]+(?:[_.][A-Z0-9]+)*$/i')
           if (regex.test(data)) {
             if (query) {
               let users = await Model.where('username', data).fetchAll({
@@ -67,7 +67,7 @@ export default class Interactor {
           break;
 
         case 'email':
-          regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i
+          regex = new RegExp('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i')
           if (regex.test(data)) {
             if (query) {
               let users = await Model.where('mail', data).fetchAll({
@@ -162,17 +162,17 @@ export default class Interactor {
 
   static async subscription(data) {
     try {
-      // Check For Existence 
+      // Check For Existence
       await Interactor.exists(data.id, 'id')
       // Fetch user
       let user = await Interactor.read(data.id, 'id', true)
-      // Format 
+      // Format
       user = user.toJSON()
-      // Check Rank 
+      // Check Rank
       if (user.rank.id > data.rank) {
         data.rank = user.rank.id
       }
-      // Save 
+      // Save
       await Interactor.update({
         id: data.id,
         rank: data.rank,

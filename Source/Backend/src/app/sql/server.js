@@ -3,14 +3,13 @@ import knex from 'knex'
 import bookshelf from 'bookshelf'
 import Delete from 'bookshelf-cascade-delete'
 
-const config = JSON.parse(File.readFileSync(`${process.cwd()}/config.json`, 'utf8')).database
 const data = {
   client: "mysql2",
   connection: {
-    host: config.host,
-    user: config.username,
-    password: config.password,
-    database: config.database
+    host: global.config.database.host,
+    user: global.config.database.username,
+    password: global.config.database.password,
+    database: global.config.database.database
   }
 }
 const Database = bookshelf(knex(data))

@@ -6,7 +6,7 @@
     "database": "heroic-lts"
   },
   "http": {
-    "port": 80
+    "port": 8080
   },
   "jwt": "@#%FZLZLL@$gfoOSOOSLQWED"
 }
