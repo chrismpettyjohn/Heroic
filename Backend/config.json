@@ -3,7 +3,7 @@
     "host": "127.0.0.1",
     "username": "root",
     "password": "password",
-    "database": "heroic-lts"
+    "database": "arcturus"
   },
   "http": {
     "port": 8080
