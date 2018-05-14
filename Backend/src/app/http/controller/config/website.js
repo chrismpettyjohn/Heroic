@@ -9,7 +9,7 @@ export default class Controller {
         site_desc: request.body.site_desc,
         site_link: request.body.site_link,
         server_ip: request.body.server_ip,
-        server_port: request.body.server_port, 
+        server_port: request.body.server_port,
         swf_base: request.body.swf_base,
         swf_gamedata: request.body.swf_gamedata,
         findretros_user: request.body.findretros_user,
@@ -32,6 +32,12 @@ export default class Controller {
     } catch (error) {
       new Error(error, request, reply)
     }
+  }
+
+  static async heroic(request, reply) {
+    reply.code(200).send({
+      version: global.version
+    })
   }
 
 }

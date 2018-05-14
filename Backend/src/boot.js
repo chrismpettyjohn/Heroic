@@ -1,5 +1,7 @@
 // Clear Terminal
 process.stdout.write('\x1B[2J')
+
+global.version = 'v2.1.3'
 console.log('>Running system checks')
 
 // Dependencies
