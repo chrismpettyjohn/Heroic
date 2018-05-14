@@ -13,6 +13,10 @@ NEW_COLUMN `cms_admin`
 type ENUM `'0','1'`
 default `'0'`
 <br>
+NEW_COLUMN `cms_mod
+type ENUM `'0','1'`
+default `'0'`
+<br>
 NEW_COLUMN `cms_display_staff`
 type ENUM `'0','1'`
 default `'0'`
