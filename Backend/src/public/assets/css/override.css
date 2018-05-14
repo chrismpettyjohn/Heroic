@@ -157,6 +157,6 @@ html {
 }
 
 .header__habbo__logo {
-  background-image: url('/public/logo.png')
-  background-position: 0 0;
+  background-image: url('http://localhost:8080/public/img/logo.png');
+  background-size: 100%;
 }
