@@ -36,7 +36,9 @@ if (file.existsSync('./node_modules')) {
 
   // Run Bash Commands
 
-  child('npm install', ((error, stdout, stderr) => {
+  child(`npm install`, {
+    cwd: path
+  }, ((error, stdout, stderr) => {
     run()
   }))
 
