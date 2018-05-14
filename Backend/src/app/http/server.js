@@ -39,7 +39,7 @@ export default class Server {
 
     http.use('/assets', Static(Path.join(__dirname, '..', '..', 'public', 'assets')))
 
-    http.use('/swfs', Static(Path.join(global.path, 'swfs')))
+    http.use('/public', Static(Path.join(global.path, 'public')))
 
     http.register(Body)
 
