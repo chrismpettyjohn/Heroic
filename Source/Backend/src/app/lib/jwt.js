@@ -4,9 +4,8 @@ import Token from 'jsonwebtoken'
 export default class Library {
 
   static async sign(session) {
-    const config = JSON.parse(File.readFileSync('./config.json', 'utf8')).jwt
     try {
-      return Token.sign(session, config, {
+      return Token.sign(session, global.config.jwt, {
         expiresIn: '24h',
         algorithm: 'HS256'
       })
@@ -16,10 +15,9 @@ export default class Library {
   }
 
   static async validate(session) {
-    const config = JSON.parse(File.readFileSync('./config.json', 'utf8')).jwt
     if (session) {
       try {
-        return Token.verify(session, config)
+        return Token.verify(session, global.config.jwt)
       } catch (error) {
         throw new Error(error)
       }

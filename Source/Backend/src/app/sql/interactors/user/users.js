@@ -45,12 +45,7 @@ export default class Interactor {
       switch (type) {
 
         case 'username':
-<<<<<<< HEAD
           if (new RegExp(`^[a-zA-Z0-9]+([-_\.][a-zA-Z0-9]+)*[a-zA-Z0-9]$`).test(data)) {
-=======
-          regex = new RegExp('/^(?=.{5,20}$)[A-Z0-9]+(?:[_.][A-Z0-9]+)*$/i')
-          if (regex.test(data)) {
->>>>>>> parent of 5b45fbc... FIX: RegExp error on user validator
             if (query) {
               let users = await Model.where('username', data).fetchAll({
                 columns: ['id']
