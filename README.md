@@ -6,7 +6,7 @@
 <h3>Quick Links</h3>
 <h5>Community</h5>
 <a href="https://discord.gg/y6szGk5">Discord Server</a>
-<h5>Forums</5>
+<h5>Forums</h5>
 <a href="http://forum.ragezone.com/f331/heroic-node-web-app-1143696/#post8849377">Ragezone Development Thread</a>
 <a href="https://devbest.com/threads/heroic-2-retro-web-application-node-10-express-bookshelf.85497/#post-434049">Devbest Development Thread</a>
 <h5>Other Versions</h5>
