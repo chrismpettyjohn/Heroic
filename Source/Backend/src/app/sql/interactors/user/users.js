@@ -42,13 +42,10 @@ export default class Interactor {
   // Other
   static async validate(data, type, query) {
     if (data != undefined) {
-      let regex = ''
-
       switch (type) {
 
         case 'username':
-          regex = new RegExp('^[a-zA-Z0-9]+([-_\.][a-zA-Z0-9]+)*[a-zA-Z0-9]$')
-          if (regex.test(data)) {
+          if (new RegExp(`^[a-zA-Z0-9]+([-_\.][a-zA-Z0-9]+)*[a-zA-Z0-9]$`).test(data)) {
             if (query) {
               let users = await Model.where('username', data).fetchAll({
                 columns: ['id']
@@ -67,8 +64,7 @@ export default class Interactor {
           break;
 
         case 'email':
-          regex = new RegExp('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i')
-          if (regex.test(data)) {
+          if (new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$").test(data)) {
             if (query) {
               let users = await Model.where('mail', data).fetchAll({
                 columns: ['id']
@@ -87,8 +83,7 @@ export default class Interactor {
           break;
 
         case 'password':
-          regex = new RegExp('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})')
-          if (regex.test(data)) {
+          if (new RegExp(`^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})`).test(data)) {
             return true
           } else {
             throw new Error('RETURN: Password is not strong enough')
