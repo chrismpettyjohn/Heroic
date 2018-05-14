@@ -9,21 +9,27 @@ import Body from 'fastify-formbody'
 import Session from './middleware/session'
 export default class Server {
 
-  static async init() {
-    Async.waterfall([
-      Server.configure, Server.routes
-    ], ((errors, http) => {
+  static async init(port) {
+    return new Promise((resolve, reject) => {
+      Async.waterfall([
+        Server.configure, Server.routes
+      ], ((errors, http) => {
 
-      http.get('/*', (req, reply) => {
-        const stream = File.readFileSync(Path.join(__dirname, '..', '..', 'public', 'views', 'index.html'))
-        reply.type('text/html').send(stream)
-      })
+        http.get('/*', (req, reply) => {
+          const stream = File.readFileSync(Path.join(__dirname, '..', '..', 'public', 'views', 'index.html'))
+          reply.type('text/html').send(stream)
+        })
 
-      http.listen(80, '0.0.0.0', (() => {
-        console.log('   Web Server is running')
+        http.listen(port, (error => {
+          if (error) {
+            reject(`HTTP server cannot listen on port ${port}`)
+          } else {
+            resolve()
+          }
+        }))
+
       }))
-
-    }))
+    })
   }
 
   static configure(callback) {

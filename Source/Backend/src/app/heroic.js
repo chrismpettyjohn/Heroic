@@ -3,7 +3,12 @@ import Website from './http/server'
 export default class Heroic {
 
   static async init() {
-    Website.init()
+    const config = JSON.parse(File.readFileSync(`${process.cwd()}/config.json`, 'utf8')).http
+    try {
+      await Website.init(config.port)
+    } catch (error) {
+      throw error
+    }
   }
 
 }
