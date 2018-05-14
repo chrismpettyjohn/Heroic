@@ -22,7 +22,7 @@ export default class Server {
 
         http.listen(global.config.http.port, (error => {
           if (error) {
-            reject(`HTTP server cannot listen on port ${port}`)
+            reject(`HTTP server cannot listen on port ${global.config.http.port}`)
           } else {
             resolve()
           }
