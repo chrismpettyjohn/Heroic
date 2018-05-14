@@ -8,13 +8,18 @@ const child = require('child_process').execSync
 
 // Local Environment
 // Configure Heroic Environment
+
 let path = ''
 if (process.pkg) {
-  path = process.argv[0]
-  path = path.split('/')
-  path.shift()
-  path.pop()
-  path = `/${path.join('/')}`
+  if (process.platform == 'win32') {
+    path = process.cwd()
+  } else {
+    path = process.argv[0]
+    path = path.split('/')
+    path.shift()
+    path.pop()
+    path = `/${path.join('/')}`
+  }
 } else {
   path = process.cwd()
 }
