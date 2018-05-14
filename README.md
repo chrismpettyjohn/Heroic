@@ -1,9 +1,6 @@
 ## Heroic Instalation
 Instructions on how to install Heroic (2) will be provided below.  Be sure to follow each step directly to avoid error and or confusion.
 
-### Weekly Song
-https://www.youtube.com/watch?v=iUOLX5_yxIo&index=27&list=RDGMEMHDXYb1_DDSgDsobPsOFxpAVMQpbQ4I3Eidg
-
 ### Downloads
 - [Node 10.0](https://nodejs.org/dist/v10.0.0/node-v10.0.0.pkg)
 - [MariaDB](https://downloads.mariadb.org/interstitial/mariadb-10.2.14/winx64-packages/mariadb-10.2.14-winx64.msi/from/http%3A//mirrors.syringanetworks.net/mariadb/)
