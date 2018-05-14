@@ -9,13 +9,13 @@
     "fastify": "^1.0.0-rc.3",
     "fastify-formbody": "^2.0.0",
     "fastify-helmet": "^1.0.3",
-    "fastify-static": "^0.11.0",
     "glob": "^7.1.2",
     "jsonwebtoken": "^8.2.0",
     "knex": "^0.14.4",
     "mysql2": "^1.5.2",
     "npm": "^6.0.0",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "serve-static": "^1.13.2"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
