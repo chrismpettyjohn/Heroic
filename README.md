@@ -8,6 +8,7 @@
 <a href="https://discord.gg/y6szGk5">Discord Server</a>
 <h5>Forums</h5>
 <a href="http://forum.ragezone.com/f331/heroic-node-web-app-1143696/#post8849377">Ragezone Development Thread</a>
+<br>
 <a href="https://devbest.com/threads/heroic-2-retro-web-application-node-10-express-bookshelf.85497/#post-434049">Devbest Development Thread</a>
 <h5>Other Versions</h5>
 <a href="https://github.com/chrismpettyjohn/Heroic/tree/Experimental">Experimental Build (3.0)</a>
