@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://i.imgur.com/FFBVnrG.png">
 </p>
+<h3>Install</h3>
+<p>Installation intructions are available <a href="INSTALL.md">here</a></p>
 <h3>About</h3>
 <p>Heroic is a content management system with the purpose of making it easier for beginners and experienced users alike to enjoy the benefits of modern code.</p>
 <h3>Quick Links</h3>
