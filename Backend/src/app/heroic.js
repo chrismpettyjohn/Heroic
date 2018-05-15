@@ -1,4 +1,3 @@
-import Commander from 'heroic-module-commander'
 import Website from './http/server'
 export default class Heroic {
 
@@ -7,7 +6,6 @@ export default class Heroic {
       // Website Service
       await Website.init()
       // Emulator Service
-      await Commander.init(global.config, global.path)
       console.log(`>Heroic ${global.version} has started on ${global.config.http.port}`)
     } catch (error) {
       console.log(`${error}\nHeroic will now shutdown.`)

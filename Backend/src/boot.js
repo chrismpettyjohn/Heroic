@@ -14,6 +14,7 @@ const child = require('child_process').execSync
 let path = ''
 if (process.pkg) {
   if (process.platform == 'win32') {
+    console.log('>Windows server sucks!')
     path = process.cwd()
   } else {
     path = process.argv[0]

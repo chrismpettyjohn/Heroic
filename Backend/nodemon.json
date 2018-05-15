@@ -1,5 +1,6 @@
 {
   "ignore" : [
-    "/src/public/*"
+    "/src/public/*",
+    "/assets/**/*"
   ]
 }
