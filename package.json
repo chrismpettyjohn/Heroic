@@ -1,0 +1,54 @@
+{
+  "name": "heroic",
+  "bin": "build/boot.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bookshelf": "^0.13.3",
+    "fastify": "^1.4.0",
+    "glob": "^7.1.2",
+    "glob-promise": "^3.4.0",
+    "knex": "^0.14.6",
+    "mysql2": "^1.5.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1"
+  },
+  "scripts": {
+    "start": "node ./build/boot",
+    "debug": "nodemon -L --exec babel-node ./index.js",
+    "build": "babel ./src --out-dir=build --copy-files"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 Chrome versions"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ],
+    "ignore": [
+      "src/public/**/*.js"
+    ]
+  },
+  "pkg": {
+    "scripts": "build/app/**/*.js",
+    "assets": [
+      "build/public/**/*",
+      "build/app/config/**/*"
+    ],
+    "targets": [
+      "node9-linux-x64",
+      "node9-macos-x64",
+      "node9-win-x64"
+    ]
+  }
+}

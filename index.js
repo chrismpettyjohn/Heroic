@@ -1,4 +1,4 @@
-import Heroic from 'heroic'
+import Heroic from './app/heroic'
 import Config from './config'
 
 new Heroic(Config)
