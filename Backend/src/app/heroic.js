@@ -1,4 +1,4 @@
-//import Commander from 'heroic-module-commander'
+import Commander from 'heroic-module-commander'
 import Website from './http/server'
 export default class Heroic {
 

@@ -46,6 +46,8 @@ if (file.existsSync(`${path}/node_modules`)) {
 
   child(`npm install`, {
     cwd: path
-  }, ((error, stdout, stderr) => {}))
+  }, ((error, stdout, stderr) => {
+    run()
+  }))
   run()
 }
