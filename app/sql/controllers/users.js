@@ -3,7 +3,9 @@ export default class Users {
 
   static create() {}
 
-  static read() {}
+  static read() {
+    return Model.query().select(Model.columns.public)
+  }
 
   static update() {}
 

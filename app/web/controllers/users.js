@@ -1,10 +1,10 @@
-import Model from '../../sql/models/users'
+import Database from '../../sql/controllers/users'
 export default class Users {
 
   static create(request, reply) {}
 
   static async read(request, reply) {
-    let users = await Model.query()
+    let users = await Database.read()
     reply.code(200).send(users)
   }
 
