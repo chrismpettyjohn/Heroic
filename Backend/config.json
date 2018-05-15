@@ -4,9 +4,9 @@
     "username": "root",
     "password": "password",
     "database": "arcturus"
-  },
+  }, 
   "http": {
-    "port": 80
+    "port": 8080
   },
   "emulator": {
     "camera": {

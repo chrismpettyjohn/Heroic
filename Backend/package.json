@@ -10,6 +10,7 @@
     "fastify-formbody": "^2.0.0",
     "fastify-helmet": "^1.0.3",
     "glob": "^7.1.2",
+    "heroic-module-commander": "^1.0.0",
     "jsonwebtoken": "^8.2.0",
     "knex": "^0.14.4",
     "mysql2": "^1.5.2",
