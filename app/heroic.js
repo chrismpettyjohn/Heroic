@@ -3,6 +3,7 @@ import SQL from './sql/server'
 import Root from './lib/root'
 export default class Heroic {
 
+  static Build = '2.4.0'
   static Config = {}
   static Servers = {}
 

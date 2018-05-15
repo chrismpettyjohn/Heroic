@@ -1,7 +1,7 @@
 {
   "database": {
-    "hostname": "127.0.0.1",
-    "username": "root",
+    "host": "127.0.0.1",
+    "user": "root",
     "password": "password",
     "database": "arcturus"
   },

@@ -1,17 +1,12 @@
 import Knex from 'knex'
 import Heroic from '../heroic'
 import Glob from 'glob-promise'
-import Bookshelf from 'bookshelf'
-//import Registry from 'bookshelf-registry'
+import {Model} from 'objection'
 export default class SQL {
 
-  static instance = {}
-
   constructor() {
-    SQL.instance = Bookshelf(Knex({
-      client: 'mysql2',
-      cconnection: Heroic.Config.database
-    }))
+    const knex = Knex({client: 'mysql2', connection: Heroic.Config.database})
+    Model.knex(knex)
   }
 
   static init() {
@@ -30,13 +25,11 @@ export default class SQL {
 
   static loadModels() {
     return new Promise((resolve, reject) => {
-      Glob(`${__dirname}/models/*.js`)
-        .then(models => {
-          resolve()
-        })
-        .catch(error => {
-          reject(error)
-        })
+      Glob(`${__dirname}/models/*.js`).then(models => {
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
     })
   }
 

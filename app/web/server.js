@@ -48,7 +48,13 @@ export default class HTTP {
             route = require(route)
             let controller = require(`${__dirname}/controllers/${route.controller}`).default
             route.routes.forEach(data => {
-              HTTP.server[data.method.toLowerCase()](`/api/${route.prefix}/${data.link}`, controller[data.controller])
+              let link = `/api/${route.prefix}/${data.link}`
+              // Adjust for empty GET
+              if (data.link.length == 0) {
+                link = link.slice(0, -1)
+              }
+              // Inject Route
+              HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
             })
           })
           resolve()

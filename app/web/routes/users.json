@@ -3,9 +3,14 @@
   "controller": "Users",
   "routes": [
     {
-      "link": "POST",
-      "method": "GET",
+      "link": "",
+      "method": "POST",
       "controller": "create"
+    },
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
     },
     {
       "link": ":id",

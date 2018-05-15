@@ -1,11 +1,12 @@
+import Model from '../../sql/models/users'
 export default class Users {
 
-  static create(request, reply) {}
+  static create() {}
 
-  static read(request, reply) {}
+  static read() {}
 
-  static update(request, reply) {}
+  static update() {}
 
-  static delete(request, reply) {}
+  static delete() {}
 
 }

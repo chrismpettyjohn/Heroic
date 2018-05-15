@@ -3,12 +3,12 @@
   "bin": "build/boot.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "bookshelf": "^0.13.3",
     "fastify": "^1.4.0",
     "glob": "^7.1.2",
     "glob-promise": "^3.4.0",
     "knex": "^0.14.6",
-    "mysql2": "^1.5.3"
+    "mysql2": "^1.5.3",
+    "objection": "^1.1.8"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
