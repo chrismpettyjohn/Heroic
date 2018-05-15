@@ -1,0 +1,14 @@
+{
+  "database": {
+    "hostname": "127.0.0.1",
+    "username": "root",
+    "password": "password",
+    "database": "arcturus"
+  },
+  "http": {
+    "port": 80
+  },
+  "directories": {
+    "build" : "/Users/Chris/Desktop/Heroic",
+  }
+}

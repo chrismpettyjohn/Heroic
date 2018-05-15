@@ -1,0 +1,26 @@
+{
+  "prefix": "users",
+  "controller": "Users",
+  "routes": [
+    {
+      "link": "POST",
+      "method": "GET",
+      "controller": "create"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "PUT",
+      "controller": "update"
+    },
+    {
+      "link": ":id",
+      "method": "DELETE",
+      "controller": "delete"
+    }
+  ]
+}
