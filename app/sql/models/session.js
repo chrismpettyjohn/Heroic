@@ -1,5 +1,5 @@
 import Model from '~/app/sql/model'
-export default class Users extends Model {
+export default class Session extends Model {
   static tableName = 'user_sessions';
   static identifiers = ['id', 'token'];
   static visible = [

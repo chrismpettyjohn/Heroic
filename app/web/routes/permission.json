@@ -1,0 +1,21 @@
+{
+  "prefix": "permission",
+  "controller": "Permission",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": "type/:type",
+      "method": "GET",
+      "controller": "readByType"
+    }
+  ]
+}
