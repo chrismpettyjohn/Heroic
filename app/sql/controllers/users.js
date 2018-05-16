@@ -1,4 +1,4 @@
-import {UserNotFound} from '~/app/lib/shield'
+import Delusion from '~/app/lib/delusion'
 import Model from '~/app/sql/models/users'
 export default class Users {
 
@@ -10,7 +10,7 @@ export default class Users {
       if (user[0]) {
         return user[0]
       } else {
-        throw new UserNotFound(id)
+        throw new Delusion(0)
       }
     } else {
       return Model.query().select()
