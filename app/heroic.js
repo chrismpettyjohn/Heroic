@@ -1,15 +1,18 @@
 import WEB from './web/server'
 import SQL from './sql/server'
 import Root from './lib/root'
+import Shield from './lib/shield'
 export default class Heroic {
 
-  static Build = '2.4.0'
+  static Build = '2.4.0';
   static Config = {}
   static Servers = {}
 
   constructor(settings) {
     // Save Configuration
     Heroic.Config = settings
+    // Error Handler
+    Heroic.Shield = Shield
   }
 
   static init() {

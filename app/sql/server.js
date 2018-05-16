@@ -1,5 +1,5 @@
 import Knex from 'knex'
-import Heroic from '../heroic'
+import Heroic from '~/app/heroic'
 import Glob from 'glob-promise'
 import {Model} from 'objection'
 export default class SQL {

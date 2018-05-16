@@ -1,54 +1,22 @@
-// Import
-import {Model, compose} from 'objection'
-import Unique from 'objection-unique'
-import Password from 'objection-password-bcryptjs'
-// Configure Plugins
-
-const unique = Unique({
-  fields: [
-    'username', 'mail'
-  ],
-  identifiers: ['id']
-})
-
-const password = Password()
-
-const plugins = compose([unique, password])
-
-// Model Logic
-export default class Users extends plugins(Model) {
-
+import Model from '~/app/sql/model'
+export default class Users extends Model {
   static tableName = 'users';
+  static fields = ['username', 'mail'];
+  static identifiers = ['id'];
+  static visible = [
+    'id',
+    'username',
+    'rank',
+    'online',
+    'home_room',
+    'look',
+    'credits',
+    'pixels',
+    'points'
+  ];
+  // Relationships
 
-  static columns = {
-    public: [
-      'id',
-      'username',
-      'rank',
-      'online',
-      'home_room',
-      'look',
-      'credits',
-      'pixels',
-      'points'
-    ],
-    private: [
-      'id',
-      'username',
-      'password',
-      'mail',
-      'rank',
-      'online',
-      'home_room',
-      'look',
-      'credits',
-      'pixels',
-      'points',
-      'ip_register',
-      'ip_current'
-    ]
-  }
-
+  // Structure
   static jsonSchema = {
     type: 'object',
     required: [
@@ -105,4 +73,5 @@ export default class Users extends plugins(Model) {
       }
     }
   }
+
 }

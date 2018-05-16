@@ -1,4 +1,4 @@
-import Heroic from '../heroic'
+import Heroic from '~/app/heroic'
 import Fastify from 'fastify'
 import Glob from 'glob'
 export default class HTTP {
