@@ -1,4 +1,4 @@
-import Database from '~/app/sql/controllers/users'
+import Database from '~/app/sql/interactors/user'
 import Service from '~/app/services/user'
 export default class Users {
 
@@ -32,7 +32,6 @@ export default class Users {
   static async register(request, reply) {
     let session = {}
     session = await Service.register(request.body.username, request.body.password)
-    session = await Service.login(request.body.username, request.body.password)
     reply.code(200).send(session)
   }
 

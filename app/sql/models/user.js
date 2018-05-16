@@ -1,5 +1,6 @@
+import Sessions from './session'
 import Model from '~/app/sql/model'
-export default class Users extends Model {
+export default class User extends Model {
   static tableName = 'users';
   static fields = ['username', 'mail'];
   static identifiers = ['id'];
@@ -14,7 +15,18 @@ export default class Users extends Model {
     'pixels',
     'points'
   ];
+
   // Relationships
+  static relationMappings = {
+    sessions: {
+      relation: Model.HasManyRelation,
+      modelClass: Sessions,
+      join: {
+        from: 'users.id',
+        to: 'user_sessions.user_id'
+      }
+    }
+  }
 
   // Structure
   static jsonSchema = {
