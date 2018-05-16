@@ -1,4 +1,4 @@
-import {Shield} from '~/app/heroic'
+import {UserNotFound} from '~/app/lib/shield'
 import Model from '~/app/sql/models/users'
 export default class Users {
 
@@ -10,7 +10,7 @@ export default class Users {
       if (user[0]) {
         return user[0]
       } else {
-        throw new Shield('AAAAAAA')
+        throw new UserNotFound(id)
       }
     } else {
       return Model.query().select()

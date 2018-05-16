@@ -1,9 +1,10 @@
-export default class Watchdog {
-
-  constructor(message, extra) {
-    Error.captureStackTrace(this, this.constructor)
-    this.name = this.constructor.name
-    console.log(`${this.name}`)
+// Database Errors
+class UserNotFound {
+  constructor(message) {
+    console.log(`Could not find ${message} in the system!`)
   }
+}
 
+module.exports = {
+  UserNotFound
 }
