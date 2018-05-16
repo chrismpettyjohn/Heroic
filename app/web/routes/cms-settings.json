@@ -1,0 +1,11 @@
+{
+  "prefix": "system",
+  "controller": "cms-settings",
+  "routes": [
+    {
+      "link": "cms",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

@@ -39,7 +39,7 @@ export default class Settings extends Model {
         type: 'string',
         minLength: 1,
         maxLength: 10
-      }
+      },
       site_desc: {
         type: 'string',
         minLength: 1,
