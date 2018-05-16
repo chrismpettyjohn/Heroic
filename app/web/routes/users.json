@@ -5,7 +5,8 @@
     {
       "link": "",
       "method": "POST",
-      "controller": "create"
+      "controller": "create",
+      "middleware": "Admin"
     },
     {
       "link": "",
@@ -20,12 +21,14 @@
     {
       "link": ":id",
       "method": "PUT",
-      "controller": "update"
+      "controller": "update",
+      "middleware": "Admin"
     },
     {
       "link": ":id",
       "method": "DELETE",
-      "controller": "delete"
+      "controller": "delete",
+      "middleware": "Admin"
     }
   ]
 }
