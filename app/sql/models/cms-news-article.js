@@ -1,7 +1,4 @@
-import User from './user'
 import Model from '~/app/sql/model'
-import Category from './cms-news-category'
-
 export default class Articles extends Model {
   // Settings
   static tableName = 'cms_news_articles';
@@ -23,7 +20,7 @@ export default class Articles extends Model {
   static relationMappings = {
     author: {
       relation: Model.BelongsToOneRelation,
-      modelClass: User,
+      modelClass: `${__dirname}/user`,
       join: {
         from: 'cms_news_articles.user_id',
         to: 'users.id'
@@ -31,7 +28,7 @@ export default class Articles extends Model {
     },
     category: {
       relation: Model.BelongsToOneRelation,
-      modelClass: Category,
+      modelClass: `${__dirname}/cms-news-category`,
       join: {
         from: 'cms_news_articles.category_id',
         to: 'cms_news_categories.id'

@@ -1,4 +1,3 @@
-import User from './user'
 import Model from '~/app/sql/model'
 export default class Permission extends Model {
   static tableName = 'permissions';
@@ -9,7 +8,7 @@ export default class Permission extends Model {
   static relationMappings = {
     users: {
       relation: Model.HasManyRelation,
-      modelClass: User,
+      modelClass: `${__dirname}/user`,
       join: {
         from: 'permissions.id',
         to: 'users.rank'

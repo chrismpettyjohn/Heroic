@@ -1,4 +1,3 @@
-import Session from './session'
 import Model from '~/app/sql/model'
 export default class User extends Model {
   static tableName = 'users';
@@ -20,7 +19,7 @@ export default class User extends Model {
   static relationMappings = {
     sessions: {
       relation: Model.HasManyRelation,
-      modelClass: Session,
+      modelClass: `${__dirname}/session`,
       join: {
         from: 'users.id',
         to: 'user_sessions.user_id'

@@ -1,4 +1,3 @@
-import Articles from './cms-news-article'
 import Model from '~/app/sql/model'
 export default class Categories extends Model {
   // Settings
@@ -10,7 +9,7 @@ export default class Categories extends Model {
   static relationMappings = {
     articles: {
       relation: Model.HasManyRelation,
-      modelClass: Articles,
+      modelClass: `${__dirname}/cms-news-article`,
       join: {
         from: 'cms_news_categories.id',
         to: 'cms_news_articles.category_id'
