@@ -3,7 +3,7 @@ export default class Permission {
 
   static read(id) {
     if (id) {
-      return Model.query().where('id', id).eager('users').select()
+      return Model.query().findById(id).eager('users').select()
     } else {
       return Model.query().eager('users').select()
     }
@@ -11,6 +11,15 @@ export default class Permission {
 
   static readByType(type) {
     return Model.query().applyFilter(type).eager(`users`).select()
+  }
+
+  static hasUser(rank, user) {
+    return new Promise(async (resolve, reject) => {
+      let rank = {}
+      rank = await Model.query().findById(rank)
+      rank = await rank.$relatedQuery('users').where('username', user)
+      console.log(rank)
+    })
   }
 
 }

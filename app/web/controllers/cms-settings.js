@@ -5,4 +5,9 @@ export default class Settings {
     let settings = await Database.read()
     reply.code(200).send(settings)
   }
+
+  static async update(request, reply) {
+    await Database.update(request.body.settings)
+    reply.code(200)
+  }
 }

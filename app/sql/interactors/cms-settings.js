@@ -5,4 +5,8 @@ export default class Settings {
     return Model.query().select()
   }
 
+  static update(settings) {
+    return Model.where('id', id).patch(settings)
+  }
+
 }

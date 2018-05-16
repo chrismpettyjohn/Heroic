@@ -6,7 +6,7 @@ export default class User {
   }
 
   static read(id) {
-    return Model.query().eager('sessions')
+    return Model.query().findById(id).eager('sessions')
   }
 
   static readByUsername(username) {
