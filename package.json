@@ -8,7 +8,9 @@
     "glob-promise": "^3.4.0",
     "knex": "^0.14.6",
     "mysql2": "^1.5.3",
-    "objection": "^1.1.8"
+    "objection": "^1.1.8",
+    "objection-password-bcryptjs": "^1.0.0-a",
+    "objection-unique": "^1.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
