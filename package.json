@@ -1,29 +1,18 @@
 {
   "name": "heroic",
-  "bin": "build/boot.js",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "express": "^4.16.3",
-    "fastify": "^1.4.0",
-    "glob": "^7.1.2",
-    "glob-promise": "^3.4.0",
-    "jsonwebtoken": "^8.2.1",
-    "knex": "^0.14.6",
-    "mysql2": "^1.5.3",
-    "objection": "^1.1.8",
-    "objection-password-bcryptjs": "^1.0.0-a",
-    "objection-unique": "^1.0.1",
-    "objection-visibility": "^0.2.0"
-  },
+  "bin": "build/index.js",
   "devDependencies": {
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1"
   },
   "scripts": {
-    "start": "node ./build/boot",
-    "debug": "nodemon -L --exec babel-node ./index.js",
-    "build": "babel ./src --out-dir=build --copy-files"
+    "pretest": "clear",
+    "test": "cd build && npm i && node index",
+    "debug": "cd source && nodemon -L --exec babel-node index.js",
+    "prebuild": "rm -rf build && mkdir build && clear",
+    "build": "cd source && babel . --out-dir=../build --copy-files --ignore node_modules",
+    "compile": "pkg . --out-path compiled"
   },
   "babel": {
     "presets": [
@@ -43,14 +32,13 @@
       "babel-plugin-root-import"
     ],
     "ignore": [
-      "src/public/**/*.js"
+      "source/public/**/*"
     ]
   },
   "pkg": {
     "scripts": "build/app/**/*.js",
     "assets": [
-      "build/public/**/*",
-      "build/app/config/**/*"
+      "build/public/**/*"
     ],
     "targets": [
       "node9-linux-x64",

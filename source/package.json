@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.3",
+    "fastify": "^1.4.0",
+    "glob": "^7.1.2",
+    "glob-promise": "^3.4.0",
+    "jsonwebtoken": "^8.2.1",
+    "knex": "^0.14.6",
+    "mysql2": "^1.5.3",
+    "objection": "^1.1.8",
+    "objection-password-bcryptjs": "^1.0.0-a",
+    "objection-unique": "^1.0.1",
+    "objection-visibility": "^0.2.0"
+  }
+}

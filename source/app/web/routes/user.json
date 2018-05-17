@@ -1,0 +1,34 @@
+{
+  "prefix": "user",
+  "controller": "User",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create",
+      "middleware": "Admin"
+    },
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "PUT",
+      "controller": "update",
+      "middleware": "Admin"
+    },
+    {
+      "link": ":id",
+      "method": "DELETE",
+      "controller": "delete",
+      "middleware": "Admin"
+    }
+  ]
+}
