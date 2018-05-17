@@ -1,6 +1,7 @@
-import Heroic from '~/app/heroic'
-import Fastify from 'fastify'
 import Glob from 'glob'
+import Fastify from 'fastify'
+import Heroic from '~/app/heroic'
+import formBody from 'fastify-formbody'
 export default class HTTP {
 
   static server = {}
@@ -30,6 +31,7 @@ export default class HTTP {
 
   static configure() {
     return new Promise((resolve, reject) => {
+      HTTP.server.register(formBody)
       resolve()
     })
   }

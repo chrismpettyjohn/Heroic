@@ -5,12 +5,20 @@ export default class User {
     return Model.query().insertAndFetch(user)
   }
 
-  static read(id) {
-    return Model.query().findById(id).eager('sessions')
-  }
-
-  static readByUsername(username) {
-    return Model.query().where('username', username).select()
+  static read(user, type) {
+    if (type == 'private') {
+      if (typeof user === 'number') {
+        return Model.query().findById(id)
+      } else {
+        return Model.query().findOne({username: user})
+      }
+    } else {
+      if (typeof user === 'number') {
+        return Model.query().where('id', user).select()
+      } else {
+        return Model.query().where('username', user).select()
+      }
+    }
   }
 
   static update(user) {

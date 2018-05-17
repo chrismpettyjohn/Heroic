@@ -1,5 +1,5 @@
 {
-  "prefix": "user",
+  "prefix": "users/user",
   "controller": "User",
   "routes": [
     {

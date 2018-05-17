@@ -1,18 +1,13 @@
 import Database from '~/app/sql/interactors/user'
-
 export default class UserService {
 
   static login(username, password) {
     return new Promise(async (resolve, reject) => {
       let user = {}
       // Fetch User
-      user = await Database.readByUsername(username)
-      // Validate Login
-      if (user.password == password) {
-        resolve(user)
-      } else {
-        reject()
-      }
+      user = await Database.read(username, 'private')
+      await user.verifyPassword(password)
+      resolve(user)
     })
   }
 
@@ -21,8 +16,6 @@ export default class UserService {
       try {
         // Create User
         user = await Database.create({username: username, password: password, mail: mail, ip: ip})
-        // Try Login
-        user = await UserService.login(username, password)
         resolve(user)
       } catch (error) {
         reject(error)

@@ -1,0 +1,16 @@
+{
+  "prefix": "users/session",
+  "controller": "Session",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create"
+    },
+    {
+      "link": "",
+      "method": "DELETE",
+      "controller": "delete"
+    }
+  ]
+}

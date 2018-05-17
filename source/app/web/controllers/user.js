@@ -1,5 +1,5 @@
-import Database from '~/app/sql/interactors/user'
 import Service from '~/app/services/user'
+import Database from '~/app/sql/interactors/user'
 export default class Users {
 
   // CRUD
@@ -24,15 +24,11 @@ export default class Users {
   }
 
   // Services
-  static async login(request, reply) {
-    let session = await Service.login(request.body.username, request.body.password)
-    reply.code(200).send(session)
-  }
 
   static async register(request, reply) {
     let session = {}
-    session = await Service.register(request.body.username, request.body.password)
-    reply.code(200).send(session)
+    await Service.register(request.body.username, request.body.password)
+    reply.code(200)
   }
 
 }

@@ -4,7 +4,7 @@ export default class JWT {
 
   static sign(session) {
     return Token.sign(session, Heroic.Config.JWT, {
-      expiresIn: '12h',
+      expiresIn: '2 days',
       algorithm: 'HS256'
     })
   }
