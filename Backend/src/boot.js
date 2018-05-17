@@ -14,7 +14,6 @@ const child = require('child_process').execSync
 let path = ''
 if (process.pkg) {
   if (process.platform == 'win32') {
-    console.log('>Windows server sucks!')
     path = process.cwd()
   } else {
     path = process.argv[0]
@@ -47,8 +46,6 @@ if (file.existsSync(`${path}/node_modules`)) {
 
   child(`npm install`, {
     cwd: path
-  }, ((error, stdout, stderr) => {
-    run()
-  }))
+  }, ((error, stdout, stderr) => {}))
   run()
 }
