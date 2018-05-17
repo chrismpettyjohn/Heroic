@@ -10,7 +10,14 @@ export default class Session {
     reply.code(200).send(session)
   }
 
+  static async read(request, reply) {
+    reply.code(200).send(request.raw.session)
+  }
+
   // Logout
-  static delete(request, reply) {}
+  static async delete(request, reply) {
+    await SessionService.delete(request.session)
+    reply.code(200)
+  }
 
 }

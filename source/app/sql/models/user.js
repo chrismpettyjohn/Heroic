@@ -1,8 +1,10 @@
+// Dependencies
 import Model from '~/app/sql/model'
-export default class User extends Model {
+import Password from 'objection-password-bcryptjs'
+// Prepare
+const password = Password()
+export default class User extends password(Model) {
   static tableName = 'users';
-  static fields = ['username', 'mail'];
-  static identifiers = ['id'];
   static visible = [
     'id',
     'username',

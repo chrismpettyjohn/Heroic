@@ -6,13 +6,17 @@ export default class SessionService {
     return new Promise(async (resolve, reject) => {
       let session = {}
       session = await Database.create(user)
-      session = await JWT.sign(session)
+      session = await JWT.sign({user: user, session: session})
       resolve(session)
     })
   }
 
   static read(session) {
     return JWT.validate(session)
+  }
+
+  static delete(session) {
+    return atabase.delete(Session)
   }
 
 }

@@ -3,7 +3,7 @@ import Token from 'jsonwebtoken'
 export default class JWT {
 
   static sign(session) {
-    return Token.sign(session, Heroic.Config.JWT, {
+    return Token.sign(JSON.parse(JSON.stringify(session)), Heroic.Config.JWT, {
       expiresIn: '2 days',
       algorithm: 'HS256'
     })

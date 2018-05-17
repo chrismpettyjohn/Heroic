@@ -5,16 +5,18 @@ import formBody from 'fastify-formbody'
 export default class HTTP {
 
   static server = {}
+  static middleware = []
 
   static init() {
     return new Promise(async (resolve, reject) => {
       try {
         await HTTP.prepare()
         await HTTP.configure()
-        await HTTP.middleware()
-        await HTTP.routing()
-        await HTTP.staticRouting()
+        await HTTP.loadMiddleware()
+        await HTTP.loadRouting()
+        await HTTP.loadStaticRouting()
         await HTTP.listen()
+        console.log(HTTP.middleware)
         resolve(`HTTP Server is listening on port ${Heroic.Config.http.port}`)
       } catch (error) {
         reject(`HTTP Server - ${error}`)
@@ -36,13 +38,23 @@ export default class HTTP {
     })
   }
 
-  static middleware() {
+  static loadMiddleware() {
     return new Promise((resolve, reject) => {
-      resolve()
+      Glob(`${__dirname}/middleware/**/*.js`, ((errors, middleware) => {
+        if (!errors) {
+          middleware.forEach(middle => {
+            let component = require(middle).default
+            HTTP.middleware[component.name] = component
+          })
+          resolve()
+        } else {
+          reject(errors)
+        }
+      }))
     })
   }
 
-  static routing() {
+  static loadRouting() {
     return new Promise((resolve, reject) => {
       Glob(`${__dirname}/routes/**/*.json`, ((errors, routes) => {
         if (!errors) {
@@ -55,8 +67,13 @@ export default class HTTP {
               if (data.link.length == 0) {
                 link = link.slice(0, -1)
               }
-              // Inject Route
-              HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
+              if (!data.middleware) {
+                // Inject Route
+                HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
+              } else {
+                // Inject Middleware
+                HTTP.server[data.method.toLowerCase()](link, HTTP.middleware[data.middleware], controller[data.controller])
+              }
             })
           })
           resolve()
@@ -67,7 +84,7 @@ export default class HTTP {
     })
   }
 
-  static staticRouting() {
+  static loadStaticRouting() {
     return new Promise((resolve, reject) => {
       resolve()
     })
