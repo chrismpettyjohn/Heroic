@@ -11,7 +11,7 @@ export default class Session {
   }
 
   static async read(request, reply) {
-    reply.code(200).send(request.raw.session)
+    reply.code(200).send(request.session)
   }
 
   // Logout

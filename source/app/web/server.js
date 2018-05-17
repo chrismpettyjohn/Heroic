@@ -16,7 +16,6 @@ export default class HTTP {
         await HTTP.loadRouting()
         await HTTP.loadStaticRouting()
         await HTTP.listen()
-        console.log(HTTP.middleware)
         resolve(`HTTP Server is listening on port ${Heroic.Config.http.port}`)
       } catch (error) {
         reject(`HTTP Server - ${error}`)
@@ -44,7 +43,7 @@ export default class HTTP {
         if (!errors) {
           middleware.forEach(middle => {
             let component = require(middle).default
-            HTTP.middleware[component.name] = component
+            HTTP.middleware[component.name] = component.handle
           })
           resolve()
         } else {
@@ -67,12 +66,18 @@ export default class HTTP {
               if (data.link.length == 0) {
                 link = link.slice(0, -1)
               }
-              if (!data.middleware) {
-                // Inject Route
-                HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
-              } else {
-                // Inject Middleware
-                HTTP.server[data.method.toLowerCase()](link, HTTP.middleware[data.middleware], controller[data.controller])
+              // Inject Route
+              HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
+              // Add Hook for Middleware
+              if (data.middleware) {
+                HTTP.server.addHook('preHandler', (async (request, reply, next) => {
+                  if (request.raw.url == link && request.raw.method == data.method) {
+                    request = await HTTP.middleware[data.middleware](request, reply)
+                    next()
+                  } else {
+                    next()
+                  }
+                }))
               }
             })
           })
@@ -94,6 +99,7 @@ export default class HTTP {
     return new Promise((resolve, reject) => {
       HTTP.server.listen(Heroic.Config.http.port, (error => {
         if (error) {
+          console.log(error)
           reject(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
         } else {
           resolve()

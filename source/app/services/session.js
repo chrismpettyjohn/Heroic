@@ -6,13 +6,20 @@ export default class SessionService {
     return new Promise(async (resolve, reject) => {
       let session = {}
       session = await Database.create(user)
-      session = await JWT.sign({user: user, session: session})
+      session = await JWT.sign(session)
       resolve(session)
     })
   }
 
   static read(session) {
-    return JWT.validate(session)
+    return new Promise(async (resolve, reject) => {
+      // Validate JWT
+      session = await JWT.validate(session)
+      // Check Session State (Must be "allowed") and return user
+      session = await Database.read(session.id, true)
+      // Return
+      resolve(session.user)
+    })
   }
 
   static delete(session) {
