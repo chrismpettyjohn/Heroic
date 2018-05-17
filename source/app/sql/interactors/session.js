@@ -12,12 +12,8 @@ export default class Session {
     }
   }
 
-  static update(session) {
-    return Model.query().findById(session.id).update(session)
-  }
-
   static delete(id) {
-    return Model.query().findById(id).update({type: 'blocked'})
+    return Model.query().where('id', id).patch({type: 'blocked'})
   }
 
 }

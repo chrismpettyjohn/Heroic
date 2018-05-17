@@ -6,7 +6,8 @@
     "database": "arcturus"
   },
   "http": {
-    "port": 80
+    "port": 80,
+    "http2": false
   },
   "directories": {
     "build" : "/Users/Chris/Desktop/Heroic"

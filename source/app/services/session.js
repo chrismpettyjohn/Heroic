@@ -18,12 +18,12 @@ export default class SessionService {
       // Check Session State (Must be "allowed") and return user
       session = await Database.read(session.id, true)
       // Return
-      resolve(session.user)
+      resolve({session: session.id, user: session.user})
     })
   }
 
   static delete(session) {
-    return atabase.delete(Session)
+    return Database.delete(session)
   }
 
 }

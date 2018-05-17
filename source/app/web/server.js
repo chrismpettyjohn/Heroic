@@ -25,7 +25,7 @@ export default class HTTP {
 
   static prepare() {
     return new Promise((resolve, reject) => {
-      HTTP.server = new Fastify()
+      HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
       resolve()
     })
   }
@@ -66,18 +66,12 @@ export default class HTTP {
               if (data.link.length == 0) {
                 link = link.slice(0, -1)
               }
-              // Inject Route
-              HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
-              // Add Hook for Middleware
               if (data.middleware) {
-                HTTP.server.addHook('preHandler', (async (request, reply, next) => {
-                  if (request.raw.url == link && request.raw.method == data.method) {
-                    request = await HTTP.middleware[data.middleware](request, reply)
-                    next()
-                  } else {
-                    next()
-                  }
-                }))
+                HTTP.server[data.method.toLowerCase()](link, {
+                  beforeHandler: HTTP.middleware[data.middleware]
+                }, controller[data.controller])
+              } else {
+                HTTP.server[data.method.toLowerCase()](link, controller[data.controller])
               }
             })
           })

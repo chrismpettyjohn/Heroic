@@ -16,6 +16,7 @@ export default class Session {
 
   // Logout
   static async delete(request, reply) {
+    console.log(`Controller: ${request.session}`)
     await SessionService.delete(request.session)
     reply.code(200)
   }

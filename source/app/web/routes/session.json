@@ -12,11 +12,12 @@
       "method": "GET",
       "controller": "read",
       "middleware": "Session"
-    }, 
+    },
     {
       "link": "",
       "method": "DELETE",
-      "controller": "delete"
+      "controller": "delete",
+      "middleware": "Session"
     }
   ]
 }
