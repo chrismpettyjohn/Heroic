@@ -10,7 +10,8 @@
     {
       "link": "",
       "method": "PATCH",
-      "controller": "update"
+      "controller": "update",
+      "middleware": "Session"
     }
   ]
 }

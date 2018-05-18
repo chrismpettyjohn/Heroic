@@ -13,12 +13,14 @@ export default class Permission {
     return Model.query().applyFilter(type).eager(`users`).select()
   }
 
-  static hasUser(rank, user) {
+  static hasLevel(level, rank) {
     return new Promise(async (resolve, reject) => {
-      let rank = {}
-      rank = await Model.query().findById(rank)
-      rank = await rank.$relatedQuery('users').where('username', user)
-      console.log(rank)
+      let rank = Model.query().where('level', '>=', level).where('id', rank).select('id');
+      if (rank) {
+        resolve()
+      } else {
+        reject('User does not have escalated privileges')
+      }
     })
   }
 

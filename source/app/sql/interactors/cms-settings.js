@@ -6,7 +6,7 @@ export default class Settings {
   }
 
   static update(settings) {
-    return Model.where('id', id).patch(settings)
+    return Model.query().patch(settings)
   }
 
 }

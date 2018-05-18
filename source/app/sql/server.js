@@ -5,14 +5,14 @@ import {Model} from 'objection'
 export default class SQL {
 
   constructor() {
-    const knex = Knex({client: 'mysql2', connection: Heroic.Config.database})
+    const knex = Knex({client: 'mysql2', connection: Heroic.Config.database});
     Model.knex(knex)
   }
 
   static init() {
     return new Promise(async (resolve, reject) => {
-      await SQL.testConnection()
-      await SQL.loadModels()
+      await SQL.testConnection();
+      await SQL.loadModels();
       resolve()
     })
   }

@@ -34,7 +34,7 @@ export default class Articles extends Model {
         to: 'cms_news_categories.id'
       }
     }
-  }
+  };
 
   // Structure
   static jsonSchema = {

@@ -14,14 +14,14 @@ export default class Permission extends Model {
         to: 'users.rank'
       }
     }
-  }
+  };
 
   // Filters
   static namedFilters = {
     staff: (builder) => {
       builder.where('level', '>', 3)
     }
-  }
+  };
 
   // Structure
   static jsonSchema = {

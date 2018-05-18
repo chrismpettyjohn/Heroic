@@ -4,9 +4,9 @@ export default class Session {
 
   // Login
   static async create(request, reply) {
-    let session = {}
-    session = await UserService.login(request.body.username, request.body.password)
-    session = await SessionService.create(session)
+    let session = {};
+    session = await UserService.login(request.body.username, request.body.password);
+    session = await SessionService.create(session);
     reply.code(200).send(session)
   }
 
@@ -16,8 +16,8 @@ export default class Session {
 
   // Logout
   static async delete(request, reply) {
-    console.log(`Controller: ${request.session}`)
-    await SessionService.delete(request.session)
+    console.log(`Controller: ${request.session}`);
+    await SessionService.delete(request.session);
     reply.code(200)
   }
 

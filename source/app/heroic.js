@@ -4,8 +4,8 @@ import Root from './lib/root'
 export default class Heroic {
 
   static Build = '2.4.0';
-  static Config = {}
-  static Servers = {}
+  static Config = {};
+  static Servers = {};
 
   constructor(settings) {
     // Save Configuration
@@ -16,13 +16,13 @@ export default class Heroic {
     return new Promise(async (resolve, reject) => {
       try {
         // Fetch Current Working Directory (CWD)
-        Heroic.Config.cwd = await Root.cwd()
+        Heroic.Config.cwd = await Root.cwd();
         // Setup Database
-        new SQL()
+        new SQL();
         // Prepare Database Modules
-        await SQL.init()
+        await SQL.init();
         // Launch Web Server
-        await WEB.init()
+        await WEB.init();
         resolve(`Heroic has launched on port ${Heroic.Config.http.port}`)
       } catch (error) {
         reject(error)

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="529d0e95-d3d2-4d98-81f6-1e7af27d762c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/source/app/heroic.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/heroic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/services/permission.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/services/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/services/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/services/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/interactors/cms-settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/interactors/cms-settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/interactors/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/interactors/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/models/cms-news-article.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/models/cms-news-article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/models/cms-news-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/models/cms-news-category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/models/cms-settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/models/cms-settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/models/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/models/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/sql/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/sql/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/cms-news-article.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/cms-news-article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/cms-news-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/cms-news-category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/cms-settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/cms-settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/middleware/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/middleware/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/routes/cms-settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/routes/cms-settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/app/web/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/app/web/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/source/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>®</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/source/app/services/user.js" />
+        <option value="$PROJECT_DIR$/source/app/heroic.js" />
+        <option value="$PROJECT_DIR$/source/config.json" />
+        <option value="$PROJECT_DIR$/source/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupnpm">
+      <scroll-view-position x="0" y="0" />
+      <selected-paths>
+        <path>
+          <id value="$PROJECT_DIR$/package.json" />
+          <id value="debug" />
+        </path>
+      </selected-paths>
+    </layout>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/source/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/build/package.json" />
+      <path value="$PROJECT_DIR$/package.json" />
+      <path value="$PROJECT_DIR$/source/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1920" />
+    <option name="width" value="2560" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Heroic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heroic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Heroic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heroic" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Heroic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heroic" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Heroic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heroic" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-excluded-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.heroic.js">
+    <configuration name="heroic.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="heroic.js" working-dir="$PROJECT_DIR$/source/app" />
+    <configuration name="debug" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.heroic.js" />
+      <item itemvalue="npm.debug" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.debug" />
+        <item itemvalue="Node.js.heroic.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="529d0e95-d3d2-4d98-81f6-1e7af27d762c" name="Default" comment="" />
+      <created>1526637784972</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526637784972</updated>
+      <workItem from="1526637796113" duration="1455000" />
+      <workItem from="1526669647422" duration="966000" />
+      <workItem from="1526670740186" duration="1830000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4251000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="0" width="2560" height="1080" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13671875" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29361296" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/source/app/web/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app/services/session.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app/web/controllers/cms-news-category.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app/services/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app/heroic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app/web/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

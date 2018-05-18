@@ -15,7 +15,7 @@ export default class Categories extends Model {
         to: 'cms_news_articles.category_id'
       }
     }
-  }
+  };
 
   // Structure
   static jsonSchema = {
