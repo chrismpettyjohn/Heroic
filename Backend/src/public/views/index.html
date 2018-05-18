@@ -10,12 +10,13 @@
   <link ng-if="page.name.indexOf('admin')==-1" rel="shortcut icon" href="/assets/img/favicon.ico">
   <link ng-if="page.name.indexOf('admin')==-1" rel="stylesheet" href="/assets/css/app.css" />
   <link ng-if="page.name.indexOf('admin')==-1" rel="stylesheet" href="/assets/css/override.css" />
+  <link ng-if="page.name.indexOf('admin')==-1" rel="stylesheet" href="/public/css/custom.css" />
   <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
   <link ng-if="page.name.indexOf('admin') > -1 " rel="stylesheet" href="/assets/css/admin/primary.css" />
   <link ng-if="page.name.indexOf('admin') > -1 " rel="stylesheet" href="/assets/css/admin/text-angular.css" />
 </head>
 
-<body ui-view></body> 
+<body ui-view></body>
 <div class="client-container" ui-view="user.home.client"></div>
 <script src="/assets/js/swfobject.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>

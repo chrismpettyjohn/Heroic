@@ -3,10 +3,25 @@
     "host": "127.0.0.1",
     "username": "root",
     "password": "password",
-    "database": "heroic-lts"
+    "database": "arcturus"
   },
   "http": {
     "port": 8080
+  },
+  "emulator": {
+    "camera": {
+      "username": "Chris",
+      "password": ""
+    },
+    "game": {
+      "host": "127.0.0.1",
+      "port": 300
+    },
+    "rcon": {
+      "host": "127.0.0.1",
+      "port": 301,
+      "allowed": "0.0.0.0"
+    }
   },
   "jwt": "@#%FZLZLL@$gfoOSOOSLQWED"
 }

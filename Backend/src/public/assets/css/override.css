@@ -135,11 +135,11 @@ html {
 
 .photos__header__container {
   height: 180px;
-} 
+}
 
 .rooms__header__container {
   height: 180px;
-} 
+}
 
 .enable-flashplayer {
   height: 100%;
@@ -154,4 +154,9 @@ html {
   opacity: 0.8;
   padding: 1.5%;
   border-radius: 0.45px;
+}
+
+.header__habbo__logo {
+  background-image: url('http://localhost:8080/public/img/logo.png');
+  background-size: 100%;
 }

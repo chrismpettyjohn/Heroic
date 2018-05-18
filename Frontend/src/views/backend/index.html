@@ -1,32 +1,37 @@
 <div class="cloud-container nav-has-loaded" id="main">
-    <div class="row">
-        <div class="small-12 columns">
-            <header class="u-clearfix"></header>
-        </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <header class="u-clearfix"></header>
     </div>
-    <nav class="nav-bar">
-        <div class="nav_controls">
-            <div class="logo-wrapper">
-                <a ui-sref="admin.home.dashboard" class="navLink">
+  </div>
+  <nav class="nav-bar">
+    <div class="nav_controls">
+      <div class="logo-wrapper">
+        <a ui-sref="admin.home.dashboard" class="navLink">
                     <i class="fa fa-cloud"></i> Heroic
                     <sup>Two</sup>
                 </a>
-            </div>
-            <a ui-sref="admin.home.dashboard" ng-class="{'active': page.name.indexOf('admin.home') > -1}" class="navLink">Dashboard</a>
-            <a ui-sref="admin.website.landing" ng-class="{'active': page.name.indexOf('admin.website') > -1}" class="navLink">Website</a>
-            <a ui-sref="admin.emulator.landing" ng-class="{'active': page.name.indexOf('admin.emulator') > -1}" class="navLink">Emulator</a>
-        </div>
-    </nav>
-    <div class="aurora-body">
-        <div class="row">
-            <div class="columns small-12">
-                <div ng-show="message.type" click-off="message={}" class="Alert--{{ message.type}} u-mb-4" style="color:white;">
-                    <div class="Alert-content">
-                        <p>{{ message.text }} </p>
-                    </div>
-                </div>
-                <div ui-view></div>
-            </div>
-        </div>
+      </div>
+      <a ui-sref="admin.home.dashboard" ng-class="{'active': page.name.indexOf('admin.home') > -1}" class="navLink">Dashboard</a>
+      <a ui-sref="admin.website.landing" ng-class="{'active': page.name.indexOf('admin.website') > -1}" class="navLink">Website</a>
+      <a ui-sref="admin.emulator.landing" ng-class="{'active': page.name.indexOf('admin.emulator') > -1}" class="navLink">Emulator</a>
     </div>
+  </nav>
+  <div class="aurora-body">
+    <div class="row">
+      <div class="columns small-12">
+        <div ng-show="message.type" click-off="message={}" class="Alert--{{ message.type}} u-mb-4" style="color:white;">
+          <div class="Alert-content">
+            <p>{{ message.text }}</p>
+          </div>
+        </div>
+        <div ng-show="update.type" class="Alert--{{ update.type}} u-mb-4" style="{{ update.css }}">
+          <div class="Alert-content">
+            <p ng-bind-html="update.text"></p>
+          </div>
+        </div>
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
 </div>

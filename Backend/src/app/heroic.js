@@ -3,8 +3,10 @@ export default class Heroic {
 
   static async init() {
     try {
+      // Website Service
       await Website.init()
-      console.log(`Heroic has started on ${global.config.http.port}`)
+      // Emulator Service
+      console.log(`>Heroic ${global.version} has started on ${global.config.http.port}`)
     } catch (error) {
       console.log(`${error}\nHeroic will now shutdown.`)
       process.exit()

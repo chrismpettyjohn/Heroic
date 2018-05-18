@@ -4,3 +4,5 @@ build
 .DS_Store
 Source/Backend/heroic-linux
 *.zip
+swfs
+Test

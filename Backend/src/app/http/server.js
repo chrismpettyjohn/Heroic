@@ -3,9 +3,9 @@ import Path from 'path'
 import Fetch from 'glob'
 import Async from 'async'
 import Fastify from 'fastify'
-import Static from 'fastify-static'
 import Helmet from 'fastify-helmet'
 import Body from 'fastify-formbody'
+import Static from 'serve-static'
 import Session from './middleware/session'
 export default class Server {
 
@@ -20,7 +20,7 @@ export default class Server {
           reply.type('text/html').send(stream)
         })
 
-        http.listen(global.config.http.port, (error => {
+        http.listen(global.config.http.port, '0.0.0.0', (error => {
           if (error) {
             reject(`HTTP server cannot listen on port ${global.config.http.port}`)
           } else {
@@ -37,10 +37,9 @@ export default class Server {
 
     http.register(Helmet)
 
-    http.register(Static, {
-      root: Path.join(__dirname, '..', '..', 'public', 'assets'),
-      prefix: '/assets/'
-    })
+    http.use('/assets', Static(Path.join(__dirname, '..', '..', 'public', 'assets')))
+
+    http.use('/public', Static(Path.join(global.path, 'assets', 'public')))
 
     http.register(Body)
 

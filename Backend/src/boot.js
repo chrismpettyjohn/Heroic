@@ -1,5 +1,7 @@
 // Clear Terminal
 process.stdout.write('\x1B[2J')
+
+global.version = 'v2.1.3'
 console.log('>Running system checks')
 
 // Dependencies
@@ -26,6 +28,7 @@ if (process.pkg) {
 
 // Run()
 const run = function() {
+  global.path = path
   global.config = require(`${path}/config.json`)
   // Initiate Heroic
   require('./app/heroic').default.init()
