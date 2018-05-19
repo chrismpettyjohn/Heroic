@@ -1,4 +1,4 @@
-import Database from '~/app/sql/interactors/permission'
+import Database from '~/app/sql/interactors/user/permission'
 export default class Permission {
 
   static async read(request, reply) {

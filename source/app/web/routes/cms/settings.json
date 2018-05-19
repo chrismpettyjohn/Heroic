@@ -1,6 +1,6 @@
 {
   "prefix": "system/cms",
-  "controller": "cms-settings",
+  "controller": "cms/settings",
   "routes": [
     {
       "link": "",

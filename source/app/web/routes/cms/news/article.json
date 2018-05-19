@@ -1,6 +1,6 @@
 {
-  "prefix": "system/news/category",
-  "controller": "cms-news-category",
+  "prefix": "system/news/article",
+  "controller": "cms/news/article",
   "routes": [
     {
       "link": "",
@@ -12,5 +12,5 @@
       "method": "GET",
       "controller": "read"
     }
-  ] 
+  ]
 }

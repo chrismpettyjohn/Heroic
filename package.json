@@ -33,7 +33,8 @@
     ],
     "ignore": [
       "source/public/**/*"
-    ]
+    ],
+    "compact": true
   },
   "pkg": {
     "scripts": "build/app/**/*.js",

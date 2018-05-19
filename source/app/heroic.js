@@ -10,6 +10,7 @@ export default class Heroic {
   constructor(settings) {
     // Save Configuration
     Heroic.Config = settings
+    Heroic.Config.Launch = Date.now()
   }
 
   static init() {
@@ -23,10 +24,13 @@ export default class Heroic {
         await SQL.init();
         // Launch Web Server
         await WEB.init();
-        resolve(`Heroic has launched on port ${Heroic.Config.http.port}`)
+        // Set Time
+        Heroic.Config.Launch -= Date.now()
+        resolve(`Heroic has launched on port ${Heroic.Config.http.port} ${Heroic.Config.Launch}ms`)
+        resolve('')
       } catch (error) {
         reject(error)
-      }
+      } 
     })
   }
 }

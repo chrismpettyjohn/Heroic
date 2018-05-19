@@ -1,6 +1,6 @@
 {
-  "prefix": "system/news/article",
-  "controller": "cms-news-article",
+  "prefix": "permission",
+  "controller": "user/permission",
   "routes": [
     {
       "link": "",
@@ -11,6 +11,11 @@
       "link": ":id",
       "method": "GET",
       "controller": "read"
+    },
+    {
+      "link": "type/:type",
+      "method": "GET",
+      "controller": "readByType"
     }
   ]
 }

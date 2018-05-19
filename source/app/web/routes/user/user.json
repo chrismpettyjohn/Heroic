@@ -1,6 +1,6 @@
 {
   "prefix": "users/user",
-  "controller": "User",
+  "controller": "user/user",
   "routes": [
     {
       "link": "",

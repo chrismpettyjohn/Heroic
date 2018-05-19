@@ -1,4 +1,4 @@
-import Model from '~/app/sql/models/session'
+import Model from '~/app/sql/models/user/session'
 export default class Session {
 
   static create(user) {

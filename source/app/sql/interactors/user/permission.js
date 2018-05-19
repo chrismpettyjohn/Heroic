@@ -1,4 +1,4 @@
-import Model from '~/app/sql/models/permission'
+import Model from '~/app/sql/models/user/permission'
 export default class Permission {
 
   static read(id) {
@@ -15,8 +15,8 @@ export default class Permission {
 
   static hasLevel(level, rank) {
     return new Promise(async (resolve, reject) => {
-      let rank = Model.query().where('level', '>=', level).where('id', rank).select('id');
-      if (rank) {
+      rank = await Model.query().where('level', '>=', level).where('id', rank).select('id');
+      if (rank[0]) {
         resolve()
       } else {
         reject('User does not have escalated privileges')

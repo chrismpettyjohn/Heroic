@@ -1,4 +1,4 @@
-import Database from '~/app/sql/interactors/cms-news-article'
+import Database from '~/app/sql/interactors/cms/news/article'
 export default class Article {
 
   static async read(request, reply) {

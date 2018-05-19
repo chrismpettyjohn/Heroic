@@ -1,8 +1,6 @@
-import Service from '~/app/services/user'
-import Database from '~/app/sql/interactors/user'
+import Database from '~/app/sql/interactors/user/user'
 export default class Users {
 
-  // CRUD
   static async create(request, reply) {
     user = await Database.create(request.body.user);
     reply.code(200).send(user)
@@ -20,14 +18,6 @@ export default class Users {
 
   static async delete(request, reply) {
     await Database.delete(request.params.id);
-    reply.code(200)
-  }
-
-  // Services
-
-  static async register(request, reply) {
-    let session = {};
-    await Service.register(request.body.username, request.body.password);
     reply.code(200)
   }
 

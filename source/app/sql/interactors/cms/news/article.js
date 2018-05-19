@@ -1,4 +1,4 @@
-import Model from '~/app/sql/models/cms-news-article'
+import Model from '~/app/sql/models/cms/news/article'
 export default class Article {
 
   static async read(id) {

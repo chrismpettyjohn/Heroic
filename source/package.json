@@ -1,8 +1,6 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express": "^4.16.3",
-    "express-reload": "^1.1.0",
     "fastify": "^1.4.0",
     "fastify-formbody": "^2.0.0",
     "glob": "^7.1.2",
@@ -12,7 +10,7 @@
     "mysql2": "^1.5.3",
     "objection": "^1.1.8",
     "objection-password-bcryptjs": "^1.0.0-a",
-    "objection-unique": "^1.0.1",
-    "objection-visibility": "^0.2.0"
+    "objection-visibility": "^0.2.0",
+    "validatorjs": "^3.14.2"
   }
 }

@@ -1,4 +1,4 @@
-import Model from '~/app/sql/models/cms-news-category'
+import Model from '~/app/sql/models/cms/news/category'
 export default class Category {
 
   static async read(id) {
