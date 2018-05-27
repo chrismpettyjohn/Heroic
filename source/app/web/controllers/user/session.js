@@ -15,11 +15,14 @@ export default class Session {
       // Create Session
       session = await SessionDB.create(user)
       // Create JWT
-      session = await JWT.sign(session)
+      session = await JWT.sign({
+        session : session,
+        user : user
+      })
       // Return
       reply.code(200).send(session)
     } else {
-      reply.code(500).send('Invalid credentials')
+      reply.code(400).send()
     }
   }
 
