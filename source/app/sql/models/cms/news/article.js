@@ -1,3 +1,4 @@
+import Path from 'path'
 import Model from '~/app/sql/model'
 export default class Articles extends Model {
   // Settings
@@ -20,7 +21,7 @@ export default class Articles extends Model {
   static relationMappings = {
     author: {
       relation: Model.BelongsToOneRelation,
-      modelClass: `${__dirname}/user`,
+      modelClass: `${Path.resolve(__dirname, '..', 'user')}/user`,
       join: {
         from: 'cms_news_articles.user_id',
         to: 'users.id'
@@ -28,7 +29,7 @@ export default class Articles extends Model {
     },
     category: {
       relation: Model.BelongsToOneRelation,
-      modelClass: `${__dirname}/cms-news-category`,
+      modelClass: `${__dirname}/category`,
       join: {
         from: 'cms_news_articles.category_id',
         to: 'cms_news_categories.id'

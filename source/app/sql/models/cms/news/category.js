@@ -9,7 +9,7 @@ export default class Categories extends Model {
   static relationMappings = {
     articles: {
       relation: Model.HasManyRelation,
-      modelClass: `${__dirname}/cms-news-article`,
+      modelClass: `${__dirname}/article`,
       join: {
         from: 'cms_news_categories.id',
         to: 'cms_news_articles.category_id'

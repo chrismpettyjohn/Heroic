@@ -27,11 +27,6 @@ export default class Session {
   }
 
   static async read(request, reply) {
-    // Validate JWT
-    session = await JWT.validate(request.session)
-    // Check Session State (Must be "allowed") and return user
-    session = await SessionDB.read(session.id, true)
-    // Return
     reply.code(200).send(request.session)
   }
 

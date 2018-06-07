@@ -9,7 +9,7 @@ export default class Session {
       // Check JWT Signature
       session = await JWT.validate(request.headers['x-access-token'])
       // Check Session State (Must be "allowed") and return user
-      session = await SessionDB.read(session.id, true)
+      session = await SessionDB.read(session.session.id, true)
       // Return
       if (session) {
         // Format
