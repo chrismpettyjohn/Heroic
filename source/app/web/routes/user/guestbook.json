@@ -1,0 +1,11 @@
+{
+  "prefix": "users/guestbook",
+  "controller": "user/guestbook",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create"
+    }
+  ]
+}

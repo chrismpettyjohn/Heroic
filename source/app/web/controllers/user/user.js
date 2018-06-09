@@ -11,18 +11,18 @@ export default class Users {
       let users = await Database.read(request.params.id);
       reply.code(200).send(users)
     } catch (error) {
-      reply.code(404)
+      reply.code(404).send()
     }
   }
 
   static async update(request, reply) {
     await Database.update(request.body.user);
-    reply.code(200)
+    reply.code(200).send()
   }
 
   static async delete(request, reply) {
     await Database.delete(request.params.id);
-    reply.code(200)
+    reply.code(200).send()
   }
 
 }
