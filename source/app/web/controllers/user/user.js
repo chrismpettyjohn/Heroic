@@ -7,8 +7,12 @@ export default class Users {
   }
 
   static async read(request, reply) {
-    let users = await Database.read(request.params.id);
-    reply.code(200).send(users)
+    try {
+      let users = await Database.read(request.params.id);
+      reply.code(200).send(users)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   static async update(request, reply) {

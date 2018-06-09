@@ -13,7 +13,7 @@ export default class User {
           if (user) resolve(user)
           reject('No user found')
         } else {
-          user = await Model.query().findOne({username: user})
+          user = await Model.query().eager('[badges, rooms, guilds, guilds.guild, friends]').findOne({username: user})
           if (user) resolve(user)
           reject('No user found')
         }

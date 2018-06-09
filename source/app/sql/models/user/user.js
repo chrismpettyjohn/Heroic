@@ -38,7 +38,7 @@ export default class User extends password(Model) {
       modelClass: `${__dirname}/badge`,
       join: {
         from: 'users.id',
-        to: 'user_badges.user_id'
+        to: 'users_badges.user_id'
       }
     },
     // Rooms
