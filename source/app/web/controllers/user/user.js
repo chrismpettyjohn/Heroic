@@ -11,7 +11,7 @@ export default class Users {
       let users = await Database.read(request.params.id);
       reply.code(200).send(users)
     } catch (error) {
-      console.log(error)
+      reply.code(404)
     }
   }
 
