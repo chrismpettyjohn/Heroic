@@ -18,7 +18,8 @@ export default class User extends password(Model) {
     'badges',
     'rooms',
     'guilds',
-    'friends'
+    'friends',
+    'guestbook'
   ];
 
   // Relationships
@@ -66,6 +67,15 @@ export default class User extends password(Model) {
       join: {
         from: 'users.id',
         to: 'messenger_friendships.user_one_id'
+      }
+    },
+    // Guestbook
+    guestbook: {
+      relation: Model.HasManyRelation,
+      modelClass: `${__dirname}/guestbook`,
+      join: {
+        from: 'users.id',
+        to: 'user_guestbook.profile_id'
       }
     },
   };
