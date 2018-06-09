@@ -16,7 +16,7 @@ export default class Guilds extends Model {
     },
     members: {
       relation: Model.HasManyRelation,
-      modelClass: `${__dirname}/members`,
+      modelClass: `${__dirname}/member`,
       join: {
         from: 'guilds.id',
         to: 'guilds_members.guild_id'

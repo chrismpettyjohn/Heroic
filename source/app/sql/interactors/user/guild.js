@@ -3,7 +3,7 @@ export default class Guild {
 
   static read(id) {
     if (id) {
-      return Model.query().findById(id).eager('owner').select()
+      return Model.query().findById(id).eager('[owner, members]').select()
     } else {
       return Model.query().eager('[owner, members]').select()
     }
