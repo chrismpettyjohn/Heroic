@@ -13,6 +13,7 @@ export default class HTTP {
         await HTTP.prepare()
         await HTTP.configure()
         await HTTP.loadMiddleware()
+        await HTTP.handleCORS()
         await HTTP.loadRouting()
         await HTTP.loadStaticRouting()
         await HTTP.listen()
@@ -25,7 +26,10 @@ export default class HTTP {
 
   static prepare() {
     return new Promise((resolve, reject) => {
-      HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
+      HTTP.server = new Fastify({
+        logger : true,
+        http2: Heroic.Config.http.http2
+      })
       resolve()
     })
   }
@@ -51,6 +55,15 @@ export default class HTTP {
           reject(errors)
         }
       })
+    })
+  }
+
+  static handleCORS() {
+    return new Promise ((resolve, reject) => {
+      HTTP.server.options('/*', (request, reply) => {
+        reply.code(204).send()
+      })
+      resolve()
     })
   }
 
