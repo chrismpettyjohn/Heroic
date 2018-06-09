@@ -1,5 +1,5 @@
-import Database from '~/app/sql/interactors/user/guilds'
-export default class Guilds {
+import Database from '~/app/sql/interactors/user/guild'
+export default class Guild {
 
   static async read(request, reply) {
     let guilds = await Database.read(request.params.id);

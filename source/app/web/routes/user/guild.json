@@ -1,6 +1,6 @@
 {
   "prefix": "guilds",
-  "controller": "user/guilds",
+  "controller": "user/guild",
   "routes": [
     {
       "link": "",

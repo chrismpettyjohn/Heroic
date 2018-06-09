@@ -9,7 +9,7 @@ export default class User {
     return new Promise(async (resolve, reject) => {
       if (user) {
         if (typeof user === 'number') {
-          user = await Model.query().findById(id)
+          user = await Model.query().eager('[badges, rooms, guilds, friends]').findById(id)
           if (user) resolve(user)
           reject('No user found')
         } else {

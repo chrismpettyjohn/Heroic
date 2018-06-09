@@ -14,11 +14,16 @@ export default class User extends password(Model) {
     'look',
     'credits',
     'pixels',
-    'points'
+    'points',
+    'badges',
+    'rooms',
+    'guilds',
+    'friends'
   ];
 
   // Relationships
   static relationMappings = {
+    // Sessions
     sessions: {
       relation: Model.HasManyRelation,
       modelClass: `${__dirname}/session`,
@@ -26,7 +31,43 @@ export default class User extends password(Model) {
         from: 'users.id',
         to: 'user_sessions.user_id'
       }
-    }
+    },
+    // Badges
+    badges: {
+      relation: Model.HasManyRelation,
+      modelClass: `${__dirname}/badge`,
+      join: {
+        from: 'users.id',
+        to: 'user_badges.user_id'
+      }
+    },
+    // Rooms
+    rooms: {
+      relation: Model.HasManyRelation,
+      modelClass: `${__dirname}/room`,
+      join: {
+        from: 'users.id',
+        to: 'rooms.owner_id'
+      }
+    },
+    // Guilds
+    guilds: {
+      relation: Model.HasManyRelation,
+      modelClass: `${__dirname}/guilds/member`,
+      join: {
+        from: 'users.id',
+        to: 'guilds_members.user_id'
+      }
+    },
+    // Friends
+    friends: {
+      relation: Model.HasManyRelation,
+      modelClass: `${__dirname}/friendship`,
+      join: {
+        from: 'users.id',
+        to: 'messenger_friendships.user_one_id'
+      }
+    },
   };
 
   // Structure

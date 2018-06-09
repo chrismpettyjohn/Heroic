@@ -1,5 +1,5 @@
-import Model from '~/app/sql/models/user/guilds'
-export default class Guilds {
+import Model from '~/app/sql/models/user/guilds/guild'
+export default class Guild {
 
   static read(id) {
     if (id) {

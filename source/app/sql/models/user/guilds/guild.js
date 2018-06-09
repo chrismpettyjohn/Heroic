@@ -1,3 +1,4 @@
+import Path from 'path'
 import Model from '~/app/sql/model'
 export default class Guilds extends Model {
   static tableName = 'guilds';
@@ -7,7 +8,7 @@ export default class Guilds extends Model {
   static relationMappings = {
     owner: {
       relation: Model.BelongsToOneRelation,
-      modelClass: `${__dirname}/user`,
+      modelClass: `${Path.resolve(__dirname, '..')}/user`,
       join: {
         from: 'guilds.user_id',
         to: 'users.id'
@@ -15,7 +16,7 @@ export default class Guilds extends Model {
     },
     members: {
       relation: Model.HasManyRelation,
-      modelClass: `${__dirname}/guilds_members`,
+      modelClass: `${__dirname}/members`,
       join: {
         from: 'guilds.id',
         to: 'guilds_members.guild_id'
