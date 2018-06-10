@@ -1,7 +1,7 @@
 import Model from '~/app/sql/model'
 export default class Categories extends Model {
   // Settings
-  static tableName = 'cms_news_categories';
+  static tableName = 'heroic_news_categories';
   static identifiers = ['id'];
   static visible = ['id', 'title', 'timestamp', 'articles'];
 
@@ -11,8 +11,8 @@ export default class Categories extends Model {
       relation: Model.HasManyRelation,
       modelClass: `${__dirname}/article`,
       join: {
-        from: 'cms_news_categories.id',
-        to: 'cms_news_articles.category_id'
+        from: 'heroic_news_categories.id',
+        to: 'heroic_news_articles.category_id'
       }
     }
   };
@@ -29,7 +29,7 @@ export default class Categories extends Model {
       title: {
         type: 'string',
         minLength: 1,
-        maxLength: 10
+        maxLength: 15
       }
     }
   };

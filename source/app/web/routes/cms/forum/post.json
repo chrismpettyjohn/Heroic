@@ -1,0 +1,11 @@
+{
+  "prefix": "forum/post",
+  "controller": "cms/forum/post",
+  "routes": [
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import Model from '~/app/sql/model'
 export default class Settings extends Model {
-  static tableName = 'cms_settings';
+  static tableName = 'heroic_settings';
   // Returns on select queries
   static visible = [
     'site_name',
@@ -27,6 +27,6 @@ export default class Settings extends Model {
     store_enabled : 'min:4|max:5|boolean',
     paypal_key : 'required_with:store_enabled|min:10',
     paypal_mode : 'required_with:paypal_key|min:5|max:10',
-  } 
+  }
 
 }

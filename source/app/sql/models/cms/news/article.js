@@ -2,7 +2,7 @@ import Path from 'path'
 import Model from '~/app/sql/model'
 export default class Articles extends Model {
   // Settings
-  static tableName = 'cms_news_articles';
+  static tableName = 'heroic_news_articles';
   static identifiers = ['id'];
   static visible = [
     'id',
@@ -21,9 +21,9 @@ export default class Articles extends Model {
   static relationMappings = {
     author: {
       relation: Model.BelongsToOneRelation,
-      modelClass: `${Path.resolve(__dirname, '..', 'user')}/user`,
+      modelClass: `${Path.resolve(__dirname, '..', '..', 'user')}/user`,
       join: {
-        from: 'cms_news_articles.user_id',
+        from: 'heroic_news_articles.user_id',
         to: 'users.id'
       }
     },
@@ -31,8 +31,8 @@ export default class Articles extends Model {
       relation: Model.BelongsToOneRelation,
       modelClass: `${__dirname}/category`,
       join: {
-        from: 'cms_news_articles.category_id',
-        to: 'cms_news_categories.id'
+        from: 'heroic_news_articles.category_id',
+        to: 'heroic_news_categories.id'
       }
     }
   };
