@@ -15,7 +15,6 @@ export default class Session {
         // Format
         request.session = session.id
         request.user = session.user
-        done()
       } else {
         reply.code(500).send('Session invalid')
       }

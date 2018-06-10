@@ -13,7 +13,6 @@ export default class HTTP {
         await HTTP.prepare()
         await HTTP.configure()
         await HTTP.loadMiddleware()
-        await HTTP.handleCORS()
         await HTTP.loadRouting()
         await HTTP.loadStaticRouting()
         await HTTP.listen()
@@ -26,10 +25,7 @@ export default class HTTP {
 
   static prepare() {
     return new Promise((resolve, reject) => {
-      HTTP.server = new Fastify({
-        logger : true,
-        http2: Heroic.Config.http.http2
-      })
+      HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
       resolve()
     })
   }
@@ -37,6 +33,7 @@ export default class HTTP {
   static configure() {
     return new Promise((resolve, reject) => {
       HTTP.server.use(Cors())
+      HTTP.server.options('*', Cors())
       HTTP.server.register(formBody)
       resolve()
     })
@@ -58,15 +55,6 @@ export default class HTTP {
     })
   }
 
-  static handleCORS() {
-    return new Promise ((resolve, reject) => {
-      HTTP.server.options('/*', (request, reply) => {
-        reply.code(204).send()
-      })
-      resolve()
-    })
-  }
-
   static loadRouting() {
     return new Promise((resolve, reject) => {
       Glob(`${__dirname}/routes/**/*.json`, (errors, routes) => {
@@ -75,7 +63,12 @@ export default class HTTP {
             route = require(route)
             let controller = require(`${__dirname}/controllers/${route.controller}`).default
             route.routes.forEach(data => {
-              let link = `/api/${route.prefix}/${data.link}`
+              let link =  ''
+              if (route.prefix) {
+                link = `/api/${route.prefix}/${data.link}`
+              } else {
+                link = `/api/${data.link}`
+              }
               // Adjust for empty GET
               if (data.link.length == 0) {
                 link = link.slice(0, -1)
@@ -107,6 +100,7 @@ export default class HTTP {
     return new Promise((resolve, reject) => {
       HTTP.server.listen(Heroic.Config.http.port, error => {
         if (error) {
+
           reject(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
         } else {
           resolve()
