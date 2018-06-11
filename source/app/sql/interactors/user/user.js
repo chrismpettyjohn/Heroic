@@ -1,34 +1,32 @@
 import Model from '~/app/sql/models/user/user'
 export default class User {
-
-  static create(user) {
+  static create (user) {
     return Model.query().insertAndFetch(user)
   }
 
-  static read(user) {
-    return new Promise(async (resolve, reject) => {
+  static async read (user) {
+    if (typeof user === 'number') {
+      user = await Model.query().eager('[badges, rooms, guilds, guilds.guild, friends, guestbook, guestbook.author]').findById(user)
       if (user) {
-        if (typeof user === 'number') {
-          user = await Model.query().eager('[badges, rooms, guilds, guilds.guild, friends, guestbook, guestbook.author]').findById(id)
-          if (user) resolve(user)
-          reject('No user found')
-        } else {
-          user = await Model.query().eager('[badges, rooms, guilds, guilds.guild, friends, guestbook, guestbook.author]').findOne({username: user})
-          if (user) resolve(user)
-          reject('No user found')
-        }
+        return user
       } else {
-        reject('No user specified')
+        return Error('User not found')
       }
-    })
+    } else {
+      user = await Model.query().eager('[badges, rooms, guilds, guilds.guild, friends, guestbook, guestbook.author]').findOne({username: user})
+      if (user) {
+        return user
+      } else {
+        return Error('User not found')
+      }
+    }
   }
 
-  static update(user) {
+  static update (user) {
     return Model.query().insert(user)
   }
 
-  static delete(id) {
+  static delete (id) {
     return Model.query().delete().where('id', id)
   }
-
 }

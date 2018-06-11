@@ -7,7 +7,7 @@ export default class HTTP {
   static server = {}
   static middleware = []
 
-  static init() {
+  static init () {
     return new Promise(async (resolve, reject) => {
       try {
         await HTTP.prepare()
@@ -18,19 +18,19 @@ export default class HTTP {
         await HTTP.listen()
         resolve(`HTTP Server is listening on port ${Heroic.Config.http.port}`)
       } catch (error) {
-        reject(`HTTP Server - ${error}`)
+        reject(Error(`HTTP Server - ${error}`))
       }
     })
   }
 
-  static prepare() {
+  static prepare () {
     return new Promise((resolve, reject) => {
       HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
       resolve()
     })
   }
 
-  static configure() {
+  static configure () {
     return new Promise((resolve, reject) => {
       HTTP.server.use(Cors())
       HTTP.server.options('*', Cors())
@@ -39,7 +39,7 @@ export default class HTTP {
     })
   }
 
-  static loadMiddleware() {
+  static loadMiddleware () {
     return new Promise((resolve, reject) => {
       Glob(`${__dirname}/middleware/**/*.js`, (errors, middleware) => {
         if (!errors) {
@@ -55,7 +55,7 @@ export default class HTTP {
     })
   }
 
-  static loadRouting() {
+  static loadRouting () {
     return new Promise((resolve, reject) => {
       Glob(`${__dirname}/routes/**/*.json`, (errors, routes) => {
         if (!errors) {
@@ -63,14 +63,14 @@ export default class HTTP {
             route = require(route)
             let controller = require(`${__dirname}/controllers/${route.controller}`).default
             route.routes.forEach(data => {
-              let link =  ''
+              let link = ''
               if (route.prefix) {
                 link = `/api/${route.prefix}/${data.link}`
               } else {
                 link = `/api/${data.link}`
               }
               // Adjust for empty GET
-              if (data.link.length == 0) {
+              if (data.link.length === 0) {
                 link = link.slice(0, -1)
               }
               if (data.middleware) {
@@ -90,22 +90,17 @@ export default class HTTP {
     })
   }
 
-  static loadStaticRouting() {
-    return new Promise((resolve, reject) => {
-      resolve()
-    })
+  static async loadStaticRouting () {
+
   }
 
-  static listen() {
-    return new Promise((resolve, reject) => {
-      HTTP.server.listen(Heroic.Config.http.port, error => {
-        if (error) {
+  static async listen () {
+    HTTP.server.listen(Heroic.Config.http.port, error => {
+      if (error) {
+        return error(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
+      } else {
 
-          reject(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
-        } else {
-          resolve()
-        }
-      })
+      }
     })
   }
 }

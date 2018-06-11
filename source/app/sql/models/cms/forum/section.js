@@ -20,5 +20,4 @@ export default class Section extends Model {
       }
     }
   }
-
 }

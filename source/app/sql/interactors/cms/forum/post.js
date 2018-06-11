@@ -1,6 +1,5 @@
 import Model from '~/app/sql/models/cms/forum/post'
 export default class Post {
-
   static create (post) {
     return Model.query().insert(post)
   }
@@ -21,5 +20,4 @@ export default class Post {
   static delete (id) {
     return Model.query().deleteById(id)
   }
-
 }

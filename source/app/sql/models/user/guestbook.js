@@ -14,5 +14,4 @@ export default class Guestbook extends Model {
       }
     }
   }
-
 }

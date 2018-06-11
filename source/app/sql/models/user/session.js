@@ -14,5 +14,4 @@ export default class Session extends Model {
       }
     }
   }
-
 }

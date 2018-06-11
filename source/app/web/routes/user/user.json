@@ -4,11 +4,6 @@
   "routes": [
     {
       "link": "",
-      "method": "POST",
-      "controller": "create"
-    },
-    {
-      "link": "",
       "method": "GET",
       "controller": "read"
     },
@@ -16,16 +11,6 @@
       "link": ":id",
       "method": "GET",
       "controller": "read"
-    },
-    {
-      "link": ":id",
-      "method": "PUT",
-      "controller": "update"
-    },
-    {
-      "link": ":id",
-      "method": "DELETE",
-      "controller": "delete"
     }
   ]
 }

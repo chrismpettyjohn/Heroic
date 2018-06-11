@@ -10,9 +10,10 @@
     "pretest": "clear",
     "test": "cd build && npm i && node index",
     "debug": "cd source && nodemon -L --exec babel-node index.js",
-    "prebuild": "rm -rf build && mkdir build && clear",
+    "prebuild": "rm -rf build && mkdir build && npm run clean && clear",
     "build": "cd source && babel . --out-dir=../build --copy-files --ignore node_modules",
-    "compile": "pkg . --out-path compiled"
+    "compile": "pkg . --out-path compiled",
+    "clean": "standard --fix --parser babel-eslint"
   },
   "babel": {
     "presets": [

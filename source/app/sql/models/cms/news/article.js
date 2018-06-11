@@ -84,5 +84,4 @@ export default class Articles extends Model {
       }
     }
   };
-
 }

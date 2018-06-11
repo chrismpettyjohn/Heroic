@@ -22,5 +22,4 @@ export default class Camera extends Model {
       }
     }
   }
-
 }

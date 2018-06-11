@@ -2,7 +2,7 @@
 import Model from '~/app/sql/model'
 import Password from 'objection-password-bcryptjs'
 // Prepare
-const password = Password();
+const password = Password()
 export default class User extends password(Model) {
   static tableName = 'users';
   static visible = [
@@ -77,7 +77,7 @@ export default class User extends password(Model) {
         from: 'users.id',
         to: 'user_guestbook.profile_id'
       }
-    },
+    }
   };
 
   // Structure
@@ -137,5 +137,4 @@ export default class User extends password(Model) {
       }
     }
   }
-
 }

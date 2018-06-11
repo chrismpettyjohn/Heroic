@@ -12,12 +12,6 @@
       "method": "GET",
       "controller": "read",
       "middleware": "Session"
-    },
-    {
-      "link": "",
-      "method": "DELETE",
-      "controller": "delete",
-      "middleware": "Session"
     }
   ]
 }

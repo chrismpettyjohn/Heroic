@@ -1,6 +1,5 @@
 import Interactor from '~/app/sql/interactors/cms/forum/section'
 export default class Section {
-
   static async create (request, reply) {
 
   }
@@ -17,5 +16,4 @@ export default class Section {
   static async delete (request, reply) {
 
   }
-
 }

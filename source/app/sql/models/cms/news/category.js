@@ -33,5 +33,4 @@ export default class Categories extends Model {
       }
     }
   };
-
 }

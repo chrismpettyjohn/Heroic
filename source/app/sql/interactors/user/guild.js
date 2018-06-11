@@ -1,20 +1,16 @@
 import Model from '~/app/sql/models/user/guilds/guild'
 export default class Guild {
-
-  static read(id) {
-    return new Promise (async (resolve, reject) => {
-      if (id) {
-        let group = await Model.query().findById(id).eager('[owner, members]').select()
-        if (group) {
-          resolve(group)
-        } else {
-          reject('Group not found')
-        }
+  static async read (id) {
+    if (id) {
+      let group = await Model.query().findById(id).eager('[owner, members]').select()
+      if (group) {
+        return group
       } else {
-        let groups = await Model.query().eager('[owner, members]').select()
-        resolve(groups)
+        return Error('Group not found')
       }
-    })
+    } else {
+      let groups = await Model.query().eager('[owner, members]').select()
+      return groups
+    }
   }
-
 }

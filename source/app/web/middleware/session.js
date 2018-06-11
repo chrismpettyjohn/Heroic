@@ -1,8 +1,7 @@
 import JWT from '~/app/lib/jwt'
 import SessionDB from '~/app/sql/interactors/user/session'
 export default class Session {
-
-  static async handle(request, reply, done) {
+  static async handle (request, reply, done) {
     if (request.headers['x-access-token']) {
       // Temporary Variable
       let session = {}
@@ -21,7 +20,5 @@ export default class Session {
     } else {
       reply.code(500).send('Session required')
     }
-
   }
-
 }

@@ -1,6 +1,5 @@
 import Model from '~/app/sql/models/cms/forum/section'
 export default class Section {
-
   static create (section) {
     return Model.query().insert(section)
   }
@@ -25,5 +24,4 @@ export default class Section {
   static delete (id) {
     return Model.query().deleteById(id)
   }
-
 }

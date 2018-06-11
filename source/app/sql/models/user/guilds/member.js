@@ -14,5 +14,4 @@ export default class Member extends Model {
       }
     }
   }
-
 }
