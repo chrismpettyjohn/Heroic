@@ -1,0 +1,16 @@
+{
+  "prefix": "users/user",
+  "controller": "user/user",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

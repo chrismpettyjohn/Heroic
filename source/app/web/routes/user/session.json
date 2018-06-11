@@ -1,0 +1,17 @@
+{
+  "prefix": "users/session",
+  "controller": "user/session",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create"
+    },
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read",
+      "middleware": "Session"
+    }
+  ]
+}

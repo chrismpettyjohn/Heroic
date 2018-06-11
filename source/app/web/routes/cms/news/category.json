@@ -1,0 +1,16 @@
+{
+  "prefix": "system/news/category",
+  "controller": "cms/news/category",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}
