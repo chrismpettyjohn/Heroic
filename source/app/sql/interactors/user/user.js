@@ -34,29 +34,20 @@ export default class User {
     // Define
     let result = null
     // Check
-    switch (type) {
-
-      case "username":
-        result = await Model.query().where('username', user).select('username')
-        if (result.length > 0) {
-          return Error('Username in use')
-        } else {
-          return 'Username is available'
-        }
-      break;
-
-      case "mail":
-        result = await Model.query().where('mail', user).select('mail')
-        if (result.length > 0) {
-          return Error('Email in use')
-        } else {
-          return 'Email is available'
-        }
-      break;
-
-      default:
-        return Error('Type not defined')
-      break;
+    if (type === 'username') {
+      result = await Model.query().where('username', user).select('username')
+      if (result.length > 0) {
+        return Error('Username in use')
+      } else {
+        return 'Username is available'
+      }
+    } else {
+      result = await Model.query().where('mail', user).select('mail')
+      if (result.length > 0) {
+        return Error('Email in use')
+      } else {
+        return 'Email is available'
+      }
     }
   }
 }

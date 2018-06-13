@@ -92,10 +92,10 @@ export default class HTTP {
   static async loadStaticRouting () {
     // Static Files
     HTTP.server.register(Static, {
-      root : Path.resolve(__dirname, '..', '..', 'public'),
+      root: Path.resolve(__dirname, '..', '..', 'public')
     })
     // Serve Index
-    HTTP.server.get('*', ( request, reply) => {
+    HTTP.server.get('*', (request, reply) => {
       reply.sendFile(Path.resolve(__dirname, '..', '..', 'public', 'index.html'))
     })
     // Return

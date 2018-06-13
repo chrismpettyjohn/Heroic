@@ -49,7 +49,7 @@
   },
   "standard": {
     "ignore": [
-      "/source/publc/**/*.js"
+      "/source/public/**/*.js"
     ]
   }
 }

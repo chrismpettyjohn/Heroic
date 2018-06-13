@@ -7,14 +7,14 @@ export default class Users {
       let user = {}
       // Set
       user = {
-        username    : request.body.username,
-        password    : request.body.password,
-        mail        : request.body.mail,
-        ip_current  : request.raw.clientIp,
-        ip_register : request.raw.clientIp,
+        username: request.body.username,
+        password: request.body.password,
+        mail: request.body.mail,
+        ip_current: request.raw.clientIp,
+        ip_register: request.raw.clientIp
       }
       // Create
-      user = await Database.create(user)
+      await Database.create(user)
       // Return
       reply.code(200).send()
     } catch (error) {
@@ -38,9 +38,9 @@ export default class Users {
     let validator = {}
     // Attempt
     try {
-      if (request.params.type=='username') {
+      if (request.params.type === 'username') {
         // Validate
-        validator = new Validator({ username : request.params.user}, { username : 'required|min:1|max:10|alpha_num' })
+        validator = new Validator({ username: request.params.user }, { username: 'required|min:1|max:10|alpha_num' })
         // Check
         if (validator.passes()) {
           user = await Database.check('username', request.params.user)
@@ -48,9 +48,9 @@ export default class Users {
         } else {
           reply.code(500).send('Failed validation')
         }
-      } else if (request.params.type=='mail') {
+      } else if (request.params.type === 'mail') {
         // Validate
-        validator = new Validator({ mail : request.params.user}, { mail: 'required|min:5|max:20|email' })
+        validator = new Validator({ mail: request.params.user }, { mail: 'required|min:5|max:20|email' })
         // Check
         if (validator.passes()) {
           user = await Database.check('mail', request.params.user)
