@@ -21,9 +21,9 @@ export default class Post {
       }
     }
     // Create
-    await Interactor.create(post)
+    post = await Interactor.create(post)
     // Return
-    reply.code(200).send()
+    reply.code(200).send(post)
   }
 
   static async read (request, reply) {

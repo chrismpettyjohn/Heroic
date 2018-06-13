@@ -96,11 +96,6 @@ export default class User extends password(Model) {
         minLength: 1,
         maxLength: 10
       },
-      password: {
-        type: 'string',
-        minLength: 60,
-        maxLength: 60
-      },
       mail: {
         type: 'email'
       },

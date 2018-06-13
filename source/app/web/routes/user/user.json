@@ -4,6 +4,11 @@
   "routes": [
     {
       "link": "",
+      "method": "POST",
+      "controller": "create"
+    },
+    {
+      "link": "",
       "method": "GET",
       "controller": "read"
     },
@@ -11,6 +16,11 @@
       "link": ":id",
       "method": "GET",
       "controller": "read"
+    },
+    {
+      "link": "check/:type/:user",
+      "method": "GET",
+      "controller": "check"
     }
   ]
 }

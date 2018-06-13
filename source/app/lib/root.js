@@ -1,3 +1,4 @@
+import Path from 'path'
 export default class Root {
   static cwd () {
     return new Promise((resolve, reject) => {
@@ -8,7 +9,7 @@ export default class Root {
           resolve(process.argv[0])
         }
       } else {
-        resolve(__dirname)
+        resolve(Path.resolve(__dirname, '..', '..'))
       }
     })
   }

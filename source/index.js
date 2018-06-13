@@ -1,11 +1,14 @@
-import Heroic from './app/heroic'
+// Dependencies
 import Config from './config'
-
-process.stdout.write('\x1B[2J')
-
-Heroic.init(Config).then(message => {
-  console.log(message)
-}).catch(error => {
-  console.log(`Fatal Error Occured:\n${error}`)
-  process.exit()
-})
+import Heroic from './app/heroic'
+// Initialize
+(async () => {
+  try {
+    let step = {}
+    step = await Heroic.init(Config)
+    console.log(step)
+  } catch (error) {
+    console.log(error)
+    process.exit()
+  }
+})()

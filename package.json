@@ -12,6 +12,7 @@
     "debug": "cd source && nodemon -L --exec babel-node index.js",
     "prebuild": "rm -rf build && mkdir build && npm run clean && clear",
     "build": "cd source && babel . --out-dir=../build --copy-files --ignore node_modules",
+    "precompile": "npm run build",
     "compile": "pkg . --out-path compiled",
     "clean": "standard --fix --parser babel-eslint"
   },
@@ -43,9 +44,12 @@
       "build/public/**/*"
     ],
     "targets": [
-      "node9-linux-x64",
-      "node9-macos-x64",
-      "node9-win-x64"
+      "node9-macos-x64"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "/source/publc/**/*.js"
     ]
   }
 }

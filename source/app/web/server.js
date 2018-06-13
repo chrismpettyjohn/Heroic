@@ -1,40 +1,39 @@
+import Path from 'path'
 import Cors from 'cors'
 import Glob from 'glob'
 import Fastify from 'fastify'
 import Heroic from '~/app/heroic'
+import requestIP from 'request-ip'
+import Static from 'fastify-static'
 import formBody from 'fastify-formbody'
 export default class HTTP {
   static server = {}
   static middleware = []
 
-  static init () {
-    return new Promise(async (resolve, reject) => {
-      try {
-        await HTTP.prepare()
-        await HTTP.configure()
-        await HTTP.loadMiddleware()
-        await HTTP.loadRouting()
-        await HTTP.loadStaticRouting()
-        await HTTP.listen()
-        resolve(`HTTP Server is listening on port ${Heroic.Config.http.port}`)
-      } catch (error) {
-        reject(Error(`HTTP Server - ${error}`))
-      }
-    })
+  static async init () {
+    try {
+      await HTTP.prepare()
+      await HTTP.configure()
+      await HTTP.loadMiddleware()
+      await HTTP.loadStaticRouting()
+      await HTTP.loadRouting()
+      await HTTP.listen()
+      return `HTTP Server is listening on port ${Heroic.Config.http.port}`
+    } catch (error) {
+      return Error(`HTTP Server - ${error}`)
+    }
   }
 
-  static prepare () {
-    return new Promise((resolve, reject) => {
-      HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
-      resolve()
-    })
+  static async prepare () {
+    HTTP.server = new Fastify({http2: Heroic.Config.http.http2})
+    return true
   }
 
   static configure () {
     return new Promise((resolve, reject) => {
       HTTP.server.use(Cors())
-      HTTP.server.options('*', Cors())
       HTTP.server.register(formBody)
+      HTTP.server.use(requestIP.mw())
       resolve()
     })
   }
@@ -91,15 +90,24 @@ export default class HTTP {
   }
 
   static async loadStaticRouting () {
-
+    // Static Files
+    HTTP.server.register(Static, {
+      root : Path.resolve(__dirname, '..', '..', 'public'),
+    })
+    // Serve Index
+    HTTP.server.get('*', ( request, reply) => {
+      reply.sendFile(Path.resolve(__dirname, '..', '..', 'public', 'index.html'))
+    })
+    // Return
+    return true
   }
 
   static async listen () {
     HTTP.server.listen(Heroic.Config.http.port, error => {
       if (error) {
-        return error(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
+        return Error(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
       } else {
-
+        return true
       }
     })
   }

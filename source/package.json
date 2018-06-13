@@ -5,6 +5,7 @@
     "fastify": "^1.4.0",
     "fastify-formbody": "^2.0.0",
     "fastify-helmet": "^1.0.3",
+    "fastify-static": "^0.12.0",
     "glob": "^7.1.2",
     "glob-promise": "^3.4.0",
     "jsonwebtoken": "^8.2.1",
@@ -13,6 +14,7 @@
     "objection": "^1.1.8",
     "objection-password-bcryptjs": "^1.0.0-a",
     "objection-visibility": "^0.2.0",
+    "request-ip": "^2.0.2",
     "validatorjs": "^3.14.2"
   }
 }
