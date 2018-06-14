@@ -1,3 +1,4 @@
+import File from 'fs'
 import Path from 'path'
 import Cors from 'cors'
 import Glob from 'glob'
@@ -90,20 +91,25 @@ export default class HTTP {
   }
 
   static async loadStaticRouting () {
-    // Static Files
-    HTTP.server.register(Static, {
-      root: Path.resolve(__dirname, '..', '..', 'public')
-    })
     // Serve Index
     HTTP.server.get('*', (request, reply) => {
       reply.sendFile(Path.resolve(__dirname, '..', '..', 'public', 'index.html'))
+    })
+    // Static Files
+    HTTP.server.register(Static, {
+      root: Path.resolve(__dirname, '..', '..', 'public'),
+    })
+    // 404 To Index
+    HTTP.server.setNotFoundHandler((request, reply) => {
+      let file = File.readFileSync(Path.resolve(__dirname, '..', '..', 'public', 'index.html'), 'utf8')
+      reply.type('text/html')
+      reply.code(200).send(file)
     })
     // Return
     return true
   }
 
   static async listen () {
-    HTTP.server.listen(Heroic.Config.http.port, error => {
     HTTP.server.listen(Heroic.Config.http.port, '0.0.0.0', error => {
       if (error) {
         return Error(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
