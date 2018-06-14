@@ -104,6 +104,7 @@ export default class HTTP {
 
   static async listen () {
     HTTP.server.listen(Heroic.Config.http.port, error => {
+    HTTP.server.listen(Heroic.Config.http.port, '0.0.0.0', error => {
       if (error) {
         return Error(`HTTP server cannot listen on port ${Heroic.Config.http.port}`)
       } else {
