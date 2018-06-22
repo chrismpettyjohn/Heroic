@@ -1,7 +1,7 @@
 import Model from '~/app/sql/models/cms/forum/post'
 export default class Post {
   static create (post) {
-    return Model.query().insertAndFetch(post)
+    return Model.query().insert(post)
   }
 
   static update (post, id) {

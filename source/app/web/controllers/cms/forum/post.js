@@ -12,18 +12,21 @@ export default class Post {
         title: request.body.title,
         content: request.body.content
       }
+      console.log('Topic')
     } else {
       // Reply
+      console.log('Reply')
       post = {
         user_id: request.user.id,
         topic_id: request.body.topic_id,
         content: request.body.content
       }
     }
+    console.log(post)
     // Create
     post = await Interactor.create(post)
     // Return
-    reply.code(200).send(post)
+    reply.code(200).send()
   }
 
   static async read (request, reply) {

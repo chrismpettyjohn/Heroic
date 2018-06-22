@@ -97,7 +97,7 @@ export default class HTTP {
     })
     // Static Files
     HTTP.server.register(Static, {
-      root: Path.resolve(__dirname, '..', '..', 'public'),
+      root: Path.resolve(__dirname, '..', '..', 'public')
     })
     // 404 To Index
     HTTP.server.setNotFoundHandler((request, reply) => {
