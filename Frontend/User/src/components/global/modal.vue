@@ -1,0 +1,23 @@
+<template>
+<div>
+	<div class="modal-backdrop fade in" style="z-index: 1040;"></div>
+	<div class="modal fade in" role="dialog" style="z-index: 1050; display: block;" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<button class="modal__close" @click="$emit('close')"></button>
+				<h3 class="modal__title">{{ title }}</h3>
+				<div class="modal__content">
+					<slot></slot>
+					<p style="position:absolute;bottom:5px;left:5px;font-size:0.8em;">Powered By <a href="http://heroicapi.com">Heroic 3</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</template>
+
+<script>
+export default {
+	props: ['title']
+}
+</script>
