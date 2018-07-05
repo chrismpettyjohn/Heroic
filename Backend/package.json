@@ -1,0 +1,57 @@
+{
+  "name": "heroic",
+  "bin": "build/index.js",
+  "devDependencies": {
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1"
+  },
+  "scripts": {
+    "debug": "cd source && nodemon -L --exec babel-node index.js",
+    "build": "npm run clean && cd source && babel . --out-dir=../../Production --copy-files --ignore node_modules --ignore source/public",
+    "test" : "cd source && babel-node index.js",
+    "precompile": "npm run build",
+    "compile": "pkg . --out-path compiled",
+    "clean": "standard --fix --parser babel-eslint"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 Chrome versions"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "babel-plugin-root-import"
+    ],
+    "ignore": [
+      "source/public/**/*",
+      "node_modules/**/*"
+    ],
+    "compact": true
+  },
+  "pkg": {
+    "scripts": "build/app/**/*.js",
+    "assets": [
+      "build/public/**/*"
+    ],
+    "targets": [
+      "node9-macos-x64"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "/source/public/**/*"
+    ]
+  },
+  "dependencies": {
+    "fast-boot": "^1.0.7"
+  }
+}

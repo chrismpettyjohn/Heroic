@@ -1,0 +1,17 @@
+{
+  "prefix": "forum/post",
+  "controller": "cms/forum/post",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create",
+      "middleware": "Session"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "prefix": "settings",
+  "controller": "cms/settings",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": "",
+      "method": "PATCH",
+      "controller": "update",
+      "middleware": "Session"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "prefix": "user",
+  "controller": "user/user",
+  "routes": [
+    {
+      "link": "",
+      "method": "POST",
+      "controller": "create"
+    },
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":username",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": "check/:type/:user",
+      "method": "GET",
+      "controller": "check"
+    }
+  ]
+}

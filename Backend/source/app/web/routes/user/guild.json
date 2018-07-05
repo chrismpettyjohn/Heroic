@@ -1,0 +1,16 @@
+{
+  "prefix": "guild",
+  "controller": "user/guild",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

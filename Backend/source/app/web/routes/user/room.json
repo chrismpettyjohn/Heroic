@@ -1,0 +1,16 @@
+{
+  "prefix": "room",
+  "controller": "user/room",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

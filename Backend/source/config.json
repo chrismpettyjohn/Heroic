@@ -1,0 +1,16 @@
+{
+  "database": {
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "password",
+    "database": "habbo"
+  },
+  "http": {
+    "port": 8090,
+    "http2": false
+  },
+  "directories": {
+    "build" : "/Users/Chris/Desktop/Heroic"
+  },
+  "JWT": "#change_me_later"
+}
