@@ -1,0 +1,11 @@
+{
+  "prefix": "badges",
+  "controller": "hotel/badges",
+  "routes": [
+    {
+      "link": ":code",
+      "method": "GET",
+      "controller": "read"
+    }
+  ]
+}

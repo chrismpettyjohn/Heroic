@@ -1,0 +1,12 @@
+{
+  "prefix": "hotel",
+  "controller": "hotel/settings",
+  "routes": [
+    {
+      "link": "settings",
+      "method": "GET",
+      "controller": "read",
+      "middleware": "Session"
+    }
+  ]
+}

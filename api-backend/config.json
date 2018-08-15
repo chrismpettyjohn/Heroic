@@ -1,0 +1,13 @@
+{
+  "database": {
+    "host": "145.239.204.118",
+    "user": "chris.root",
+    "password": "alexis:3",
+    "database": "habbo"
+  },
+  "http": {
+    "port": 8090,
+    "http2": false
+  },
+  "JWT": "#change_me_later" 
+} 

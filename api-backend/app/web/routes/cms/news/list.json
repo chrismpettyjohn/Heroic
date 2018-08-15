@@ -1,0 +1,12 @@
+{
+  "prefix": "news",
+  "controller": "cms/news/article",
+  "routes": [
+    {
+      "link": ":query",
+      "method": "GET",
+      "controller": "query",
+      "middleware": "Session"
+    }
+  ]
+}

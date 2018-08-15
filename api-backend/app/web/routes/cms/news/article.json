@@ -1,0 +1,21 @@
+{
+  "prefix": "news/article",
+  "controller": "cms/news/article",
+  "routes": [
+    {
+      "link": "",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "GET",
+      "controller": "read"
+    },
+    {
+      "link": ":id",
+      "method": "PATCH",
+      "controller": "update"
+    }
+  ]
+}

@@ -1,5 +1,0 @@
-{
-  "scripts": {
-  	"code": "cd Backend && npm run debug & cd Frontend/User && npm run serve  & cd Frontend/Admin && npm run serve"
-  }
-}
