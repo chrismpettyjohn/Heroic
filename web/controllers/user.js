@@ -1,7 +1,31 @@
+import Helper from '@/helpers/user'
 import Database from '@/sql/interactors/user'
 export default class Controller {
 
-  // CRUD Features
+  // Create user through registration
+  static async create (request, reply) {
+    try {
+      // Add IP to User object
+      request.body.user.ip = request.raw.clientIp
+      // Check for data errors
+      await Helper.check(request.body.user)
+      // Check for duplicates
+      await Helper.duplicates(request.body.user)
+      // Database transaction
+      await Database.create(request.body.user)
+      // Return
+      reply.code(200).send()
+    } catch (e) {
+      console.log('Error: ', e)
+      if (e instanceof Error) {
+        reply.code(400).send(`Couldn't make account`)
+      } else {
+        reply.code(400).send(e)
+      }
+    }
+  }
+
+  // Find user by username or email
   static async read (request, reply) {
     try {
       let user = await Database.read(request.params.user)

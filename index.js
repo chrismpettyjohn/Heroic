@@ -3,6 +3,9 @@ import Worker from 'cluster'
 import Heroic from '@/heroic'
 import Config from '@/config/system'
 
+// Cleart Console
+process.stdout.write('\x1B[2J\x1B[0f')
+
 // Handle primary course
 if (Worker.isMaster) {
   for (let i = 0; i < Config.advanced.workers; i++) {

@@ -13,7 +13,7 @@ export default class SQL {
   static async test () {
     const knex = Model.knex()
     try {
-      await knex.select('name').limit(1).from('heroic_settings')
+      await knex.select('id').limit(1).from('heroic_settings')
       return Promise.resolve()
     } catch (error) {
       return Promise.reject(error)

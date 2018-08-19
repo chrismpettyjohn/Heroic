@@ -22,11 +22,16 @@
   "author": "chrismpettyjohn",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.4",
     "fastify": "^1.9.0",
+    "fastify-formbody": "^2.0.1",
     "knex": "^0.15.2",
     "mysql2": "^1.6.1",
     "objection": "^1.2.2",
-    "objection-visibility": "^0.3.2"
+    "objection-password-bcryptjs": "^1.0.0-a",
+    "objection-visibility": "^0.3.2",
+    "request-ip": "^2.1.1",
+    "validator": "^10.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

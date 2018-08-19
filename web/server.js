@@ -1,6 +1,9 @@
 import Path from 'path'
+import Cors from 'cors'
+import IP from 'request-ip'
 import Routes from './routes'
 import Fastify from 'fastify'
+import Form from 'fastify-formbody'
 import Config from '@/config/system'
 export default class HTTP {
   static async init () {
@@ -15,7 +18,14 @@ export default class HTTP {
   }
 
   static async prepare () {
+    // Setup
     HTTP.server = new Fastify()
+    // Configure
+    HTTP.server.use(Cors())
+    HTTP.server.use(IP.mw())
+    // Register
+    HTTP.server.register(Form)
+    // Return
     return Promise.resolve()
   }
 

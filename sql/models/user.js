@@ -1,5 +1,12 @@
+// Dependencies
 import Base from '@/sql/base'
-export default class Model extends Base {
+import Password from 'objection-password-bcryptjs'
+
+// Prepare
+const password = Password()
+
+// Code
+export default class Model extends password(Base) {
   static get tableName () {
     return 'users'
   }
@@ -23,4 +30,5 @@ export default class Model extends Base {
       'home_room'
     ]
   }
+  
 }
