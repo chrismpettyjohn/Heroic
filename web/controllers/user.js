@@ -6,7 +6,7 @@ export default class Controller {
       let user = await Database.read(request.params.username)
       reply.code(200).send(user)
     } catch (e) {
-      reply.code(400).send('An issue occured on our side.  Please check the error logs.')
+      reply.code(404).send()
     }
   }
 
