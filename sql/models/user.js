@@ -1,4 +1,4 @@
-import Base from '@/app/sql/base'
+import Base from '@/sql/base'
 export default class Model extends Base {
   static get tableName () {
     return 'users'

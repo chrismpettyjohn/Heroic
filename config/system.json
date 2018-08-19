@@ -6,6 +6,7 @@
 		"database": "habbo"
 	},
 	"web": {
+		"http": 1,
 		"port": "8090"
 	},
 	"advanced": {

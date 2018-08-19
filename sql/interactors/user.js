@@ -1,10 +1,11 @@
-import Model from '@/app/sql/models/user'
+import Model from '@/sql/models/user'
 export default class Interactor {
   // Fetch user data based on username
   static async read (username) {
     try {
-      let user = await Model.query().where('username', username)
-      if (user[0] !== null) {
+      let user = await Model.query().findOne({ username : username })
+      console.log(user)
+      if (user!== null) {
         return user
       } else {
         return Error('MISSING')

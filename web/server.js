@@ -1,40 +1,46 @@
-import FS from 'fs'
 import Path from 'path'
+import Routes from './routes'
 import Fastify from 'fastify'
 import Config from '@/config/system'
 export default class HTTP {
-	static server = {}
-	static middleware = []
-	static async init() {
-		try {
-			await HTTP.prepare()
+  static async init () {
+    try {
+      await HTTP.prepare()
+      await Routes.init()
       await HTTP.listen()
       return Promise.resolve()
-		} catch (e) {
-			return Promise.reject(e)
-		}
-	}
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
 
-	static async prepare() {
-		// Configure
-		HTTP.server = new Fastify({
-			http2: true,
-			https: {
-				key: FS.readFileSync(Path.join(__dirname, '..', 'config', 'ssl.key.pem')),
-				cert: FS.readFileSync(Path.join(__dirname, '..', 'config', 'ssl.cert.pem'))
-			}
-		})
-		// Return
-		return Promise.resolve()
-	}
+  static async prepare () {
+    HTTP.server = new Fastify()
+    return Promise.resolve()
+  }
 
-	static async listen() {
-		try {
-			await HTTP.server.listen(Config.web.port)
-			return Promise.resolve()
-		} catch (e) {
-			return Promise.reject(e)
-		}
-	}
+  static async route (method, link, controller) {
+    // Parse method 
+    method = method.toLowerCase()
+    // Parse Link
+    link = `/${link}`
+    // Load Controller
+    controller = {
+      handler: require(Path.resolve(__dirname, 'controllers', `${controller.split('@')[0]}.js`)).default,
+      action: controller.split('@')[1],
+    }
+    // Configure Route
+    HTTP.server[method](link, controller.handler[controller.action])
+    // Return
+    return Promise.resolve()
+  }
 
+  static async listen () {
+    try {
+      await HTTP.server.listen(Config.web.port)
+      return Promise.resolve()
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
 }

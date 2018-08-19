@@ -5,13 +5,10 @@ export default class Heroic {
   static async init () {
     try {
       // Launch SQL handler
-      let status = await SQL.init()
-      console.log(`SQL INIT ${status}`)
-      status = await SQL.test()
-      console.log(`SQL TEST ${status}`)
+      await SQL.init()
+      await SQL.test()
       // Launch WEB handler
-      status = await WEB.init()
-      console.log(`WEB INIT ${status}`)
+      await WEB.init()
       // Display Launch Message
       Log.push('Heroic', 'init()', 'Heroic has launched', 'info')
     } catch (e) {

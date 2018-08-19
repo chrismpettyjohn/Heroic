@@ -4,7 +4,7 @@ import Config from '@/config/system'
 export default class SQL {
   static async init () {
     const knex = Knex({
-      client: 'mysql2', 
+      client: 'mysql2',
       connection: Config.sql
     })
     Model.knex(knex)

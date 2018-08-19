@@ -7,8 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "nodemon -L --exec babel-node index.js",
-    "clean": "standard --fix --parser babe-eslint"
+    "test": "nodemon -L --exec babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +25,13 @@
     "fastify": "^1.9.0",
     "knex": "^0.15.2",
     "mysql2": "^1.6.1",
-    "objection": "^1.2.2"
+    "objection": "^1.2.2",
+    "objection-visibility": "^0.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.18.3"
+    "babel-preset-env": "^1.7.0"
   }
 }
