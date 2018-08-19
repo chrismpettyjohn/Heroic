@@ -7,5 +7,7 @@ export default class Routing {
     // User
     await Server.route('POST', 'user', 'User@create') // Create user
     await Server.route('GET', 'user/:user','User@read') // Find user by username or email
+    // Session
+    await Server.route('POST', 'session', 'Session@create') // Login as user
   }
 }

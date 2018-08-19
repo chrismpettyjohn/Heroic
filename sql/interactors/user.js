@@ -2,7 +2,6 @@ import Model from '@/sql/models/user'
 import Heroic from '@/sql/models/heroic'
 export default class Interactor {
   // Create user 
-  // username, password, mail, account_created, ip_register, ip_current
   static async create (user) {
     try {
       // Fetch Heroic Settings
@@ -32,7 +31,6 @@ export default class Interactor {
       return Promise.reject(e)
     }
   }
-
   // Fetch user data based on username
   static async read (query) {
     try {
@@ -49,6 +47,21 @@ export default class Interactor {
         return Promise.resolve(user)
       } else {
         return Promise.reject('MISSING')
+      }
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+  // Login as user
+  static async login (username, password) {
+    try {
+      // Fetch
+      let user = await Interactor.read(username)
+      // Verify Login
+      if (await user.verifyPassword(password)) {
+        return Promise.resolve(user)
+      } else {
+        return Promise.reject('Wrong username or password')
       }
     } catch (e) {
       return Promise.reject(e)
