@@ -5,6 +5,7 @@ import Routes from './routes'
 import Fastify from 'fastify'
 import Form from 'fastify-formbody'
 import Config from '@/config/system'
+import Compress from 'fastify-compress'
 export default class HTTP {
   static async init () {
     try {
@@ -24,6 +25,7 @@ export default class HTTP {
     HTTP.server.use(Cors())
     HTTP.server.use(IP.mw())
     // Register
+    HTTP.server.register(Compress)
     HTTP.server.register(Form)
     // Return
     return Promise.resolve()

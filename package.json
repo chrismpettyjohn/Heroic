@@ -24,7 +24,9 @@
   "dependencies": {
     "cors": "^2.8.4",
     "fastify": "^1.9.0",
+    "fastify-compress": "^0.6.0",
     "fastify-formbody": "^2.0.1",
+    "jsonwebtoken": "^8.3.0",
     "knex": "^0.15.2",
     "mysql2": "^1.6.1",
     "objection": "^1.2.2",
