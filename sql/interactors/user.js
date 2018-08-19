@@ -4,14 +4,13 @@ export default class Interactor {
   static async read (username) {
     try {
       let user = await Model.query().findOne({ username : username })
-      console.log(user)
-      if (user!== null) {
-        return user
+      if (user.id!==null) {
+        return Promise.resolve(user)
       } else {
-        return Error('MISSING')
+        return Promise.reject('MISSING')
       }
     } catch (e) {
-      return Error(e)
+      return Promise.reject(e)
     }
   }
 }
