@@ -1,7 +1,7 @@
 import Model from '@/sql/models/user'
 import Heroic from '@/sql/models/heroic'
 export default class Interactor {
-  // Create user 
+  // Create user
   static async create (user) {
     try {
       // Fetch Heroic Settings
@@ -36,17 +36,17 @@ export default class Interactor {
     try {
       // Parse query
       if (query.indexOf('@') > -1) {
-        query = { mail : query }
+        query = { mail: query }
       } else {
-        query = { username : query }
+        query = { username: query }
       }
       // Find User
       let user = await Model.query().eager(`[${relationships}]`).findOne(query)
       // Does user exist?
-      if (user.id!==null) {
+      if (user.id !== null) {
         return Promise.resolve(user)
       } else {
-        return Promise.reject('MISSING')
+        return Promise.reject(Error('MISSING'))
       }
     } catch (e) {
       return Promise.reject(e)
@@ -61,7 +61,7 @@ export default class Interactor {
       if (await user.verifyPassword(password)) {
         return Promise.resolve(user)
       } else {
-        return Promise.reject('Wrong username or password')
+        return Promise.reject(Error('Wrong username or password'))
       }
     } catch (e) {
       return Promise.reject(e)

@@ -69,8 +69,7 @@ export default class Model extends password(Base) {
           from: 'users.id',
           to: 'users_settings.user_id'
         }
-      },
+      }
     }
   }
-  
 }

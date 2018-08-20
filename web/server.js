@@ -32,14 +32,14 @@ export default class HTTP {
   }
 
   static async route (method, link, controller) {
-    // Parse method 
+    // Parse method
     method = method.toLowerCase()
     // Parse Link
     link = `/${link}`
     // Load Controller
     controller = {
       handler: require(Path.resolve(__dirname, 'controllers', `${controller.split('@')[0]}.js`)).default,
-      action: controller.split('@')[1],
+      action: controller.split('@')[1]
     }
     // Configure Route
     HTTP.server[method](link, controller.handler[controller.action])

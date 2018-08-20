@@ -10,7 +10,7 @@ export default class Model extends Base {
       'site.link',
       'user.motto',
       'user.look',
-      'user.gender', 
+      'user.gender',
       'user.rank',
       'user.credits',
       'user.pixels',

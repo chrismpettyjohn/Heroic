@@ -1,6 +1,5 @@
 import Database from '@/sql/interactors/heroic'
 export default class Controller {
-
   // Fetch heroic settings
   static async read (request, reply) {
     try {
@@ -10,5 +9,4 @@ export default class Controller {
       reply.code(400).send()
     }
   }
-
 }

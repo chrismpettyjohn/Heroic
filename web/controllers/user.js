@@ -1,7 +1,6 @@
 import Helper from '@/helpers/user'
 import Database from '@/sql/interactors/user'
 export default class Controller {
-
   // Create user through registration
   static async create (request, reply) {
     try {
@@ -16,12 +15,7 @@ export default class Controller {
       // Return
       reply.code(200).send()
     } catch (e) {
-      console.log('Error: ', e)
-      if (e instanceof Error) {
-        reply.code(400).send(`Couldn't make account`)
-      } else {
-        reply.code(400).send(e)
-      }
+      reply.code(400).send(e)
     }
   }
 
@@ -31,9 +25,7 @@ export default class Controller {
       let user = await Database.read(request.params.user, request.params.relationships)
       reply.code(200).send(user)
     } catch (e) {
-      console.log(e)
       reply.code(404).send()
     }
   }
-
 }
