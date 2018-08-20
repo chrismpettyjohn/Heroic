@@ -13,4 +13,8 @@ export default class Controller {
       reply.code(400).send()
     }
   }
+
+  static async client (request, reply) {
+    reply.code(200).send('Fuck off bitch')
+  }
 }

@@ -1,6 +1,7 @@
 import Path from 'path'
 import Cors from 'cors'
 import IP from 'request-ip'
+import Token from '@/lib/jwt'
 import Routes from './routes'
 import Fastify from 'fastify'
 import Form from 'fastify-formbody'
@@ -31,7 +32,7 @@ export default class HTTP {
     return Promise.resolve()
   }
 
-  static async route (method, link, controller) {
+  static async route (method, link, controller, auth = false) {
     // Parse method
     method = method.toLowerCase()
     // Parse Link
@@ -41,8 +42,14 @@ export default class HTTP {
       handler: require(Path.resolve(__dirname, 'controllers', `${controller.split('@')[0]}.js`)).default,
       action: controller.split('@')[1]
     }
-    // Configure Route
-    HTTP.server[method](link, controller.handler[controller.action])
+    // Authenticated?
+    if (auth) {
+      // Configure Route
+      HTTP.server[method](link, { beforeHandler: Token.check }, controller.handler[controller.action])
+    } else {
+      // Configure Route
+      HTTP.server[method](link, controller.handler[controller.action])
+    }
     // Return
     return Promise.resolve()
   }
