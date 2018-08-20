@@ -6,10 +6,30 @@ export default class Model extends Base {
 
   static get visible () {
     return [
+      // Columns
       'id',
       'title',
-      'content'
+      'content',
+      // Relationships
+      'articles'
     ]
+  }
+
+  static get relationMappings () {
+    // Dependencies
+    const Articles = require('./articles').default
+    // Relations
+    return {
+      // Articles (heroic_articles)
+      articles: {
+        relation: Base.HasManyRelation,
+        modelClass: Articles,
+        join: {
+          from: 'heroic_categories.id',
+          to: 'heroic_articles.category_id'
+        }
+      }
+    }
   }
   
 }
