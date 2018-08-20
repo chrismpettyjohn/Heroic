@@ -3,7 +3,7 @@
 		<nav class="navigation">
 			<ul class="navigation__menu">
 				<li v-for="page in navi.links" class="navigation__item">
-					<router-link to="/me" class="navigation__link" :class="`navigation__link--${page.class}`"> {{ page.text }}</router-link>
+					<router-link :to="{ name : page.link }" class="navigation__link" :class="`navigation__link--${page.class}`"> {{ page.text }}</router-link>
 				</li>
         <li class="navigation__item navigation__item--aside navigation__item--hotel">
           <router-link :to="{ name : 'Home.Client' }" class="hotel-button" id="ga-linkid-hotel">
@@ -42,6 +42,7 @@ export default {
           {
             active: 'Home',
             text: 'Home',
+            link: 'Home.Me',
             class: 'home',
             children: [
               // Me Page
@@ -59,6 +60,33 @@ export default {
                   username: Session.state.user.username
                 }
               }
+            ]
+          },
+          // Community
+          {
+            active: 'Community',
+            text: 'Community',
+            link: 'Community.Photos.List',
+            class: 'community',
+            children: [
+              // Photos
+              {
+                active: 'Photos',
+                text: `Photos`,
+                link: 'Community.Photos.List'
+              },
+              // Rooms
+              {
+                active: 'Rooms',
+                text: `Rooms`,
+                link: 'Community.Rooms.List'
+              },
+              // News
+              {
+                active: 'News',
+                text: `News`,
+                link: 'Community.News.Articles.Latest'
+              },
             ]
           }
         ]
