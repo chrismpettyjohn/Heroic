@@ -32,7 +32,7 @@ export default class Interactor {
     }
   }
   // Fetch user data based on username
-  static async read (query) {
+  static async read (query, relationships = '') {
     try {
       // Parse query
       if (query.indexOf('@') > -1) {
@@ -40,8 +40,8 @@ export default class Interactor {
       } else {
         query = { username : query }
       }
-      // Find user
-      let user = await Model.query().findOne(query)
+      // Find User
+      let user = await Model.query().eager(`[${relationships}]`).findOne(query)
       // Does user exist?
       if (user.id!==null) {
         return Promise.resolve(user)

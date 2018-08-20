@@ -28,9 +28,10 @@ export default class Controller {
   // Find user by username or email
   static async read (request, reply) {
     try {
-      let user = await Database.read(request.params.user)
+      let user = await Database.read(request.params.user, request.params.relationships)
       reply.code(200).send(user)
     } catch (e) {
+      console.log(e)
       reply.code(404).send()
     }
   }
