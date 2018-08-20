@@ -79,3 +79,4 @@ typings/
 # Serverless directories
 .serverless
 *.git
+.DS_Store
