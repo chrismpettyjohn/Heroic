@@ -17,7 +17,7 @@ export default class Model extends Base {
 
   static get relationMappings () {
     // Dependencies
-    const Articles = require('./articles').default
+    const Articles = require('./article').default
     // Relations
     return {
       // Articles (heroic_articles)

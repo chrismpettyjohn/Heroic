@@ -24,7 +24,7 @@ export default class Model extends Base {
    static get relationMappings () {
     // Dependencies
     const User = require('./user').default
-    const Category = require('./categories').default
+    const Category = require('./category').default
     // Relations
     return {
       // Author (users)

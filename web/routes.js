@@ -14,10 +14,10 @@ export default class Routing {
     await Server.route('POST', 'session', 'Session@create') // Login as user
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
     // News Articles
-    await Server.route('GET', 'article/:id', 'Articles@read') // Fetch article
-    await Server.route('GET', 'article/:id/:relations', 'Articles@read') // Fetch article (with relations)
+    await Server.route('GET', 'article/:id', 'Article@read') // Fetch article
+    await Server.route('GET', 'article/:id/:relations', 'Article@read') // Fetch article (with relations)
     // News Categories
-    await Server.route('GET', 'category/:id', 'Categories@read') // Fetch category
-    await Server.route('GET', 'category/:id/:relations', 'Categories@read') // Fetch category (with relations)
+    await Server.route('GET', 'category/:id', 'Category@read') // Fetch category
+    await Server.route('GET', 'category/:id/:relations', 'Category@read') // Fetch category (with relations)
   }
 }

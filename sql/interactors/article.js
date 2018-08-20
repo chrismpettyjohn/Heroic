@@ -1,4 +1,4 @@
-import Model from '@/sql/models/articles'
+import Model from '@/sql/models/article'
 export default class Interactor {
   // Fetch article
   static async read (id, relations = '') {
