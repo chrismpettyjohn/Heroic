@@ -32,6 +32,7 @@ export default class Model extends password(Base) {
       // Relationships
       'badges',
       'bans',
+      'friends',
       'info',
       'rooms'
     ]
@@ -41,6 +42,7 @@ export default class Model extends password(Base) {
     // Dependencies
     const Badges = require('./users_badges').default
     const Bans = require('./bans').default
+    const Friends = require('./friend').default
     const Info = require('./users_settings').default
     const Rooms = require('./rooms').default
     // Relations
@@ -63,6 +65,15 @@ export default class Model extends password(Base) {
           to: 'users_badges.user_id'
         }
       },
+      // Friends (messenger_friendships)
+      friends: {
+        relation: Base.HasManyRelation,
+        modelClass: Friends,
+        join: {
+          from: 'users.id',
+          to: 'messenger_friendships.user_one_id'
+        }
+      },
       // Info (user_settings)
       info: {
         relation: Base.HasOneRelation,
@@ -72,6 +83,7 @@ export default class Model extends password(Base) {
           to: 'users_settings.user_id'
         }
       },
+      // Rooms (rooms)
       rooms: {
         relation: Base.HasManyRelation,
         modelClass: Rooms,
