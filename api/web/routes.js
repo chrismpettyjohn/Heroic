@@ -12,7 +12,10 @@ export default class Routing {
     // User
     await Server.route('POST', 'user', 'User@create') // Create user
     await Server.route('GET', 'user/:user', 'User@read') // Find user by username or email
-    await Server.route('GET', 'user/:user/:relations', 'User@read') // Find user - with relationship attachment
+    await Server.route('GET', 'user/:user/:relations', 'User@read') // Fetch user^ (with relations)
+    // Camera
+    await Server.route('GET', 'camera/:id', 'Camera@read') // Fetch photo by id
+    await Server.route('GET', 'camera/:id/:relations', 'Camera@read') // Fetch photo (with relations)
     // Permission
     await Server.route('GET', 'permission/:id', 'Permission@read') // Fetch permission by id or type
     await Server.route('GET', 'permission/:id/:relations', 'Permission@read') // Fetch permission by id or type (with relations)
