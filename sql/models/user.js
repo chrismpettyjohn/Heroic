@@ -32,7 +32,8 @@ export default class Model extends password(Base) {
       // Relationships
       'badges',
       'bans',
-      'info'
+      'info',
+      'rooms'
     ]
   }
 
@@ -41,6 +42,7 @@ export default class Model extends password(Base) {
     const Badges = require('./users_badges').default
     const Bans = require('./bans').default
     const Info = require('./users_settings').default
+    const Rooms = require('./rooms').default
     // Relations
     return {
       // Bans (bans)
@@ -68,6 +70,14 @@ export default class Model extends password(Base) {
         join: {
           from: 'users.id',
           to: 'users_settings.user_id'
+        }
+      },
+      rooms: {
+        relation: Base.HasManyRelation,
+        modelClass: Rooms,
+        join: {
+          from: 'users.id',
+          to: 'rooms.owner_id'
         }
       }
     }
