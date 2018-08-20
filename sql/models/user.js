@@ -30,24 +30,26 @@ export default class Model extends password(Base) {
       'online',
       'home_room',
       // Relationships
-      'info',
-      'badges'
+      'badges',
+      'bans',
+      'info'
     ]
   }
 
   static get relationMappings () {
     // Dependencies
-    const Info = require('./users_settings').default
     const Badges = require('./users_badges').default
+    const Bans = require('./bans').default
+    const Info = require('./users_settings').default
     // Relations
     return {
-      // Info (user_settings)
-      info: {
+      // Bans (bans)
+      bans: {
         relation: Base.HasOneRelation,
-        modelClass: Info,
+        modelClass: Bans,
         join: {
           from: 'users.id',
-          to: 'users_settings.user_id'
+          to: 'bans.user_id'
         }
       },
       // Badges (users_badges)
@@ -58,7 +60,16 @@ export default class Model extends password(Base) {
           from: 'users.id',
           to: 'users_badges.user_id'
         }
-      }
+      },
+      // Info (user_settings)
+      info: {
+        relation: Base.HasOneRelation,
+        modelClass: Info,
+        join: {
+          from: 'users.id',
+          to: 'users_settings.user_id'
+        }
+      },
     }
   }
   
