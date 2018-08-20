@@ -12,7 +12,8 @@ export default class Routing {
     await Server.route('GET', 'user/:user/:relationships', 'User@read') // Find user - with relationship attachment
     // Session
     await Server.route('POST', 'session', 'Session@create') // Login as user
-    // Authenticated Routes 
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
+    // News Articles
+    await Server.route('GET', 'article/:id', 'Articles@read') // Fetch article
   }
 }
