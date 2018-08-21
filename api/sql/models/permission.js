@@ -9,6 +9,8 @@ export default class Model extends Base {
       // Columns
       'id',
       'rank_name',
+      'rank_desc',
+      'rank_type',
       'prefix',
       // Relationships
       'users'
