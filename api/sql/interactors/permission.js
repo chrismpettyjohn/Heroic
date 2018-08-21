@@ -9,9 +9,9 @@ export default class Interactor {
       if (!isNaN(parseInt(id))) {
         permission = await Model.query().eager(`[${relations}]`).findById(id)
       } else if (id === 'staff') {
-        permission = await Model.query().eager(`[${relations}]`).where('acc_staff_chat', '1').orderBy('id', 'DESC').select()
+        permission = await Model.query().eager(`[${relations}]`).where('acc_staff_chat', '1').orderBy('id', 'DESC')
       } else if (id === 'vip') {
-        permission = await Model.query().eager(`[${relations}]`).where('level', '2').orderBy('id', 'DESC').select()
+        permission = await Model.query().eager(`[${relations}]`).where('level', '2').orderBy('id', 'DESC')
       }
       // Does permission exist?
       if (permission) {

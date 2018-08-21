@@ -4,7 +4,7 @@ export default class Interactor {
   static async read (id, relations = '') {
     try {
       let article = {}
-      if (id!=='latest') {
+      if (!isNaN(parseInt(id))) {
         article = await Model.query().eager(`[${relations}]`).findById(id)
       } else {
         article = await Model.query().eager(`[${relations}]`).orderBy('id', 'DESC').limit(10).select()

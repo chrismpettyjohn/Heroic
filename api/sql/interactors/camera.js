@@ -9,7 +9,7 @@ export default class Interactor {
       if (!isNaN(parseInt(id))) {
         camera = await Model.query().eager(`[${relations}]`).findById(id)
       } else {
-        camera = await Model.query().eager(`[${relations}]`).orderBy('id', 'DESC').limit(20).select()
+        camera = await Model.query().eager(`[${relations}]`).orderBy('id', 'DESC').limit(20)
       }
       // Results?
       if (camera) {
