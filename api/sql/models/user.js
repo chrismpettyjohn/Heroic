@@ -44,7 +44,7 @@ export default class Model extends password(Base) {
     const Bans = require('./bans').default
     const Friends = require('./friend').default
     const Info = require('./users_settings').default
-    const Rooms = require('./rooms').default
+    const Rooms = require('./room').default
     // Relations
     return {
       // Bans (bans)

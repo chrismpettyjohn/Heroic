@@ -16,6 +16,9 @@ export default class Routing {
     // Camera
     await Server.route('GET', 'camera/:id', 'Camera@read') // Fetch photo by id
     await Server.route('GET', 'camera/:id/:relations', 'Camera@read') // Fetch photo (with relations)
+    // Rooms 
+    await Server.route('GET', 'room/:id', 'Room@read') // Fetch room by id
+    await Server.route('GET', 'room/:id/:relations', 'Room@read') // Fetch room (with relations)
     // Permission
     await Server.route('GET', 'permission/:id', 'Permission@read') // Fetch permission by id or type
     await Server.route('GET', 'permission/:id/:relations', 'Permission@read') // Fetch permission by id or type (with relations)

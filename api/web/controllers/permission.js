@@ -6,7 +6,6 @@ export default class Controller {
       let permission = await Database.read(request.params.id, request.params.relations)
       reply.code(200).send(permission)
     } catch (e) {
-      console.log(e)
       reply.code(404).send()
     }
   }

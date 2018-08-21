@@ -25,7 +25,6 @@ export default class Controller {
       let user = await Database.read(request.params.user, request.params.relations)
       reply.code(200).send(user)
     } catch (e) {
-      console.log(e)
       reply.code(404).send()
     }
   }

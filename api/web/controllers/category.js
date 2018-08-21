@@ -6,7 +6,6 @@ export default class Controller {
       let category = await Database.read(request.params.id, request.params.relations)
       reply.code(200).send(category)
     } catch (e) {
-      console.log(e)
       reply.code(404).send()
     }
   }
