@@ -16,6 +16,8 @@ list.Rooms.View = require('./community/rooms/view').default
 // News
 list.News = {}
 list.News.Latest = require('./community/news/latest').default
+list.News.Category = require('./community/news/category').default
+list.News.Article = require('./community/news/article').default
 
 /* End of Pages */
 

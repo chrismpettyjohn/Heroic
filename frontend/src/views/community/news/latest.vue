@@ -36,15 +36,12 @@
           <time class="news-header__date">May 1, 2018</time>
           <ul class="news-header__categories">
             <li class="news-header__category">
-              <a @click="setActive(article.category_id)" class="news-header__category__link">{{ article.category.title }}</a>
+              <router-link :to="{ name: 'Community.News.Category', params: { id: article.category.id }}" class="news-header__category__link">{{ article.category.title }}</router-link>
             </li>
           </ul>
         </aside>
         <p class="news-header__wrapper news-header__summary">{{ article.description }}</p>
       </article>
-      <div v-if="articles.length===0">
-         <p>No news articles have been posted yet...</p>
-      </div>
     </div>
   </div>
 </template>

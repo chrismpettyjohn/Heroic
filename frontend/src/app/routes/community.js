@@ -43,5 +43,23 @@ routes.push({
   component: Community.News.Latest
 })
 
+// News Category
+routes.push({
+  name: 'Community.News.Category',
+  path: '/news/category/:id',
+  component: Community.News.Category,
+  props: true
+})
+
+// News Article
+routes.push({
+  name: 'Community.News.Article',
+  path: '/news/article/:id',
+  component: Community.News.Article,
+  props: true
+})
+
+
+
 /* End of Add To List */
 export default routes
