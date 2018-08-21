@@ -21,5 +21,20 @@ routes.push({
   props: true
 })
 
+// Room List
+routes.push({
+  name: 'Community.Rooms.List',
+  path: '/rooms',
+  component: Community.Rooms.List
+})
+
+// Room List
+routes.push({
+  name: 'Community.Rooms.View',
+  path: '/rooms/:id',
+  component: Community.Rooms.View,
+  props: true
+})
+
 /* End of Add To List */
 export default routes

@@ -11,7 +11,7 @@
       <div v-for="photo in photos" class="habbo-card">
         <div v-cloak class="card">
           <div class="card__content">
-            <router-link :to="{ name: 'Community.Photos.View', params: { id: photo.id }}" class="card__link">
+            <router-link :to="{ name: 'Community.Photos.View', params: { id: photo.id, data: photo }}" class="card__link">
               <div class="card__image__aligner">
                 <img :src="photo.url" class="card__image card__image--photo"">
               </div>
