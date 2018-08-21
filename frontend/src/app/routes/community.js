@@ -36,5 +36,12 @@ routes.push({
   props: true
 })
 
+// News Latest
+routes.push({
+  name: 'Community.News.Latest',
+  path: '/news/latest',
+  component: Community.News.Latest
+})
+
 /* End of Add To List */
 export default routes

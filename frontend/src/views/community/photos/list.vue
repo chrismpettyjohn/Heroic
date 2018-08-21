@@ -7,9 +7,9 @@
     <loading v-if="loading">We are fetching the latest photos!</loading>
 
     <!-- Content -->
-    <div v-if="!loading" class="columns" style="margin-top:2.5%;">
+    <div v-if="!loading" class="columns" style="margin-top:2.5%;" v-cloak>
       <div v-for="photo in photos" class="habbo-card">
-        <div v-cloak class="card">
+        <div class="card">
           <div class="card__content">
             <router-link :to="{ name: 'Community.Photos.View', params: { id: photo.id, data: photo }}" class="card__link">
               <div class="card__image__aligner">

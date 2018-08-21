@@ -6,6 +6,12 @@ let routes = []
 
 /* Add To List */
 
+// Default Catch
+routes.push({
+  path: '/',
+  component: Guest.Catch
+})
+
 // Login
 routes.push({
   name: 'Guest.Login',

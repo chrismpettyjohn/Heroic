@@ -13,6 +13,10 @@ list.Rooms = {}
 list.Rooms.List = require('./community/rooms/list').default
 list.Rooms.View = require('./community/rooms/view').default
 
+// News
+list.News = {}
+list.News.Latest = require('./community/news/latest').default
+
 /* End of Pages */
 
 // Export

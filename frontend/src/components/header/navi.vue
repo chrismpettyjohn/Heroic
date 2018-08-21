@@ -85,7 +85,7 @@ export default {
               {
                 active: 'News',
                 text: `News`,
-                link: 'Community.News.Articles.Latest'
+                link: 'Community.News.Latest'
               },
             ]
           }

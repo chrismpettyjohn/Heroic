@@ -9,15 +9,15 @@
     <!-- Content -->
     <section v-if="!loading" class="wrapper wrapper--content rooms-wrapper" style="margin-top:1.5%;">
         <div v-for="room in rooms" class="room-item">
-          <router-link :to="{ name : 'Community.Rooms.View', params: { id : room.id }}">
+          <router-link :to="{ name: 'Community.Rooms.View', params: { id: room.id, data: room }}">
             <div class="room-item__thumbnail"></div>
           </router-link>
-          <router-link :to="{ name : 'Community.Rooms.View', params: { id : room.id }}">
+          <router-link :to="{ name: 'Community.Rooms.View', params: { id: room.id, data: room }}">
             <h2 class="room-item__title">{{ room.name }}</h2>
           </router-link>
           <p class="room-item__description">{{ room.description }}</p>
           <div>
-            <router-link :to="{ name : 'user.home.profile', params : { username : room.owner.username }}" class="avatar">
+            <router-link :to="{ name: 'user.home.profile', params : { username: room.owner.username }}" class="avatar">
               <div class="habbo-imager room__owner--user">
                 <imager :look="room.owner.look" headonly="1"></imager>
               </div>
