@@ -12,7 +12,7 @@ export default class Model extends Base {
       'owner_name',
       'name',
       'description',
-      'model',
+      'score',
       'users',
       'users_max',
       'guild_id',
