@@ -13,6 +13,13 @@ routes.push({
   component: Community.Photos.List
 })
 
+// Photo View
+routes.push({
+  name: 'Community.Photos.View',
+  path: '/photos/:id',
+  component: Community.Photos.View,
+  props: true
+})
 
 /* End of Add To List */
 export default routes

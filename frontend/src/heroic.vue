@@ -52,7 +52,7 @@ export default {
     // Prepare Session
     await Session.dispatch('init')
     // Force Redirect (Router is dumb)
-    this.$router.push({ name: 'Home.Me' })
+    //this.$router.push({ name: 'Home.Me' })
     // Change State
     this.ready = true
   },

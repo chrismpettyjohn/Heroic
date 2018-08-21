@@ -1,59 +1,79 @@
 <template>
-	<div class="row">
-		<!-- Page Title -->
-		<page-title>Chris</page-title>
+  <div>
+    <!-- Title -->
+    <page-title>Home</page-title>
 
-		<!-- Content -->
-		<div class="col-8">
-			<h1>Latest News</h1>
-			<slider/>
-		</div>
-		<div class="col-4">
-			<h1>Welcome Back</h1>
-			<!-- Hot Campaigns -->
-			<container icon="http://habboemotion.com/resources/images/icons/news_icon_00.gif" title="Campaigns">
-				<div class="row campaign">
-					<div class="col-2">
-						<img src="http://habboemotion.com/resources/images/icons/HD_hc.gif">
-					</div>
-					<div class="col-1"></div>
-					<div class="col-8">
-						<h5>Buy Habbo Club</h5>
-						<p>Head to the shop today and join the best club!</p>
-					</div>
-				</div>
-				<div class="row campaign">
-					<div class="col-2">
-						<img src="http://habboemotion.com/resources/images/icons/HD_staff.gif">
-					</div>
-					<div class="col-1"></div>
-					<div class="col-8">
-						<h5>Staff Apps</h5>
-						<p>Do you have what it takes to join the team?</p>
-					</div>
-				</div>
-			</container>
-			<!-- Beta Message -->
-			<container icon="http://habboemotion.com/resources/images/icons/news_icon_05.gif" title="Beta">
-				This hotel is undergoing work and all features may not work.
-			</container>
-		</div>
-	</div>
+    <!-- Social Area -->
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-2">
+            <div class="user"></div>
+          </div>
+          <div class="col-10 col-closer">
+            <container>
+              <h4>
+                <div class="row">
+                  <div class="col-10 col-closer">
+                    Post as {{ user.username }} <i class="fa fa-caret-down"></i> 
+                  </div>
+                  <div class="col-2" style="padding-left:35px;">
+                    Publish
+                  </div>
+                </div>
+              </h4>
+              <form class="post">
+                <textarea placeholder="Write a new post..." rows="3"></textarea>
+              </form>
+            </container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
+<style scoped>
+  .user {
+    background: #0B3E63;
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.3);
+    height: 70px;
+    width: 66px;
+    background-image: url(https://www.habbo.com/habbo-imaging/avatarimage?figure=sh-3252-64-67.ch-215-1408.hd-3103-1.ca-3217-110-1325.hr-125-61.lg-3023-110);
+    margin: 0 auto;
+  }
+  .col-closer {
+    margin-left: -5px;
+  }
+  .post textarea {
+    display: block;
+    background: none;
+    border: none;
+    width: 100%;
+    color: #7ecaee;
+    border: none;
+    resize: none;
+    outline: none;
+  }
+  ::-webkit-input-placeholder {
+    color: #7ecaee;
+    opacity: 0.6;
+  }
+</style>
+
 <script>
-	import Session from '@/app/storage/session'
-	import Slider from '@/components/article/slider'
-	import Container from '@/components/utility/container'
-	export default {
-		components: {
-			'Container': Container,
-		   'Slider': Slider
-		 },
-		 data () {
-		 	return {
-		 		user: Session.state.user
-		 	}
-		 }
-	}
+  import Session from '@/app/storage/session'
+  import Container from '@/components/utility/container'
+  export default {
+    components: {
+      'Container': Container,
+    },
+    data () {
+      return {
+        user: Session.state.user
+      }
+    }
+  }
 </script>

@@ -24,38 +24,34 @@ let router = new Router({
   routes: routes
 })
 
-// Session Auth Guard
-router.beforeEach(async (to, from, next) => {
-  // Authenticated routes or guest
+// Logic Session Guard
+const guard = (to, from, next) => {
+  let state = Session.getters.active
   if (!to.meta.guest) {
-    // User session exists otherwise redirect
-    if (Session.getters.active) {
+    if (state) {
       next()
     } else {
-      next({ name: 'Guest.Login' })
+      next({ name : 'Guest.Login' })
     }
   } else {
-    // User session nonexistent otherwise redirect
-    if (!Session.getters.active) {
+    if (!state) {
       next()
     } else {
-      next({ name: 'Home.Me' })
+      next({ name : 'Home.Me' })
     }
   }
-})
+}
 
-// No Route Defined Guard
-router.beforeEach(async (to, from, next) => {
-  // If no route defined, otherwise continue
-  if (to.path === '/') {
-    // Go home if authenticated otherwise login
-    if (Session.getters.active) {
-      next({ name: 'Home.Me' })
-    } else {
-      next({ next: 'Guest.Login' })
-    }
+// Implement Session Guard
+router.beforeEach((to, from, next) => {
+  if (Session.getters.ready) {
+    guard(to, from, next)
   } else {
-    next()
+    Session.watch(state => state.ready, (updated, old) => {
+      if (updated) {
+        guard(to, from, next)
+      }
+    })
   }
 })
 

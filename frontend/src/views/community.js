@@ -5,7 +5,8 @@ let list = {}
 
 // Photos
 list.Photos = {}
-list.Photos.List = require('./community/photos/view').default
+list.Photos.List = require('./community/photos/list').default
+list.Photos.View = require('./community/photos/view').default
 
 /* End of Pages */
 

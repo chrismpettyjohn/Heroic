@@ -4,28 +4,47 @@
     <page-title>Photos</page-title>
 
     <!-- Loading -->
-    <loading v-if="loading">We are fetching the latest photos!</loading>
+    <loading v-if="loading">We are fetching this photo</loading>
 
     <!-- Content -->
-    <div v-if="!loading" class="columns" style="margin-top:2.5%;">
-      <div v-for="photo in photos" class="habbo-card">
-        <div class="card">
-          <div class="card__content">
-            <a class="card__link">
-              <div class="card__image__aligner">
-                <img :src="photo.url" class="card__image card__image--photo"">
+    <div v-if="!loading">
+      <!-- Profile -->
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="habbo-profile-header">
+            <div class="profile-header__avatar">
+              <div class="profile-header__link">
+                <div class="habbo-imager profile-header__image">
+                  <imager :look="photo.author.look"/>
+                </div>
               </div>
-            </a>
-
-            <div class="card__meta">{{ photo.timestamp | date }}</time>
+            </div>
+            <div class="profile-header__details">
+              <h1>{{ photo.author.username }}</h1>
+              <div class="profile__motto">
+                {{ photo.author.motto }}
+              </div>
             </div>
           </div>
-          <div>
-            <router-link :to="{ name: 'Home.Profile', params: { username: photo.author.username } }" class="avatar">
-              <imager :look="photo.author.look" headonly="true"/>
-              <h6 class="avatar__title">{{ photo.author.username }}</h6>
-            </router-link>
+        </div>
+      </div>
+      <!-- Picture -->
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="creation-content__expander col-11">
+          <div class="creation-content__view">
+            <router-link :to="{ name: 'Community.Photos.View', params : { id: photo.id-1 }}" class="creation-content__link"><i class="icon icon--arrow-prev"></i></router-link>
+            <img class="creation-content__creation" :src="photo.url" style="width:320px;height:320px">
+            <router-link :to="{ name: 'Community.Photos.View', params : { id: photo.id+1 }}" class="creation-content__link"><i class="icon icon--arrow-next"></i></router-link>
           </div>
+        </div>
+      </div>
+      <!-- Meta -->
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5" style="margin-left:0px">
+         <span class="float-left">{{ photo.timestamp | date }}</span>
         </div>
       </div>
     </div>
@@ -39,22 +58,29 @@
     data() {
       return {
         loading: true,
-        photos: null
+        photo: null
       }
     },
     filters: {
       date (value) {
-        return Moment.unix(value).format('MMM D, YYYY')
+        return Moment.unix(value).format('MMMM DD, YYYY')
       }
     },
-    mounted: async function () {
-      try {
-        let photos = await API.get('camera/latest/author')
-        this.photos = photos.data
+    async mounted() {
+      console.log(this.data)
+      if (this.data===undefined) {
+        try {
+          let photo = await API.get(`camera/${this.id}/author`)
+          this.photo = photo.data
+          this.loading = false
+        } catch (e) {
+          this.$router.push({ name : 'Community.Photos.List' })
+        }
+      } else {
+        this.photo = this.data
         this.loading = false
-      } catch (e) {
-        console.log(e.response.data)
       }
-    }
+    },
+    props: ['id', 'data']
   }
 </script>
