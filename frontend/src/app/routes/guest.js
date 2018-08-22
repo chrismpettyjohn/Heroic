@@ -17,7 +17,7 @@ routes.push({
   path: '/',
   component: Guest.Parent,
   children: [
-  {
+    {
       name: 'Guest.Login',
       path: '/login',
       component: Guest.Login,

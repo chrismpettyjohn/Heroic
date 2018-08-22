@@ -18,7 +18,7 @@ export default {
       required: false,
       default: null
     },
-    icons: {
+    icon: {
       type: String,
       required: false,
       default: null
