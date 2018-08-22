@@ -16,7 +16,7 @@
             id="ga-linkid-hotel"
             :to="{ name : 'Home.Client' }"
             class="hotel-button">
-            <span class="hotel-button__text"><small>0 Online</small></span>
+            <span class="hotel-button__text"><small>{{ online }} Online</small></span>
           </router-link>
         </li>
       </ul>
@@ -39,15 +39,17 @@
 <script>
 import Tools from '@/app/helpers/tools'
 import Session from '@/app/storage/session'
+import Settings from '@/app/storage/settings'
 export default {
   data () {
     return {
+      online: Settings.getters.online,
       state: {
         ready: false,
         route: {
           parent: '',
           child: ''
-        }
+        },
       },
       navi: {
         active: [],
