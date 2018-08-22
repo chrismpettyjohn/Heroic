@@ -187,23 +187,16 @@ export default {
       user: {}
     }
   },
-  created () {
-    this.fetchProfile()
+  async mounted () {
+    try {
+      let profile = await API.get(`user/${this.state.user}/badges,friends,friends.user`)
+      this.user = profile.data
+      this.state.ready = true
+    } catch (e) {
+      this.$router.push({ name: 'Errors.404' })
+    }
   },
   methods: {
-    // Loads user profile
-    fetchProfile () {
-      // Enable Loading
-      this.state.ready = false
-      // Query API
-      API.get(`user/${this.state.user}/badges,friends,friends.user`)
-        .then(result => {
-          // Change User
-          this.user = result.data
-          // Disable Loading
-          this.state.ready = true
-        })
-    },
     // Activates modal
     toggleModal (what) {
       this.state.modals[what] = !this.state.modals[what]
