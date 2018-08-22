@@ -15,7 +15,7 @@
           </div>
           <div class="login_group">
             <label>Password</label>
-            <input v-model="user.password" :class="{'login_error': state.error==='password'}" class="login_field">
+            <input v-model="user.password" :class="{'login_error': state.error==='password'}" class="login_field" type="password">
           </div>
           <div class="login_group" style="margin-top:-5%;">
             <button class="login-form__button">Let's go!</button>
