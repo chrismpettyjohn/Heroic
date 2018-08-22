@@ -52,6 +52,8 @@ export default new Vuex.Store({
       if (storage.user === null) {
         localStorage.removeItem('user-data')
         localStorage.removeItem('user-token')
+        state.active = false
+        state.ready = true
       } else {
         // Commit
         state.user = storage.user
