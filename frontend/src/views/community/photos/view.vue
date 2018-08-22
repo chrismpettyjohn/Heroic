@@ -71,7 +71,7 @@ export default {
   },
   props: {
     id: {
-      type: Number,
+      type: [Number,String],
       required: true,
       default: 1
     },
@@ -88,8 +88,7 @@ export default {
     }
   },
   async mounted () {
-    console.log(this.data)
-    if (this.data === undefined) {
+    if (this.data === null) {
       try {
         let photo = await API.get(`camera/${this.id}/author`)
         this.photo = photo.data
