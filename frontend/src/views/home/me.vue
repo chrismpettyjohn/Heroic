@@ -5,7 +5,7 @@
     <h1 class="container row">Welcome Back</h1>
     <div
       class="container row"
-      style="color:white;background:#133A5F;border-radius:3px;margin-top:1.5%;">        
+      style="color:white;background:#133A5F;border-radius:3px;margin-top:1.5%;">
       <div
         class="col-6 myinfo"
         hubbo-section="hubbo-home-me"
@@ -57,7 +57,9 @@
           <router-link
             :to="{ name : 'Community.News.Article', params : { id: article.id }}"
             class="news-header__link news-header__wrapper">
-            <h2 class="news-header__title" style="width:100%;">{{ article.title }}</h2>
+            <h2
+              class="news-header__title"
+              style="width:100%;">{{ article.title }}</h2>
           </router-link>
           <aside class="news-header__wrapper news-header__info">
             <time class="news-header__date">May 1, 2018</time>
@@ -107,26 +109,26 @@
 </style>
 
 <script>
-  import API from '@/app/api'
-  import Session from '@/app/storage/session'
-  import Container from '@/components/utility/container'
-  export default {
-    components: {
-      'Container': Container
-    },
-    data () {
-      return {
-        user: Session.state.user,
-        articles: null
-      }
-    },
-    async mounted () {
-      try {
-        let articles = await API.get('article/latest/category')
-        this.articles = articles.data
-      } catch (e) {
-        this.$router.push({ name: 'Errors.500' })
-      }
+import API from '@/app/api'
+import Session from '@/app/storage/session'
+import Container from '@/components/utility/container'
+export default {
+  components: {
+    'Container': Container
+  },
+  data () {
+    return {
+      user: Session.state.user,
+      articles: null
+    }
+  },
+  async mounted () {
+    try {
+      let articles = await API.get('article/latest/category')
+      this.articles = articles.data
+    } catch (e) {
+      this.$router.push({ name: 'Errors.500' })
     }
   }
+}
 </script>
