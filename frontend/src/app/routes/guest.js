@@ -12,24 +12,28 @@ routes.push({
   component: Guest.Catch
 })
 
-// Login
+// Parent
 routes.push({
-  name: 'Guest.Login',
-  path: '/login',
-  component: Guest.Login,
-  meta: {
-    guest: true
-  }
-})
-
-// Register
-routes.push({
-  name: 'Guest.Register',
-  path: '/register',
-  component: Guest.Register,
-  meta: {
-    guest: true
-  }
+  path: '/',
+  component: Guest.Parent,
+  children: [
+  {
+      name: 'Guest.Login',
+      path: '/login',
+      component: Guest.Login,
+      meta: {
+        guest: true
+      }
+    },
+    {
+      name: 'Guest.Register',
+      path: '/register',
+      component: Guest.Register,
+      meta: {
+        guest: true
+      }
+    }
+  ]
 })
 
 /* End of Add To List */
