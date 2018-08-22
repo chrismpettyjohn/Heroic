@@ -1,4 +1,5 @@
 // Dependencies
+import Errors from './errors'
 import Guest from './guest'
 import Home from './home'
 import Community from './community'
@@ -6,6 +7,7 @@ import Community from './community'
 let list = []
 
 // Add To
+list.push(Errors)
 list.push(Guest)
 list.push(Home)
 list.push(Community)

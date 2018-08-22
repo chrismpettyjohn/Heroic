@@ -25,7 +25,7 @@
         <div>
           <router-link
             :to="{ name: 'Home.Profile', params : { username: room.owner.username }}"
-            class="avatar"> 
+            class="avatar">
             <div class="habbo-imager room__owner--user">
               <imager
                 :look="room.owner.look"
