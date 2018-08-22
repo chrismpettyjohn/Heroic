@@ -61,10 +61,10 @@ export default class Interactor {
       if (await user.verifyPassword(password)) {
         return Promise.resolve(user)
       } else {
-        return Promise.reject(Error('Wrong username or password'))
+        return Promise.reject('password')
       }
     } catch (e) {
-      return Promise.reject(e)
+      return Promise.reject('username')
     }
   }
 }

@@ -10,7 +10,8 @@ export default class Controller {
       // Return
       reply.code(200).send(user)
     } catch (e) {
-      reply.code(400).send()
+      console.log(e)
+      reply.code(400).send(e)
     }
   }
 
