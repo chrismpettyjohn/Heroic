@@ -23,7 +23,7 @@
       class="user-menu__list">
       <li class="user-menu__item">
         <router-link
-          to="null"
+          :to="{ name: 'Home.Profile', params: { username: user.username }}"
           class="user-menu__link user-menu__link--profile">My profile</router-link>
       </li>
       <li class="user-menu__item">
