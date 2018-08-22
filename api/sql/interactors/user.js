@@ -52,6 +52,16 @@ export default class Interactor {
       return Promise.reject(e)
     }
   }
+  // Fetch online users 
+  static async online () {
+    try {
+      let users = await Model.query().where('online', '1')
+      return Promise.resolve(users)
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   // Login as user
   static async login (username, password) {
     try {

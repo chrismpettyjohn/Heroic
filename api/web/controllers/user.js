@@ -28,4 +28,15 @@ export default class Controller {
       reply.code(404).send()
     }
   }
+
+  // Fetch online users
+  static async online (request, reply) {
+    try {
+       let users = await Database.online()
+       reply.code(200).send(users)
+    } catch (e) {
+      reply.code(400).send()
+    }
+  }
+  
 }
