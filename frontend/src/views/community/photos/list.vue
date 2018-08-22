@@ -37,7 +37,7 @@
               class="avatar">
               <imager
                 :look="photo.author.look"
-                headonly="true"/>
+                :headonly="1"/>
               <h6 class="avatar__title">{{ photo.author.username }}</h6>
             </router-link>
           </div>
