@@ -10,21 +10,24 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     ready: false,
-    site: {}
+    site: {},
+    online: 0
   },
   getters: {
     site: state => {
       return state.site
+    },
+    online: state => {
+      return state.online
     },
     ready: state => {
       return state.ready
     }
   },
   mutations: {
-    init: (state, site) => {
-      // Save Site
-      state.site = site
-      // Make Ready
+    init: (state, config) => {
+      state.site = config.site
+      state.online = config.online
       state.ready = true
     }
   },
@@ -33,10 +36,14 @@ export default new Vuex.Store({
       return new Promise(async (resolve, reject) => {
         // Prepare
         let config = {}
-        // Fetch API
-        config = await API.get('heroic')
+        // Fetch settings
+        config.site = await API.get('heroic')
         // Format Data
-        config = config.data
+        config.site = config.site.data
+        // Fetch online
+        config.online = await API.get('user/online')
+        // Format Data
+        config.online = config.online.data.length
         // Save State
         context.commit('init', config)
         // Return

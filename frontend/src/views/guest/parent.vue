@@ -6,7 +6,7 @@
       <div class="login-articles">
         <h1 style="width:60%;display:block;margin-bottom:2.5%;">
           <span style="float:left;">Latest News</span>
-          <span style="float:right;font-size:16px;">0 Online</span>
+          <span style="float:right;font-size:16px;">{{ online }} Online</span>
         </h1>
         <div class="columns">
           <article class="news-header news-header--column" style="display:none;"></article>
@@ -36,10 +36,12 @@
 
 <script>
   import API from '@/app/api'
+  import Settings from '@/app/storage/settings'
   export default {
     data () {
       return {
-        articles: null
+        articles: null,
+        online: Settings.getters.online
       }
     },
     async mounted () {
