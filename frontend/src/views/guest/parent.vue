@@ -10,34 +10,15 @@
         </h1>
         <div class="columns">
           <article class="news-header news-header--column" style="display:none;"></article>
-          <article class="news-header news-header--column">
-            <a class="news-header__link news-header__banner" href="/hotel?room=73670825">
-            <figure class="news-header__viewport">
-               <img class="news-header__image news-header__image--thumbnail" src="https://images.habbo.com/web_images/habbo-web-articles/lpromo_gfetriptojapanevent_thumb.png">
-            </figure></a> <a class="news-header__link news-header__wrapper" href="/hotel?room=73670825">
-            <h2 class="news-header__title">[GFE] My Trip to Japan</h2></a>
-          </article>
-                <article class="news-header news-header--column">
-            <a class="news-header__link news-header__banner" href="/hotel?room=73670825">
-            <figure class="news-header__viewport">
-               <img class="news-header__image news-header__image--thumbnail" src="https://images.habbo.com/web_images/habbo-web-articles/lpromo_gfetriptojapanevent_thumb.png">
-            </figure></a> <a class="news-header__link news-header__wrapper" href="/hotel?room=73670825">
-            <h2 class="news-header__title">[GFE] My Trip to Japan</h2></a>
-          </article>
-                <article class="news-header news-header--column">
-            <a class="news-header__link news-header__banner" href="/hotel?room=73670825">
-            <figure class="news-header__viewport">
-               <img class="news-header__image news-header__image--thumbnail" src="https://images.habbo.com/web_images/habbo-web-articles/lpromo_gfetriptojapanevent_thumb.png">
-            </figure></a> <a class="news-header__link news-header__wrapper" href="/hotel?room=73670825">
-            <h2 class="news-header__title">[GFE] My Trip to Japan</h2></a>
-          </article>
-
-                  <article class="news-header news-header--column">
-            <a class="news-header__link news-header__banner" href="/hotel?room=73670825">
-            <figure class="news-header__viewport">
-               <img class="news-header__image news-header__image--thumbnail" src="https://images.habbo.com/web_images/habbo-web-articles/lpromo_gfetriptojapanevent_thumb.png">
-            </figure></a> <a class="news-header__link news-header__wrapper" href="/hotel?room=73670825">
-            <h2 class="news-header__title">[GFE] My Trip to Japan</h2></a>
+          <article v-for="article in articles" :key="article.id" class="news-header news-header--column">
+            <a class="news-header__link news-header__banner">
+              <figure class="news-header__viewport">
+                 <img :src="`/img/news/${article.image}_thumb.png`" class="news-header__image news-header__image--thumbnail">
+              </figure>
+            </a> 
+            <a class="news-header__link news-header__wrapper">
+             <h2 class="news-header__title">{{ article.title }}</h2>
+            </a>
           </article>
         </div>
         <footer class="shop-footer" style="width: 60%;">
@@ -52,3 +33,22 @@
     </div>
   </div>
 </template>
+
+<script>
+  import API from '@/app/api'
+  export default {
+    data () {
+      return {
+        articles: null
+      }
+    },
+    async mounted () {
+      try {
+        let articles = await API.get('article/latest')
+        this.articles = articles.data
+      } catch (e) {
+        this.$router.push({ name: 'Errors.500' })
+      }
+    }
+  }
+</script>
