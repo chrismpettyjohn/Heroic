@@ -4,16 +4,18 @@
     <router-view class="login-left"/>
     <div class="login-right">
       <div class="login-articles">
-        <h1 style="width:60%;display:block;margin-bottom:2.5%;">
+        <h1 style="width:70%;display:block;margin-bottom:50px;">
           <span style="float:left;">Latest News</span>
           <span style="float:right;font-size:16px;">{{ online }} Online</span>
         </h1>
-        <div class="columns">
+        <div
+          v-if="articles"
+          class="columns">
           <article
             class="news-header news-header--column"
             style="display:none;"/>
           <article
-            v-for="article in articles"
+            v-for="article in articles.slice(0, 4)"
             :key="article.id"
             class="news-header news-header--column">
             <a class="news-header__link news-header__banner">
@@ -24,13 +26,16 @@
               </figure>
             </a>
             <a class="news-header__link news-header__wrapper">
-              <h2 class="news-header__title">{{ article.title }}</h2>
+              <h2
+                class="news-header__title"
+                style="width:100%;">{{ article.title }}</h2>
+              <p class="news-header__wrapper news-header__summary">{{ article.description }}</p>
             </a>
           </article>
         </div>
         <footer
           class="shop-footer"
-          style="width: 60%;">
+          style="width: 70%;">
           <section class="main shop-footer__main">
             <h3 class="shop-footer__title">About Our Hotel</h3>
             <p class="shop-footer__text">

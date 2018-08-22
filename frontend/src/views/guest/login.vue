@@ -61,7 +61,6 @@ export default {
         await Session.dispatch('start', this.user)
         this.$router.push({ name: 'Home.Me' })
       } catch (e) {
-        console.log(e.response.data)
         this.state.error = e.response.data
         this.loading = false
       }
