@@ -24,12 +24,12 @@
         <p class="room-item__description">{{ room.description }}</p>
         <div>
           <router-link
-            :to="{ name: 'user.home.profile', params : { username: room.owner.username }}"
+            :to="{ name: 'Home.Profile', params : { username: room.owner.username }}"
             class="avatar">
             <div class="habbo-imager room__owner--user">
               <imager
                 :look="room.owner.look"
-                headonly="1"/>
+                :headonly="1"/>
             </div>
             <h6 class="avatar__title">{{ room.owner.username }}</h6>
           </router-link>

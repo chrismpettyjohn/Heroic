@@ -14,7 +14,7 @@
         <div class="habbo-imager user-menu__avatar">
           <imager
             :look="user.look"
-            headonly="1"/>
+            :headonly="1"/>
         </div>
       </a>
     </div>
