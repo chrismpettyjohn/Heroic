@@ -21,6 +21,13 @@ routes.push({
   props: true
 })
 
+// Client
+routes.push({
+  name: 'Home.Client',
+  path: '/client',
+  component: Home.Client
+})
+
 // Logout
 routes.push({
   name: 'Home.Logout',

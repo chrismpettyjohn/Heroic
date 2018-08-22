@@ -1,25 +1,39 @@
 <template>
-	<div v-if="state.ready">
-		<nav class="navigation">
-			<ul class="navigation__menu">
-				<li v-for="page in navi.links" class="navigation__item">
-					<router-link :to="{ name : page.link }" class="navigation__link" :class="`navigation__link--${page.class}`"> {{ page.text }}</router-link>
-				</li>
+  <div v-if="state.ready">
+    <nav class="navigation">
+      <ul class="navigation__menu">
+        <li
+          v-for="page in navi.links"
+          :key="page.id"
+          class="navigation__item">
+          <router-link
+            :to="{ name : page.link }"
+            :class="`navigation__link--${page.class}`"
+            class="navigation__link"> {{ page.text }}</router-link>
+        </li>
         <li class="navigation__item navigation__item--aside navigation__item--hotel">
-          <router-link :to="{ name : 'Home.Client' }" class="hotel-button" id="ga-linkid-hotel">
+          <router-link
+            id="ga-linkid-hotel"
+            :to="{ name : 'Home.Client' }"
+            class="hotel-button">
             <span class="hotel-button__text"><small>0 Online</small></span>
           </router-link>
         </li>
-			</ul>
-		</nav>
-		<div class="habbo-tabs">
-			<ul class="tabs tabs__menu">
-				<li v-for="page in navi.active" class="habbo-tab">
-					<router-link :to="{ name : page.link, params : page.params }" :class="{'tab__link--active': state.route.child==page.active}">{{ page.text }}</router-link>
-				</li>
-			</ul>
-		</div>
-	</div>
+      </ul>
+    </nav>
+    <div class="habbo-tabs">
+      <ul class="tabs tabs__menu">
+        <li
+          v-for="page in navi.active"
+          :key="page.id"
+          class="habbo-tab">
+          <router-link
+            :to="{ name : page.link, params : page.params }"
+            :class="{'tab__link--active': state.route.child==page.active}">{{ page.text }}</router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -87,21 +101,16 @@ export default {
                 text: `News`,
                 link: 'Community.News.Latest'
               },
+              // Staff
+              {
+                active: 'Staff',
+                text: `Staff`,
+                link: 'Community.Staff'
+              }
             ]
           }
         ]
       }
-    }
-  },
-  methods: {
-    updateChildren () {
-      const links = this.navi.links
-      const route = this.state.route.parent
-      links.forEach(link => {
-        if (link.active == route) {
-          this.navi.active = link.children
-        }
-      })
     }
   },
   mounted () {
@@ -115,6 +124,17 @@ export default {
       this.updateChildren()
       // Change State
       this.state.ready = true
+    }
+  },
+  methods: {
+    updateChildren () {
+      const links = this.navi.links
+      const route = this.state.route.parent
+      links.forEach(link => {
+        if (link.active === route) {
+          this.navi.active = link.children
+        }
+      })
     }
   },
   events: {

@@ -59,7 +59,12 @@ routes.push({
   props: true
 })
 
-
+// Staff
+routes.push({
+  name: 'Community.Staff',
+  path: '/staff',
+  component: Community.Staff
+})
 
 /* End of Add To List */
 export default routes

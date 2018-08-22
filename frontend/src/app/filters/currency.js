@@ -1,6 +1,6 @@
 // Code
 const filter = function (value) {
-	  var newValue = value
+  var newValue = value
   if (value >= 1000) {
     var suffixes = ['', 'k', 'm', 'b', 't']
     var suffixNum = Math.floor(('' + value).length / 3)

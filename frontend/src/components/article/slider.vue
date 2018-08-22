@@ -1,20 +1,33 @@
 <template>
   <section v-cloak>
-    <article v-for="article in articles" class="news-header news-header--column">
-      <router-link :to="{ name : 'Community.News.Article', params : { id : article.id } }" class="news-header__link news-header__banner">
+    <article
+      v-for="article in articles"
+      :key="article.id"
+      class="news-header news-header--column">
+      <router-link
+        :to="{ name : 'Community.News.Article', params : { id: article.id } }"
+        class="news-header__link news-header__banner">
         <figure class="news-header__viewport">
-          <img :src="`https://images.habbo.com/web_images/habbo-web-articles/${article.image}.png`" class="news-header__image news-header__image--featured">
-          <img :src="`https://images.habbo.com/web_images/habbo-web-articles/${article.image}_thumb.png`" class="news-header__image news-header__image--thumbnail">
+          <img
+            :src="`https://images.habbo.com/web_images/habbo-web-articles/${article.image}.png`"
+            class="news-header__image news-header__image--featured">
+          <img
+            :src="`https://images.habbo.com/web_images/habbo-web-articles/${article.image}_thumb.png`"
+            class="news-header__image news-header__image--thumbnail">
         </figure>
       </router-link>
-      <router-link :to="{ name : 'Community.News.Article', params : { id : article.id } }" class="news-header__link news-header__wrapper">
+      <router-link
+        :to="{ name : 'Community.News.Article', params : { id: article.id } }"
+        class="news-header__link news-header__wrapper">
         <h2 class="news-header__title">{{ article.title }}</h2>
       </router-link>
       <aside class="news-header__wrapper news-header__info">
         <time class="news-header__date">Jul 2, 2018</time>
         <ul class="news-header__categories">
           <li class="news-header__category">
-            <router-link :to="{ name : 'Community.News.Category', params : { id : article.category.id } }" class="news-header__category__link"">
+            <router-link
+              :to="{ name : 'Community.News.Category', params : { id: article.category.id } }"
+              class="news-header__category__link">
               {{ article.category.title }}
             </router-link>
           </li>
@@ -44,11 +57,9 @@ export default {
         // Return
         this.articles = articles.data
       })
-      .catch(error => {
-        this.error = true
-        this.loading = false
+      .catch(() => {
+        this.$router.push({ name: 'Errors.500' })
       })
-  },
-  props: ['id']
+  }
 }
 </script>

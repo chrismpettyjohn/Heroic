@@ -3,7 +3,6 @@ import Vue from 'vue'
 import Routes from './routes'
 import Router from 'vue-router'
 import Session from '@/app/storage/session'
-import Settings from '@/app/storage/settings'
 
 // Inject Router
 Vue.use(Router)
@@ -31,13 +30,13 @@ const guard = (to, from, next) => {
     if (state) {
       next()
     } else {
-      next({ name : 'Guest.Login' })
+      next({ name: 'Guest.Login' })
     }
   } else {
     if (!state) {
       next()
     } else {
-      next({ name : 'Home.Me' })
+      next({ name: 'Home.Me' })
     }
   }
 }
@@ -54,7 +53,6 @@ router.beforeEach((to, from, next) => {
     })
   }
 })
-
 
 // Export Router
 export default router

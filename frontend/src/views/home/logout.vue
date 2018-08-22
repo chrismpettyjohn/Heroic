@@ -1,5 +1,5 @@
 <template>
-	<span>You have been logged out.</span>
+  <span>You have been logged out.</span>
 </template>
 
 <script>

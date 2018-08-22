@@ -8,8 +8,8 @@ Storage.prototype.set = function (key, value) {
 }
 
 Storage.prototype.get = function (key) {
-  	// Fetch Item
-  	let value = this.getItem(key)
+  // Fetch Item
+  let value = this.getItem(key)
   try {
     return JSON.parse(value)
   } catch (e) {

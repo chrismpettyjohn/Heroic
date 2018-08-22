@@ -1,131 +1,108 @@
 <template>
-	<div class="client">
-	<page-title>Client</page-title>
-		<div class="client__buttons">
-			<router-link :to="{ name : 'Home.Me' }" class="client__close">
-				<i class="client__close__icon icon icon--habbo"></i>
-				<div class="client__close__expand">
-					<div class="client__close__text">
-						Web
-					</div>
-				</div>
-			</router-link>
-		</div>
+  <div class="client">
+    <page-title>Client</page-title>
+    <div class="client__buttons">
+      <router-link
+        :to="{ name : 'Home.Me' }"
+        class="client__close">
+        <i class="client__close__icon icon icon--habbo"/>
+        <div class="client__close__expand">
+          <div class="client__close__text">
+            {{ system.site['site_name'] }}
+          </div>
+        </div>
+      </router-link>
+    </div>
 
-		<div class="habbo-client-error enable-flashplayer" id="client">
-			<div v-if="!system.error" class="client-error">
-				<h1>Preparing Client</h1>
-				<p>Please wait while the client is loading.</p>
-				<p><b>Progress:</b> {{ system.step }}</p>
-			</div>
-			<div v-if="system.error" class="client-error">
-				<h1>Client Error</h1>
-				<p>{{ system.error }}</p>
-				<a v-if="!system.flash" class="hotel-button" href="http://get.adobe.com/flashplayer/" id="ga-linkid-hotel" style="width:250px;" target="_blank">
-          <span class="hotel-button__text" style="overflow:auto;">Enable Flash Player</span>
-        </a>
-			</div>
-		</div>
-	</div>
+    <div
+      id="client"
+      class="habbo-client-error enable-flashplayer">
+      <div class="client-error">
+        <container style="width:100%;">
+          <h4>
+            <div class="row">
+              <div class="col-1">
+                <imager
+                  :look="session.user.look"
+                  headonly="1"
+                  style="width:25px;height:25px;margin-top:-20px;margin-left:-20px;"/>
+              </div>
+              <div
+                class="col-10"
+                style="margin-left:10px;">
+                Welcome back, {{ session.user.username }}
+              </div>
+            </div>
+          </h4>
+          <p><b>Did you know?</b></p>
+          <p style="margin-top:-10px;">We are actually ran by a hobbo with purple hair!</p>
+          <footer
+            class="shop-footer"
+            style="width:50%;">
+            <p>25% Loaded</p>
+          </footer>
+        </container>
+      </div>
+    </div>
+  </div>
 </template>
 
+<style scoped>
+  .habbo-client-error {
+    justify-content: initial;
+  }
+  .client-error {
+    background: transparent;
+    margin-top: 10%;
+    opacity:1;
+  }
+</style>
+
 <script>
-import SWF from 'swfobject'
-import API from '@/app/api'
+// import SWF from 'swfobject'
+import Session from '@/app/storage/session'
+import Settings from '@/app/storage/settings'
+import Container from '@/components/utility/container'
 export default {
+  components: {
+    'Container': Container
+  },
   data () {
     return {
-      website: localStorage.getObject('website'),
-      client: {
-        variables: {},
-        paramaters: {},
-        authentication: null
-      },
       system: {
         error: false,
         loading: true,
-        step: null,
-        flash: true
+        site: Settings.getters.site
+      },
+      session: {
+        auth: null,
+        user: Session.getters.user,
+        flash: false
+      },
+      client: {
+        variables: {},
+        paramaters: {}
       }
     }
   },
-  mounted: async function () {
-    try {
-      // Check flash
-      this.system.step = 'Checking Flashplayer'
-      await this.check()
-      // Generate user SSO
-      this.system.step = 'Authenticating client login'
-      await this.sso()
-      // Prepare client swfobject
-      this.system.step = 'Preparing game environment'
-      await this.configure()
-      // Embed swfobject into DOM
-      this.system.step = 'Fetching client assets'
-      await this.prepare()
-    } catch (error) {
-      this.system.error = error
-    }
+  async mounted () {
+
   },
   methods: {
-    check () {
-      return new Promise((resolve, reject) => {
-        if (SWF.hasFlashPlayerVersion('9')) {
-          resolve()
-        } else {
-          this.system.flash = false
-          reject('Flashplayer is either not installed or allowed.')
-        }
-      })
+    async hasFlash () {
+
     },
-    sso () {
-      return new Promise((resolve, reject) => {
-        API.get('session/client')
-          .then(sso => {
-            this.client.authentication = sso.data
-            resolve()
-          })
-          .catch(error => {
-            this.system.error = 'Failed to authenticate client'
-            reject('Failed to authenticate client session')
-          })
-      })
+    async getSSO () {
+
     },
-    configure () {
-      return new Promise((resolve, reject) => {
-        // Variables
-        this.client.variables = {
-          'connection.info.host': this.website.server.ip,
-          'connection.info.port': this.website.server.port,
-          'url.prefix': this.website.link,
-          'site.url': this.website.link,
-          'external.variables.txt': `${this.website.swf.gamedata}/variables.txt`,
-          'external.texts.txt': `${this.website.swf.gamedata}/texts.txt`,
-          'productdata.load.url': `${this.website.swf.gamedata}/productdata.txt`,
-          'furnidata.load.url': `${this.website.swf.gamedata}/furnidata.xml`,
-          'external.figurepartlist.txt': `${this.website.swf.gamedata}/figuredata.xml`,
-          'external.figurepartlist.txt': `${this.website.swf.gamedata}/figuredata.xml`,
-          'external.override.variables.txt': `${this.website.swf.gamedata}/override/variables.txt`,
-          'flash.client.url': `${this.website.swf.base}/`,
-          'client.starting.revolving': 'Heroic Beta 3.0.1',
-          'use.sso.ticket': '1',
-          'sso.ticket': 'beautiful-fucking-girl',
-          'flash.client.origin': 'popup',
-          'client.allow.cross.domain': '1',
-          'client.notify.cross.domain': '0'
-        }
-        // Paramaters
-        this.client.paramaters = {
-          'base': `${this.website.swf.base}/`,
-          'allowScriptAccess': 'always',
-          'menu': 'false'
-        }
-        // Return
-        resolve()
-      })
+    async configureSWF () {
+
     },
-    prepare () {
-      SWF.embedSWF(`${this.website.swf.gamedata}/habbo.swf`, 'client', '100%', '100%', '10.0.0', '', this.client.variables, this.client.paramaters, null)
+    async loadSWF () {
+
+    },
+    async manageLoading () {
+
     }
   }
 }

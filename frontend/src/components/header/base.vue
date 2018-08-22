@@ -2,8 +2,12 @@
   <div>
     <div class="habbo-header-small">
       <header class="header__wrapper wrapper">
-        <a class="header__habbo__logo" href="/">
-          <h1 class="header__habbo__name" id="ga-linkid-habbo">Habbo</h1>
+        <a
+          class="header__habbo__logo"
+          href="/">
+          <h1
+            id="ga-linkid-habbo"
+            class="header__habbo__name">Habbo</h1>
         </a>
         <div class="header__aside header__aside--user-menu">
           <user-menu/>

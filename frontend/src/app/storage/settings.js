@@ -10,7 +10,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     ready: false,
-  	site: {}
+    site: {}
   },
   getters: {
     site: state => {
@@ -21,12 +21,12 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-  	init: (state, site) => {
+    init: (state, site) => {
       // Save Site
-  		state.site = site
+      state.site = site
       // Make Ready
       state.ready = true
-  	}
+    }
   },
   actions: {
     init: (context) => {

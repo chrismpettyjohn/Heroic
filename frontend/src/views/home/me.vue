@@ -8,22 +8,26 @@
       <div class="col-8">
         <div class="row">
           <div class="col-2">
-            <div class="user"></div>
+            <div class="user"/>
           </div>
           <div class="col-10 col-closer">
             <container>
               <h4>
                 <div class="row">
                   <div class="col-10 col-closer">
-                    Post as {{ user.username }} <i class="fa fa-caret-down"></i> 
+                    Post as {{ user.username }} <i class="fa fa-caret-down"/>
                   </div>
-                  <div class="col-2" style="padding-left:35px;">
+                  <div
+                    class="col-2"
+                    style="padding-left:35px;">
                     Publish
                   </div>
                 </div>
               </h4>
               <form class="post">
-                <textarea placeholder="Write a new post..." rows="3"></textarea>
+                <textarea
+                  placeholder="Write a new post..."
+                  rows="3"/>
               </form>
             </container>
           </div>
@@ -64,16 +68,16 @@
 </style>
 
 <script>
-  import Session from '@/app/storage/session'
-  import Container from '@/components/utility/container'
-  export default {
-    components: {
-      'Container': Container,
-    },
-    data () {
-      return {
-        user: Session.state.user
-      }
+import Session from '@/app/storage/session'
+import Container from '@/components/utility/container'
+export default {
+  components: {
+    'Container': Container
+  },
+  data () {
+    return {
+      user: Session.state.user
     }
   }
+}
 </script>
