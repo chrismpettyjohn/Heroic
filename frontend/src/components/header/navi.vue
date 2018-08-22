@@ -49,7 +49,7 @@ export default {
         route: {
           parent: '',
           child: ''
-        },
+        }
       },
       navi: {
         active: [],

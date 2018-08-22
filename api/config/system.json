@@ -14,7 +14,7 @@
 		"port": "8090"
 	},
 	"advanced": {
-		"workers": 1,
+		"workers": 4,
 		"secret": "Heroic3"
 	}
 }

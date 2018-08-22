@@ -1,5 +1,7 @@
 <template>
-  <div class="client" style="overflow:hidden;">
+  <div
+    class="client"
+    style="overflow:hidden;">
     <page-title>Client</page-title>
     <div class="client__buttons">
       <router-link
@@ -103,7 +105,7 @@ export default {
       this.state.step = 'Fetching client assets'
       await this.loadSWF()
     } catch (e) {
-      if (e)  this.$router.push({ name: 'Errors.500' })
+      if (e) this.$router.push({ name: 'Errors.500' })
     }
   },
   methods: {
@@ -112,7 +114,7 @@ export default {
         return Promise.resolve()
       } else {
         this.state.flash = false
-        return Promise.reject(false)
+        return Promise.reject(Error(false))
       }
     },
     async getSSO () {
@@ -121,43 +123,42 @@ export default {
         this.session.auth = sso.data
         return Promise.resolve()
       } catch (e) {
-        return Promise.reject(true)
+        return Promise.reject(Error(true))
       }
     },
     async configureSWF () {
       const site = this.state.site
       // Variables
       this.client.variables = {
-        "connection.info.host": site['server.ip'],
-        "connection.info.port": site['server.port'],
-        "url.prefix": site['site.link'],
-        "site.url": site['site.link'],
-        "external.variables.txt": `${site['swf.config']}/variables.txt`,
-        "external.texts.txt": `${site['swf.config']}/texts.txt`,
-        "productdata.load.url": `${site['swf.config']}/productdata.txt`,
-        "furnidata.load.url": `${site['swf.config']}/furnidata.xml`,
-        "external.figurepartlist.txt": `${site['swf.config']}/figuredata.xml`,
-        "external.figurepartlist.txt": `${site['swf.config']}/figuredata.xml`,
-        "external.override.variables.txt": `${site['swf.config']}/override/variables.txt`,
-        "flash.client.url": `${site['swf.base']}/`,
-        "client.starting.revolving": "Heroic Beta 3.0.1",
-        "use.sso.ticket": "1",
-        "sso.ticket": "beautiful-fucking-girl",
-        "flash.client.origin": "popup",
-        "client.allow.cross.domain": "1",
-        "client.notify.cross.domain": "0"
+        'connection.info.host': site['server.ip'],
+        'connection.info.port': site['server.port'],
+        'url.prefix': site['site.link'],
+        'site.url': site['site.link'],
+        'external.variables.txt': `${site['swf.config']}/variables.txt`,
+        'external.texts.txt': `${site['swf.config']}/texts.txt`,
+        'productdata.load.url': `${site['swf.config']}/productdata.txt`,
+        'furnidata.load.url': `${site['swf.config']}/furnidata.xml`,
+        'external.figurepartlist.txt': `${site['swf.config']}/figuredata.xml`,
+        'external.override.variables.txt': `${site['swf.config']}/override/variables.txt`,
+        'flash.client.url': `${site['swf.base']}/`,
+        'client.starting.revolving': 'Heroic Beta 3.0.1',
+        'use.sso.ticket': '1',
+        'sso.ticket': 'beautiful-fucking-girl',
+        'flash.client.origin': 'popup',
+        'client.allow.cross.domain': '1',
+        'client.notify.cross.domain': '0'
       }
       // Paramaters
       this.client.paramaters = {
-        "base": `${site['swf.base']}/`,          
-        "allowScriptAccess": "always",
-        "menu": "false"
+        'base': `${site['swf.base']}/`,
+        'allowScriptAccess': 'always',
+        'menu': 'false'
       }
       return Promise.resolve()
     },
     async loadSWF () {
-       SWF.embedSWF(`${this.state.site['swf.config']}/habbo.swf`, "client", "100%", "100%", "10.0.0", "", this.client.variables, this.client.paramaters, null);
-       return Promise.resolve()
+      SWF.embedSWF(`${this.state.site['swf.config']}/habbo.swf`, 'client', '100%', '100%', '10.0.0', '', this.client.variables, this.client.paramaters, null)
+      return Promise.resolve()
     }
   }
 }

@@ -34,7 +34,7 @@
         hubbo-section="hubbo-home-play"
         hide-data="mobile">
         <strong>WHAT ARE YOU WAITING FOR..?</strong>
-        <router-link :to="{ name: 'Home.Client' }"><button class="btn-green"">Play Habbo</button></router-link>
+        <router-link :to="{ name: 'Home.Client' }"><button class="btn-green">Play Habbo</button></router-link>
       </div>
     </div>
     <div class="container row">

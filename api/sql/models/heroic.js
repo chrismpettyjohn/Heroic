@@ -8,8 +8,10 @@ export default class Model extends Base {
     return [
       'site.name',
       'site.link',
-      'swf_base',
-      'swf_link',
+      'server.ip',
+      'server.port',
+      'swf.base',
+      'swf.config',
       'user.motto',
       'user.look',
       'user.gender',
