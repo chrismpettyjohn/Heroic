@@ -36,7 +36,7 @@
         <strong>WHAT ARE YOU WAITING FOR..?</strong>
         <button
           @click="enter()"
-          class="btn-green">Play Habbo</button>
+          class="btn-green">Enter Hotel</button>
       </div>
     </div>
     <div class="container row">

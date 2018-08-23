@@ -31,47 +31,6 @@
       </div>
       <!-- Row -->
       <div class="row">
-        <!-- Badges -->
-        <div
-          v-if="user.badges.length > 0"
-          class="col-6">
-          <div
-            class="profile__card__wrapper--badges"
-            style="width:100%;">
-            <section class="profile__card__aligner">
-              <div class="profile__card">
-                <h2 class="profile__card__title">Badges</h2>
-                <!-- List -->
-                <div class="item-list--grid">
-                  <ul>
-                    <li
-                      v-for="badge in user.badges.slice(0, 5)"
-                      v-if="badge.meta"
-                      :key="badge.id"
-                      class="item item--small item--badge">
-                      <div class="item__content">
-                        <div class="item__icon">
-                          <div class="item__icon__aligner">
-                            <img :src="`https://images.habbo.com/c_images/album1584/${badge.badge_code}.gif`">
-                          </div>
-                        </div>
-                        <div class="item__text">
-                          <h6 class="item__title item__title--multi-line">{{ badge.meta.name }}</h6>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Footer -->
-                <div class="profile__card__footer">
-                  <p
-                    class="profile-modal__link"
-                    @click="toggleModal('badges')">See all</p>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
         <!-- Friends -->
         <div
           v-if="user.friends.length > 0"
@@ -189,7 +148,7 @@ export default {
   },
   async mounted () {
     try {
-      let profile = await API.get(`user/${this.state.user}/badges,friends,friends.user`)
+      let profile = await API.get(`user/${this.state.user}/friends,friends.user`)
       this.user = profile.data
       this.state.ready = true
     } catch (e) {

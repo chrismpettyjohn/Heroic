@@ -2,10 +2,7 @@
   <div class="full-height">
 
     <!-- App Loading -->
-    <div
-      v-if="!state.ready"
-      class="container row"
-      style="margin-top:10%;">
+    <div v-if="!state.ready" class="container row" style="margin-top:10%;">
       <div class="col-4"/>
       <div class="col-4">
         <loading>We are preparing your experience</loading>
@@ -13,23 +10,17 @@
     </div>
 
     <!-- App Content -->
-    <div
-      v-if="state.ready"
-      class="full-height">
+    <div v-if="state.ready" class="full-height">
 
       <!-- Guest Area -->
       <div v-if="!user"/>
 
       <!-- User Area -->
-      <div
-        v-if="user"
-        class="full-height">
+      <div v-if="user" class="full-height">
 
         <!-- Regular -->
-        <div
-          v-if="!client"
-          class="content full-height">
-          <app-header/>
+        <div v-if="!client" class="content full-height">
+          <app-header :key="$route.path"/>
           <main class="wrapper wrapper--content">
             <router-view/>
           </main>
