@@ -1,3 +1,4 @@
+import Random from 'randomstring'
 import Model from '@/sql/models/user'
 import Heroic from '@/sql/models/heroic'
 export default class Interactor {
@@ -75,6 +76,17 @@ export default class Interactor {
       }
     } catch (e) {
       return Promise.reject('username')
+    }
+  }
+
+  // Generate sso
+  static async client (id) {
+    try {
+      let sso = `heroicArcticFox3_${Random.generate(25)}`
+      await Model.query().patch({ auth_ticket: sso }).where('id', id)
+      return Promise.resolve(sso)
+    } catch (e) {
+      return Promise.reject(e)
     }
   }
 }

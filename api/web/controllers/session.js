@@ -16,6 +16,11 @@ export default class Controller {
   }
 
   static async client (request, reply) {
-    reply.code(200).send('Fuck off bitch')
+    try {
+      let sso = await Interactor.client(request.session.id)
+      reply.code(200).send(sso)
+    } catch (e) {
+      reply.code(400).send(e)
+    }
   }
 }
