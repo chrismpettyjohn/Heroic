@@ -13,7 +13,7 @@
     <div v-if="state.ready" class="full-height">
 
       <!-- Guest Area -->
-      <div v-if="!user"/>
+      <router-view v-if="!user"/>
 
       <!-- User Area -->
       <div v-if="user" class="full-height">
