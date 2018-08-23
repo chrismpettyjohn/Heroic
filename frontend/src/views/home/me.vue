@@ -11,7 +11,7 @@
         hubbo-section="hubbo-home-me"
         :style="`background-image: url(https://www.habbo.com/habbo-imaging/avatarimage?figure=${user.look}&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;action=wav&amp;size=xl);background-position: initial;`">
         <div class="myinfo-container hubbo-border-right">
-          <h2>Chris</h2>
+          <h2>{{ user.username }}</h2>
           <div class="row">
             <div class="col-6 balance-coins">
               <span>{{ user.credits }}</span>
