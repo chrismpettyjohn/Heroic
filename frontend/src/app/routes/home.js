@@ -25,7 +25,7 @@ routes.push({
 routes.push({
   name: 'Home.Client',
   path: '/client',
-  component: Home.Client
+  component: Home.Blank
 })
 
 // Logout

@@ -34,7 +34,9 @@
         hubbo-section="hubbo-home-play"
         hide-data="mobile">
         <strong>WHAT ARE YOU WAITING FOR..?</strong>
-        <router-link :to="{ name: 'Home.Client' }"><button class="btn-green">Play Habbo</button></router-link>
+        <button
+          @click="enter()"
+          class="btn-green">Play Habbo</button>
       </div>
     </div>
     <div class="container row">
@@ -126,6 +128,11 @@ export default {
       this.articles = articles.data
     } catch (e) {
       this.$router.push({ name: 'Errors.500' })
+    }
+  },
+  methods: {
+    async enter () {
+      await Session.dispatch('client', true)
     }
   }
 }

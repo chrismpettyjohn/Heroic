@@ -12,12 +12,11 @@
             class="navigation__link"> {{ page.text }}</router-link>
         </li>
         <li class="navigation__item navigation__item--aside navigation__item--hotel">
-          <router-link
-            id="ga-linkid-hotel"
-            :to="{ name : 'Home.Client' }"
+          <a
+            @click="enterClient()"
             class="hotel-button">
             <span class="hotel-button__text"><small>{{ online }} Online</small></span>
-          </router-link>
+          </a>
         </li>
       </ul>
     </nav>
@@ -137,6 +136,9 @@ export default {
           this.navi.active = link.children
         }
       })
+    },
+    async enterClient () {
+      await Session.dispatch('client', true)
     }
   },
   events: {

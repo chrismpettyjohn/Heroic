@@ -1,68 +1,20 @@
 <template>
-  <div
-    class="client"
-    style="overflow:hidden;">
-    <page-title>Client</page-title>
+  <div class="client">
     <div class="client__buttons">
-      <router-link
-        :to="{ name : 'Home.Me' }"
+      <a
+        @click="closeClient()"
         class="client__close">
         <i class="client__close__icon icon icon--habbo"/>
         <div class="client__close__expand">
           <div class="client__close__text">
-            Website
+            Web
           </div>
         </div>
-      </router-link>
+      </a>
     </div>
-    <div
-      id="client"
-      class="habbo-client-error enable-flashplayer">
-      <div class="client-error">
-        <container style="width:100%;">
-          <h4>
-            <div class="row">
-              <div class="col-1">
-                <imager
-                  :look="session.user.look"
-                  :headonly="1"
-                  style="width:25px;height:25px;margin-top:-20px;margin-left:-20px;"/>
-              </div>
-              <div
-                class="col-10"
-                style="margin-left:10px;">
-                Welcome back, {{ session.user.username }}
-              </div>
-            </div>
-          </h4>
-          <div v-if="!state.flash">
-            <p><b>You Need Flashplayer</b></p>
-            <p>Please install this very questionable program for us!</p>
-            <a href="https://get.adobe.com/flashplayer/">https://get.adobe.com/flashplayer/</a>
-          </div>
-          <div v-if="state.flash">
-            <p><b>Did you know?</b></p>
-            <p style="margin-top:-10px;">We are actually ran by a hobbo with purple hair!</p>
-            <footer class="shop-footer">
-              <p>{{ state.step }}</p>
-            </footer>
-          </div>
-        </container>
-      </div>
-    </div>
+    <div id="play-area"/>
   </div>
 </template>
-
-<style scoped>
-  .habbo-client-error {
-    justify-content: initial;
-  }
-  .client-error {
-    background: transparent;
-    margin-top: 10%;
-    opacity:1;
-  }
-</style>
 
 <script>
 import SWF from 'swfobject'
@@ -143,7 +95,7 @@ export default {
         'flash.client.url': `${site['swf.base']}/`,
         'client.starting.revolving': 'Heroic Beta 3.0.1',
         'use.sso.ticket': '1',
-        'sso.ticket': 'beautiful-fucking-girl',
+        'sso.ticket': this.session.auth,
         'flash.client.origin': 'popup',
         'client.allow.cross.domain': '1',
         'client.notify.cross.domain': '0'
@@ -157,8 +109,11 @@ export default {
       return Promise.resolve()
     },
     async loadSWF () {
-      SWF.embedSWF(`${this.state.site['swf.config']}/habbo.swf`, 'client', '100%', '100%', '10.0.0', '', this.client.variables, this.client.paramaters, null)
+      SWF.embedSWF(`${this.state.site['swf.config']}/habbo.swf`, 'play-area', '100%', '100%', '10.0.0', '', this.client.variables, this.client.paramaters, null)
       return Promise.resolve()
+    },
+    async closeClient () {
+      await Session.dispatch('client', false)
     }
   }
 }

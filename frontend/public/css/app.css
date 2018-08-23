@@ -8466,6 +8466,8 @@ input::-webkit-input-placeholder {
 }
 .login-articles .columns {
   display: inline-block;
+  width: 70%;
+  min-height: 250px;
 }
 .news-header--column {
   display: inline;
@@ -8622,4 +8624,8 @@ button.btn-green:hover {
   font-size: 22px;
 }
 
+
+.full-height {
+  height: 100% !important;
+}
 

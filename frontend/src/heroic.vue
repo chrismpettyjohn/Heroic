@@ -1,94 +1,89 @@
 <template>
-  <div class="app">
+  <div class="full-height">
 
+    <!-- App Loading -->
     <div
-      v-if="ready"
-      class="app">
-      <div
-        :key="$route.path"
-        class="content">
-        <!-- Authenticated -->
-        <div v-if="user">
-          <div v-if="!client">
-            <heroic-header/>
-            <main
-              class="wrapper wrapper--content"
-              style="height:100%;">
-              <router-view/>
-            </main>
-          </div>
-          <div v-if="client">
-            <router-view/>
-          </div>
-        </div>
-        <!-- Not Authenticated -->
-        <router-view v-if="!user"/>
+      v-if="!state.ready"
+      class="container row"
+      style="margin-top:10%;">
+      <div class="col-4"/>
+      <div class="col-4">
+        <loading>We are preparing your experience</loading>
       </div>
     </div>
 
+    <!-- App Content -->
     <div
-      v-if="!ready"
-      id="app">
+      v-if="state.ready"
+      class="full-height">
+
+      <!-- Guest Area -->
+      <div v-if="!user"/>
+
+      <!-- User Area -->
       <div
-        class="container row"
-        style="margin-top:10%;">
-        <div class="col-4"/>
-        <div class="col-4">
-          <loading>We are preparing your experience</loading>
+        v-if="user"
+        class="full-height">
+
+        <!-- Regular -->
+        <div
+          v-if="!client"
+          class="content full-height">
+          <app-header/>
+          <main class="wrapper wrapper--content">
+            <router-view/>
+          </main>
         </div>
+
+        <!-- Client -->
+        <client :class="{ 'hide-client': !client, 'show-client': client }"/>
       </div>
+
     </div>
 
   </div>
 </template>
 
 <style scoped>
-  .app {
-    position: relative;
-    height: 100%;
+  .hide-client {
+    visibility: hidden;
+    z-index: -100 !important;
   }
-  .content {
-    min-height: 100%;
-  }
-  main {
-    min-height:100%;
+  .show-client {
+    visibility: visible;
+    z-index: 100 !important;
   }
 </style>
 
 <script>
-import Footer from '@/components/footer'
+import Client from '@/components/client'
 import Session from '@/app/storage/session'
-import Header from '@/components/header/base'
 import Settings from '@/app/storage/settings'
+import Header from '@/components/header/base'
 export default {
   components: {
-    'HeroicHeader': Header,
-    'HeroicFooter': Footer
+    'AppHeader': Header,
+    'Client': Client
   },
   data () {
     return {
-      ready: false,
-      client: false
+      state: {
+        ready: false
+      }
     }
   },
   computed: {
     user () {
       return Session.getters.active
-    }
-  },
-  watch: {
-    $route (to, from) {
-      if (to.name === 'Home.Client') {
-        this.client = true
-      } else {
-        this.client = false
-      }
+    },
+    client () {
+      return Session.getters.client
     }
   },
   async created () {
     await Settings.dispatch('init')
     await Session.dispatch('init')
-    this.ready = true
+    this.state.ready = true
   }
 }
 </script>
