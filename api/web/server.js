@@ -39,7 +39,7 @@ export default class HTTP {
     link = `/${link}`
     // Load Controller
     controller = {
-      handler: require(Path.resolve(__dirname, 'controllers', `${controller.split('@')[0]}.js`)).default,
+      handler: require(Path.resolve(__dirname, 'controllers', `${controller.split('@')[0].toLowerCase()}.js`)).default,
       action: controller.split('@')[1]
     }
     // Authenticated?
@@ -56,7 +56,7 @@ export default class HTTP {
 
   static async listen () {
     try {
-      await HTTP.server.listen(Config.web.port)
+      await HTTP.server.listen(Config.web.port, '0.0.0.0')
       return Promise.resolve()
     } catch (e) {
       return Promise.reject(e)

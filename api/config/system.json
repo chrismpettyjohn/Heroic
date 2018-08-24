@@ -3,7 +3,7 @@
 		"host": "127.0.0.1",
 		"user": "root",
 		"password": "password",
-		"database": "habbo",
+		"database": "arcturus",
 		"pool": {
 			"min": 10,
 			"max": 20
