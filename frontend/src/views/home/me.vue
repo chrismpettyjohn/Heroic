@@ -3,71 +3,58 @@
     <!-- Title -->
     <page-title>Home</page-title>
     <h1 class="container row">Welcome Back</h1>
-    <div
-      class="container row"
-      style="color:white;background:#133A5F;border-radius:3px;margin-top:1.5%;">
-      <div
-        class="col-6 myinfo"
-        hubbo-section="hubbo-home-me"
-        :style="`background-image: url(https://www.habbo.com/habbo-imaging/avatarimage?figure=${user.look}&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;action=wav&amp;size=xl);background-position: initial;`">
-        <div class="myinfo-container hubbo-border-right">
-          <h2>{{ user.username }}</h2>
+
+    <!-- Container -->
+    <div class="user-container">
+      <div class="row padding">
+        <div class="col-2">
+          <imager :look="user.look"/>
+        </div>
+        <div class="col-4">
           <div class="row">
-            <div class="col-6 balance-coins">
-              <span>{{ user.credits }}</span>
+            <h1>{{ user.username }}</h1>
+          </div>
+          <div class="motto">
+            <span>{{ user.motto }}</span>
+          </div>
+          <div class="row economy">
+            <div class="col-6 currency credits">
+              <span>1,000</span>
             </div>
-            <div class="col-6 balance-hc">
-              <span>0 days</span>
+            <div class="col-6 currency club">
+              <span>30 days</span>
             </div>
-            <div class="col-6 balance-duckets">
-              <span>{{ user.pixels }}</span>
+            <div class="col-6 currency pixels">
+              <span>2,000</span>
             </div>
-            <div class="col-6 balance-gems">
-              <span>{{ user.points }}</span>
+            <div class="col-6 currency points">
+              <span>10</span>
             </div>
           </div>
-
+        </div>
+        <div class="col-4 hotel-wrapper">
+          <a class="register-banner__button">Enter Hotel</a>
         </div>
       </div>
-      <div
-        class="col-6"
-        hubbo-section="hubbo-home-play"
-        hide-data="mobile">
-        <strong>WHAT ARE YOU WAITING FOR..?</strong>
-        <button
-          @click="enter()"
-          class="btn-green">Enter Hotel</button>
-      </div>
     </div>
+
+    <!-- Articles -->
     <div class="container row">
       <div class="col-6">
-        <article
-          v-for="article in articles"
-          :key="article.id"
-          class="news-header">
-          <router-link
-            :to="{ name : 'Community.News.Article', params : { id: article.id }}"
-            class="news-header__link news-header__banner">
+        <article v-for="article in articles" :key="article.id" class="news-header">
+          <router-link :to="{ name : 'Community.News.Article', params : { id: article.id }}" class="news-header__link news-header__banner">
             <figure class="news-header__viewport">
-              <img
-                :src="`/img/news/${article.image}_thumb.png`"
-                class="news-header__image news-header__image--thumbnail">
+              <img :src="`/img/news/${article.image}_thumb.png`" class="news-header__image news-header__image--thumbnail">
             </figure>
           </router-link>
-          <router-link
-            :to="{ name : 'Community.News.Article', params : { id: article.id }}"
-            class="news-header__link news-header__wrapper">
-            <h2
-              class="news-header__title"
-              style="width:100%;">{{ article.title }}</h2>
+          <router-link :to="{ name : 'Community.News.Article', params : { id: article.id }}" class="news-header__link news-header__wrapper">
+            <h2 class="news-header__title" style="width:100%;">{{ article.title }}</h2>
           </router-link>
           <aside class="news-header__wrapper news-header__info">
             <time class="news-header__date">May 1, 2018</time>
             <ul class="news-header__categories">
               <li class="news-header__category">
-                <router-link
-                  :to="{ name: 'Community.News.Category', params: { id: article.category.id }}"
-                  class="news-header__category__link">{{ article.category.title }}</router-link>
+                <router-link :to="{ name: 'Community.News.Category', params: { id: article.category.id }}" class="news-header__category__link">{{ article.category.title }}</router-link>
               </li>
             </ul>
           </aside>
@@ -77,36 +64,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-  .user {
-    background: #0B3E63;
-    border-radius: 3px;
-    text-align: center;
-    box-shadow: 0 1px 0 1px rgba(0,0,0,.3);
-    height: 70px;
-    width: 66px;
-    background-image: url(https://www.habbo.com/habbo-imaging/avatarimage?figure=sh-3252-64-67.ch-215-1408.hd-3103-1.ca-3217-110-1325.hr-125-61.lg-3023-110);
-    margin: 0 auto;
-  }
-  .col-closer {
-    margin-left: -5px;
-  }
-  .post textarea {
-    display: block;
-    background: none;
-    border: none;
-    width: 100%;
-    color: #7ecaee;
-    border: none;
-    resize: none;
-    outline: none;
-  }
-  ::-webkit-input-placeholder {
-    color: #7ecaee;
-    opacity: 0.6;
-  }
-</style>
 
 <script>
 import API from '@/app/api'
