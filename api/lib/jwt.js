@@ -9,7 +9,11 @@ export default class JWT {
   }
 
   static validate (session) {
-    return Token.verify(session, Config.advanced.secret)
+    try {
+      return Token.verify(session, Config.advanced.secret)
+    } catch (e) {
+      return false
+    }
   }
 
   static check (request, reply, done) {

@@ -38,5 +38,15 @@ export default class Controller {
       reply.code(400).send()
     }
   }
+
+  // Fetch top users
+  static async top (request, reply) {
+    try {
+       let users = await Database.top()
+       reply.code(200).send(users)
+    } catch (e) {
+      reply.code(400).send()
+    }
+  }
   
 }

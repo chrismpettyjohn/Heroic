@@ -9,9 +9,10 @@ export default class Routing {
     // Session
     await Server.route('POST', 'session', 'Session@create') // Login as user
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
-    // User
+    // User 
     await Server.route('POST', 'user', 'User@create') // Create user
     await Server.route('GET', 'user/online', 'User@online') // Fetch online users
+    await Server.route('GET', 'user/leaderboard', 'User@top') // Fetch top users
     await Server.route('GET', 'user/:user', 'User@read') // Find user by username or email
     await Server.route('GET', 'user/:user/:relations', 'User@read') // Fetch user^ (with relations)
     // Camera

@@ -16,6 +16,7 @@ export default class Model extends password(Base) {
       // Columns
       'id',
       'username',
+      'mail',
       'mail_verified',
       'account_created',
       'last_login',
@@ -34,7 +35,8 @@ export default class Model extends password(Base) {
       'bans',
       'friends',
       'info',
-      'rooms'
+      'rooms',
+      'permission'
     ]
   }
 
@@ -45,6 +47,7 @@ export default class Model extends password(Base) {
     const Friends = require('./friend').default
     const Info = require('./users_settings').default
     const Rooms = require('./room').default
+    const Permission = require('./permission').default
     // Relations
     return {
       // Bans (bans)
@@ -81,6 +84,15 @@ export default class Model extends password(Base) {
         join: {
           from: 'users.id',
           to: 'users_settings.user_id'
+        }
+      },
+      // Permission(permissions)
+      permission: {
+        relation: Base.HasOneRelation,
+        modelClass: Permission,
+        join: {
+          from: 'users.rank',
+          to: 'permissions.id'
         }
       },
       // Rooms (rooms)

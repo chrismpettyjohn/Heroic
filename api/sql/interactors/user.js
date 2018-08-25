@@ -50,15 +50,32 @@ export default class Interactor {
         return Promise.reject(Error('MISSING'))
       }
     } catch (e) {
+      console.log(e)
       return Promise.reject(e)
     }
   }
+
   // Fetch online users 
   static async online () {
     try {
       let users = await Model.query().where('online', '1')
       return Promise.resolve(users)
     } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
+  // Fetch top users 
+  static async top () {
+    try {
+      let users = {
+        credits: await Model.query().orderBy('credits', 'DESC').limit(3),
+        points: await Model.query().orderBy('points', 'DESC').limit(3),
+        online: await Model.query().joinEager('info').orderBy('info.online_time', 'DESC').limit(3)
+      }
+      return Promise.resolve(users)
+    } catch (e) {
+      console.log(e)
       return Promise.reject(e)
     }
   }
