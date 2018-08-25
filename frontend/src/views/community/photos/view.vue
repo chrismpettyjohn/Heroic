@@ -34,15 +34,13 @@
         <div class="col-3"/>
         <div class="creation-content__expander col-11">
           <div class="creation-content__view">
-            <router-link
-              :to="{ name: 'Community.Photos.View', params : { id: photo.id-1 }}"
-              class="creation-content__link"><i class="icon icon--arrow-prev"/></router-link>
+            <router-link :to="{ name: 'Community.Photos.View', params : { id: (photo.id-1) }}" class="creation-content__link"><i class="icon icon--arrow-prev"/></router-link>
             <img
               :src="photo.url"
               class="creation-content__creation"
               style="width:320px;height:320px">
             <router-link
-              :to="{ name: 'Community.Photos.View', params : { id: photo.id+1 }}"
+              :to="{ name: 'Community.Photos.View', params : { id: (photo.id+1 )}}"
               class="creation-content__link"><i class="icon icon--arrow-next"/></router-link>
           </div>
         </div>
@@ -88,17 +86,28 @@ export default {
     }
   },
   async mounted () {
-    if (this.data === null) {
-      try {
-        let photo = await API.get(`camera/${this.id}/author`)
-        this.photo = photo.data
+    this.fetch()
+  },
+  methods: {
+    async fetch () {
+      this.loading = true
+      if (this.data === null) {
+        try {
+          let photo = await API.get(`camera/${this.id}/author`)
+          this.photo = photo.data
+          this.loading = false
+        } catch (e) {
+          this.$router.push({ name: 'Community.Photos.List' })
+        }
+      } else {
+        this.photo = this.data
         this.loading = false
-      } catch (e) {
-        this.$router.push({ name: 'Community.Photos.List' })
       }
-    } else {
-      this.photo = this.data
-      this.loading = false
+    }
+  },
+  watch: {
+    id (current) {
+      this.fetch()
     }
   }
 }

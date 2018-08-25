@@ -29,26 +29,25 @@ export default new Vuex.Store({
       state.site = config.site
       state.online = config.online
       state.ready = true
+    },
+    setOnline: (state, amount) => {
+      state.online = amount
     }
   },
   actions: {
-    init: (context) => {
-      return new Promise(async (resolve, reject) => {
-        // Prepare
-        let config = {}
-        // Fetch settings
-        config.site = await API.get('heroic')
-        // Format Data
-        config.site = config.site.data
-        // Fetch online
-        config.online = await API.get('user/online')
-        // Format Data
-        config.online = config.online.data.length
-        // Save State
-        context.commit('init', config)
-        // Return
-        resolve(true)
-      })
+    init: async (context) => {
+      let config = {}
+      config.site = await API.get('heroic')
+      config.site = config.site.data
+      config.online = await API.get('user/online')
+      config.online = config.online.data.length
+      context.commit('init', config)
+      return Promise.resolve()
+    },
+    fetchOnline: async (context) => {
+      let online = await API.get('user/online')
+      context.commit('setOnline', online.data.length)
+      return Promise.resolve()
     }
   }
 })

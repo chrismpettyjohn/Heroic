@@ -2,6 +2,8 @@
   <div>
     <!-- Title -->
     <page-title>Home</page-title>
+
+    <!-- Welcome Back -->
     <h1 class="container row">Welcome Back</h1>
 
     <!-- Container -->
@@ -33,7 +35,7 @@
           </div>
         </div>
         <div class="col-4 hotel-wrapper">
-          <a class="register-banner__button">Enter Hotel</a>
+          <router-link :to="{ name: 'Home.Client' }" class="register-banner__button">Enter Hotel</router-link>
         </div>
       </div>
     </div>
@@ -85,11 +87,6 @@ export default {
       this.articles = articles.data
     } catch (e) {
       this.$router.push({ name: 'Errors.500' })
-    }
-  },
-  methods: {
-    async enter () {
-      await Session.dispatch('client', true)
     }
   }
 }

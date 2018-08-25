@@ -1602,10 +1602,9 @@ habbo-email-address[type=box] .form__fieldset+habbo-email-address[type=box] .for
   margin-bottom: -70px
 }
 .header__habbo__logo {
-  background-image: url(../img/sprite.png);
-  background-position: 0 0;
-  width: 197px;
-  height: 73px;
+  background-image: url(../img/logo.png);
+  width: 259px;
+  height: 69px;
   display: block;
   margin-bottom: -12px;
 }
@@ -5985,7 +5984,7 @@ habbo-facebook-connect[type=small] .facebook-connect {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, .3);
   transform: translate(0, 2px)
 }
-habbo-avatar-create {
+.habbo-avatar-create {
   margin-bottom: 24px;
   border-radius: 3px;
   overflow: hidden;
@@ -5993,11 +5992,11 @@ habbo-avatar-create {
   background-color: #103960;
   display: block
 }
-habbo-avatar-create:empty, habbo-avatar-create:last-child {
+.habbo-avatar-create:empty, .habbo-avatar-create:last-child {
   margin-bottom: 0
 }
 @media (min-width:532px) {
-  habbo-avatar-create {
+  .habbo-avatar-create {
     padding-left: 24px;
     padding-right: 24px
   }
@@ -8555,3 +8554,6 @@ input::-webkit-input-placeholder {
     font-size: 1.25em;
     margin-top: 12.5%;
   }
+
+  /* Client */
+  

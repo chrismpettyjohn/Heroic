@@ -66,5 +66,19 @@ routes.push({
   component: Community.Staff
 })
 
+// Online
+routes.push({
+  name: 'Community.Online',
+  path: '/online',
+  component: Community.Online
+})
+
+// Leaderboards
+routes.push({
+  name: 'Community.Leaderboards',
+  path: '/leaderboards',
+  component: Community.Leaderboards
+})
+
 /* End of Add To List */
 export default routes

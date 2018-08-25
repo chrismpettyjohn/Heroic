@@ -27,95 +27,25 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Row -->
-      <div class="row">
-        <!-- Friends -->
-        <div
-          v-if="user.friends.length > 0"
-          class="col-6">
-          <div
-            class="profile__card__wrapper--friends"
-            style="width:100%;">
-            <section class="profile__card__aligner">
-              <div class="profile__card">
-                <h2 class="profile__card__title">Friends</h2>
-                <!-- List -->
-                <div class="item-list--grid">
-                  <ul>
-                    <li
-                      v-for="friend in user.friends.slice(0, 5)"
-                      :key="friend.id"
-                      class="item item--friend">
-                      <router-link
-                        :to="{ name: 'Home.Profile', params: { username : friend.user.username } }"
-                        class="item__content">
-                        <div class="item__icon">
-                          <imager
-                            :look="friend.user.look"
-                            class="imager"/>
-                        </div>
-                        <div class="item__text">
-                          <h6 class="item__title item__title--single-line">{{ friend.user.username }}</h6>
-                        </div>
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Footer -->
-                <div class="profile__card__footer">
-                  <p
-                    class="profile-modal__link"
-                    @click="toggleModal('friends')">See all</p>
-                </div>
-                <!-- Modal -->
-                <modal
-                  v-if="isModal('friends')"
-                  title="Friends"
-                  @close="toggleModal('friends')">
-                  <div class="item-list--stacked">
-                    <ul>
-                      <li
-                        v-for="friend in user.friends"
-                        :key="friend.id"
-                        class="item item--friend">
-                        <router-link
-                          :to="{ name: 'Home.Profile', params: { username : friend.user.username } }"
-                          class="item__content">
-                          <div class="item__icon">
-                            <imager
-                              :look="friend.user.look"
-                              class="imager"/>
-                          </div>
-                          <div class="item__text">
-                            <h6 class="item__title item__title--single-line">{{ friend.user.username }}</h6>
-                            <p class="item__description">Friends Since {{ friend.friends_since | date }}</p>
-                          </div>
-                        </router-link>
-                      </li>
-                    </ul>
-                  </div>
-                </modal>
-              </div>
-            </section>
+          <div class="profile-badge">
+            <img v-if="user.permission.rank_type==='staff'" :src="`${settings['swf.base'].replace('base','')}/images/album1584/ADM.gif`">
           </div>
         </div>
-      </div>
-      <!-- Row -->
-      <div class="row">
-        <footer class="wrapper wrapper--content">
-          <h2 class="profile__joined">Joined on {{ user.account_created | date }}</h2>
-          <div class="profile__hearts"><i class="icon icon--heart"/><i class="icon icon--heart"/><i class="icon icon--heart"/></div>
-        </footer>
       </div>
     </div>
   </div>
 </template>
-
+<style scoped>
+  .profile-badge {
+    position: absolute;
+    right: 38%;
+    top: 38%;
+  }
+</style>
 <script>
 import API from '@/app/api'
 import Moment from 'moment'
+import Settings from '@/app/storage/settings'
 import Modal from '@/components/utility/modal'
 export default {
   components: {
@@ -143,12 +73,13 @@ export default {
           friends: false
         }
       },
+      settings: Settings.getters.site,
       user: {}
     }
   },
   async mounted () {
     try {
-      let profile = await API.get(`user/${this.state.user}/friends,friends.user`)
+      let profile = await API.get(`user/${this.state.user}/permission`)
       this.user = profile.data
       this.state.ready = true
     } catch (e) {

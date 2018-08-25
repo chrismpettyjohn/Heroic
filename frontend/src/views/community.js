@@ -22,6 +22,12 @@ list.News.Article = require('./community/news/article').default
 // Staff
 list.Staff = require('./community/staff').default
 
+// Online
+list.Online = require('./community/online').default
+
+// Leaderboards
+list.Leaderboards = require('./community/leaderboards').default
+
 /* End of Pages */
 
 // Export

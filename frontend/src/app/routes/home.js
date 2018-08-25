@@ -13,6 +13,13 @@ routes.push({
   component: Home.Me
 })
 
+// Account Settings
+routes.push({
+  name: 'Home.Settings',
+  path: '/settings',
+  component: Home.Settings
+})
+
 // Profile (View)
 routes.push({
   name: 'Home.Profile',
@@ -21,11 +28,25 @@ routes.push({
   props: true
 })
 
-// Client
+// Social Media
 routes.push({
+  name: 'Home.Social',
+  path: '/social',
+  component: Home.Social
+})
+
+// Social Media
+routes.push({
+  name: 'Home.Beta',
+  path: '/beta',
+  component: Home.Beta
+})
+
+routes.push({
+// Client
   name: 'Home.Client',
   path: '/client',
-  component: Home.Blank
+  component: Home.Client
 })
 
 // Logout

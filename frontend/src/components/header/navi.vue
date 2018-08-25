@@ -12,9 +12,7 @@
             class="navigation__link"> {{ page.text }}</router-link>
         </li>
         <li class="navigation__item navigation__item--aside navigation__item--hotel">
-          <a
-            @click="enterClient()"
-            class="hotel-button">
+          <a @click="enterClient()" class="hotel-button">
             <span class="hotel-button__text"><small>{{ online }} Online</small></span>
           </a>
         </li>
@@ -22,13 +20,8 @@
     </nav>
     <div class="habbo-tabs">
       <ul class="tabs tabs__menu">
-        <li
-          v-for="page in navi.active"
-          :key="page.id"
-          class="habbo-tab">
-          <router-link
-            :to="{ name : page.link, params : page.params }"
-            :class="{'tab__link--active': state.route.child==page.active}">{{ page.text }}</router-link>
+        <li v-for="page in navi.active" :key="page.id" class="habbo-tab">
+          <router-link :to="{ name : page.link, params : page.params }" :class="{'tab__link--active': state.route.child==page.active}">{{ page.text }}</router-link>
         </li>
       </ul>
     </div>
@@ -40,9 +33,13 @@ import Tools from '@/app/helpers/tools'
 import Session from '@/app/storage/session'
 import Settings from '@/app/storage/settings'
 export default {
+  computed: {
+    online () {
+      return Settings.getters.online
+    }
+  },
   data () {
     return {
-      online: Settings.getters.online,
       state: {
         ready: false,
         route: {
@@ -74,6 +71,18 @@ export default {
                 params: {
                   username: Session.state.user.username
                 }
+              },
+              // Networks
+              {
+                active: 'Social',
+                text: 'Social Media',
+                link: 'Home.Social'
+              },
+              // Beta
+              {
+                active: 'Beta',
+                text: 'Beta Info',
+                link: 'Home.Beta'
               }
             ]
           },
@@ -107,6 +116,18 @@ export default {
                 active: 'Staff',
                 text: `Staff`,
                 link: 'Community.Staff'
+              },
+              // Online Users
+              {
+                active: 'Online',
+                text: `Online`,
+                link: 'Community.Online'
+              },
+              // Staff
+              {
+                active: 'Leaderboards',
+                text: `Top Users`,
+                link: 'Community.Leaderboards'
               }
             ]
           }
@@ -126,6 +147,8 @@ export default {
       // Change State
       this.state.ready = true
     }
+    // Handle Loading Users
+    window.setInterval(this.trackOnline, 10000)
   },
   methods: {
     updateChildren () {
@@ -138,7 +161,10 @@ export default {
       })
     },
     async enterClient () {
-      await Session.dispatch('client', true)
+      this.$router.push({ name: 'Home.Client' })
+    },
+    async trackOnline () {
+      Settings.dispatch('fetchOnline')
     }
   },
   events: {
