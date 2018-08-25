@@ -16,7 +16,6 @@
         <router-link :to="{ name: 'Home.Profile', params: { username: user.username }}" class="avatar">
           <imager :look="user.look" :headonly="1" class="imager"/>
           <h6 class="avatar__title">{{ user.username }}</h6>
-          <img :src="`${settings['swf.base'].replace('base','')}/images/album1584/ADM.gif`" class="badge">
         </router-link>
       </div>
     </div>
@@ -28,7 +27,12 @@
     margin-top: -1.5%;
   }
   .card {
+    display: inline-block;
+    width: 250px;
+    height: 70px;
     margin: 0px;
+    margin-right: 1.5%;
+    margin-top: .5%;
     position: relative;
   }
   .card:hover {

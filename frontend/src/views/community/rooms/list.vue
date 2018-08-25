@@ -7,16 +7,10 @@
     <loading v-if="loading">We are getting some cool rooms for you!</loading>
 
     <!-- Content -->
-    <section
-      v-if="!loading"
-      class="wrapper wrapper--content rooms-wrapper"
-      style="margin-top:1.5%;">
-      <div
-        v-for="room in rooms"
-        :key="room.id"
-        class="room-item">
+    <section v-if="!loading" class="wrapper wrapper--content rooms-wrapper" style="margin-top:1.5%;">
+      <div v-for="room in rooms" :key="room.id" class="room-item">
         <router-link :to="{ name: 'Community.Rooms.View', params: { id: room.id, data: room }}">
-          <div class="room-item__thumbnail"/>
+          <div class="room-item__thumbnail" :style="`background:url('http://arcturus.pw/camera/Chris/thumbnail_${room.id}.png');`"/>
         </router-link>
         <router-link :to="{ name: 'Community.Rooms.View', params: { id: room.id, data: room }}">
           <h2 class="room-item__title">{{ room.name }}</h2>
@@ -38,6 +32,12 @@
     </section>
   </div>
 </template>
+
+<style scoped>
+  .room-item__thumbnail:before {
+    background:none;
+  }
+</style>
 
 <script>
 import API from '@/app/api'

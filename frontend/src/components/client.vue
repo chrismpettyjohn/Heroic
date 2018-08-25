@@ -39,7 +39,7 @@
     <!-- Game Area -->
     <div v-if="state.flash" class="full-height">
       <div class="client__buttons">
-        <button @click="closeClient()" class="client__close"><i class="client__close__icon icon icon--habbo"/></button>
+        <button @click="closeClient()" class="client__close"><i class="client__close__icon icon icon--habbo" style="margin-right:5px;"/> Website</button>
         <button @click="refreshClient()" class="client__fullscreen" style="margin-left:-3px;">Reload</button>
         <button class="client__fullscreen" style="margin-left:-3px;">{{ online }} Online</button>
       </div>
@@ -175,7 +175,7 @@ export default {
       await this.hasFlash()
       await this.initGame()
     } catch (e) {
-      if (e) this.$router.push({ name: 'Errors.500' })
+      // Absorb Error
     }
   },
   methods: {
@@ -190,7 +190,7 @@ export default {
         return Promise.resolve()
       } else {
         this.state.flash = false
-        return Promise.reject(Error(false))
+        return Promise.resolve()
       }
     },
     async getSSO () {

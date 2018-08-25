@@ -7,18 +7,12 @@
     <loading v-if="loading">We are getting some info about this room</loading>
 
     <!-- Content -->
-    <div
-      v-if="!loading"
-      class="row">
+    <div v-if="!loading" class="row">
       <div class="col-2">
-        <div class="room__thumbnail row"/>
-        <router-link
-          :to="{ name : 'user.home.profile', params : { username : room.owner.username }}"
-          class="avatar row">
+        <div :style="`background:url('http://arcturus.pw/camera/Chris/thumbnail_${room.id}.png');`" class="room__thumbnail row"/>
+        <router-link :to="{ name : 'user.home.profile', params : { username : room.owner.username }}" class="avatar row">
           <div class="habbo-imager room__owner--user">
-            <imager
-              :look="room.owner.look"
-              headonly="true"/>
+            <imager :look="room.owner.look" :headonly="1"/>
           </div>
           <h6 class="avatar__title">{{ room.owner.username }}</h6>
         </router-link>
@@ -51,19 +45,20 @@
   </div>
 </template>
 
+<style scoped>
+.room__thumbnail:before {
+    background:none;
+  }
+</style>
+
 <script>
 import API from '@/app/api'
 export default {
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
       default: 1
-    },
-    data: {
-      type: Object,
-      required: false,
-      default: null
     }
   },
   data () {
@@ -73,17 +68,12 @@ export default {
     }
   },
   async mounted () {
-    if (this.data === undefined) {
-      try {
-        let room = await API.get(`room/${this.id}/owner`)
-        this.room = room.data
-        this.loading = false
-      } catch (e) {
-        this.$router.push({ name: 'Community.Rooms.List' })
-      }
-    } else {
-      this.room = this.data
+    try {
+      let room = await API.get(`room/${this.id}/owner`)
+      this.room = room.data
       this.loading = false
+    } catch (e) {
+      this.$router.push({ name: 'Community.Rooms.List' })
     }
   }
 }

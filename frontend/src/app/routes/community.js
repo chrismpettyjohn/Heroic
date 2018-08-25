@@ -28,7 +28,7 @@ routes.push({
   component: Community.Rooms.List
 })
 
-// Room List
+// Room View
 routes.push({
   name: 'Community.Rooms.View',
   path: '/rooms/:id',

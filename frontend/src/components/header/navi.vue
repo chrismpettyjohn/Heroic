@@ -71,18 +71,6 @@ export default {
                 params: {
                   username: Session.state.user.username
                 }
-              },
-              // Networks
-              {
-                active: 'Social',
-                text: 'Social Media',
-                link: 'Home.Social'
-              },
-              // Beta
-              {
-                active: 'Beta',
-                text: 'Beta Info',
-                link: 'Home.Beta'
               }
             ]
           },
@@ -128,6 +116,33 @@ export default {
                 active: 'Leaderboards',
                 text: `Top Users`,
                 link: 'Community.Leaderboards'
+              }
+            ]
+          },
+          // Info
+          {
+            active: 'Info',
+            text: 'Help',
+            link: 'Info.Tips',
+            class: 'playing-habbo',
+            children: [
+              // Quick Tips
+              {
+                active: 'Tips',
+                text: `Quick Tips`,
+                link: 'Info.Tips'
+              },
+              // Networks
+              {
+                active: 'Social',
+                text: 'Social Media',
+                link: 'Info.Networks'
+              },
+              // Beta
+              {
+                active: 'Beta',
+                text: 'Beta Info',
+                link: 'Info.Beta'
               }
             ]
           }

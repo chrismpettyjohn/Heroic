@@ -28,20 +28,6 @@ routes.push({
   props: true
 })
 
-// Social Media
-routes.push({
-  name: 'Home.Social',
-  path: '/social',
-  component: Home.Social
-})
-
-// Social Media
-routes.push({
-  name: 'Home.Beta',
-  path: '/beta',
-  component: Home.Beta
-})
-
 routes.push({
 // Client
   name: 'Home.Client',
