@@ -28,6 +28,8 @@ export default class HTTP {
     // Register
     HTTP.server.register(Compress)
     HTTP.server.register(Form)
+    // CORS
+    HTTP.server.options('*', (request, reply) => { reply.send() })
     // Return
     return Promise.resolve()
   }

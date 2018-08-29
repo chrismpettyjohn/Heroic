@@ -29,6 +29,27 @@ export default class Controller {
     }
   }
 
+  // Update user by account settings 
+  static async update (request, reply) {
+    try {
+      let user = {}
+      let data = request.body
+      user.mail = data.mail
+      if (data.password_new) {
+        if (data.password.new===data.password_repeat) {
+           await Database.login(request.session.username, data.password_current)
+           user.password = data.password_new
+        } else {
+          throw `New password doesn't match`
+        }
+      }
+      await Database.update(user)
+      reply.code(200).send()
+    } catch (e) {
+      reply.code(400).send(e)
+    }
+  }
+
   // Fetch online users
   static async online (request, reply) {
     try {

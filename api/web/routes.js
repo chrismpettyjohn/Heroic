@@ -11,6 +11,7 @@ export default class Routing {
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
     // User 
     await Server.route('POST', 'user', 'User@create') // Create user
+    await Server.route('PATCH', 'user', 'User@update') // Update user
     await Server.route('GET', 'user/online', 'User@online') // Fetch online users
     await Server.route('GET', 'user/leaderboard', 'User@top') // Fetch top users
     await Server.route('GET', 'user/:user', 'User@read') // Find user by username or email

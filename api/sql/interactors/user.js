@@ -55,6 +55,21 @@ export default class Interactor {
     }
   }
 
+  // Update user 
+  static async update (user) {
+    try {
+      let account = await Model.query().findOne({ id: user.id })
+      if (account) {
+        await Model.query().patch(user)
+        return Promise.resolve()
+      } else {
+        return Promise.reject(Error('User does not exist'))
+      }
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   // Fetch online users 
   static async online () {
     try {
@@ -69,13 +84,12 @@ export default class Interactor {
   static async top () {
     try {
       let users = {
-        credits: await Model.query().orderBy('credits', 'DESC').limit(3),
-        points: await Model.query().orderBy('points', 'DESC').limit(3),
-        online: await Model.query().joinEager('info').orderBy('info.online_time', 'DESC').limit(3)
+        credits: await Model.query().whereIn('rank', [1, 2]).orderBy('credits', 'DESC').limit(3),
+        points: await Model.query().whereIn('rank', [1, 2]).orderBy('points', 'DESC').limit(3),
+        online: await Model.query().whereIn('rank', [1, 2]).joinEager('info').orderBy('info.online_time', 'DESC').limit(3)
       }
       return Promise.resolve(users)
     } catch (e) {
-      console.log(e)
       return Promise.reject(e)
     }
   }
@@ -99,11 +113,25 @@ export default class Interactor {
   // Generate sso
   static async client (id) {
     try {
-      let sso = `heroicArcticFox3_${Random.generate(25)}`
-      await Model.query().patch({ auth_ticket: sso }).where('id', id)
-      return Promise.resolve(sso)
+      let user = await Model.query().patchAndFetchById(id, { auth_ticket: `heroic_${Random.generate(25)}` })
+      return Promise.resolve(user.auth_ticket)
     } catch (e) {
       return Promise.reject(e)
     }
   }
+
+  // Is Staff 
+  static async staff (id) {
+    try {
+      let user = await Model.query().eager('permission').findOne({ id: id })
+      if (user.permission.rank_type==='staff') {
+        return Promise.resolve()
+      } else {
+        return Promise.reject(Error('User is not staff'))
+      }
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
 }

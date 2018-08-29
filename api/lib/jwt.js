@@ -3,7 +3,7 @@ import Config from '@/config/system'
 export default class JWT {
   static sign (session) {
     return Token.sign(JSON.parse(JSON.stringify(session)), Config.advanced.secret, {
-      expiresIn: '1 day',
+      expiresIn: '2 days',
       algorithm: 'HS256'
     })
   }

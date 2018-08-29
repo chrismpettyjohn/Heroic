@@ -29,4 +29,15 @@ export default class Helper {
     // Return
     return Promise.resolve()
   }
+
+  static async staff (request, reply, next) {
+    try {
+      await Interactor.staff(request.session.id)
+      next()
+    } catch (e) {
+      reply.code(403).send('Staff only!')
+    }
+  }
+
+
 }
