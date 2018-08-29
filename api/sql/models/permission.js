@@ -17,7 +17,7 @@ export default class Model extends Base {
     ]
   }
 
-   static get relationMappings () {
+  static get relationMappings () {
     // Dependencies
     const User = require('./user').default
     // Relations
@@ -33,5 +33,4 @@ export default class Model extends Base {
       }
     }
   }
-  
 }

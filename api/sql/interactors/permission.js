@@ -1,5 +1,16 @@
 import Model from '@/sql/models/permission'
 export default class Interactor {
+
+  // Create permission
+  static async create (permission) {
+    try {
+      let data = await Model.query().insertAndFetch(permission)
+      return Promise.resolve(data.id)
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   // Fetch permission
   static async read (id, relations = '') {
     try {
@@ -22,5 +33,15 @@ export default class Interactor {
     } catch (e) {
       return Promise.reject(e)
     }
+  }
+
+  // Update permission
+  static async update (permission) {
+    return Model.query().where('id', permission.id).patch(permission)
+  }
+
+  // Delete permission
+  static async delete (id) {
+    return Model.query().where('id', id).delete()
   }
 }

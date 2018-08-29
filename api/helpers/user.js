@@ -30,14 +30,16 @@ export default class Helper {
     return Promise.resolve()
   }
 
-  static async staff (request, reply, next) {
+  static async staff (request, reply, done) {
     try {
-      await Interactor.staff(request.session.id)
-      next()
+      let user = await Model.query().eager('permission').findById(request.session.id)
+      if (user.permission.rank_type==='staff') {
+        done()
+      } else {
+        throw new Error('y u no staff!!!')
+      }
     } catch (e) {
-      reply.code(403).send('Staff only!')
+      reply.code(403).send(e)
     }
   }
-
-
 }

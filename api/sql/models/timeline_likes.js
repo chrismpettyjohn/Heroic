@@ -10,7 +10,7 @@ export default class Model extends Base {
       'id',
       'post_id',
       'user_id',
-      // Relationships 
+      // Relationships
       'user'
     ]
   }
@@ -31,5 +31,4 @@ export default class Model extends Base {
       }
     }
   }
-
 }

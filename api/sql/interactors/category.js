@@ -5,7 +5,7 @@ export default class Interactor {
     try {
       // Prepare
       let category = {}
-      // Individual or all 
+      // Individual or all
       if (!isNaN(parseInt(id))) {
         category = await Model.query().eager(`[${relations}]`).findById(id)
       } else {

@@ -23,7 +23,7 @@ export default class Model extends Base {
     // Relations
     return {
       // Author (users)
-      author:{
+      author: {
         relation: Base.HasOneRelation,
         modelClass: User,
         join: {
@@ -33,5 +33,4 @@ export default class Model extends Base {
       }
     }
   }
-
 }

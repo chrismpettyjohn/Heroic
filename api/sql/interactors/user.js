@@ -55,22 +55,17 @@ export default class Interactor {
     }
   }
 
-  // Update user 
+  // Update user
   static async update (user) {
-    try {
-      let account = await Model.query().findOne({ id: user.id })
-      if (account) {
-        await Model.query().patch(user)
-        return Promise.resolve()
-      } else {
-        return Promise.reject(Error('User does not exist'))
-      }
-    } catch (e) {
-      return Promise.reject(e)
-    }
+    return Model.query().patchAndFetchById(user.id, user)
   }
 
-  // Fetch online users 
+  // Delete user
+  static async delete (id) {
+    return Model.query().where('id', id).delete()
+  }
+
+  // Fetch online users
   static async online () {
     try {
       let users = await Model.query().where('online', '1')
@@ -80,7 +75,7 @@ export default class Interactor {
     }
   }
 
-  // Fetch top users 
+  // Fetch top users
   static async top () {
     try {
       let users = {
@@ -103,10 +98,10 @@ export default class Interactor {
       if (await user.verifyPassword(password)) {
         return Promise.resolve(user)
       } else {
-        return Promise.reject('password')
+        return Promise.reject(Error('password'))
       }
     } catch (e) {
-      return Promise.reject('username')
+      return Promise.reject(Error('username'))
     }
   }
 
@@ -120,11 +115,11 @@ export default class Interactor {
     }
   }
 
-  // Is Staff 
+  // Is Staff
   static async staff (id) {
     try {
       let user = await Model.query().eager('permission').findOne({ id: id })
-      if (user.permission.rank_type==='staff') {
+      if (user.permission.rank_type === 'staff') {
         return Promise.resolve()
       } else {
         return Promise.reject(Error('User is not staff'))
@@ -133,5 +128,4 @@ export default class Interactor {
       return Promise.reject(e)
     }
   }
-
 }

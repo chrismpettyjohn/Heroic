@@ -11,7 +11,7 @@ export default class Model extends Base {
       'user_id',
       'content',
       'timestamp',
-      // Relationships 
+      // Relationships
       'user'
     ]
   }
@@ -32,5 +32,4 @@ export default class Model extends Base {
       }
     }
   }
-
 }

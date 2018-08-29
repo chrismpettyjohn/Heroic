@@ -3,7 +3,7 @@
 		"host": "127.0.0.1",
 		"user": "root",
 		"password": "password",
-		"database": "arcturus",
+		"database": "backup",
 		"pool": {
 			"min": 10,
 			"max": 20
@@ -14,7 +14,7 @@
 		"port": "8090"
 	},
 	"advanced": {
-		"workers": 4,
+		"workers": 1,
 		"secret": "Heroic3"
 	}
 }

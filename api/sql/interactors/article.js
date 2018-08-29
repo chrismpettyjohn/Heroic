@@ -1,5 +1,16 @@
 import Model from '@/sql/models/article'
 export default class Interactor {
+  // Create article
+  static async create (article) {
+    try {
+      article.timestamp = Math.floor(new Date() / 1000)
+      let result = await Model.query().insertAndFetch(article)
+      return Promise.resolve(result.id)
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   // Fetch article
   static async read (id, relations = '') {
     try {
@@ -17,5 +28,15 @@ export default class Interactor {
     } catch (e) {
       return Promise.reject(e)
     }
+  }
+
+  // Update article
+  static async update (article) {
+    return Model.query().where('id', article.id).patch(article)
+  }
+
+  // Delete article
+  static async delete (id) {
+    return Model.query().where('id', id).delete()
   }
 }
