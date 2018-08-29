@@ -1,3 +1,0 @@
-ALTER TABLE permissions
-ADD COLUMN `rank_desc` varchar(255) NOT NULL AFTER `rank_name`,
-ADD COLUMN `rank_type` varchar(255) NOT NULL AFTER `rank_desc`;
