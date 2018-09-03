@@ -33,7 +33,7 @@ export default class Helper {
   static async staff (request, reply, done) {
     try {
       let user = await Model.query().eager('permission').findById(request.session.id)
-      if (user.permission.rank_type==='staff') {
+      if (user.permission.rank_type === 'staff') {
         done()
       } else {
         throw new Error('y u no staff!!!')

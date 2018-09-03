@@ -8,6 +8,7 @@ import User from '@/helpers/user'
 import Form from 'fastify-formbody'
 import Config from '@/config/system'
 import Compress from 'fastify-compress'
+
 export default class HTTP {
   static async init () {
     try {
@@ -30,7 +31,9 @@ export default class HTTP {
     HTTP.server.register(Compress)
     HTTP.server.register(Form)
     // CORS
-    HTTP.server.options('*', (request, reply) => { reply.send() })
+    HTTP.server.options('*', (request, reply) => {
+      reply.send()
+    })
     // Return
     return Promise.resolve()
   }
@@ -48,14 +51,10 @@ export default class HTTP {
 
     // Handle Authentication
     if (auth && staff) {
-      HTTP.server[method](link, { beforeHandler: [Token.check, User.staff] }, controller.handler[controller.action])
-    } 
-
-    else if (auth && !staff) {
-      HTTP.server[method](link, { beforeHandler: Token.check }, controller.handler[controller.action])
-    }
-
-    else if (!auth) {
+      HTTP.server[method](link, {beforeHandler: [Token.check, User.staff]}, controller.handler[controller.action])
+    } else if (auth && !staff) {
+      HTTP.server[method](link, {beforeHandler: Token.check}, controller.handler[controller.action])
+    } else if (!auth) {
       HTTP.server[method](link, controller.handler[controller.action])
     }
 

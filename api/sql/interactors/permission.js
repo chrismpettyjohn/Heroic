@@ -1,6 +1,6 @@
 import Model from '@/sql/models/permission'
-export default class Interactor {
 
+export default class Interactor {
   // Create permission
   static async create (permission) {
     try {

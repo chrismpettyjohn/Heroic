@@ -1,5 +1,6 @@
-import { raw } from 'objection'
+import {raw} from 'objection'
 import Model from '@/sql/models/room'
+
 export default class Interactor {
   // Fetch article
   static async read (id, relations = '') {

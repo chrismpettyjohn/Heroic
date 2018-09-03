@@ -1,4 +1,5 @@
 import Model from '@/sql/models/article'
+
 export default class Interactor {
   // Create article
   static async create (article) {

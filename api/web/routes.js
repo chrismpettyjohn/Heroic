@@ -7,6 +7,7 @@ export default class Routing {
     // Heroic
     await Server.route('GET', 'heroic', 'Heroic@read') // Get heroic settings
     // Session
+    await Server.route('GET', 'session', 'Session@read', true) // Fetch user session
     await Server.route('POST', 'session', 'Session@create') // Login as user
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
     // User
@@ -31,7 +32,7 @@ export default class Routing {
     // News Articles
     await Server.route('GET', 'article/:id', 'Article@read') // Fetch article
     await Server.route('GET', 'article/:id/:relations', 'Article@read') // Fetch article (with relations)
-    // News Articles (Staff Routing) 
+    // News Articles (Staff Routing)
     await Server.route('POST', 'auth/article', 'Article@authCreate') // Create article
     await Server.route('PATCH', 'auth/article', 'Article@authUpdate') // Update article
     await Server.route('DELETE', 'auth/article/:id', 'Article@authDelete') // Delete article

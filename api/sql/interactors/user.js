@@ -1,12 +1,13 @@
 import Random from 'randomstring'
 import Model from '@/sql/models/user'
 import Heroic from '@/sql/models/heroic'
+
 export default class Interactor {
   // Create user
   static async create (user) {
     try {
       // Fetch Heroic Settings
-      let config = await Heroic.query().findOne({ id: 1 })
+      let config = await Heroic.query().findOne({id: 1})
       // Format User Data
       user = {
         username: user.username,
@@ -32,14 +33,15 @@ export default class Interactor {
       return Promise.reject(e)
     }
   }
+
   // Fetch user data based on username
   static async read (query, relationships = '') {
     try {
       // Parse query
       if (query.indexOf('@') > -1) {
-        query = { mail: query }
+        query = {mail: query}
       } else {
-        query = { username: query }
+        query = {username: query}
       }
       // Find User
       let user = await Model.query().eager(`[${relationships}]`).findOne(query)
@@ -108,7 +110,7 @@ export default class Interactor {
   // Generate sso
   static async client (id) {
     try {
-      let user = await Model.query().patchAndFetchById(id, { auth_ticket: `heroic_${Random.generate(25)}` })
+      let user = await Model.query().patchAndFetchById(id, {auth_ticket: `heroic_${Random.generate(25)}`})
       return Promise.resolve(user.auth_ticket)
     } catch (e) {
       return Promise.reject(e)
@@ -118,7 +120,7 @@ export default class Interactor {
   // Is Staff
   static async staff (id) {
     try {
-      let user = await Model.query().eager('permission').findOne({ id: id })
+      let user = await Model.query().eager('permission').findOne({id: id})
       if (user.permission.rank_type === 'staff') {
         return Promise.resolve()
       } else {

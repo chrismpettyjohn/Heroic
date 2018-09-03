@@ -16,8 +16,6 @@ export default class Model extends password(Base) {
       // Columns
       'id',
       'username',
-      'mail',
-      'mail_verified',
       'account_created',
       'last_login',
       'last_online',

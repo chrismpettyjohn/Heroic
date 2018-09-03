@@ -3,11 +3,7 @@
 		"host": "127.0.0.1",
 		"user": "root",
 		"password": "password",
-		"database": "backup",
-		"pool": {
-			"min": 10,
-			"max": 20
-		}
+		"database": "habbo"
 	},
 	"web": {
 		"http": 1,

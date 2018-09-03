@@ -1,6 +1,7 @@
 import Knex from 'knex'
 import {Model} from 'objection'
 import Config from '@/config/system'
+
 export default class SQL {
   static async init () {
     const knex = Knex({
@@ -10,6 +11,7 @@ export default class SQL {
     Model.knex(knex)
     return true
   }
+
   static async test () {
     const knex = Model.knex()
     try {

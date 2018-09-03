@@ -1,4 +1,5 @@
 import Model from '@/sql/models/camera'
+
 export default class Interactor {
   // Fetch article
   static async read (id, relations = '') {
