@@ -2,7 +2,7 @@ import Database from '@/sql/interactors/post'
 export default class Controller {
   static async create (request, reply) {
     try {
-      let post = request.body.post 
+      let post = request.body.post
       post.user_id = request.session.id
       post = await Database.create(post)
       reply.code(203).send(post)
@@ -20,7 +20,7 @@ export default class Controller {
   }
   static async update (request, reply) {
     try {
-      let post = request.body.post 
+      let post = request.body.post
       post.id = request.params.id
       if (post) {
         await Database.privileges(request.session.id, post.id)

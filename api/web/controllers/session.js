@@ -40,13 +40,10 @@ export default class Controller {
       results.forEach(friend => {
         friends.push(friend.user_two_id)
       })
-      let posts = await Posts.query().where('user_id', 'in', friends).eager('[author, likes, comments.[replies, likes]]').orderBy('id', 'DESC')
+      let posts = await Posts.query().where('user_id', 'in', friends).eager(`[${request.params.relations}]`).orderBy('id', 'DESC')
       reply.code(200).send(posts)
-
-    }
-    catch (e) {
+    } catch (e) {
       reply.code(500).send(e)
     }
   }
-
 }

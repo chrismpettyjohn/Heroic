@@ -36,7 +36,7 @@ export default class Model extends Base {
         }
       },
       comments: {
-        relation: Base.HasOneRelation,
+        relation: Base.HasManyRelation,
         modelClass: Comments,
         join: {
           from: 'heroic_posts.id',
@@ -44,7 +44,7 @@ export default class Model extends Base {
         }
       },
       likes: {
-        relation: Base.HasOneRelation,
+        relation: Base.HasManyRelation,
         modelClass: Likes,
         join: {
           from: 'heroic_posts.id',

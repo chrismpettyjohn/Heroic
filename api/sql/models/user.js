@@ -117,7 +117,7 @@ export default class Model extends password(Base) {
           to: 'heroic_posts.user_id'
         }
       },
-      //Comments (heroic_comments)
+      // Comments (heroic_comments)
       comments: {
         relation: Base.HasManyRelation,
         modelClass: Timeline.Comments,
