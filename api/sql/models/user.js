@@ -35,7 +35,8 @@ export default class Model extends password(Base) {
       'info',
       'rooms',
       'permission',
-      'posts'
+      'posts',
+      'comments'
     ]
   }
 
@@ -48,8 +49,8 @@ export default class Model extends password(Base) {
     const Rooms = require('./room').default
     const Permission = require('./permission').default
     const Timeline = {
-      Posts: require('./timeline_posts').default,
-      Likes: require('./timeline_likes').default
+      Posts: require('./posts').default,
+      Comments: require('./comments').default
     }
     // Relations
     return {
@@ -107,22 +108,22 @@ export default class Model extends password(Base) {
           to: 'rooms.owner_id'
         }
       },
-      // Posts (heroic_timeline_posts)
+      // Posts (heroic_posts)
       posts: {
         relation: Base.HasManyRelation,
         modelClass: Timeline.Posts,
         join: {
           from: 'users.id',
-          to: 'heroic_timeline_posts.user_id'
+          to: 'heroic_posts.user_id'
         }
       },
-      // Likes (heroic_timeline_likes)
-      likes: {
+      //Comments (heroic_comments)
+      comments: {
         relation: Base.HasManyRelation,
-        modelClass: Timeline.Likes,
+        modelClass: Timeline.Comments,
         join: {
           from: 'users.id',
-          to: 'heroic_timeline_likes.user_id'
+          to: 'heroic_comments.user_id'
         }
       }
     }

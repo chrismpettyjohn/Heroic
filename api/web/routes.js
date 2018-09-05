@@ -10,6 +10,7 @@ export default class Routing {
     await Server.route('GET', 'session', 'Session@read', true) // Fetch user session
     await Server.route('POST', 'session', 'Session@create') // Login as user
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
+    await Server.route('GET', 'session/timeline', 'Session@timeline', true) // Fetch timeline
     // User
     await Server.route('POST', 'user', 'User@create') // Create user
     await Server.route('PATCH', 'user', 'User@update') // Update user
@@ -20,6 +21,12 @@ export default class Routing {
     // User (Staff Routing)
     await Server.route('PATCH', 'auth/user', 'User@authUpdate', true, true) // Update user
     await Server.route('DELETE', 'auth/user/:id', 'User@authDelete', true, true) // Delete user
+    // Posts 
+    await Server.route('POST', 'posts', 'Posts@create', true) // Creates post
+    await Server.route('GET', 'posts/:id', 'Posts@read') // Fetch post
+    await Server.route('GET', 'posts/:id/:relations', 'Posts@read') // Fetch with (with relations)
+    await Server.route('PATCH', 'posts/:id', 'Posts@update', true) // Updates post
+    await Server.route('DELETE', 'posts/:id', 'Posts@delete', true) // Deletes post
     // Camera
     await Server.route('GET', 'camera/:id', 'Camera@read') // Fetch photo by id
     await Server.route('GET', 'camera/:id/:relations', 'Camera@read') // Fetch photo (with relations)

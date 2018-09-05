@@ -11,6 +11,7 @@ export default class Model extends Base {
       'site.link',
       'server.ip',
       'server.port',
+      'license.user',
       'swf.base',
       'swf.config',
       'user.motto',

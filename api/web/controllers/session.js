@@ -1,4 +1,6 @@
 import Token from '@/lib/jwt'
+import Posts from '@/sql/models/posts'
+import Friends from '@/sql/models/friend'
 import Interactor from '@/sql/interactors/user'
 export default class Controller {
   static async read (request, reply) {
@@ -30,4 +32,21 @@ export default class Controller {
       reply.code(400).send(e)
     }
   }
+
+  static async timeline (request, reply) {
+    try {
+      let friends = []
+      let results = await Friends.query().where('user_one_id', request.session.id)
+      results.forEach(friend => {
+        friends.push(friend.user_two_id)
+      })
+      let posts = await Posts.query().where('user_id', 'in', friends).eager('[author, likes, comments.[replies, likes]]').orderBy('id', 'DESC')
+      reply.code(200).send(posts)
+
+    }
+    catch (e) {
+      reply.code(500).send(e)
+    }
+  }
+
 }
