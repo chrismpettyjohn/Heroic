@@ -5,7 +5,16 @@ export default class Interactor {
     return Model.query().insertAndFetch(post)
   }
   static async read (id = 0, relationships = '') {
-    return Model.query().eager(`[${relationships}]`).findById(id)
+    try {
+      let post = await Model.query().eager(`[${relationships}]`).findById(id)
+      if (post) {
+        return Promise.resolve(post)
+      } else {
+        throw new Error('Post does not exist')
+      }
+    } catch (e) {
+      return Promise.reject(e)
+    }
   }
   static async update (post) {
     return Model.query().where('id', post.id).patch(post)

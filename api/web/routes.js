@@ -27,6 +27,8 @@ export default class Routing {
     await Server.route('GET', 'posts/:id/:relations', 'Posts@read') // Fetch with (with relations)
     await Server.route('PATCH', 'posts/:id', 'Posts@update', true) // Updates post
     await Server.route('DELETE', 'posts/:id', 'Posts@delete', true) // Deletes post
+    // Likes
+    await Server.route('GET', 'like/:parent/:type', 'Like@handle', true) // Handles like functionality
     // Camera
     await Server.route('GET', 'camera/:id', 'Camera@read') // Fetch photo by id
     await Server.route('GET', 'camera/:id/:relations', 'Camera@read') // Fetch photo (with relations)
