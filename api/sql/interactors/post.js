@@ -1,4 +1,4 @@
-import Model from '@/sql/models/posts'
+import Model from '@/sql/models/post'
 export default class Interactor {
   static async create (post) {
     post.timestamp = Math.floor(new Date() / 1000)

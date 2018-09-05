@@ -1,5 +1,5 @@
 import Token from '@/lib/jwt'
-import Posts from '@/sql/models/posts'
+import Posts from '@/sql/models/post'
 import Friends from '@/sql/models/friend'
 import Interactor from '@/sql/interactors/user'
 export default class Controller {

@@ -22,7 +22,7 @@ export default class Model extends Base {
   static get relationMappings () {
     // Dependencies
     const User = require('./user').default
-    const Comments = require('./comments').default
+    const Comments = require('./comment').default
     const Likes = require('./like').default
     // Relations
     return {

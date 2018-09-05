@@ -1,4 +1,4 @@
-import Database from '@/sql/interactors/posts'
+import Database from '@/sql/interactors/post'
 export default class Controller {
   static async create (request, reply) {
     try {

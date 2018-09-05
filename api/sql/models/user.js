@@ -49,8 +49,8 @@ export default class Model extends password(Base) {
     const Rooms = require('./room').default
     const Permission = require('./permission').default
     const Timeline = {
-      Posts: require('./posts').default,
-      Comments: require('./comments').default
+      Posts: require('./post').default,
+      Comments: require('./comment').default
     }
     // Relations
     return {
