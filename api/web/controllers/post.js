@@ -4,6 +4,7 @@ export default class Controller {
   static async create (request, reply) {
     try {
       let post = request.body.post
+      post.user_id = request.session.id
       await Validator.fields(post, ['content'])
       await Validator.check(post.content, 'isLength', 3)
       post.content = await Validator.filter(post.content)
@@ -25,16 +26,16 @@ export default class Controller {
     try {
       let post = request.body.post
       post.id = request.params.id
-      if (post) {
-        await Database.privileges(request.session.id, post.id)
-        await Database.update(post)
-        reply.code(203).send()
-      } else {
-        reply.code(403).send('No post content specified')
-      }
+      await Validator.fields(post, ['content'])
+      await Validator.check(post.content, 'isLength', 3)
+      post.content = await Validator.filter(post.content)
+      await Database.privileges(request.session.id, post.id)
+      post = await Database.update(post)
+      reply.code(203).send()
     } catch (e) {
       reply.code(500).send(e)
     }
+
   }
   static async delete (request, reply) {
     try {

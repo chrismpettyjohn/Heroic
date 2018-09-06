@@ -1,6 +1,7 @@
 import Model from '@/sql/models/comment'
 export default class Interactor {
   static async create (comment) {
+    comment.timestamp = Math.floor(new Date() / 1000)
     return Model.query().insertAndFetch(comment)
   }
   static async read (id, relations = '') {
