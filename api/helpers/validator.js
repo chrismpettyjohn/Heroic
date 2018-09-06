@@ -38,7 +38,8 @@ export default class Helper {
     try {
       let filter = await Wordfilter.read()
       filter.forEach(word => {
-        content = content.replace(word.key, word.replacement)
+        let reg = new RegExp(word.key, 'g')
+        content = content.replace(reg, word.replacement)
       })
       return Promise.resolve(content)
     } catch (e) {
