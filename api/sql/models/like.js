@@ -12,7 +12,25 @@ export default class Model extends Base {
       'user_id',
       'parent_id',
       'parent_type',
-      'type'
+      'type',
+      // Relationships
+      'author'
     ]
+  }
+  static get relationMappings () {
+    // Dependencies
+    const User = require('./user').default
+    // Relations
+    return {
+      // Author (users)
+      author: {
+        relation: Base.HasOneRelation,
+        modelClass: User,
+        join: {
+          from: 'heroic_likes.user_id',
+          to: 'users.id'
+        }
+      }
+    }
   }
 }

@@ -1,9 +1,12 @@
+import Validator from '@/helpers/validator'
 import Database from '@/sql/interactors/post'
 export default class Controller {
   static async create (request, reply) {
     try {
       let post = request.body.post
-      post.user_id = request.session.id
+      await Validator.fields(post, ['content'])
+      await Validator.check(post.content, 'isLength', 3)
+      post.content = await Validator.filter(post.content)
       post = await Database.create(post)
       reply.code(203).send(post)
     } catch (e) {

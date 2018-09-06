@@ -41,6 +41,9 @@ export default class Model extends Base {
         join: {
           from: 'heroic_posts.id',
           to: 'heroic_comments.parent_id'
+        },
+        modify: {
+          parent_type: 'status'
         }
       },
       likes: {
@@ -49,6 +52,9 @@ export default class Model extends Base {
         join: {
           from: 'heroic_posts.id',
           to: 'heroic_likes.parent_id'
+        },
+        modify: {
+          parent_type: 'status'
         }
       }
     }

@@ -37,19 +37,25 @@ export default class Model extends Base {
         }
       },
       replies: {
-        relation: Base.HasOneRelation,
+        relation: Base.HasManyRelation,
         modelClass: Model,
         join: {
-          from: 'heroic_comments.parent_id',
-          to: 'heroic_comments.id'
+          from: 'heroic_comments.id',
+          to: 'heroic_comments.parent_id'
+        },
+        modify: {
+          parent_type: 'comment'
         }
       },
       likes: {
-        relation: Base.HasOneRelation,
+        relation: Base.HasManyRelation,
         modelClass: Likes,
         join: {
           from: 'heroic_comments.id',
           to: 'heroic_likes.parent_id'
+        },
+        modify: {
+          parent_type: 'comment'
         }
       }
     }

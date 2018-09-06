@@ -11,6 +11,7 @@ export default class Routing {
     await Server.route('POST', 'session', 'Session@create') // Login as user
     await Server.route('GET', 'session/client', 'Session@client', true) // Login to client
     await Server.route('GET', 'session/timeline/:relations', 'Session@timeline', true) // Fetch timeline
+    await Server.route('GET', 'session/timeline/:relations/:page', 'Session@timeline', true) // Fetch timeline (with page)
     // User
     await Server.route('POST', 'user', 'User@create') // Create user
     await Server.route('PATCH', 'user', 'User@update') // Update user
@@ -22,11 +23,17 @@ export default class Routing {
     await Server.route('PATCH', 'auth/user', 'User@authUpdate', true, true) // Update user
     await Server.route('DELETE', 'auth/user/:id', 'User@authDelete', true, true) // Delete user
     // Posts
-    await Server.route('POST', 'posts', 'Posts@create', true) // Creates post
-    await Server.route('GET', 'posts/:id', 'Posts@read') // Fetch post
-    await Server.route('GET', 'posts/:id/:relations', 'Posts@read') // Fetch with (with relations)
-    await Server.route('PATCH', 'posts/:id', 'Posts@update', true) // Updates post
-    await Server.route('DELETE', 'posts/:id', 'Posts@delete', true) // Deletes post
+    await Server.route('POST', 'post', 'Post@create', true) // Creates post
+    await Server.route('GET', 'post/:id', 'Post@read') // Fetch post
+    await Server.route('GET', 'post/:id/:relations', 'Post@read') // Fetch with (with relations)
+    await Server.route('PATCH', 'post/:id', 'Post@update', true) // Updates post
+    await Server.route('DELETE', 'post/:id', 'Post@delete', true) // Deletes post
+    // Comments 
+    await Server.route('POST', 'comment', 'Comment@create', true) // Create comment
+    await Server.route('GET', 'comment/:id', 'Comment@read') // Fetch comment 
+    await Server.route('GET', 'comment/:id/:relations', 'Comment@read') // Fetch comment (with relations)
+    await Server.route('PATCH', 'comment/:id', 'Comment@update', true) // Update comment
+    await Server.route('DELETE', 'comment/:id', 'Comment@delete', true) // Delete comment
     // Likes
     await Server.route('GET', 'like/:parent/:type', 'Like@handle', true) // Handles like functionality
     // Camera

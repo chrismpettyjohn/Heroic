@@ -29,10 +29,10 @@ export default class Interactor {
         if (post.user_id === user) {
           return Promise.resolve(true)
         } else {
-          throw Error('User does not have privileges to this post')
+          throw new Error('User does not have privileges to this post')
         }
       } else {
-        throw Error('No post found')
+        throw new Error('No post found')
       }
     } catch (e) {
       return Promise.reject(e)
