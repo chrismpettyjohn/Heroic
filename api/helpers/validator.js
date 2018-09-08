@@ -19,14 +19,13 @@ export default class Helper {
       if (!data) {
         throw new Error('No data defined')
       }
-
       fields.forEach(field => {
         if (!data[field]) {
           throw new Error(`${field} is invalid`)
         }
       })
-
       return Promise.resolve()
+
     } catch (e) {
       return Promise.reject(e)
     }
@@ -43,4 +42,5 @@ export default class Helper {
       return Promise.reject(e)
     }
   }
+
 }
