@@ -35,7 +35,6 @@ export default class Controller {
     } catch (e) {
       reply.code(500).send(e)
     }
-
   }
   static async delete (request, reply) {
     try {

@@ -28,9 +28,9 @@ export default class Routing {
     await Server.route('GET', 'post/:id/:relations', 'Post@read') // Fetch with (with relations)
     await Server.route('PATCH', 'post/:id', 'Post@update', true) // Updates post
     await Server.route('DELETE', 'post/:id', 'Post@delete', true) // Deletes post
-    // Comments 
+    // Comments
     await Server.route('POST', 'comment', 'Comment@create', true) // Create comment
-    await Server.route('GET', 'comment/:id', 'Comment@read') // Fetch comment 
+    await Server.route('GET', 'comment/:id', 'Comment@read') // Fetch comment
     await Server.route('GET', 'comment/:id/:relations', 'Comment@read') // Fetch comment (with relations)
     await Server.route('PATCH', 'comment/:id', 'Comment@update', true) // Update comment
     await Server.route('DELETE', 'comment/:id', 'Comment@delete', true) // Delete comment

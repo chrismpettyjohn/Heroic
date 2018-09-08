@@ -16,7 +16,6 @@ export default class Helper {
   }
   static async fields (data, fields) {
     try {
-
       if (!data) {
         throw new Error('No data defined')
       }
@@ -28,8 +27,6 @@ export default class Helper {
       })
 
       return Promise.resolve()
-
-
     } catch (e) {
       return Promise.reject(e)
     }
@@ -46,5 +43,4 @@ export default class Helper {
       return Promise.reject(e)
     }
   }
-
 }
