@@ -37,12 +37,12 @@ export default {
   methods: {
     refreshSession () {
       API.get('session')
-        .then (user => {
-          let session = Store.Session.getters.session 
+        .then(user => {
+          let session = Store.Session.getters.session
           session.user = user.data
           Store.Session.commit('setSession', session)
         })
-        .catch (error => {
+        .catch(() => {
           this.$router.push({ name: 'Home.Logout' })
         })
     }
