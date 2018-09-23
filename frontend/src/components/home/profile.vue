@@ -44,13 +44,12 @@ export default {
   },
   data () {
     return {
-      loading: false,
+      loading: true,
       user: null
     }
   },
   mounted: async function () {
     try {
-      this.loading = true
       let user = await API.get(`user/${this.username}`)
       this.user = user.data
       this.loading = false

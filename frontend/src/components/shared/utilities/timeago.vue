@@ -68,7 +68,7 @@ export default {
         epoch = this.epochs[i]
         interval = Math.floor(seconds / this[epoch])
         if (interval >= 1) {
-          return {interval: interval, epoch: epoch}
+          return { interval: interval, epoch: epoch }
         }
       }
     }

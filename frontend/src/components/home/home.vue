@@ -1,9 +1,7 @@
 <template>
-  <div class="heroic-container" :class="{'flex align-center': loading}">
-    <heroic-title v-if="!loading">{{ user.username }}</heroic-title>
-    <heroic-loading v-if="loading" />
-    <div v-if="!loading">
-      <div class="container-header">
+  <div class="heroic-container">
+    <heroic-title>{{ user.username }}</heroic-title>
+    <div class="container-header">
         <div class="header-content">
           <div class="profile-info">
             <heroic-imager as-avatar="1" :figure="user.look" action="std" gesture="sml" direction="2" head-direction="3" size="l" />
@@ -28,7 +26,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
