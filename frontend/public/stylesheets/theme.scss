@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed:400,300,300italic,400italic,700,700italic);
+
+@import './dependencies/bootstrap';
+@import './dependencies/font-awesome';
+@import './shared/helpers';
+@import './shared/mixins';
+
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+html,
+body {
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #12426B;
+    color: #7ECAEE;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+}
+
+.heroic {
+    width: 100%;
+    height: 100%;
+
+    .heroic-loader {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+
+        @keyframes rotating{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+        .loading-logo {
+            width: 258px;
+            height: 69px;
+            background: transparent url("../images/logo-outline.png") no-repeat;
+            image-rendering: pixelated;
+            margin-bottom: 20px;
+        }
+
+        i.heroic-icon.spinner {
+            animation: rotating 1s linear infinite;
+        }
+
+        .loading-text {
+            white-space: nowrap;
+            padding: 10px;
+        }
+    }
+
+    .habbo-portrait {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #02353c;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 2px solid #267b91;
+        border-radius: 50%;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+        image-rendering: pixelated;
+
+        &:hover {
+            border-color: rgb(255, 255, 255);
+        }
+
+        i {
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 100%;
+            bottom: 3.5px;
+            right: 2px;
+
+            &.online {
+                background-color: green;
+            }
+
+            &.offline {
+                background-color: red;
+            }
+        }
+
+        &.small {
+            width: 35px;
+            height: 35px;
+
+            i {
+                bottom: -1.5px;
+                right: -1px;
+            }
+        }
+    }
+
+    .habbo-avatar {
+        width: 100px;
+        height: 100px;
+        background-color: #02353c;
+        background-position: -18px -40px;
+        background-repeat: no-repeat;
+        border: 2px solid #267b91;
+        border-radius: .25rem;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+        image-rendering: pixelated;
+
+        &.small {
+            width: 50px;
+            height: 50px;
+        }
+
+        &:hover {
+            border-color: rgb(255, 255, 255);
+        }
+    }
+
+    .heroic-room-thumbnail {
+        width: 110px;
+        height: 110px;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 2px solid #267b91;
+        border-radius: .25rem;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+
+        &:hover {
+            border-color: rgb(255, 255, 255);
+        }
+    }
+
+    @import './components/index';
+}

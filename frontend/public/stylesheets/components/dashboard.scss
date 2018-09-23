@@ -1,0 +1,24 @@
+.heroic-dashboard {
+    display: flex;
+
+    @media (max-width: 599px) {
+        flex-direction: column;
+
+        .left,
+        .right {
+            flex: 0 0 100%;
+        }
+    }
+
+    .left {
+        flex: 0 0 70%;
+    }
+
+    .right {
+        flex: 0 0 30%;
+    }
+
+    .dashboard-item {
+
+    }
+}

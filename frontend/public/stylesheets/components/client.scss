@@ -1,0 +1,187 @@
+.heroic-client {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    visibility: hidden;
+    background: #000000 url("../images/flash-bg.png") no-repeat center;
+    z-index: 1000;
+
+    &.show-client {
+        visibility: visible !important;
+
+        .client-container {
+
+            .client-buttons {
+                display: block;
+            }
+
+            &.client-loaded {
+
+                #client-area {
+                    visibility: visible !important;
+                }
+            }
+        }
+    }
+
+    .client-buttons {
+        display: block;
+        left: 12px;
+        position: absolute;
+        top: 12px;
+        cursor: pointer;
+        z-index: 1000;
+        @include no-select();
+
+        .button-return {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+            margin-top: -3px;
+            height: 32px;
+            background-color: #ffb900;
+            border-color: #ffea00;
+            color: #000 !important;
+            border-radius: 0 5px 5px 0;
+            border-width: 2px 1px 2px 2px;
+            border-style: solid;
+            filter: drop-shadow(-1px 4px 0 rgba(0, 0, 0, .3));
+            outline: 0;
+            padding: 0 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            @media (max-width: 599px) {
+                display: none;
+            }
+
+            i.heroic-icon.h {
+                margin-right: 7px;
+            }
+
+            &:before,
+            &:after {
+                border-style: solid;
+                position: absolute;
+                display: block;
+                content: '';
+            }
+
+            &:before {
+                border-width: 16px;
+                top: -2px;
+                border-color: transparent #ffea00 transparent transparent;
+                left: -34px;
+            }
+
+            &:after {
+                border-width: 14px;
+                top: 0;
+                border-color: transparent #ffb900 transparent transparent;
+                left: -28px;
+            }
+
+            &:hover {
+                background-color: #ffd400;
+                border-color: #fffd70;
+
+                &:before {
+                    border-color: transparent #fffd70 transparent transparent;
+                }
+
+                &:after {
+                    border-color: transparent #ffd400 transparent transparent;
+                }
+            }
+
+            &:active {
+                transform: translate(0,2px);
+                filter: drop-shadow(-1px 2px 0 rgba(0, 0, 0, .3));
+                box-shadow: none;
+                border-bottom-style: solid;
+                border-bottom-width: 2px;
+                background-color: #f89400;
+                border-color: #ffce37;
+
+                &:before {
+                    border-color: transparent #ffce37 transparent transparent;
+                }
+
+                &:after {
+                    border-color: transparent #f89400 transparent transparent;
+                }
+            }
+        }
+    }
+
+    .flash-check-container {
+
+        a {
+
+            &.flash-link {
+                display: block;
+                width: 158px;
+                height: 39px;
+                background: url("../images/pages/flash.png") no-repeat center;
+            }
+        }
+    }
+
+    .flash-check-container,
+    .client-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .client-container {
+
+        .client-loader {
+
+            .jumbotron {
+                flex: 0 0 400px;
+                margin: 0;
+                padding: 25px !important;
+                background-color: #103960;
+    
+                .loader-logo {
+                    width: 258px;
+                    height: 69px;
+                    background: transparent url("../images/logo-outline.png") no-repeat;
+                    image-rendering: pixelated;
+                    margin: 0 auto 20px;
+                }
+    
+                @keyframes rotating{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    
+                .loader-spinner {
+                    background-image: url("../images/sprite.png");
+                    background-position: -158px -131px;
+                    width: 32px;
+                    height: 32px;
+                    animation: rotating 1s linear infinite;
+                    margin: 0 auto 10px;
+                }
+    
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        #client-area {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            visibility: hidden !important;
+        }
+    }
+}
