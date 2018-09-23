@@ -1,27 +1,4 @@
 {
-  "name": "heroic",
-  "version": "3.0.0",
-  "description": "A replica of habbo.com with some twists making it more useful for habbo-retors (free alternatives of the social mmo)",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "nodemon -L --exec babel-node index.js",
-    "build": "babel . --out-dir=../build --copy-files --ignore node_modules"
-  },
-  "repository": {
-    "type": "git",
-    "url": "heroic"
-  },
-  "keywords": [
-    "node10",
-    "fastify",
-    "objection",
-    "habbo"
-  ],
-  "author": "chrismpettyjohn",
-  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.4",
     "eslint-config-standard": "^12.0.0",
@@ -45,5 +22,29 @@
     "babel-preset-env": "^1.7.0",
     "eslint-import-resolver-babel-root-import": "0.0.2",
     "eslint-plugin-import": "^2.14.0"
+  },
+  "scripts": {
+    "test": "nodemon -L --exec babel-node index.js",
+    "build": "babel . --out-dir=../build --copy-files --ignore node_modules"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 Chrome versions"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties",
+      ["babel-plugin-root-import", {
+        "rootPathPrefix": "@"
+      }]
+    ]
   }
 }
