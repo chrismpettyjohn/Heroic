@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { Store } from '../app'
+import { API, Store } from '../app'
 
 export default {
   data () {
@@ -30,6 +30,22 @@ export default {
     await Store.Session.dispatch('load')
 
     if (Store.Session.getters.loaded) this.ready = true
+    if (Store.Session.getters.session.user !== undefined) {
+      setInterval(this.refreshSession, 300000)
+    }
+  },
+  methods: {
+    refreshSession () {
+      API.get('session')
+        .then (user => {
+          let session = Store.Session.getters.session 
+          session.user = user.data
+          Store.Session.commit('setSession', session)
+        })
+        .catch (error => {
+          this.$router.push({ name: 'Home.Logout' })
+        })
+    }
   },
   watch: {
     '$route' (to, from) {
