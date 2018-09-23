@@ -16,7 +16,7 @@ export default {
   },
   data () {
     return {
-      cameraUrl: `http://arcturus.pw/camera/${Store.Settings.getters.settings['license.user']}`
+      cameraUrl: `https://arcturus.pw/camera/${Store.Settings.getters.settings['license.user']}`
     }
   }
 }

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="client-buttons">
-      <div class="button-return" @click="$router.go(-1)"><i class="heroic-icon h" />Web</div>
+      <div class="button-return" @click="$router.go({ name: 'Home.Home' })"><i class="heroic-icon h" />Web</div>
     </div>
     <div class="client-container" :class="{'client-loaded': client.loading.done}" v-if="client.flashEnabled">
       <heroic-loading v-if="client.loading.status">{{ client.loading.message }}</heroic-loading>
