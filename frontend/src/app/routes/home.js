@@ -8,7 +8,7 @@ export default [
     children: [
       {
         name: 'Home.Home',
-        path: 'home',
+        path: 'me',
         component: Home.Home,
         meta: {
           loginRequired: true
