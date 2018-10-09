@@ -1,0 +1,54 @@
+{
+  "dependencies": {
+    "cors": "^2.8.4",
+    "eslint-config-standard": "^12.0.0",
+    "fastify": "^1.11.1",
+    "fastify-compress": "^0.6.0",
+    "fastify-formbody": "^2.0.1",
+    "fastify-static": "^0.14.0",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "mysql2": "^1.6.1",
+    "objection": "^1.2.6",
+    "objection-password-bcryptjs": "^1.0.0-a",
+    "objection-visibility": "^0.3.2",
+    "randomstring": "^1.1.5",
+    "request-ip": "^2.1.1",
+    "validator": "^10.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-root-import": "^6.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint-import-resolver-babel-root-import": "0.0.2",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "scripts": {
+    "test": "nodemon -L --exec babel-node index.js",
+    "build": "babel . --out-dir=../build --copy-files --ignore node_modules"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 Chrome versions"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties",
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathPrefix": "@"
+        }
+      ]
+    ]
+  }
+}
