@@ -1,24 +1,35 @@
-import Model from '@/sql/models/category'
+'use strict';
 
-export default class Interactor {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _category = require('../models/category');
+
+var _category2 = _interopRequireDefault(_category);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class Interactor {
   // Fetch article
-  static async read (id, relations = '') {
+  static async read(id, relations = '') {
     try {
       // Prepare
-      let category = {}
+      let category = {};
       // Individual or all
       if (!isNaN(parseInt(id))) {
-        category = await Model.query().eager(`[${relations}]`).findById(id)
+        category = await _category2.default.query().eager(`[${relations}]`).findById(id);
       } else {
-        category = await Model.query().eager(`[${relations}]`).orderBy('id', 'DESC')
+        category = await _category2.default.query().eager(`[${relations}]`).orderBy('id', 'DESC');
       }
       if (category) {
-        return Promise.resolve(category)
+        return Promise.resolve(category);
       } else {
-        return Promise.reject(Error('MISSING'))
+        return Promise.reject(Error('MISSING'));
       }
     } catch (e) {
-      return Promise.reject(e)
+      return Promise.reject(e);
     }
   }
 }
+exports.default = Interactor;

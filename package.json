@@ -16,39 +16,7 @@
     "request-ip": "^2.1.1",
     "validator": "^10.7.0"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-root-import": "^6.1.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "eslint-import-resolver-babel-root-import": "0.0.2",
-    "eslint-plugin-import": "^2.14.0"
-  },
   "scripts": {
-    "test": "nodemon -L --exec babel-node index.js",
-    "build": "babel . --out-dir=../build --copy-files --ignore node_modules"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 Chrome versions"
-            ]
-          }
-        }
-      ]
-    ],
-    "plugins": [
-      "transform-class-properties",
-      [
-        "babel-plugin-root-import",
-        {
-          "rootPathPrefix": "@"
-        }
-      ]
-    ]
+    "start": "npm i && node index.js"
   }
 }

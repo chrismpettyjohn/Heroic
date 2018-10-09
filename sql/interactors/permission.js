@@ -1,47 +1,58 @@
-import Model from '@/sql/models/permission'
+'use strict';
 
-export default class Interactor {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _permission = require('../models/permission');
+
+var _permission2 = _interopRequireDefault(_permission);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class Interactor {
   // Create permission
-  static async create (permission) {
+  static async create(permission) {
     try {
-      let data = await Model.query().insertAndFetch(permission)
-      return Promise.resolve(data.id)
+      let data = await _permission2.default.query().insertAndFetch(permission);
+      return Promise.resolve(data.id);
     } catch (e) {
-      return Promise.reject(e)
+      return Promise.reject(e);
     }
   }
 
   // Fetch permission
-  static async read (id, relations = '') {
+  static async read(id, relations = '') {
     try {
       // Prepare
-      let permission = {}
+      let permission = {};
       // Single query or type-based
       if (!isNaN(parseInt(id))) {
-        permission = await Model.query().eager(`[${relations}]`).findById(id)
+        permission = await _permission2.default.query().eager(`[${relations}]`).findById(id);
       } else if (id === 'staff') {
-        permission = await Model.query().eager(`[${relations}]`).where('rank_type', 'staff').orderBy('id', 'DESC')
+        permission = await _permission2.default.query().eager(`[${relations}]`).where('rank_type', 'staff').orderBy('id', 'DESC');
       } else if (id === 'vip') {
-        permission = await Model.query().eager(`[${relations}]`).where('level', '2').orderBy('id', 'DESC')
+        permission = await _permission2.default.query().eager(`[${relations}]`).where('level', '2').orderBy('id', 'DESC');
       }
       // Does permission exist?
       if (permission) {
-        return Promise.resolve(permission)
+        return Promise.resolve(permission);
       } else {
-        return Promise.reject(Error('MISSING'))
+        return Promise.reject(Error('MISSING'));
       }
     } catch (e) {
-      return Promise.reject(e)
+      return Promise.reject(e);
     }
   }
 
   // Update permission
-  static async update (permission) {
-    return Model.query().where('id', permission.id).patch(permission)
+  static async update(permission) {
+    return _permission2.default.query().where('id', permission.id).patch(permission);
   }
 
   // Delete permission
-  static async delete (id) {
-    return Model.query().where('id', id).delete()
+  static async delete(id) {
+    return _permission2.default.query().where('id', id).delete();
   }
 }
+exports.default = Interactor;

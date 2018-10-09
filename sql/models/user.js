@@ -1,64 +1,54 @@
-// Dependencies
-import Base from '@/sql/base'
-import Password from 'objection-password-bcryptjs'
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _base = require('../base');
+
+var _base2 = _interopRequireDefault(_base);
+
+var _objectionPasswordBcryptjs = require('objection-password-bcryptjs');
+
+var _objectionPasswordBcryptjs2 = _interopRequireDefault(_objectionPasswordBcryptjs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Prepare
-const password = Password()
+// Dependencies
+const password = (0, _objectionPasswordBcryptjs2.default)();
 
 // Code
-export default class Model extends password(Base) {
-  static get tableName () {
-    return 'users'
+class Model extends password(_base2.default) {
+  static get tableName() {
+    return 'users';
   }
 
-  static get visible () {
+  static get visible() {
     return [
-      // Columns
-      'id',
-      'username',
-      'account_created',
-      'last_login',
-      'last_online',
-      'motto',
-      'look',
-      'gender',
-      'rank',
-      'credits',
-      'pixels',
-      'points',
-      'online',
-      'home_room',
-      // Relationships
-      'badges',
-      'bans',
-      'camera',
-      'friends',
-      'info',
-      'rooms',
-      'permission',
-      'posts',
-      'comments'
-    ]
+    // Columns
+    'id', 'username', 'account_created', 'last_login', 'last_online', 'motto', 'look', 'gender', 'rank', 'credits', 'pixels', 'points', 'online', 'home_room',
+    // Relationships
+    'badges', 'bans', 'camera', 'friends', 'info', 'rooms', 'permission', 'posts', 'comments'];
   }
 
-  static get relationMappings () {
+  static get relationMappings() {
     // Dependencies
-    const Badges = require('./users_badges').default
-    const Bans = require('./bans').default
-    const Camera = require('./camera').default
-    const Friends = require('./friend').default
-    const Info = require('./users_settings').default
-    const Rooms = require('./room').default
-    const Permission = require('./permission').default
+    const Badges = require('./users_badges').default;
+    const Bans = require('./bans').default;
+    const Camera = require('./camera').default;
+    const Friends = require('./friend').default;
+    const Info = require('./users_settings').default;
+    const Rooms = require('./room').default;
+    const Permission = require('./permission').default;
     const Timeline = {
       Posts: require('./post').default,
       Comments: require('./comment').default
-    }
-    // Relations
-    return {
+      // Relations
+    };return {
       // Bans (bans)
       bans: {
-        relation: Base.HasOneRelation,
+        relation: _base2.default.HasOneRelation,
         modelClass: Bans,
         join: {
           from: 'users.id',
@@ -67,7 +57,7 @@ export default class Model extends password(Base) {
       },
       // Badges (users_badges)
       badges: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Badges,
         join: {
           from: 'users.id',
@@ -76,7 +66,7 @@ export default class Model extends password(Base) {
       },
       // Camera (camera_web)
       camera: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Camera,
         join: {
           from: 'users.id',
@@ -85,7 +75,7 @@ export default class Model extends password(Base) {
       },
       // Friends (messenger_friendships)
       friends: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Friends,
         join: {
           from: 'users.id',
@@ -94,7 +84,7 @@ export default class Model extends password(Base) {
       },
       // Info (user_settings)
       info: {
-        relation: Base.HasOneRelation,
+        relation: _base2.default.HasOneRelation,
         modelClass: Info,
         join: {
           from: 'users.id',
@@ -103,7 +93,7 @@ export default class Model extends password(Base) {
       },
       // Permission(permissions)
       permission: {
-        relation: Base.HasOneRelation,
+        relation: _base2.default.HasOneRelation,
         modelClass: Permission,
         join: {
           from: 'users.rank',
@@ -112,7 +102,7 @@ export default class Model extends password(Base) {
       },
       // Rooms (rooms)
       rooms: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Rooms,
         join: {
           from: 'users.id',
@@ -121,7 +111,7 @@ export default class Model extends password(Base) {
       },
       // Posts (heroic_posts)
       posts: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Timeline.Posts,
         join: {
           from: 'users.id',
@@ -130,13 +120,14 @@ export default class Model extends password(Base) {
       },
       // Comments (heroic_comments)
       comments: {
-        relation: Base.HasManyRelation,
+        relation: _base2.default.HasManyRelation,
         modelClass: Timeline.Comments,
         join: {
           from: 'users.id',
           to: 'heroic_comments.user_id'
         }
       }
-    }
+    };
   }
 }
+exports.default = Model;

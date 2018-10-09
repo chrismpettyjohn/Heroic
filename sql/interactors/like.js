@@ -1,19 +1,31 @@
-import Model from '@/sql/models/like'
-export default class Interactor {
-  static async handle (user, parent, type) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _like = require('../models/like');
+
+var _like2 = _interopRequireDefault(_like);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class Interactor {
+  static async handle(user, parent, type) {
     try {
-      let likes = await Model.query().where('user_id', user).andWhere('parent_id', parent).andWhere('parent_type', type)
+      let likes = await _like2.default.query().where('user_id', user).andWhere('parent_id', parent).andWhere('parent_type', type);
       if (likes.length > 0) {
-        return Model.query().where('user_id', user).andWhere('parent_id', parent).andWhere('parent_type', type).delete()
+        return _like2.default.query().where('user_id', user).andWhere('parent_id', parent).andWhere('parent_type', type).delete();
       } else {
-        return Model.query().insert({
+        return _like2.default.query().insert({
           user_id: user,
           parent_id: parent,
           parent_type: type
-        })
+        });
       }
     } catch (e) {
-      return Promise.reject(e)
+      return Promise.reject(e);
     }
   }
 }
+exports.default = Interactor;
