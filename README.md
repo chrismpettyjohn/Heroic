@@ -4,6 +4,10 @@ Modern web application built with Node and Angular
 ## Getting Started
 Heroic 3S makes it easier than ever to get your retro running quickly.  
 
+
+### Database
+Please import the database file located in `/config/heroic.sql` prior to setting up Heroic 
+
 ### Configuration
 Your config file is located in `/config/system.json` and looks something like this.  Use it to modify the basics of Heroic
 ```json5
@@ -25,7 +29,7 @@ Your config file is located in `/config/system.json` and looks something like th
 }
 ```
 
-#### Running It 
+### Running It 
 Simply run this command from your directory to get started.  This will install all dependencies and start the server
 ```bash
 npm start
