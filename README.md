@@ -4,6 +4,9 @@ Modern web application built with Node and Angular
 ## Getting Started
 Heroic 3S makes it easier than ever to get your retro running quickly.  
 
+### Dependencies
+Heroic uses Node.Js which can be found here: https://nodejs.org/en/download/current/
+
 
 ### Database
 Please import the database file located in `/config/heroic.sql` prior to setting up Heroic 
