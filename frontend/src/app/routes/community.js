@@ -48,6 +48,22 @@ export default [
         meta: {
           loginRequired: true
         }
+      },
+      {
+        name: 'Community.Online',
+        path: 'online',
+        component: Community.Online,
+        meta: {
+          loginRequired: true
+        }
+      },
+      {
+        name: 'Community.Leaderboards',
+        path: 'leaderboards',
+        component: Community.Leaderboards,
+        meta: {
+          loginRequired: true
+        }
       }
     ]
   }

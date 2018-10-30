@@ -26,12 +26,23 @@ export default {
     }
   },
   async created () {
-    await Store.Settings.dispatch('load')
-    await Store.Session.dispatch('load')
+    try {
+      await Store.Settings.dispatch('load')
+      await Store.Session.dispatch('load')
 
-    if (Store.Session.getters.loaded) this.ready = true
-    if (Store.Session.getters.session.user !== undefined) {
-      setInterval(this.refreshSession, 300000)
+      if (Store.Session.getters.loaded) {
+        this.ready = true
+      }
+
+      if (Store.Session.getters.session.user !== undefined) {
+        this.refreshSession()
+        this.refreshOnline()
+        setInterval(this.refreshSession, 300000)
+        setInterval(this.refreshOnline, 30000)
+      }
+    } catch (e) {
+      this.$router.push({ name: 'System.Maintenance' })
+      this.ready = true
     }
   },
   methods: {
@@ -44,6 +55,15 @@ export default {
         })
         .catch(() => {
           this.$router.push({ name: 'Home.Logout' })
+        })
+    },
+    refreshOnline () {
+      API.get('user/online')
+        .then(users => {
+          Store.Settings.commit('setUsersOnline', users.data.length)
+        })
+        .catch(() => {
+          this.$router.push({ name: 'System.Maintenance' })
         })
     }
   },

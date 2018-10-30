@@ -32,16 +32,6 @@ const actions = {
     } catch (e) {
       return Promise.reject(e)
     }
-  },
-  loadUsersOnline: async (context) => {
-    try {
-      let result = await API.get('user/online')
-
-      context.commit('setUsersOnline', result.data.length)
-      return Promise.resolve()
-    } catch (e) {
-      return Promise.reject(e)
-    }
   }
 }
 

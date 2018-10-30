@@ -35,6 +35,8 @@ const guard = async (to, from, next) => {
 Router.beforeEach((to, from, next) => {
   if (Session.getters.loaded) return guard(to, from, next)
 
+  if (to.name === 'System.Maintenance') return guard(to, from, next)
+
   Session.watch(state => state.loaded, (updated, old) => {
     if (updated) return guard(to, from, next)
   })

@@ -8,7 +8,7 @@
           </li>
         </ul>
         <a class="hotel-button" @click="$router.push({ name : 'Home.Client' })">
-          Hotel<i class="heroic-icon hotel" />
+          Hotel <small class="margin-left">{{ online }} Online</small><i class="heroic-icon hotel" />
         </a>
       </div>
     </div>
@@ -23,6 +23,13 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.margin-left {
+  padding-left: .5em;
+  padding-top: .2em;
+}
+</style>
 
 <script>
 import { Store } from '../../../app'
@@ -71,10 +78,23 @@ export default {
             {
               name: 'Staff',
               link: 'Community.Staff'
+            },
+            {
+              name: 'Top Users',
+              link: 'Community.Leaderboards'
+            },
+            {
+              name: 'Online',
+              link: 'Community.Online'
             }
           ]
         }
       ]
+    }
+  },
+  computed: {
+    online: () => {
+      return Store.Settings.getters.usersOnline
     }
   },
   methods: {

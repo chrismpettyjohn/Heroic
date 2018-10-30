@@ -8,8 +8,9 @@
         <a class="flash-link" href="https://get.adobe.com/flashplayer/" />
       </div>
     </div>
-    <div class="client-buttons">
-      <div class="button-return" @click="$router.push({ name: 'Home.Home' })"><i class="heroic-icon h" />Web</div>
+    <div class="client-buttons" style="display:flex;">
+      <div class="button-return" style="border-radius:0px;" @click="$router.push({ name: 'Home.Home' })"><i class="heroic-icon h" />Web</div>
+      <div class="button-extra" style="margin-left:2.5px;">{{ online }} Online</div>
     </div>
     <div class="client-container" :class="{'client-loaded': client.loading.done}" v-if="client.flashEnabled">
       <heroic-loading v-if="client.loading.status">{{ client.loading.message }}</heroic-loading>
@@ -37,6 +38,11 @@ export default {
           done: false
         }
       }
+    }
+  },
+  computed: {
+    online: () => {
+      return Store.Settings.getters.usersOnline
     }
   },
   async mounted () {

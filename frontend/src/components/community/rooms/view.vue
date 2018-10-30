@@ -1,7 +1,7 @@
 <template>
   <heroic-container title="Viewing Room" :loading="loading">
     <div class="heroic-room-view">
-      room view
+      o u want to look at this room huh?  fuck up
     </div>
   </heroic-container>
 </template>

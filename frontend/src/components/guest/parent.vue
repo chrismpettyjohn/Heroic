@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import { API } from '../../app'
-
+import { API, Store } from '@/app'
 export default {
   data () {
     return {
+      online: Store.Settings.getters.usersOnline,
       articles: null
     }
   },

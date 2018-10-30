@@ -1,25 +1,13 @@
 <template>
   <div class="heroic-container">
-    <heroic-title>{{ user.username }}</heroic-title>
-    <div class="container-header">
-      <div class="header-content">
-        <div class="profile-info">
-          <heroic-imager as-avatar="1" :figure="user.look" action="std" gesture="sml" direction="2" head-direction="3" size="l" />
-          <div class="user-info">
-            <h2>{{ user.username }}</h2>
-            <p>{{ user.motto }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <heroic-title>Maintenance</heroic-title>
     <div class="container-content">
-      <div class="flex flex-row">
+      <center><img src="/images/logo-outline.png"></center>
+      <div class="flex flex-row" style="margin-top:4%;">
         <div class="flex flex-column flex-5 has-padding">
-          <h4>Hotel Announcements</h4>
-          <div class="alert alert-danger">
-            <h3>Help Us With Development</h3>
-            <p>We need <b>your help</b> to find bugs, missing furniture or anything out of the ordinary to help better our hotel for the future!  Please submit all reports on the Discord channel.</p>
-          </div>
+          <h4>System Maintenance</h4>
+          <p>Our hotel is currently undergoing renovation.  This page will automatically reload when we are finished, feel free to follow our social media for updates.</p>
+          <img src="/images/pages/maintenance.gif" style="width:256px;height:224px;">
         </div>
         <div class="flex flex-column flex-3 has-padding"/>
         <div class="flex flex-column flex-4 has-padding">
@@ -41,6 +29,9 @@
 </template>
 
 <style scoped>
+.heroic-container {
+  min-height: 93.5%;
+}
 .alert-danger {
   background: #AE0A4A;
   border-color: #990016;
@@ -72,12 +63,22 @@
 </style>
 
 <script>
-import { Store } from '@/app'
+import { API } from '@/app'
 export default {
-  data () {
-    return {
-      user: Store.Session.getters.session.user
+  methods: {
+    check () {
+      API.get('heroic')
+        .then(() => {
+          this.$router.go({ name: 'Home.Home' })
+        })
+        .catch(() => {
+          // Darn
+        })
     }
+  },
+  mounted () {
+    document.title = 'System Maintenance'
+    setInterval(this.check, 10000)
   }
 }
 </script>
