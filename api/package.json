@@ -42,9 +42,12 @@
     ],
     "plugins": [
       "transform-class-properties",
-      ["babel-plugin-root-import", {
-        "rootPathPrefix": "@"
-      }]
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathPrefix": "@"
+        }
+      ]
     ]
   }
 }

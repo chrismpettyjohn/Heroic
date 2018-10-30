@@ -81,9 +81,7 @@ export default class Interactor {
   static async top () {
     try {
       let users = {
-        credits: await Model.query().whereIn('rank', [1, 2]).orderBy('credits', 'DESC').limit(3),
-        points: await Model.query().whereIn('rank', [1, 2]).orderBy('points', 'DESC').limit(3),
-        online: await Model.query().whereIn('rank', [1, 2]).joinEager('info').orderBy('info.online_time', 'DESC').limit(3)
+        credits: await Model.query().whereIn('rank', [1, 2]).orderBy('credits', 'DESC').limit(12),
       }
       return Promise.resolve(users)
     } catch (e) {
