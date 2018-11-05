@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const API = Axios.create({
-  baseURL: `https://server.habfort.us/`
+  baseURL: `/api/`
 })
 
 export default API
