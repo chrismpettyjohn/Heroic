@@ -1,0 +1,79 @@
+.heroic-guest {
+    width: 100%;
+    height: calc(100% - 60px);
+
+    @media (max-width: 959px) {
+        .login-right {
+
+            .right-inner {
+                height: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 599px) {
+        .login-right {
+            display: none;
+        }
+    }
+
+    @media (max-width: 959px) {
+        .login-right {
+
+            .right-inner {
+                height: 100%;
+            }
+        }
+    }
+
+    .login-left {
+        background-color: #113A54;
+        overflow: hidden;
+
+        .left-inner {
+            max-width: 325px;
+            width: 100%;
+            padding: 15px;
+            @include no-select();
+
+            form {
+                margin: 20px 0;
+            }
+
+            .link {
+                padding: 10px 0;
+                font-size: 22px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: #FFFFFF;
+            }
+        }
+    }
+    
+    .login-right {
+        background-color: #12426B;
+        overflow-y: auto;
+
+        .right-inner {
+            padding: 50px;
+            width: 100%;
+
+            .article {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                height: 100%;
+                padding-right: 10px;
+
+                img {
+                    float: left;
+                    margin-right: 10px;
+                    box-shadow: 3px 3px rgba(0, 0, 0, .3);
+                }
+
+                h3 {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}

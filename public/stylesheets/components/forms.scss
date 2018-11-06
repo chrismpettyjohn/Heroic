@@ -1,0 +1,34 @@
+form {
+
+    .form-group {
+
+        &.is-invalid {
+
+            .form-control {
+                border-color: #c62828;
+                background: #ffebee;
+                color: #c62828;
+            }
+
+            .invalid-feedback {
+                display: block;
+            }
+        }
+
+        &.is-valid {
+
+            .form-control {
+                border-color: #28a745
+            }
+
+            .valid-feedback {
+                display: block;
+            }
+        }
+
+        .form-control {
+            border: 2px solid #ccc;
+            padding: 3.5%;
+        }
+    }
+}

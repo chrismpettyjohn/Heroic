@@ -1,0 +1,36 @@
+.heroic-room-list {
+    display: grid;
+    width: 100%;
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 599px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .heroic-card {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .heroic-card-header {
+            min-height: 74px;
+            max-height: 74px;
+            height: 100%;
+        }
+
+        .heroic-card-content {
+            align-items: center;
+            height: 100%;
+
+            ul.user-list {
+                margin-left: 15px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.heroic-room-view {
+    display: flex;
+}

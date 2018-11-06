@@ -1,0 +1,131 @@
+i.heroic-icon {
+    display: inline-block;
+    background: url('../images/icons/sprites.png') no-repeat top left;
+    width: 20px;
+    height: 16px;
+    image-rendering: pixelated;
+    outline: 0;
+
+    &.space-right {
+        margin-right: 5px;
+    }
+
+    &.verified {
+        width: 18px;
+        height: 18px;
+        background-position: 0 -176px;
+    }
+
+    &.home {
+        background-position: 0 -627px;
+        height: 19px;
+    }
+
+    &.community {
+        background-position: 0 -279px;
+        height: 20px;
+    }
+
+    &.help {
+        background-position: 0 -543px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    &.shrink {
+        background-position: 0 -110px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    &.expand {
+        background-position: 0 -459px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    &.online {
+        background-position: 0 -26px;
+        width: 50px;
+    }
+    
+    &.offline {
+        background-position: 0 0;
+        width: 50px;
+    }
+    
+    &.spinner {
+        background-position: 0 -134px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    &.h {
+        background-position: 0 -483px;
+        width: 16px;
+    }
+    
+    &.heart {
+        background-position: 0 -509px;
+        width: 26px;
+        height: 24px;
+    }
+    
+    &.hotel {
+        background-position: 0 -714px;
+        width: 19px;
+        height: 24px;
+    }
+    
+    &.pencil {
+        background-position: 0 -52px;
+        width: 16px;
+    }
+    
+    &.points {
+        background-position: 0 -78px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    &.club {
+        background-position: 0 -247px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    &.credits {
+        background-position: 0 -369px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    &.diamond {
+        background-position: 0 -401px;
+        width: 16px;
+    }
+    
+    &.duckets {
+        background-position: 0 -427px;
+        width: 22px;
+        height: 22px;
+    }
+
+    &.arrow {
+        background-position: 0 -204px;
+        width: 18px;
+        height: 10px;
+    }
+
+    &.clock {
+        background-position: 0 -224px;
+        width: 15px;
+        height: 13px;
+    }
+
+    &.motto {
+        background-position: 0 -748px;
+        width: 15px;
+        height: 14px;
+    }
+}

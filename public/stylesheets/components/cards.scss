@@ -1,0 +1,74 @@
+.heroic-card {
+    margin: 10px;
+    background-color: #346191;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    border-radius: .25rem;
+
+    .heroic-card-header {
+        display: flex;
+        flex-direction: column;
+        background-color: #233A55;
+        padding: 10px 20px;
+        justify-content: center;
+        @include no-select();
+
+        span {
+            display: block;
+            font-weight: 400;
+            color: rgb(255, 255, 255);
+
+            &.header {
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 22px;
+            }
+
+            &.description {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .heroic-card-content {
+        align-items: center;
+        padding: 10px 20px;
+
+        @import './cards/userList';
+
+        @import './cards/userInfo';
+    }
+
+    .heroic-card-footer {
+        margin: 0 20px;
+        @include no-select();
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-top: 2px solid #3A6998;
+
+            .footer-item {
+                padding: 0 15px;
+                font-size: 16px;
+                color: rgb(255, 255, 255);
+
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+
+                i.icon {
+                    padding-right: 5px;
+                    color: rgb(255, 255, 255);
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
