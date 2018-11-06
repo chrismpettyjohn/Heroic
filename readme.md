@@ -1,4 +1,4 @@
-# Heroic 3S
+# Heroic 3S 
 ![enter image description here](https://img.shields.io/badge/Status-Maintained-3379C0.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
 ## What This Is
 ### Introduction
