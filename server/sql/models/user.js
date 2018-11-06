@@ -29,7 +29,7 @@ class Model extends password(_base2.default) {
     // Columns
     'id', 'username', 'account_created', 'last_login', 'last_online', 'motto', 'look', 'gender', 'rank', 'credits', 'pixels', 'points', 'online', 'home_room',
     // Relationships
-    'badges', 'bans', 'camera', 'friends', 'info', 'rooms', 'permission', 'posts', 'comments'];
+    'badges', 'bans', 'camera', 'friends', 'info', 'rooms', 'permission'];
   }
 
   static get relationMappings() {
@@ -41,11 +41,8 @@ class Model extends password(_base2.default) {
     const Info = require('./users_settings').default;
     const Rooms = require('./room').default;
     const Permission = require('./permission').default;
-    const Timeline = {
-      Posts: require('./post').default,
-      Comments: require('./comment').default
-      // Relations
-    };return {
+    // Relations
+    return {
       // Bans (bans)
       bans: {
         relation: _base2.default.HasOneRelation,
@@ -107,24 +104,6 @@ class Model extends password(_base2.default) {
         join: {
           from: 'users.id',
           to: 'rooms.owner_id'
-        }
-      },
-      // Posts (heroic_posts)
-      posts: {
-        relation: _base2.default.HasManyRelation,
-        modelClass: Timeline.Posts,
-        join: {
-          from: 'users.id',
-          to: 'heroic_posts.user_id'
-        }
-      },
-      // Comments (heroic_comments)
-      comments: {
-        relation: _base2.default.HasManyRelation,
-        modelClass: Timeline.Comments,
-        join: {
-          from: 'users.id',
-          to: 'heroic_comments.user_id'
         }
       }
     };

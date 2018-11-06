@@ -8,14 +8,6 @@ var _jwt = require('../../lib/jwt');
 
 var _jwt2 = _interopRequireDefault(_jwt);
 
-var _post = require('../../sql/models/post');
-
-var _post2 = _interopRequireDefault(_post);
-
-var _friend = require('../../sql/models/friend');
-
-var _friend2 = _interopRequireDefault(_friend);
-
 var _user = require('../../sql/interactors/user');
 
 var _user2 = _interopRequireDefault(_user);
@@ -50,21 +42,6 @@ class Controller {
       reply.code(201).send(sso);
     } catch (e) {
       reply.code(400).send(e);
-    }
-  }
-
-  static async timeline(request, reply) {
-    try {
-      let friends = [];
-      let results = await _friend2.default.query().where('user_one_id', request.session.id);
-      results.forEach(friend => {
-        friends.push(friend.user_two_id);
-      });
-      let posts = await _post2.default.query().where('user_id', 'in', friends).eager(`[${request.params.relations}]`).orderBy('id', 'DESC').page(request.params.page, 10);
-      console.log(posts);
-      reply.code(200).send(posts);
-    } catch (e) {
-      reply.code(500).send(e);
     }
   }
 }
