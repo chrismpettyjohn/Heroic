@@ -3,6 +3,11 @@
 ## What This Is
 ### Introduction
 Heroic is a **web application** that provides a fast and beautiful interface for habbo retros.  It uses modern technology including, but not limited to **Node.js**, **Vue.js** and additional node based libraries such as **Fastify**, **Babel** and **Objection**.
+
+### Community Support
+Heroic has a Discord server just for our community.  Get news on updates, changes or new features and ask for help if need be!  
+https://discord.gg/D76Sezt
+
 ### Screenshots
 https://imgur.com/a/HbiKJpI
 ### Development Team
