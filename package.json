@@ -13,6 +13,7 @@
     "knex": "^0.15.2",
     "mysql2": "^1.6.4",
     "objection": "^1.4.0",
+    "objection-visibility": "^0.3.2",
     "veracious": "0.0.1"
   },
   "devDependencies": {
