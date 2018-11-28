@@ -6,8 +6,8 @@ class Routing {
 
     // Public
     await Router.group({ prefix: 'users', namespace: '@/modules/user/generic/http/controllers' }, router => {
-      router.get('view/:id', 'Public@view')
-      router.get('list/?id', 'Public@list')
+      router.get('view/:username', 'Public@view')
+      router.get('list/?page', 'Public@list')
     })
 
     /* TODO

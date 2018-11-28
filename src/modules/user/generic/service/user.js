@@ -2,9 +2,9 @@ import Database from '@/modules/user/generic/models/user'
 
 class User {
 
-  static async view (id) {
+  static async view (username) {
     try {
-      let user = Database.query().findById(id)
+      let user = Database.query().findOne({ username: username })
       if (user) {
         return Promise.resolve(user)
       } else {
