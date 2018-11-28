@@ -1,4 +1,23 @@
+import Database from '@/modules/user/generic/models/user'
+
 class User {
+
+  static async view (id) {
+    try {
+      let user = Database.find(id)
+      if (user) {
+        return Promise.resolve(user)
+      } else {
+        throw Error('User does not exist')
+      }
+    } catch (e) {
+      return Promise.reject({ error: e })
+    }
+  }
+
+  static async list (page = 0) {
+
+  }
 
 }
 
