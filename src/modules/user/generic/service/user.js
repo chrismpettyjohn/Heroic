@@ -4,11 +4,11 @@ class User {
 
   static async view (id) {
     try {
-      let user = Database.find(id)
+      let user = Database.query().findById(id)
       if (user) {
         return Promise.resolve(user)
       } else {
-        throw Error('User does not exist')
+        throw new Error('User does not exist')
       }
     } catch (e) {
       return Promise.reject({ error: e })

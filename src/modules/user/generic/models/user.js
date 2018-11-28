@@ -6,4 +6,25 @@ class User extends Model {
     return 'users'
   }
 
+  static get visible () {
+    return [
+      'id',
+      'username',
+      'account_created',
+      'last_login',
+      'last_online',
+      'motto',
+      'look',
+      'gender',
+      'rank',
+      'credits',
+      'pixels',
+      'points',
+      'online',
+      'home_room'
+    ]
+  }
+
 }
+
+export default User

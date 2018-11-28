@@ -4,7 +4,8 @@ class Public {
 
   static async view (request, response) {
     try {
-      response.send(Service.view(request.params.id))
+      let user = await Service.view(request.params.id)
+      response.send(user)
     } catch (e) {
       response.status(400).send(e)
     }
