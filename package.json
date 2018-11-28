@@ -8,6 +8,7 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "cors": "^2.8.4",
+    "dotenv": "^6.1.0",
     "fastify": "^1.13.0",
     "knex": "^0.15.2",
     "mysql2": "^1.6.4",

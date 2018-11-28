@@ -1,4 +1,5 @@
 import Fastify from 'fastify'
+import Heroic from '@/heroic'
 import Log from '@/lib/log'
 
 class Server {
@@ -10,7 +11,7 @@ class Server {
 
     await Server.configure()
 
-    return Promise.resolve('HTTP server loading configuration')
+    return Promise.resolve()
   }
 
   static async configure () {
@@ -28,8 +29,8 @@ class Server {
   }
 
   static async start () {
-    await Server.instance.listen(8080, '0.0.0.0')
-    Log.write('HTTP server has launched')
+    await Server.instance.listen(Heroic.config.HTTP_PORT, '0.0.0.0')
+    Log.write(`HTTP server listening on ${Heroic.config.HTTP_PORT}`)
     return Promise.resolve()
   }
 

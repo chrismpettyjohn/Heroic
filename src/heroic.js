@@ -1,23 +1,27 @@
-import Log from '@/lib/log'
+import Database from '@/database/server'
 import HTTP from '@/http/server'
+import Log from '@/lib/log'
+import Dotenv from 'dotenv'
+
 class Heroic {
 
   static root = __dirname
+  static config = {}
 
   static async init () {
     HTTP.start()
   }
 
   static async loadENV (directory) {
-
+    Heroic.config = Dotenv.config({ path: directory }).parsed
   }
 
   static async prepareDatabase () {
-
+    Log.write(await Database.init())
   }
 
   static async prepareHTTP () {
-    Log.write(await HTTP.init())
+    await HTTP.init()
   }
 
   static async loadProviders (providers) {
