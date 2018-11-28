@@ -42,15 +42,39 @@ class Router {
   }
 
   static async post (path, controller) {
+    try {
+      controller = await Router.parse(path, controller)
+      await Server.route('POST', controller.path, controller.method)
+      return Promise.resolve()
 
+    } catch (e) {
+      Log.write(e, 'error')
+      return Promise.reject()
+    }
   }
 
   static async put (path, controller) {
+    try {
+      controller = await Router.parse(path, controller)
+      await Server.route('PUT', controller.path, controller.method)
+      return Promise.resolve()
 
+    } catch (e) {
+      Log.write(e, 'error')
+      return Promise.reject()
+    }
   }
 
   static async delete (path, controller) {
+    try {
+      controller = await Router.parse(path, controller)
+      await Server.route('DELETE', controller.path, controller.method)
+      return Promise.resolve()
 
+    } catch (e) {
+      Log.write(e, 'error')
+      return Promise.reject()
+    }
   }
 
 }

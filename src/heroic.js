@@ -12,12 +12,12 @@ class Heroic {
 
   }
 
+  static async prepareDatabase () {
+
+  }
+
   static async prepareHTTP () {
-    try {
-      Log.write(await HTTP.init())
-    } catch (e) {
-      Heroic.crash(e)
-    }
+    Log.write(await HTTP.init())
   }
 
   static async loadProviders (providers) {
