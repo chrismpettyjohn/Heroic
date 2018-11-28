@@ -16,7 +16,12 @@ class User {
   }
 
   static async list (page = 0) {
-
+    try {
+      let users = Database.query().orderBy('id', 'ASC').page(page, 50)
+      return Promise.resolve(users)
+    } catch (e) {
+      return Promise.reject({ error: e })
+    }
   }
 
 }

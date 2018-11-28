@@ -12,7 +12,13 @@ class Public {
   }
 
   static async list (request, response) {
-    response.send('list here')
+    try {
+      request.params.page = (request.params.page) ? request.params.page : 0
+      let users = await Service.list(request.params.page)
+      response.send(users)
+    } catch (e) {
+      response.status(400).send(e)
+    }
   }
 
 }
