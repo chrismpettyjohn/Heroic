@@ -1,0 +1,49 @@
+{
+  "scripts": {
+    "start": "npm i && node index",
+    "debug": "nodemon -L --exec babel-node index.js",
+    "clean": "standard --fix",
+    "build": "babel . --out-dir=production --copy-files --ignore node_modules"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "cors": "^2.8.4",
+    "fastify": "^1.13.0",
+    "veracious": "0.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "babel-plugin-root-import": "^6.1.0",
+    "nodemon": "^1.18.7"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry"
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathPrefix": "@",
+          "rootPathSuffix": "src/"
+        }
+      ]
+    ],
+    "ignore": [
+      "node_modules"
+    ]
+  }
+}
