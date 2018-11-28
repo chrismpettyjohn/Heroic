@@ -21,7 +21,7 @@ class Server {
     // Handle optional paramater
     if (path.indexOf('?') > -1) {
       Server.instance[type.toLowerCase()](`/${path.split('?')[0].slice(0, -1)}`, controller)
-      Server.instance[type.toLowerCase()](`/${path.replace('/', ':')}`, controller)
+      Server.instance[type.toLowerCase()](`/${path.replace('?', ':')}`, controller)
     }
     else {
       Server.instance[type.toLowerCase()](`/${path}`, controller)
