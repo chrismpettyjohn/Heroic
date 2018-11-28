@@ -1,3 +1,5 @@
+import Compress from 'fastify-compress'
+import IP from 'request-ip'
 import Fastify from 'fastify'
 import Heroic from '@/heroic'
 import Log from '@/lib/log'
@@ -15,6 +17,9 @@ class Server {
   }
 
   static async configure () {
+    Server.instance.use(IP.mw())
+    Server.instance.register(Compress)
+    return Promise.resolve()
   }
 
   static async route (type, path, controller) {

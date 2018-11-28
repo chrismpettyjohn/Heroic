@@ -6,6 +6,7 @@ class Routing {
 
     // Public
     await Router.group({ prefix: 'users', namespace: '@/modules/user/generic/http/controllers' }, router => {
+      router.post('create', 'Public@create')
       router.get('view/:username', 'Public@view')
       router.get('list/?page', 'Public@list')
     })
