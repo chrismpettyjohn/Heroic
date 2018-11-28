@@ -24,7 +24,7 @@ class Server {
       Server.instance[type.toLowerCase()](`/${path.replace('/', ':')}`, controller)
     }
     else {
-      Server.instance[type.toLowerCase()](`/ ${path}`, controller)
+      Server.instance[type.toLowerCase()](`/${path}`, controller)
     }
   }
 
