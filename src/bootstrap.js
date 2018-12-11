@@ -14,8 +14,11 @@ class Bootstrap {
       await Heroic.prepareDatabase()
       await Heroic.prepareHTTP()
 
+      // Register middleware first, routing second
       await Heroic.loadProviders([
-        '@/modules/user/generic/provider/routing'
+        '@/modules/user/session/provider/middleware',
+        '@/modules/user/generic/provider/routing',
+        '@/modules/user/session/provider/routing',
       ])
 
       await Heroic.init()
