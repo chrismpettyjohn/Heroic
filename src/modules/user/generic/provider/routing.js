@@ -2,26 +2,17 @@ import Router from '@/http/router'
 
 class Routing {
 
+  static prefix = 'users'
+  static namespace = '@/modules/user/generic/http/controllers'
+
   static async init () {
 
     // Public
-    await Router.group({ prefix: 'users', namespace: '@/modules/user/generic/http/controllers' }, router => {
+    await Router.group({ prefix: Routing.prefix, namespace: Routing.namespace }, router => {
       router.post('create', 'Public@create')
       router.get('view/:username', 'Public@view')
       router.get('list/?page', 'Public@list')
     })
-
-    /* TODO
-    // Auth
-    await Router.group({ prefix: 'users', namespace: '@/modules/user/generic/http', middleware: ['user_session'] }, {
-
-    })
-
-    // Admin
-    await Router.group({ prefix: 'users', namespace: '@/modules/user/generic/http', middleware: ['user-session', 'admin-permission'] }, {
-
-    })
-    */
 
     return Promise.resolve()
   }

@@ -115,3 +115,7 @@ test/
 
 # End of https://www.gitignore.io/api/node,vuejs,macos
 .DS_Store
+
+\.env\.swp
+
+package-lock\.json
