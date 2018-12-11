@@ -22,14 +22,14 @@ class Server {
     return Promise.resolve()
   }
 
-  static async route (type, path, controller) {
-    // Handle optional paramater
+  static async route (type, path, controller, middleware) {
+    // Optional Paramater Adjust
     if (path.indexOf('?') > -1) {
-      Server.instance[type.toLowerCase()](`/${path.split('?')[0].slice(0, -1)}`, controller)
-      Server.instance[type.toLowerCase()](`/${path.replace('?', ':')}`, controller)
+      Server.instance[type.toLowerCase()](`/${path.split('?')[0].slice(0, -1)}`, { beforeHandler: middleware }, controller)
+      Server.instance[type.toLowerCase()](`/${path.replace('?', ':')}`, { beforeHandler: middleware }, controller)
     }
     else {
-      Server.instance[type.toLowerCase()](`/${path}`, controller)
+      Server.instance[type.toLowerCase()](`/${path}`, { beforeHandler: middleware }, controller)
     }
   }
 
