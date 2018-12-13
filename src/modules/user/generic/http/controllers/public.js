@@ -8,7 +8,7 @@ class Public {
       await Service.create(request.body.user)
       response.status(203).send()
     } catch (e) {
-      response.status(400).send(e)
+      response.status(400).send()
     }
   }
 
@@ -17,7 +17,7 @@ class Public {
       let user = await Service.view(request.params.username)
       response.send(user)
     } catch (e) {
-      response.status(400).send(e)
+      response.status(400).send()
     }
   }
 
@@ -27,7 +27,7 @@ class Public {
       let users = await Service.list(request.params.page)
       response.send(users)
     } catch (e) {
-      response.status(400).send(e)
+      response.status(400).send()
     }
   }
 
