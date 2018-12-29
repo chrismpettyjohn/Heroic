@@ -121,3 +121,5 @@ test/
 package-lock\.json
 
 src/\.idea/
+
+\.idea/
