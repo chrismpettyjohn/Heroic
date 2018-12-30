@@ -46,7 +46,7 @@ class NotFound extends React.Component {
 
 		render () {
 			return (
-				<Portlet>
+				<Portlet skin="dark">
 					<div className="m-widget7 m-widget7--skin-dark">
 						<div className="m-widget7__desc">
 							<h1>Page Not Found</h1>
