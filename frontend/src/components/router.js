@@ -12,11 +12,12 @@ class Router extends React.Component {
 			<Switch>
 				{(Routes.map((route, i) => {
 					if (route.protected) {
-						return <Protected {...this.props} key={i} route={route}/>
+						return <Route exact key={i} path={`/${route.to}`} render={() => <Protected {...  this.props} key={i} route={route}/>} />
 					} else {
 						return <Route exact key={i} path={`/${route.to}`} render={() => <Page route={route}/>} />
 					}
 				}))}
+				<Route component={NotFound}/>
 			</Switch>
 		)
 	}
@@ -40,5 +41,17 @@ class Protected extends React.Component {
 	}
 
 }
+
+class NotFound extends React.Component {
+
+		render () {
+			return (
+				<p>Not Found Jackass</p>
+			)
+		}
+
+}
+
+
 
 export default Stateful(Router)
