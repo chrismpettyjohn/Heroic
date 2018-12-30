@@ -1,8 +1,40 @@
 import React from 'react'
+import { withRouter, Link } from 'react-router-dom'
 
 class Header extends React.Component {
 
+	componentWillMount () {
+		this.items = [
+			// Dashboard
+			{
+				link: '/dashboard',
+				title: 'Dashboard'
+			},
+			// Website
+			{
+				link: '/website',
+				title: 'Website'
+			},
+			// Emulator
+			{
+				link: '/emulator',
+				title: 'Emulator'
+			},
+			// Other
+			{
+				link: '/other',
+				title: 'Other'
+			}
+		]
+	}
+
+	shouldComponentUpdate(props) {
+		return props.location.pathname !== this.props.location.pathname
+	}
+
 	render() {
+		const items = this.items
+		const location = this.props.location.pathname
 		return (
 			<header className="m-grid__item m-header" id="m_header">
 				<div className="m-header__top">
@@ -25,26 +57,16 @@ class Header extends React.Component {
 								<button className="m-aside-header-menu-mobile-close m-aside-header-menu-mobile-close--skin-light" id="m_aside_header_menu_mobile_close_btn"><i className="la la-close"></i></button>
 								<div className="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light"  id="m_header_menu">
 									<ul className="m-menu__nav m-menu__nav--submenu-arrow">
-										<li aria-haspopup="true" className="m-menu__item m-menu__item--active">
-											<a className="m-menu__link"><span className="m-menu__item-here"></span>
-												<span className="m-menu__link-text">Dashboard</span>
-											</a>
-										</li>
-										<li aria-haspopup="true" className="m-menu__item">
-											<a className="m-menu__link"><span className="m-menu__item-here"></span>
-												<span className="m-menu__link-text">Website</span>
-											</a>
-										</li>
-										<li aria-haspopup="true" className="m-menu__item">
-											<a className="m-menu__link"><span className="m-menu__item-here"></span>
-												<span className="m-menu__link-text">Emulator</span>
-											</a>
-										</li>
-										<li aria-haspopup="true" className="m-menu__item">
-											<a className="m-menu__link"><span className="m-menu__item-here"></span>
-												<span className="m-menu__link-text">Other</span>
-											</a>
-										</li>
+										{(items.map((item, n) => {
+											return (
+												<li key={n} className={`m-menu__item ${(item.link === location) ? 'm-menu__item--active' : null}`}>
+													<Link to={item.link} className="m-menu__link">
+														<span className="m-menu__item-here">&nbsp;</span>
+														<span className="m-menu__link-text">{item.title}</span>
+													</Link>
+												</li>
+											)
+										}))}
 									</ul>
 								</div>
 							</div>
@@ -57,4 +79,4 @@ class Header extends React.Component {
 
 }
 
-export default Header
+export default withRouter(Header)

@@ -10,7 +10,7 @@ class Router extends React.Component {
 			<Switch>
 				{(Routes.map((route, i) => {
 					if (route.protected) {
-						return <Protected route={route}/>
+						return <Protected key={i} route={route}/>
 					} else {
 						return <Route exact key={i} path={`/${route.to}`} render={() => <Page route={route}/>} />
 					}
