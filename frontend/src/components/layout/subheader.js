@@ -7,7 +7,7 @@ class Subheader extends React.Component {
 		const route = this.props.route
 
 		return (
-			<div className="m-subheader">
+			<div className="m-subheader" style={{ marginTop: '-15px'}}>
 				<div className="d-flex align-items-center">
 					<div className="mr-auto">
 						<h3 className="m-subheader__title">{route.title}</h3>

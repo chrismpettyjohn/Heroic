@@ -2,10 +2,24 @@ import React from 'react'
 
 class Portlet extends React.Component {
 
+	componentDidMount () {
+		let className = 'm-portlet '
+		const { background, border, skin } = this.props
+
+		if (background) className += `m--bg-${background} `
+		if (!border) className += 'm-portlet--bordered-semi '
+
+		className += `m-portlet--skin-${skin} `
+
+		this.className = className
+	}
+
 	render() {
-		const {children, title, skin, type} = this.props
+		const { className } = this
+		const { children, title } = this.props
+
 		return (
-			<div className={`m-portlet m--bg-${type} m-portlet--bordered-semi m-portlet--skin-${skin} m-portlet--full-height`}>
+			<div className={className}>
 				<div className="m-portlet__head">
 					<div className="m-portlet__head-caption">
 						<div className="m-portlet__head-title">
@@ -23,9 +37,9 @@ class Portlet extends React.Component {
 }
 
 Portlet.defaultProps = {
-	title: '',
-	skin: 'primary',
-	type: ''
+	background: false,
+	border: true,
+	skin: 'light'
 }
 
 export default Portlet
