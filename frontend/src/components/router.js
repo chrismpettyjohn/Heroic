@@ -1,6 +1,7 @@
 import React from 'react'
 import Page from './page'
 import Routes from 'app/routes'
+import Stateful from 'app/state/stateful'
 import {Route, Switch} from 'react-router-dom'
 import Portlet from 'components/reusable/portlet'
 
@@ -11,7 +12,7 @@ class Router extends React.Component {
 			<Switch>
 				{(Routes.map((route, i) => {
 					if (route.protected) {
-						return <Protected key={i} route={route}/>
+						return <Protected {...this.props} key={i} route={route}/>
 					} else {
 						return <Route exact key={i} path={`/${route.to}`} render={() => <Page route={route}/>} />
 					}
@@ -27,7 +28,7 @@ class Protected extends React.Component {
 	render () {
 		const { route, session } = this.props
 
-		if (session) {
+		if (session.active) {
 			return <Page route={route}/>
 		} else {
 			return (
@@ -40,4 +41,4 @@ class Protected extends React.Component {
 
 }
 
-export default Router
+export default Stateful(Router)
