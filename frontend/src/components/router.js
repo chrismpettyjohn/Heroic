@@ -46,7 +46,19 @@ class NotFound extends React.Component {
 
 		render () {
 			return (
-				<p>Not Found Jackass</p>
+				<Portlet>
+					<div className="m-widget7 m-widget7--skin-dark">
+						<div className="m-widget7__desc">
+							<h1>Page Not Found</h1>
+							<p>Not until we are lost do we begin to understand ourselves.</p>
+						</div>
+						<div className="m-widget7__user">
+							<div className="m-widget7__info">
+								<span className="m-widget7__username">Henry David Thoreau</span>
+							</div>
+						</div>
+					</div>
+				</Portlet>
 			)
 		}
 
