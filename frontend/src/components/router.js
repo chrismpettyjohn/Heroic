@@ -9,10 +9,28 @@ class Router extends React.Component {
 		return (
 			<Switch>
 				{(Routes.map((route, i) => {
-					return <Route exact key={i} path={`/${route.to}`} render={() => <Page route={route}/>} />
+					if (route.protected) {
+						return <Protected route={route}/>
+					} else {
+						return <Route exact key={i} path={`/${route.to}`} render={() => <Page route={route}/>} />
+					}
 				}))}
 			</Switch>
 		)
+	}
+
+}
+
+class Protected extends React.Component {
+
+	render () {
+		const { route, session } = this.props
+
+		if (session) {
+			return <Page route={route}/>
+		} else {
+			return <h1>This is not authorized</h1>
+		}
 	}
 
 }

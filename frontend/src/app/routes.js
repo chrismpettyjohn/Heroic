@@ -6,7 +6,8 @@ const Routes = [
 		to: 'dashboard',
 		title: 'Dashboard',
 		about: 'Welcome back',
-		component: Pages.Dashboard
+		component: Pages.Dashboard,
+		protected: true
 	}
 ]
 
