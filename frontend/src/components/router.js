@@ -29,7 +29,7 @@ class Protected extends React.Component {
 		if (session) {
 			return <Page route={route}/>
 		} else {
-			return <h1>This is not authorized</h1>
+			return <h1 style={{ marginTop: '1.5%' }}>This is not authorized</h1>
 		}
 	}
 
