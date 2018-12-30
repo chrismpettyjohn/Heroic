@@ -2,6 +2,7 @@ import React from 'react'
 import Page from './page'
 import Routes from 'app/routes'
 import {Route, Switch} from 'react-router-dom'
+import Portlet from 'components/reusable/portlet'
 
 class Router extends React.Component {
 
@@ -29,7 +30,11 @@ class Protected extends React.Component {
 		if (session) {
 			return <Page route={route}/>
 		} else {
-			return <h1 style={{ marginTop: '1.5%' }}>This is not authorized</h1>
+			return (
+				<Portlet title="Not Authorized" type="danger">
+					<h1 style={{ marginTop: '1.5%' }}>This is not authorized</h1>
+				</Portlet>
+			)
 		}
 	}
 

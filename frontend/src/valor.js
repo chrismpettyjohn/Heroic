@@ -13,9 +13,8 @@ class Valor extends React.Component {
         <BrowserRouter>
           <div className="m-grid m-grid--hor m-grid--root m-page">
             <Header/>
-            <div className="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+            <div className="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body m-body-margin">
               <div className="m-grid__item m-grid__item--fluid m-wrapper">
-
                 <Router/>
               </div>
             </div>
