@@ -4,16 +4,21 @@ const Routes = [
 	// Dashboard
 	{
 		to: 'dashboard',
-		title: 'Dashboard',
-		about: 'Welcome back',
-		component: Pages.Dashboard,
 		protected: true,
+		children: [
+			// Home
+			{
+				to: 'home',
+				title: 'Dashboard',
+				about: 'Welcome Back',
+				component: Pages.Dashboard
+			}
+			// Health
+		]
 	},
 	// Website
 	{
 		to: 'website',
-		title: 'Website',
-		about: 'Manage your site presence',
 		protected: true,
 		children: [
 			// News Articles

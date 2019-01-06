@@ -12,7 +12,7 @@ class Router extends React.Component {
 		routes: []
 	}
 
-	componentDidMount () {
+	componentDidMount() {
 		let routes = this.state.routes
 		Routes.forEach(async (route) => {
 
@@ -21,38 +21,11 @@ class Router extends React.Component {
 			if (route.children) await this.mapChildren(route)
 
 			this.setState({
-				ready: (routes.length === await this.getRouteCount()),
 				routes: routes
 			})
 
 		})
 	}
-	getRouteCount () {
-		return new Promise ((resolve) => {
-
-			let count = 0
-			let toplevel = 0
-			for (let route of Routes) {
-				if (route.children) {
-					for (let child of route.children) {
-						if (child.children) count += child.children.length + 1
-					}
-					count++
-					toplevel++
-				}
-				else {
-					count++
-					toplevel++
-				}
-			}
-
-			if (toplevel === Routes.length) {
-				resolve(count)
-			}
-
-		})
-	}
-
 
 	mapChildren = (route) => {
 		route.children.forEach(async (child) => {
@@ -65,7 +38,6 @@ class Router extends React.Component {
 
 			if (child.children) this.mapChildren(child)
 			this.setState({
-				ready: (routes.length === await this.getRouteCount()),
 				routes: routes
 			})
 
@@ -75,39 +47,34 @@ class Router extends React.Component {
 
 	mapView = (route) => {
 		if (route.protected) {
-			return <Route exact key={route.to} path={`/${route.to}`} render={() => <Protected {...this.props} route={route}/>}/>
-		}
-		else {
+			return <Route exact key={route.to} path={`/${route.to}`}
+			              render={() => <Protected {...this.props} route={route}/>}/>
+		} else {
 			return <Route exact key={route.to} path={`/${route.to}`} render={() => <Page route={route}/>}/>
 		}
 	}
 
 
 	render() {
-		const { ready, routes } = this.state
+		const {routes} = this.state
 
-		if (ready) {
-			return (
-				<Switch>
-					{(routes.map(route => {
-						return this.mapView(route)
-					}))}
-					<Route component={NotFound}/>
-				</Switch>
-			)
-		}
-		else {
-			return null
-		}
-
+		return (
+			<Switch>
+				{(routes.map(route => {
+					return this.mapView(route)
+				}))}
+				<Route component={NotFound}/>
+			</Switch>
+		)
 	}
+
 }
 
 class NotFound extends React.Component {
 
 	render () {
 		return (
-			<div className="m-grid__item m-grid__item--fluid m-wrapper">
+			<div className="m-grid__item m-grid__item--fluid m-wrapper" style={{ background: '#2c2e3e' }}>
 				<Portlet border={false} skin="dark">
 					<div className="m-widget7 m-widget7--skin-dark">
 						<div className="m-widget7__desc">
