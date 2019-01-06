@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Sidebar extends React.Component {
 
@@ -64,7 +65,7 @@ class Sidebar extends React.Component {
 				type: 'link',
 				icon: 'credit-card',
 				text: 'Web Store',
-				linK: '/web/store'
+				link: '/web/store'
 			},
 			// Settings Link
 			{
@@ -126,11 +127,11 @@ class Sidebar extends React.Component {
 							if (item.type === 'link') {
 								return (
 									<li aria-haspopup="true" className="m-menu__item" key={i}>
-										<a className="m-menu__link" href="lol">
+										<Link className="m-menu__link" to={item.link}>
 											<span className="m-menu__item-here">&nbsp;</span>
 											<i className={`m-menu__link-icon fal fa-${item.icon}`}>&nbsp;</i>
 											<span className="m-menu__link-text">{item.text}</span>
-										</a>
+										</Link>
 								</li>
 								)
 							}
@@ -149,10 +150,10 @@ class Sidebar extends React.Component {
 												{(item.children.map((child, n) => {
 													return (
 														<li aria-haspopup="true" className="m-menu__item" key={n}>
-															<a className="m-menu__link" href={"no"}>
+															<Link className="m-menu__link" to={child.link}>
 																<i className="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
 																<span className="m-menu__link-text">{child.text}</span>
-															</a>
+															</Link>
 														</li>
 													)
 												}))}
