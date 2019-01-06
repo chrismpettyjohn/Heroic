@@ -23,6 +23,24 @@ class List extends React.Component {
 				{
 					type: 'author',
 					text: 'Posted By'
+				},
+				{
+					type: 'actions',
+					text: 'Actions',
+					actions: [
+						{
+							class: 'info',
+							data: 'id',
+							icon: 'pen-square',
+							link: '/web/news/view/%'
+						},
+						{
+							class: 'danger',
+							data: 'id',
+							icon: 'trash',
+							link: '/web/news/delete/%'
+						}
+					]
 				}
 			],
 			data: [
@@ -30,6 +48,12 @@ class List extends React.Component {
 					id: 1,
 					title: 'Example Article',
 					created_at: '05 January 2019',
+					author: 'Chris'
+				},
+				{
+					id: 2,
+					title: 'Another Example',
+					created_at: '06 January 2019',
 					author: 'Chris'
 				}
 			]
