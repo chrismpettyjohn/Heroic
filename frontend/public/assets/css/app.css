@@ -1,3 +1,14 @@
-.m-body-margin {
-  margin-top: 1.5%;
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.m-grid--root {
+  height: 100%;
+  width: 100%;
+}
+
+.m-wrapper {
+  margin: 0 auto;
+  width: 85%;
 }

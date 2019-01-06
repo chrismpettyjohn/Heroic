@@ -3,85 +3,110 @@ import { Link } from 'react-router-dom'
 
 class Sidebar extends React.Component {
 
-	state = {
-		active: [],
-		base: {
-			// Website
-			website: [
-				// Heroic Management Label
-				{
-					type: 'label',
-					text: 'Heroic Management'
-				},
-				// News Articles
-				{
-					type: 'link',
-					text: 'News Articles',
-					link: 'website/news'
-				},
-				// Web Shop
-				{
-					type: 'link',
-					text: 'Manage Web Shop',
-					link: 'website/shop'
-				},
-				// Payment Settings
-				{
-					type: 'link',
-					text: 'Payment Settings',
-					link: 'website/payments'
-				},
-				// Advanced Label
-				{
-					type: 'label',
-					text: 'Advanced'
-				},
-				// Heroic Configuration
-				{
-					type: 'link',
-					text: 'Heroic Configuration',
-					link: 'website/configuration'
-				},
-				// Maintenance Mode
-				{
-					type: 'link',
-					text: 'Maintenance Mode',
-					link: 'website/maintenance'
-				}
-			]
-		}
-	}
-
 	componentWillMount () {
-		const use = this.props.use
-		const base = this.state.base
-		if (base[use]) {
-			this.setState({
-				active: base[use]
-			})
-		}
+		this.items = [
+			// Dashboard Label
+			{
+				type: 'label',
+				text: 'Dashboard'
+			},
+			// Dashboard Link
+			{
+				type: 'link',
+				icon: 'home',
+				text: 'Dashboard',
+				link: '/dashboard/home'
+			},
+			// Health Link
+			{
+				type: 'link',
+				icon: 'medkit',
+				text: 'Health',
+				link: '/dashboard/health'
+			},
+			// Website Label
+			{
+				type: 'label',
+				text: 'Website',
+			},
+			// News Link
+			{
+				type: 'link',
+				icon: 'newspaper',
+				text: 'News Articles',
+				link: '/web/news'
+			},
+			// Hangouts Link
+			{
+				type: 'link',
+				icon: 'pen-square',
+				text: 'Hangouts',
+				link: '/web/hangouts'
+			},
+			// Web Store
+			{
+				type: 'link',
+				icon: 'credit-card',
+				text: 'Web Store',
+				linK: '/web/store'
+			},
+			// Settings Link
+			{
+				type: 'link',
+				icon: 'wrench',
+				text: 'Configuration',
+				link: '/web/config'
+			},
+			// Emulator Label
+			{
+				type: 'label',
+				text: 'Arcturus'
+			},
+			// Users Link
+			{
+				type: 'link',
+				icon: 'users',
+				text: 'Users',
+				link: '/emu/users'
+			},
+			// Logs Link
+			{
+				type: 'link',
+				icon: 'history',
+				text: 'Log History',
+				link: '/emu/history'
+			},
+			// Catalog
+			{
+				type: 'link',
+				icon: 'shopping-cart',
+				text: 'Catalog',
+				link: '/emu/catalog'
+			}
+		]
 	}
 
 	render () {
-		const active = this.state.active
+		const { items } = this
 		return (
-			<div className="m-grid__item m-aside-left">
-				<div className="m-aside-menu m-aside-menu--skin-light m-aside-menu--submenu-skin-light" id="m_ver_menu">
-					<ul className="m-menu__nav m-menu__nav--dropdown-submenu-arrow">
-						{( active.map((item, i) => {
-							if (item.type === 'link') {
+			<div className="m-grid__item m-aside-left m-aside-left--skin-dark" id="m_aside_left">
+				<div className="m-aside-menu m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark" id="m_ver_menu">
+					<ul className="m-menu__nav">
+						{(items.map((item, i) => {
+							if (item.type==='link') {
 								return (
-									<li key={i} className="m-menu__item">
-										<Link className="m-menu__link" to={item.link}>
-											<i className="m-menu__link-bullet m-menu__link-bullet--dot"><span>&nbsp;</span></i>
+									<li aria-haspopup="true" className="m-menu__item" key={i}>
+										<a className="m-menu__link">
+											<span className="m-menu__item-here">&nbsp;</span>
+											<i className={`m-menu__link-icon fal fa-${item.icon}`}>&nbsp;</i>
 											<span className="m-menu__link-text">{item.text}</span>
-										</Link>
-									</li>
+										</a>
+								</li>
 								)
 							}
 							else {
 								return (
-									<li key={i} className="m-menu__section m-menu__section--first">
+									<li className="m-menu__section m-menu__section--first" key={i}>
 										<h4 className="m-menu__section-text">{item.text}</h4>
 									</li>
 								)

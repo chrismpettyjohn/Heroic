@@ -16,21 +16,8 @@ class Page extends React.Component {
 
 	render () {
 		const route = this.props.route
-		if (route.sidebar) {
-			return (
-				<div className="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
-					<Title title={route.title}/>
-					<Sidebar use={route.sidebar}/>
-					<div className="m-grid__item m-grid__item--fluid m-wrapper">
-						<Subheader/>
-						{(route.component) ? <route.component/> : null }
-					</div>
-				</div>
-			)
-		}
-		else {
-			return (
-				<div className="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+		return (
+				<div className="m-grid__item m-grid__item--fluid m-wrapper">
 					<Title title={route.title}/>
 					<div className="m-grid__item m-grid__item--fluid m-wrapper">
 						<Subheader/>
@@ -38,7 +25,7 @@ class Page extends React.Component {
 					</div>
 				</div>
 			)
-		}
+
 	}
 
 }
