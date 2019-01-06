@@ -61,7 +61,6 @@ class Router extends React.Component {
 			<Switch>
 				{(routes.map(route => {
 					if (route.component) {
-						console.log(route.to)
 						return this.mapView(route)
 					}
 					else {
