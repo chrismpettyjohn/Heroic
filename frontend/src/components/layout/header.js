@@ -15,7 +15,7 @@ class Header extends React.Component {
 						<div className="m-stack__item m-brand m-brand--skin-dark">
 							<div className="m-stack m-stack--ver m-stack--general">
 								<div className="m-stack__item m-stack__item--middle m-brand__logo">
-									<h1 style={{ color: 'white' }}>Heroic</h1>
+									<h1 style={{ color: 'white', letterSpacing: '1.5px', textTransform: 'lowercase', fontWeight: '100' }}>Heroic</h1>
 								</div>
 							</div>
 						</div>
