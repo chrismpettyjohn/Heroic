@@ -3,7 +3,7 @@ import React from 'react'
 class Title extends React.Component {
 
 	componentDidMount () {
-		document.title=`${this.props.title} - Valor`
+		document.title=`Heroic - ${this.props.title}`
 	}
 
 	render () {
