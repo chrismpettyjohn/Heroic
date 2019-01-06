@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 class Sidebar extends React.Component {
+
+	state = {
+		active: 0
+	}
 
 	componentWillMount () {
 		this.items = [
@@ -31,10 +34,23 @@ class Sidebar extends React.Component {
 			},
 			// News Link
 			{
-				type: 'link',
+				type: 'dropdown',
 				icon: 'newspaper',
 				text: 'News Articles',
-				link: '/web/news'
+				children: [
+					// List Articles
+					{
+						type: 'link',
+						text: 'View All Articles',
+						link: '/web/news/list'
+					},
+					// Submit New Post
+					{
+						type: 'link',
+						text: 'Submit New Post',
+						link: '/web/news/create'
+					}
+				]
 			},
 			// Hangouts Link
 			{
@@ -86,17 +102,31 @@ class Sidebar extends React.Component {
 		]
 	}
 
+	setActive = (id) => {
+		if (this.state.active === id) {
+			this.setState({
+				active: 0
+			})
+		}
+		else {
+			this.setState({
+				active: id
+			})
+		}
+	}
+
 	render () {
-		const { items } = this
+		const { items, setActive } = this
+		const { active } = this.state
 		return (
 			<div className="m-grid__item m-aside-left m-aside-left--skin-dark" id="m_aside_left">
 				<div className="m-aside-menu m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark" id="m_ver_menu">
 					<ul className="m-menu__nav">
 						{(items.map((item, i) => {
-							if (item.type==='link') {
+							if (item.type === 'link') {
 								return (
 									<li aria-haspopup="true" className="m-menu__item" key={i}>
-										<a className="m-menu__link">
+										<a className="m-menu__link" href="lol">
 											<span className="m-menu__item-here">&nbsp;</span>
 											<i className={`m-menu__link-icon fal fa-${item.icon}`}>&nbsp;</i>
 											<span className="m-menu__link-text">{item.text}</span>
@@ -104,7 +134,34 @@ class Sidebar extends React.Component {
 								</li>
 								)
 							}
-							else {
+							else if (item.type === 'dropdown') {
+								return (
+									<li aria-haspopup="true" className={`m-menu__item m-menu__item--submenu ${(active===i) ? 'm-menu__item--open' : ''}`} key={i}>
+										<div className="m-menu__link m-menu__toggle" onClick={() => { setActive(i) }}>
+											<span className="m-menu__item-here"></span>
+											<i className={`m-menu__link-icon fal fa-${item.icon}`}>&nbsp;</i>
+											<span className="m-menu__link-text">{item.text}</span>
+											<i className="m-menu__ver-arrow la la-angle-right"></i>
+										</div>
+										<div className="m-menu__submenu">
+											<span className="m-menu__arrow"></span>
+											<ul className="m-menu__subnav">
+												{(item.children.map((child, n) => {
+													return (
+														<li aria-haspopup="true" className="m-menu__item" key={n}>
+															<a className="m-menu__link" href={"no"}>
+																<i className="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+																<span className="m-menu__link-text">{child.text}</span>
+															</a>
+														</li>
+													)
+												}))}
+											</ul>
+										</div>
+									</li>
+								)
+							}
+							else  {
 								return (
 									<li className="m-menu__section m-menu__section--first" key={i}>
 										<h4 className="m-menu__section-text">{item.text}</h4>

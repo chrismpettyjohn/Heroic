@@ -8,7 +8,6 @@ const Routes = [
 		about: 'Welcome back',
 		component: Pages.Dashboard,
 		protected: true,
-		sidebar: false
 	},
 	// Website
 	{
@@ -16,7 +15,6 @@ const Routes = [
 		title: 'Website',
 		about: 'Manage your site presence',
 		protected: true,
-		sidebar: 'website',
 		children: [
 			// News Articles
 			{

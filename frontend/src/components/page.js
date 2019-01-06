@@ -1,7 +1,6 @@
 import React from 'react'
 import Stateful from 'app/state/stateful'
 import Title from 'components/utility/title'
-import Sidebar from 'components/layout/sidebar'
 import Subheader from 'components/layout/subheader'
 
 class Page extends React.Component {

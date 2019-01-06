@@ -59,7 +59,6 @@ class Router extends React.Component {
 
 			child.to = `${route.to}/${child.to}`
 			child.protected = route.protected
-			child.sidebar = route.sidebar
 
 			let routes = this.state.routes
 			routes.push(child)
