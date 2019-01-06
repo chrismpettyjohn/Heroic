@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Outside from 'react-onclickoutside'
 
 class Sidebar extends React.Component {
 
@@ -116,6 +117,14 @@ class Sidebar extends React.Component {
 		}
 	}
 
+	handleClickOutside = () => {
+		if (this.state.active !== 0) {
+			this.setState({
+				active: 0
+			})
+		}
+	}
+
 	render () {
 		const { items, setActive } = this
 		const { active } = this.state
@@ -178,4 +187,4 @@ class Sidebar extends React.Component {
 
 }
 
-export default Sidebar
+export default Outside(Sidebar)
