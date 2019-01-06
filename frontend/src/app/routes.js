@@ -15,9 +15,28 @@ const Routes = [
 		to: 'website',
 		title: 'Website',
 		about: 'Manage your site presence',
-		component: Pages.Website,
 		protected: true,
-		sidebar: 'website'
+		sidebar: 'website',
+		children: [
+			// News Articles
+			{
+				to: 'news',
+				title: 'News Articles',
+				about: 'You know what this is about',
+				children: [
+					// Create
+					// View Individual
+					// View List
+					{
+						to: 'list',
+						title: 'News Articles - List',
+						about: 'Issa list',
+						component: Pages.Website.News.List
+					}
+				]
+			}
+
+		]
 	}
 ]
 

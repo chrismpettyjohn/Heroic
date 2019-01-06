@@ -23,7 +23,7 @@ class Page extends React.Component {
 					<Sidebar use={route.sidebar}/>
 					<div className="m-grid__item m-grid__item--fluid m-wrapper">
 						<Subheader/>
-						<route.component/>
+						{(route.component) ? <route.component/> : null }
 					</div>
 				</div>
 			)
@@ -34,7 +34,7 @@ class Page extends React.Component {
 					<Title title={route.title}/>
 					<div className="m-grid__item m-grid__item--fluid m-wrapper">
 						<Subheader/>
-						<route.component/>
+						{(route.component) ? <route.component/> : null }
 					</div>
 				</div>
 			)

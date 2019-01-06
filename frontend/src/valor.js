@@ -7,10 +7,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 class Valor extends React.Component {
 
-  componentDidMount () {
-    console.clear()
-  }
-
   render() {
     return (
       <Provider store={Store}>

@@ -1,10 +1,5 @@
-import React from 'react'
+import News from './news'
 
-class Website extends React.Component {
-
-	render() {
-		return null
-	}
+export default {
+	News
 }
-
-export default Website
