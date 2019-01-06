@@ -4,12 +4,26 @@ import Portlet from 'components/reusable/portlet'
 class Create extends React.Component {
 
 	state = {
-		step: 1,
+		step: 3,
 		article: {
 			title: '',
 			category: 1,
+			image: 	'https://images.habbo.com/web_images/habbo-web-articles/lpromo_hffmnewyearsresolution.png',
 			description: ''
 		}
+	}
+
+	componentWillMount () {
+		this.images = [
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_hffmnewyearsresolution.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_jan19_gen.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_newyearsresolution.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/ny_large_promo.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_rpgeventdec18.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_gen_amb_2.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_gen15_77.png',
+			'https://images.habbo.com/web_images/habbo-web-articles/lpromo_secondseventcom.png'
+		]
 	}
 
 	handleChange = (event) => {
@@ -23,21 +37,29 @@ class Create extends React.Component {
 	}
 
 	goBack = () => {
-		this.setState({
-			...this.state,
-			step: (this.state.step-1)
-		})
+		if (this.state.step > 1) {
+			this.setState({
+				...this.state,
+				step: (this.state.step-1)
+			})
+		}
 	}
 
 	goForward = () => {
-		this.setState({
-			...this.state,
-			step: (this.state.step+1)
-		})
+		if (this.state.step < 4) {
+			this.setState({
+				...this.state,
+				step: (this.state.step+1)
+			})
+		}
+	}
+
+	getThumb = (image) => {
+		return `${image.split('.png')[0]}_thumb.png`
 	}
 
 	render() {
-		const {handleChange, goBack, goForward} = this
+		const {handleChange, goBack, goForward, getThumb, images} = this
 		let {step, article} = this.state
 		return (
 			<Portlet title="Create New Article">
@@ -132,7 +154,11 @@ class Create extends React.Component {
 									</div>
 
 									<div className="m-form__section" style={{display: (step === 3) ? 'block' : 'none'}}>
-										<p>Image Chooser Here</p>
+										<div className="row">
+											{(images.map((image, i) => {
+												return <img key={i} src={getThumb(image)}/>
+											}))}
+										</div>
 									</div>
 
 									<div className="m-form__section" style={{display: (step === 4) ? 'block' : 'none'}}>
@@ -168,7 +194,7 @@ class Create extends React.Component {
 						<h4>Preview</h4>
 						<div className="row">
 							<div className="col-md-3">
-								<img src="https://images.habbo.com/web_images/habbo-web-articles/lpromo_gen_amb_1_thumb.png"/>
+								<img src={getThumb(article.image)}/>
 							</div>
 							<div className="col-md-4" style={{marginLeft: '-4.5%'}}>
 								<h4>{article.title}</h4>
