@@ -18,7 +18,7 @@ const Routes = [
 	},
 	// Website
 	{
-		to: 'website',
+		to: 'web',
 		protected: true,
 		children: [
 			// News Articles

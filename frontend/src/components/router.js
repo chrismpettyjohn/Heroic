@@ -47,8 +47,7 @@ class Router extends React.Component {
 
 	mapView = (route) => {
 		if (route.protected) {
-			return <Route exact key={route.to} path={`/${route.to}`}
-			              render={() => <Protected {...this.props} route={route}/>}/>
+			return <Route exact key={route.to} path={`/${route.to}`} render={() => <Protected {...this.props} route={route}/>}/>
 		} else {
 			return <Route exact key={route.to} path={`/${route.to}`} render={() => <Page route={route}/>}/>
 		}
@@ -61,7 +60,13 @@ class Router extends React.Component {
 		return (
 			<Switch>
 				{(routes.map(route => {
-					return this.mapView(route)
+					if (route.component) {
+						console.log(route.to)
+						return this.mapView(route)
+					}
+					else {
+						return null
+					}
 				}))}
 				<Route component={NotFound}/>
 			</Switch>
