@@ -60,7 +60,7 @@ class Router extends React.Component {
 			child.to = `${route.to}/${child.to}`
 			child.protected = route.protected
 			child.sidebar = route.sidebar
-			
+
 			let routes = this.state.routes
 			routes.push(child)
 
@@ -93,6 +93,7 @@ class Router extends React.Component {
 					{(routes.map(route => {
 						return this.mapView(route)
 					}))}
+					<Route component={NotFound}/>
 				</Switch>
 			)
 		}
@@ -101,6 +102,33 @@ class Router extends React.Component {
 		}
 
 	}
+}
+
+class NotFound extends React.Component {
+
+	render () {
+		return (
+			<div className="row" style={{ marginTop: '10%'}}>
+				<div className="col-md-3">&nbsp;</div>
+				<div className="col-md-6">
+					<Portlet border={false} skin="dark">
+						<div className="m-widget7 m-widget7--skin-dark">
+							<div className="m-widget7__desc">
+								<h1>Page Not Found</h1>
+								<p>Not until we are lost do we begin to understand ourselves.</p>
+							</div>
+							<div className="m-widget7__user">
+								<div className="m-widget7__info">
+									<span className="m-widget7__username">Henry David Thoreau</span>
+								</div>
+							</div>
+						</div>
+					</Portlet>
+				</div>
+			</div>
+		)
+	}
+
 }
 
 class Protected extends React.Component {
