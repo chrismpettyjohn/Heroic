@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Table extends React.Component {
 
@@ -25,9 +26,11 @@ class Table extends React.Component {
 									return (
 										<td key={n}>
 											{(column.actions.map((button, k) => {
-												return <a className={`m-portlet__nav-link btn m-btn m-btn--hover-${button.class} m-btn--icon m-btn--icon-only m-btn--pill`} key={k}>
-													<i className={`fal fa-${button.icon}`}/>
-												</a>
+												return (
+													<Link className={`m-portlet__nav-link btn m-btn m-btn--hover-${button.class} m-btn--icon m-btn--icon-only m-btn--pill`} key={k} to={button.link}>
+														<i className={`fal fa-${button.icon}`}/>
+													</Link>
+												)
 											}))}
 										</td>
 									)
