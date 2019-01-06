@@ -9,11 +9,17 @@ const Routes = [
 			// Home
 			{
 				to: 'home',
-				title: 'Dashboard',
+				title: 'Dashboard - Home',
 				about: 'Welcome Back',
-				component: Pages.Dashboard
-			}
+				component: Pages.Dashboard.Home
+			},
 			// Health
+			{
+				to: 'health',
+				title: 'Dashboard - Health',
+				about: 'Information regarding your server health',
+				component: Pages.Dashboard.Health
+			}
 		]
 	},
 	// Website
