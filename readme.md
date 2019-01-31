@@ -1,17 +1,14 @@
 # Heroic 3S 
-![enter image description here](https://img.shields.io/badge/Status-Maintained-3379C0.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
+![enter image description here](https://img.shields.io/badge/Status-Archived-C11D1D.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
 ## What This Is
 ### Introduction
 Heroic is a **web application** that provides a fast and beautiful interface for habbo retros.  It uses modern technology including, but not limited to **Node.js**, **Vue.js** and additional node based libraries such as **Fastify**, **Babel** and **Objection**.
 
-### Community Support
-Heroic has a Discord server just for our community.  Get news on updates, changes or new features and ask for help if need be!  
-https://discord.gg/D76Sezt
-
 ### Screenshots
 https://imgur.com/a/HbiKJpI
 ### Development Team
-chrismpettyjohn - Lead & Sole Developer
+chrismpettyjohn - Full Stack Developer
+billsonnn - UI Designer
 ## Features
 
 ### Developer Oriented
