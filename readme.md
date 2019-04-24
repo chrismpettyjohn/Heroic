@@ -28,7 +28,7 @@ billsonnn - UI Designer
 
  1. Install the latest version of Node from https://nodejs.org/en/download/current/
  2. Import Arcturus database which can be found at http://arcturus.pw/mirrors/
- 3. Download the latest release from https://github.com/chrismpettyjohn/Heroic/releases
+ 3. Download the latest release from https://github.com/chrismpettyjohn/Heroic
  4. Move the package contents to an easily accessible folder
  5. Import Heroic's tables into your arcturus database which can be found at `heroic.sql`
  6. Edit the settings using a code editor in `config.json`
