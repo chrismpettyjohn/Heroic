@@ -1,6 +1,6 @@
 # Heroic 4
 ![enter image description here](https://img.shields.io/badge/Status-Development-28A7E6.svg?logo=github&longCache=true&style=for-the-badge) 
-![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) 
+![enter image description here](https://img.shields.io/badge/Version-4A-33C070.svg?logo=github&longCache=true&style=for-the-badge) 
 ![enter image description here](https://img.shields.io/badge/Released-In%20Development-E62828.svg?logo=github&longCache=true&style=for-the-badge)
 
 ## Welcome to version 4
