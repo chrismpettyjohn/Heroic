@@ -1,6 +1,5 @@
 ![Heroic Logo](https://i.imgur.com/itZ7UNG.png)
 
-## Heroic
 ### Production
 The code within this branch is production ready and can be used on your hotel.  
 
