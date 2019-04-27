@@ -1,5 +1,10 @@
+<<<<<<< HEAD:source/web/readme.md
 # Heroic 3S
 ![enter image description here](https://img.shields.io/badge/Status-Maintained-3379C0.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
+=======
+# Heroic 3S 
+![enter image description here](https://img.shields.io/badge/Status-Development-28A7E6.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
+>>>>>>> 22b5849752a23f15287bee00691a28ddca0b45a4:readme.md
 ## What This Is
 ### Introduction
 Heroic is a **web application** that provides a fast and beautiful interface for habbo retros.  It uses modern technology including, but not limited to **Node.js**, **Vue.js** and additional node based libraries such as **Fastify**, **Babel** and **Objection**.
@@ -26,7 +31,7 @@ chrismpettyjohn - Lead & Sole Developer
 
  1. Install the latest version of Node from https://nodejs.org/en/download/current/
  2. Import Arcturus database which can be found at http://arcturus.pw/mirrors/
- 3. Download the latest release from https://github.com/chrismpettyjohn/Heroic/releases
+ 3. Download the latest release from https://github.com/chrismpettyjohn/Heroic
  4. Move the package contents to an easily accessible folder
  5. Import Heroic's tables into your arcturus database which can be found at `heroic.sql`
  6. Edit the settings using a code editor in `config.json`

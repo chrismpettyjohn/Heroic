@@ -1,0 +1,19 @@
+.heroic-profile {
+    display: flex;
+
+    .left {
+        flex: 0 0 25%;
+
+        .left-container {
+            margin: 0 10px;
+        }
+    }
+
+    .right {
+        flex: 0 0 75%;
+
+        .right-container {
+            margin: 0 10px;
+        }
+    }
+}

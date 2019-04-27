@@ -1,0 +1,199 @@
+.heroic-container {
+    min-height: calc(100% - 260px);
+
+    @media (max-width: 599px) {
+        min-height: calc(100% - 356px) !important;
+    }
+
+    .container-header {
+        background-color: #069;
+        @include no-select();
+
+        .header-content {
+            display: flex;
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            flex-direction: column;
+
+            h2 {
+                position: relative;
+                border-bottom: 1px solid #0c3a65;
+                padding-bottom: 12px;
+                width: 100%;
+
+                @media (min-width: 599px) {
+                    width: calc(100% - 175px) !important;
+                }
+    
+                &:after {
+                    background: #2a9cde;
+                    height: 1px;
+                    left: 0;
+                    position: absolute;
+                    overflow: hidden;
+                    z-index: 1;
+                    display: block;
+                    width: 100%;
+                    bottom: -2px;
+                    content: '';
+                }
+            }
+
+            P {
+                margin: 0;
+                padding: 0;
+            }
+
+            .profile-info {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                align-items: center;
+
+                .user-info {
+                    display: flex;
+                    margin-left: 10px;
+                    flex-direction: column;
+                    width: 100%;
+
+                    @media (min-width: 599px) {
+                        width: calc(100% - 175px) !important;
+                    }
+
+                    span {
+
+                        &.username {
+                            font-size: 26px;
+                            color: rgb(255, 255, 255);
+                            border-bottom: 1px solid #0c3a65;
+
+                            &:after {
+                                background: #2a9cde;
+                                height: 1px;
+                                left: 0;
+                                overflow: hidden;
+                                position: relative;
+                                top: 2px;
+                                z-index: 1;
+                                display: block;
+                                width: 100%;
+                                content: '';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container-content {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+
+    &.flex-row {
+        flex-direction: row;
+
+        @media (max-width: 959px) {
+            flex-direction: column !important;
+        }
+    }
+
+    &.flex-column {
+        flex-direction: column;
+    }
+
+    &.flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    &.justify-left {
+        justify-content: left;
+    }
+
+    &.justify-right {
+        justify-content: right;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.flex-expand {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    &.flex-1 {
+        flex: 0 0 8.333333%;
+    }
+
+    &.flex-2 {
+        flex: 0 0 16.666667%;
+    }
+
+    &.flex-3 {
+        flex: 0 0 25%;
+    }
+
+    &.flex-4 {
+        flex: 0 0 33.333333%;
+    }
+
+    &.flex-5 {
+        flex: 0 0 41.666667%;
+    }
+
+    &.flex-6 {
+        flex: 0 0 50%;
+    }
+
+    &.flex-7 {
+        flex: 0 0 58.333333%;
+    }
+
+    &.flex-8 {
+        flex: 0 0 66.666667%;
+    }
+
+    &.flex-9 {
+        flex: 0 0 75%;
+    }
+
+    &.flex-10 {
+        flex: 0 0 83.333333%;
+    }
+
+    &.flex-11 {
+        flex: 0 0 91.666667%;
+    }
+
+    &.flex-12 {
+        flex: 0 0 100%;
+    }
+
+    &.has-margin {
+        margin: 10px 0;
+    }
+
+    &.has-big-margin {
+        margin: 25px 0;
+    }
+}

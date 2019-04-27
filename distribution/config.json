@@ -1,0 +1,12 @@
+{
+  "sql": {
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "password",
+    "database": "habbo"
+  },
+  "web": {
+    "port": "80"
+  },
+  "hash": "do-not-share-this"
+}
