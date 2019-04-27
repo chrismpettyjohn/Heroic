@@ -1,5 +1,5 @@
 # Heroic 3S 
-![enter image description here](https://img.shields.io/badge/Status-Archived-C11D1D.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
+![enter image description here](https://img.shields.io/badge/Status-Development-28A7E6.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Version-3S.1-33C070.svg?logo=github&longCache=true&style=for-the-badge) ![enter image description here](https://img.shields.io/badge/Released-05%20NOV%202018-C0338C.svg?logo=github&longCache=true&style=for-the-badge)
 ## What This Is
 ### Introduction
 Heroic is a **web application** that provides a fast and beautiful interface for habbo retros.  It uses modern technology including, but not limited to **Node.js**, **Vue.js** and additional node based libraries such as **Fastify**, **Babel** and **Objection**.
