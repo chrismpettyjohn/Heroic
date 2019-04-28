@@ -2,7 +2,7 @@
 Retros as never experienced before
 
 ## Getting Started
-This tutorial will be based on a Linux server.
+This tutorial assumes you are using CentOS
 
 #### Technical Stack
 * MariaDB
