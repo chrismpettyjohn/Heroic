@@ -1,0 +1,13 @@
+{
+  "website": {
+    "SITE_NAME": "Habbo"
+  },
+  "session": {
+    "active": false,
+    "ready": false,
+    "user": {
+      "username": "Guest",
+      "motto": "I am a guest"
+    }
+  }
+}
