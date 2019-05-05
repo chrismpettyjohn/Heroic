@@ -5,7 +5,7 @@
 
 ## Welcome to version 4
 Heroic 4 is a breathe of fresh air, as we dive into a platform built around stability instead of features. 
-This version of Heroic, has been rebuilt from the ground up using next generation libraries such as *Nest*, *Next* and *Apollo*.
+This version of Heroic, has been rebuilt from the ground up using next generation libraries such as *Nest* and *Apollo*.
 
 Our philosphy this time around is to branch features out in a fashionable order, while implementing unit tests every step of the way.
 After all, what fun is a web server if it breaks?
