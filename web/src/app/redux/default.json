@@ -4,7 +4,7 @@
   },
   "session": {
     "active": false,
-    "ready": false,
+    "ready": true,
     "user": {
       "username": "Guest",
       "motto": "I am a guest"

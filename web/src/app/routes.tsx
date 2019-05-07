@@ -1,21 +1,26 @@
 import Pages from 'pages'
+import {EExtends,EGuard,IParent} from 'app/interface/router'
 
-export default [
+const routes: Array<IParent> = [
 
-	//  Guest
+	// Guest Routes
 	{
-		parent: true,
+		guard: EGuard.Everyone,
+		extends: [EExtends.Header],
 		prefix: '',
-		extends: [],
-		guard: 'guest',
-		children: [
+		routes: [
 			{
-				path: 'login',
-				title: 'Login',
-				component: Pages.Guest.Login
+				component: Pages.Guest.Login,
+				path: 'login'
+			},
+			{
+				component: Pages.Guest.Register,
+				path: 'register'
 			}
 		]
 	}
+
 ]
 
+export default routes
 

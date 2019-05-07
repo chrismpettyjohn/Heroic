@@ -1,16 +1,7 @@
 import Routes from 'app/routes'
-import React, {PureComponent} from 'react'
 import {Route} from 'react-router-dom'
-
-interface IState {
-	ready: boolean,
-	routes: Array<IRoute>
-}
-
-interface IRoute {
-	to: string,
-	component: any
-}
+import React, {PureComponent} from 'react'
+import {IState,IParent,IRoute} from 'app/interface/router'
 
 export default class extends PureComponent<{}> {
 
@@ -23,9 +14,10 @@ export default class extends PureComponent<{}> {
 		this.prepare(Routes)
 	}
 
-	prepare = routes => {
-
-		const final: Array<IRoute> = routes.map(parent => this.format(parent))
+	prepare = (routes: Array<IParent>): void => {
+		const final: Array<IRoute> = routes.map(parent =>
+			parent.routes.map(child => this.formatRoute(child, parent))
+		).flat()
 
 		this.setState({
 			ready: true,
@@ -34,15 +26,21 @@ export default class extends PureComponent<{}> {
 
 	}
 
-	format = parent => {
-		return {}
+	formatRoute = (route: IRoute, parent: IParent): IRoute => {
+		return {
+			component: route.component,
+			extends: parent.extends || route.extends,
+			guard: parent.guard || route.guard,
+			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path
+		}
 	}
 
 	render () {
 		const {ready,routes} = this.state
+		console.log(routes)
 		return !ready
 			? null
-			: routes.map( ({ to, component }) => <Route to={to} component={component}/>)
+			: routes.map( ({ component, path }) => <Route component={component} key={path} path={`/${path}`}/>)
 	}
 
 }
