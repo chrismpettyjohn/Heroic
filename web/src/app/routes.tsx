@@ -18,6 +18,19 @@ const routes: Array<IParent> = [
 				path: 'register'
 			}
 		]
+	},
+
+	// User Routes
+	{
+		guard: EGuard.Everyone,
+		extends: [EExtends.Header],
+		prefix: '',
+		routes: [
+			{
+				component: Pages.User.Home.Me,
+				path: 'me'
+			}
+		]
 	}
 
 ]

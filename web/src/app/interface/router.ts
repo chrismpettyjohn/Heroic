@@ -26,7 +26,7 @@ export enum EExtends {
 
 
 export interface IRoute {
-	component: React.Component | React.ComponentClass,
+	component: React.Component | React.ComponentClass | React.FunctionComponent,
 	guard?: EGuard,
 	extends?: Array<EExtends>,
 	path: string
