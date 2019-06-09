@@ -1,4 +1,4 @@
-import React, {ComponentType} from "react";
+import {ComponentType} from "react";
 
 export interface IState {
 	ready: boolean,
@@ -7,7 +7,6 @@ export interface IState {
 
 export interface IParent {
 	guard: EGuard,
-	extends: Array<EExtends>,
 	prefix: string,
 	routes: Array<IRoute>,
 	component?: ComponentType,
@@ -23,16 +22,9 @@ export enum EGuard {
 	User
 }
 
-export enum EExtends {
-	Header,
-	Footer
-}
-
-
 export interface IRoute {
 	component: ComponentType
 	guard?: EGuard,
-	extends?: Array<EExtends>,
 	path: string,
 	parent?: ComponentType,
 	meta?: {

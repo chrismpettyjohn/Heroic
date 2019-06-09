@@ -29,7 +29,6 @@ export default class extends PureComponent<{}> {
 	formatRoute = (route: IRoute, parent: IParent): IRoute => {
 		return {
 			component: route.component,
-			extends: parent.extends || route.extends,
 			guard: parent.guard || route.guard,
 			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path,
 			parent: parent.component,

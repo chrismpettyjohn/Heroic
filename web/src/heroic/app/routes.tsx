@@ -1,5 +1,5 @@
 import Pages from 'heroic/pages'
-import {EExtends,EGuard,IParent} from 'heroic/app/interface/router'
+import {EGuard,IParent} from 'heroic/app/interface/router'
 
 const routes: Array<IParent> = [
 
@@ -7,7 +7,6 @@ const routes: Array<IParent> = [
 	{
 		component: Pages.Guest.Master,
 		guard: EGuard.Everyone,
-		extends: [EExtends.Header],
 		prefix: '',
 		routes: [
 			{
@@ -28,7 +27,6 @@ const routes: Array<IParent> = [
 	{
 		component: Pages.User.Master,
 		guard: EGuard.Everyone,
-		extends: [EExtends.Header],
 		meta: {
 			group: 'home'
 		},
