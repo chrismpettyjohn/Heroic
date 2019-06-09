@@ -15,28 +15,28 @@ export default (props) => {
 						<div className="flex flex-row flex-wrap">
 							<div className="flex flex-6 has-margin">
 								<div className="article">
-									<img src="/assets/img/news/lpromo_bundebazzaretahouseaugust2017_thumb.png"/>
+									<img alt="index" src="/assets/img/news/lpromo_bundebazzaretahouseaugust2017_thumb.png"/>
 									<h3>Creativity Rocks</h3>
 									<p>Build the rooms of your dreams without limits</p>
 								</div>
 							</div>
 							<div className="flex flex-6 has-margin">
 								<div className="article">
-									<img src="/assets/img/news/lpromo_2016doublecredits_thumb.png"/>
+									<img alt="index" src="/assets/img/news/lpromo_2016doublecredits_thumb.png"/>
 									<h3>Become Rich</h3>
 									<p>All the credits you could ever wish for</p>
 								</div>
 							</div>
 							<div className="flex flex-6 has-margin">
 								<div className="article">
-									<img src="/assets/img/news/lpromo_alice-1_thumb.png"/>
+									<img alt="index" src="/assets/img/news/lpromo_alice-1_thumb.png"/>
 									<h3>Get Weird</h3>
 									<p>Reveal your true colors and just have fun!</p>
 								</div>
 							</div>
 							<div className="flex flex-6 has-margin">
 								<div className="article">
-									<img src="/assets/img/news/lpromo_4thdaystoryjuly2017_thumb.png"/>
+									<img alt="index" src="/assets/img/news/lpromo_4thdaystoryjuly2017_thumb.png"/>
 									<h3>Make Friends</h3>
 									<p>Meet new people and conquer the world!</p>
 								</div>

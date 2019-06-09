@@ -28,6 +28,10 @@
                             position: absolute;
                             width: 270px !important;
                         }
+
+                        .user-menu-list, a {
+                            color: white;
+                        }
                     }
                 }
             }
@@ -147,22 +151,25 @@
                         margin: 0;
                         padding: 0 0 8px;
     
-                        li {
+                        li{
                             padding: 0 23px;
                             height: 35px;
-                            font-size: 20px;
-                            font-weight: 300;
-                            text-transform: uppercase;
-                            line-height: 35px;
-                            color: rgb(255, 255, 255);
-                            outline: 0;
-                            cursor: pointer;
+
+                            a {
+                                font-size: 20px;
+                                font-weight: 300;
+                                text-transform: uppercase;
+                                line-height: 35px;
+                                color: rgb(255, 255, 255);
+                                outline: 0;
+                                cursor: pointer;
+                            }
     
-                            &:hover {
+                            a:hover {
                                 color: #999;
                             }
     
-                            &:active {
+                            a:active {
                                 color: #09c;
                             }
                         }
@@ -404,13 +411,14 @@
                             cursor: pointer;
                         }
     
-                        &:hover {
+                        a:hover {
                             color: #406180;
                         }
     
-                        &.active,
-                        &:active {
-                            color: #6796b1;
+                        &.active {
+                            a {
+                                color: #6796b1;
+                            }
                         }
     
                         &:not(:last-child) {
