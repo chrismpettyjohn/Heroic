@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ComponentType} from "react";
 
 export interface IState {
 	ready: boolean,
@@ -9,7 +9,8 @@ export interface IParent {
 	guard: EGuard,
 	extends: Array<EExtends>,
 	prefix: string,
-	routes: Array<IRoute>
+	routes: Array<IRoute>,
+	component?: ComponentType
 }
 
 export enum EGuard {
@@ -26,8 +27,9 @@ export enum EExtends {
 
 
 export interface IRoute {
-	component: React.Component | React.ComponentClass | React.FunctionComponent,
+	component: ComponentType
 	guard?: EGuard,
 	extends?: Array<EExtends>,
-	path: string
+	path: string,
+	parent?: ComponentType
 }

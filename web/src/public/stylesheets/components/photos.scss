@@ -1,0 +1,56 @@
+.heroic-photo-list {
+    display: grid;
+    width: 100%;
+    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 959px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 599px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .heroic-card {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        border: 3px solid #2685bc;
+        max-width: 320px;
+        width: 100%;
+        margin: 0 auto;
+
+        &:hover {
+            border-color: rgb(255, 255, 255);
+        }
+
+        .heroic-card-content {
+            padding: 0;
+
+            .item-photo {
+                position: relative;
+    
+                .image {
+                    width: 100%;
+                    height: 275px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    image-rendering: pixelated;
+                }
+    
+                .photo-meta {
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 35px;
+                    padding: 0 10px;
+                    color: rgb(255, 255, 255);
+                    background-color: rgba(0,0,0,.5);
+                }
+            }
+        }
+    }
+}

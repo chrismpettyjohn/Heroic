@@ -5,6 +5,7 @@ const routes: Array<IParent> = [
 
 	// Guest Routes
 	{
+		component: Pages.Guest.Master,
 		guard: EGuard.Everyone,
 		extends: [EExtends.Header],
 		prefix: '',

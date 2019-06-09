@@ -31,7 +31,8 @@ export default class extends PureComponent<{}> {
 			component: route.component,
 			extends: parent.extends || route.extends,
 			guard: parent.guard || route.guard,
-			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path
+			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path,
+			parent: parent.component
 		}
 	}
 
@@ -39,7 +40,16 @@ export default class extends PureComponent<{}> {
 		const {ready,routes} = this.state
 		return !ready
 			? null
-			: routes.map( ({ component, path }) => <Route component={component} key={path} path={`/${path}`}/>)
+			: routes.map( (route => (
+					<Route
+						component={props => {
+							const Component = route.parent ? route.parent : route.component
+							return <Component route={route} {...props}/>
+						}}
+						key={route.path}
+						path={`/${route.path}`}/>)
+				)
+			)
 	}
 
 }
