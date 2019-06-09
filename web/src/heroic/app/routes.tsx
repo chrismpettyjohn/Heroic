@@ -1,5 +1,5 @@
-import Pages from 'pages'
-import {EExtends,EGuard,IParent} from 'app/interface/router'
+import Pages from 'heroic/pages'
+import {EExtends,EGuard,IParent} from 'heroic/app/interface/router'
 
 const routes: Array<IParent> = [
 

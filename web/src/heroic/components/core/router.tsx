@@ -1,7 +1,7 @@
-import Routes from 'app/routes'
+import Routes from 'heroic/app/routes'
 import {Route} from 'react-router-dom'
 import React, {PureComponent} from 'react'
-import {IState,IParent,IRoute} from 'app/interface/router'
+import {IState,IParent,IRoute} from 'heroic/app/interface/router'
 
 export default class extends PureComponent<{}> {
 
@@ -37,7 +37,6 @@ export default class extends PureComponent<{}> {
 
 	render () {
 		const {ready,routes} = this.state
-		console.log(routes)
 		return !ready
 			? null
 			: routes.map( ({ component, path }) => <Route component={component} key={path} path={`/${path}`}/>)
