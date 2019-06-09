@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import React, {Component} from 'react'
 
 export default class extends Component {
@@ -22,7 +23,7 @@ export default class extends Component {
 					</div>
 					<button className="btn btn-green w-100" disabled={true} type="submit">Let's go!</button>
 				</form>
-				<a className="link" href="/register">Or Join Today...</a>
+				<Link className="link" to="/register">Or Join Today...</Link>
 			</div>
 		)
 	}
