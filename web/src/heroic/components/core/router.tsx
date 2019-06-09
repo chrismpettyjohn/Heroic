@@ -32,7 +32,8 @@ export default class extends PureComponent<{}> {
 			extends: parent.extends || route.extends,
 			guard: parent.guard || route.guard,
 			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path,
-			parent: parent.component
+			parent: parent.component,
+			meta: parent.meta
 		}
 	}
 

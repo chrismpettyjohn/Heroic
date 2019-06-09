@@ -18,13 +18,20 @@ const routes: Array<IParent> = [
 				component: Pages.Guest.Register,
 				path: 'register'
 			}
-		]
+		],
+		meta: {
+
+		}
 	},
 
 	// User Routes
 	{
+		component: Pages.User.Master,
 		guard: EGuard.Everyone,
 		extends: [EExtends.Header],
+		meta: {
+			group: 'home'
+		},
 		prefix: '',
 		routes: [
 			{

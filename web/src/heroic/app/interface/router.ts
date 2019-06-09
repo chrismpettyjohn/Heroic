@@ -10,7 +10,10 @@ export interface IParent {
 	extends: Array<EExtends>,
 	prefix: string,
 	routes: Array<IRoute>,
-	component?: ComponentType
+	component?: ComponentType,
+	meta: {
+		[key: string]: string
+	}
 }
 
 export enum EGuard {
@@ -31,5 +34,8 @@ export interface IRoute {
 	guard?: EGuard,
 	extends?: Array<EExtends>,
 	path: string,
-	parent?: ComponentType
+	parent?: ComponentType,
+	meta?: {
+		[key: string]: string
+	}
 }

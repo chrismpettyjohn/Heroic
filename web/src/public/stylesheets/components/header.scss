@@ -395,11 +395,14 @@
                         list-style: none;
                         white-space: nowrap;
                         outline: 0;
-                        font-size: 18px;
-                        font-weight: 300;
-                        text-transform: uppercase;
-                        color: #FFFFFF;
-                        cursor: pointer;
+
+                        a {
+                            font-size: 18px;
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            color: #FFFFFF;
+                            cursor: pointer;
+                        }
     
                         &:hover {
                             color: #406180;
