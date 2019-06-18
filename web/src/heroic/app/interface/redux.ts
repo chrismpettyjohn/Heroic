@@ -1,4 +1,6 @@
-export default interface IRedux {
+import {RouteComponentProps} from 'react-router-dom'
+
+export default interface IRedux extends RouteComponentProps {
 	website: {
 		SITE_NAME: string
 	},

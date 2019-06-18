@@ -1,3 +1,4 @@
+import Guard from './guard'
 import Core from 'heroic/pages/core'
 import Routes from 'heroic/app/routes'
 import React, {PureComponent} from 'react'
@@ -48,7 +49,7 @@ export default class extends PureComponent<{}> {
 								<Route
 									component={props => {
 										const Component = route.parent ? route.parent : route.component
-										return <Component route={route} {...props}/>
+										return <Guard component={<Component route={route} {...props}/>} guard={route.guard}/>
 									}}
 									key={route.path}
 									path={`/${route.path}`}/>)

@@ -16,10 +16,10 @@ export interface IParent {
 }
 
 export enum EGuard {
-	Admin,
-	Everyone,
-	Guest,
-	User
+	Admin = 'admin',
+	Everyone = 'everyone',
+	Guest = 'guest',
+	User = 'user'
 }
 
 export interface IRoute {
