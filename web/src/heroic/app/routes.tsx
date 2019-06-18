@@ -26,7 +26,7 @@ const routes: Array<IParent> = [
 	// User Routes
 	{
 		component: Pages.User.Master,
-		guard: EGuard.Everyone,
+		guard: EGuard.User,
 		meta: {
 			group: 'home'
 		},
