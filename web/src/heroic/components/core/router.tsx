@@ -1,6 +1,7 @@
+import Core from 'heroic/pages/core'
 import Routes from 'heroic/app/routes'
-import {Route} from 'react-router-dom'
 import React, {PureComponent} from 'react'
+import {Switch,Route} from 'react-router-dom'
 import {IState,IParent,IRoute} from 'heroic/app/interface/router'
 
 export default class extends PureComponent<{}> {
@@ -40,15 +41,21 @@ export default class extends PureComponent<{}> {
 		const {ready,routes} = this.state
 		return !ready
 			? null
-			: routes.map( (route => (
-					<Route
-						component={props => {
-							const Component = route.parent ? route.parent : route.component
-							return <Component route={route} {...props}/>
-						}}
-						key={route.path}
-						path={`/${route.path}`}/>)
-				)
+			: (
+				<Switch>
+					{
+						routes.map(route => (
+								<Route
+									component={props => {
+										const Component = route.parent ? route.parent : route.component
+										return <Component route={route} {...props}/>
+									}}
+									key={route.path}
+									path={`/${route.path}`}/>)
+						)
+					}
+					<Route component={Core.NotFound} path=""/>
+				</Switch>
 			)
 	}
 

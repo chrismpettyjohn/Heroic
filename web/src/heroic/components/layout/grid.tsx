@@ -7,7 +7,7 @@ export const Row = props => (
 )
 
 interface IColumn {
-	children: any,
+	children?: any,
 	size: number
 }
 export const Column = (props: IColumn) => (
