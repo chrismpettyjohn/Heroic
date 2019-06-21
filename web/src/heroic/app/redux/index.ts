@@ -1,4 +1,4 @@
 import Store from 'redux-zero'
-import Default from './default.json'
+import Defaults from './default'
 
-export default Store(Default)
+export default Store(Defaults)

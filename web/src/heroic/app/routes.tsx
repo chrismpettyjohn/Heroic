@@ -35,6 +35,10 @@ const routes: Array<IParent> = [
 			{
 				component: Pages.User.Home.Me,
 				path: 'me'
+			},
+			{
+				component: Pages.User.Home.Logout,
+				path: 'logout'
 			}
 		]
 	}
