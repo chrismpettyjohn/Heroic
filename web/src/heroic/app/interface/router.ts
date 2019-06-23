@@ -29,5 +29,6 @@ export interface IRoute {
 	parent?: ComponentType,
 	meta?: {
 		[key: string]: string
-	}
+	},
+	title: string
 }

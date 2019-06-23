@@ -5,10 +5,12 @@ import NotAllowed from 'heroic/pages/core/not-allowed'
 
 interface Interface extends Redux {
 	component: any,
-	guard: string
+	guard: string,
+	page: string
 }
 
-const Guard = ({ component, guard, session: { active } }: Interface) => {
+const Guard = ({ component, guard, session: { active }, website: { SITE_NAME }, page }: Interface) => {
+	document.title = `${SITE_NAME} - ${page}`
 	switch (guard) {
 		case 'admin':
 			return <NotAllowed/>

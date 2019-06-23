@@ -34,7 +34,8 @@ export default class extends PureComponent<{}> {
 			guard: parent.guard || route.guard,
 			path: parent.prefix ? `${parent.prefix}/${route.path}` : route.path,
 			parent: parent.component,
-			meta: parent.meta
+			meta: parent.meta,
+			title: route.title
 		}
 	}
 
@@ -49,7 +50,7 @@ export default class extends PureComponent<{}> {
 								<Route
 									component={props => {
 										const Component = route.parent ? route.parent : route.component
-										return <Guard component={<Component route={route} {...props}/>} guard={route.guard}/>
+										return <Guard component={<Component route={route} {...props}/>} guard={route.guard} page={route.title}/>
 									}}
 									key={route.path}
 									path={`/${route.path}`}/>)

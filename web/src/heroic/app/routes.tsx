@@ -11,10 +11,12 @@ const routes: Array<IParent> = [
 		routes: [
 			{
 				component: Pages.Guest.Login,
+				title: 'Login',
 				path: 'login'
 			},
 			{
 				component: Pages.Guest.Register,
+				title: 'Register',
 				path: 'register'
 			}
 		],
@@ -35,18 +37,22 @@ const routes: Array<IParent> = [
 		routes: [
 			{
 				component: Pages.User.Home.Me,
+				title: 'Home',
 				path: 'me'
 			},
 			{
 				component: Pages.User.Home.Profile,
+				title: 'Profile',
 				path: 'profile/:username?'
 			},
 			{
 				component: Pages.User.Home.Settings,
+				title: 'Account Settings',
 				path: 'settings'
 			},
 			{
 				component: Pages.User.Home.Logout,
+				title: 'Logout',
 				path: 'logout'
 			}
 		]
@@ -62,22 +68,27 @@ const routes: Array<IParent> = [
 		routes: [
 			{
 				component: Pages.User.Community.Photos,
+				title: 'Photos',
 				path: 'photos'
 			},
 			{
 				component: Pages.User.Community.Rooms,
+				title: 'Rooms',
 				path: 'rooms'
 			},
 			{
 				component: Pages.User.Community.Staff,
+				title: 'Staff',
 				path: 'staff'
 			},
 			{
 				component: Pages.User.Community.Leaderboard,
+				title: 'Leaderboard',
 				path: 'leaderboard'
 			},
 			{
 				component: Pages.User.Community.Online,
+				title: 'Online',
 				path: 'online'
 			}
 		]
