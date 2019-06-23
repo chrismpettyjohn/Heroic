@@ -12,7 +12,7 @@ interface Interface {
 
 const Navigation = ({ group, match }: Interface ) => {
 	const currentGroup = Routes.find(x => x.group === group)
-	const activeURL = match.path.substring(1)
+	const activeURL = match.path.substring(1).split('/')[0]
 	let route;
 	return (
 		<div className="header-navigation">

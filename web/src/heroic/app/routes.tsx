@@ -38,6 +38,14 @@ const routes: Array<IParent> = [
 				path: 'me'
 			},
 			{
+				component: Pages.User.Home.Profile,
+				path: 'profile/:username?'
+			},
+			{
+				component: Pages.User.Home.Settings,
+				path: 'settings'
+			},
+			{
 				component: Pages.User.Home.Logout,
 				path: 'logout'
 			}
