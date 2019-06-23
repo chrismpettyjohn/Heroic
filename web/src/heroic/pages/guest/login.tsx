@@ -37,7 +37,6 @@ class Login extends Component<RouteComponentProps> {
 		}
 		catch (e) {
 			this.onChange('pending', false)
-			console.log(e)
 		}
 	}
 

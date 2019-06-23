@@ -21,7 +21,6 @@ const Navigation = ({ group, match }: Interface ) => {
 					<ul>
 						{
 							Routes.map((group, i) => {
-								console.log(currentGroup)
 								route = group.children[0]
 								return (
 									<li className={ currentGroup!.group === group.group ? 'active' : '' } key={i}>

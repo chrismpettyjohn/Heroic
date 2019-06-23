@@ -7,7 +7,7 @@ import SubHeader from 'heroic/components/layout/sub-header'
 import {LeaderboardActions} from 'heroic/app/redux/actions/pages/community'
 import Container, {ContainerContent, ContainerHeader} from 'heroic/components/layout/container'
 
-class Staff extends PureComponent<Redux> {
+class Leaderboard extends PureComponent<Redux> {
 
 	componentDidMount() {
 		LeaderboardActions.init()
@@ -28,8 +28,8 @@ class Staff extends PureComponent<Redux> {
 						{
 							!loaded
 								? <p>Loading</p>
-								: data.map(section => (
-									<Card header={section.name} subheader={section.desc}>
+								: data.map((section, i) => (
+									<Card key={i} header={section.name} subheader={section.desc}>
 										<UserList background={false} box={false} users={section.users}/>
 									</Card>
 								))
@@ -43,4 +43,4 @@ class Staff extends PureComponent<Redux> {
 
 }
 
-export default Stateful(Staff)
+export default Stateful(Leaderboard)

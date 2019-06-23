@@ -29,7 +29,7 @@ class Staff extends PureComponent<Redux> {
 							!loaded
 								? <p>Loading</p>
 								: data.map(rank => (
-									<Card header={rank.name} subheader={rank.desc}>
+									<Card key={rank.id} header={rank.name} subheader={rank.desc}>
 										<UserList background={false} box={false} users={rank.users}/>
 									</Card>
 								))
