@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
 import React, {Component} from 'react'
+import onClickOutside from 'react-onclickoutside'
 
-export default class extends Component {
+class UserMenu extends Component {
 
 	links = [
 		{
@@ -22,6 +23,15 @@ export default class extends Component {
 		this.setState({
 			active: !this.state.active
 		})
+	}
+
+	// Used by react-onclickoutside
+	handleClickOutside = () => {
+		if (this.state.active) {
+			this.setState({
+				active: false
+			})
+		}
 	}
 
 	render () {
@@ -60,3 +70,5 @@ export default class extends Component {
 	}
 
 }
+
+export default onClickOutside(UserMenu)
