@@ -19,7 +19,7 @@ export default ({ background = true, box = true, users }: Props) => {
 					<li className={className}>
 						<div>
 							<div className="habbo-portrait" style={{ backgroundImage: `url(https://www.habbo.com/habbo-imaging/avatarimage?figure=${user.avatar}&headonly=0&size=m&direction=4&head_direction=4&action=std&gesture=sml)` }}>
-								<i className="offline"/>
+								<i className={!!user.online ? 'online' : 'offline'}/>
 							</div>
 						</div>
 						<div className="user-info">

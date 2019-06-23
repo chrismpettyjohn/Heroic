@@ -29,6 +29,7 @@ export default bindActions(store => ({
 				credits: 0,
 				pixels: 0,
 				points: 0,
+				online: 1,
 				username: 'Chris',
 				motto: 'I am a guest'
 			}
