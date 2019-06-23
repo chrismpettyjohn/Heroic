@@ -1,6 +1,6 @@
 import {connect} from 'redux-zero/react'
 
-const map = ({ core, website, session }) =>({ core, website, session })
+const map = ({ core, pages, website, session }) =>({ core, pages, website, session })
 
 
 export default (component) => {

@@ -5,6 +5,14 @@ const Default: Redux = {
 		articles: [],
 		loading: true
 	},
+	pages: {
+		community: {
+			staff: {
+				data: [],
+				loaded: false
+			}
+		}
+	},
 	website: {
 		SITE_NAME: 'Habbo'
 	},

@@ -24,6 +24,8 @@ export default bindActions(store => ({
 		if (username === 'Chris' && password === 'cyclone') {
 
 			const user = {
+				id: 1,
+				avatar: '',
 				username: 'Chris',
 				motto: 'I am a guest'
 			}
