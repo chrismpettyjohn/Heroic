@@ -30,7 +30,7 @@ class Staff extends PureComponent<Redux> {
 								? <p>Loading</p>
 								: data.map(section => (
 									<Card header={section.name} subheader={section.desc}>
-										<UserList users={section.users}/>
+										<UserList background={false} box={false} users={section.users}/>
 									</Card>
 								))
 						}

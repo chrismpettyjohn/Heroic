@@ -14,6 +14,10 @@ const Default: Redux = {
 			leaderboard: {
 				data: [],
 				loaded: false
+			},
+			online: {
+				data: [],
+				loaded: false
 			}
 		}
 	},
