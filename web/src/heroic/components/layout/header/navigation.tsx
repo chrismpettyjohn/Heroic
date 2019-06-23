@@ -13,18 +13,25 @@ interface Interface {
 const Navigation = ({ group, match }: Interface ) => {
 	const currentGroup = Routes.find(x => x.group === group)
 	const activeURL = match.path.substring(1)
+	let route;
 	return (
 		<div className="header-navigation">
 			<div className="navigation-top">
 				<div className="top-container">
 					<ul>
 						{
-							Routes.map((group, i) => (
-								<li key={i}>
-									<i className={`heroic-icon ${group.icon}`}/>
-									{group.text}
-								</li>
-							))
+							Routes.map((group, i) => {
+								console.log(currentGroup)
+								route = group.children[0]
+								return (
+									<li className={ currentGroup!.group === group.group ? 'active' : '' } key={i}>
+										<Link to={route.link}>
+											<i className={`heroic-icon ${group.icon}`}/>
+											{group.text}
+										</Link>
+									</li>
+								)
+							})
 						}
 					</ul>
 					<Link className="hotel-button" to="/client">

@@ -3,7 +3,7 @@ import {IParent} from './interface/navigation'
 const routes: Array<IParent> = [
 	{
 		group: 'home',
-		icon: 'community',
+		icon: 'home',
 		text: 'Home',
 		children: [
 			{
@@ -17,6 +17,33 @@ const routes: Array<IParent> = [
 			{
 				text: 'Account Settings',
 				link: 'settings'
+			}
+		]
+	},
+	{
+		group: 'community',
+		icon: 'community',
+		text: 'Community',
+		children: [
+			{
+				text: 'Photos',
+				link: 'photos'
+			},
+			{
+				text: 'Rooms',
+				link: 'rooms'
+			},
+			{
+				text: 'Staff',
+				link: 'staff'
+			},
+			{
+				text: 'Top Users',
+				link: 'leaderboard'
+			},
+			{
+				text: 'Online',
+				link: 'online'
 			}
 		]
 	}

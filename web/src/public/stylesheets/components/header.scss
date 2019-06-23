@@ -168,7 +168,7 @@
                             a:hover {
                                 color: #999;
                             }
-    
+
                             a:active {
                                 color: #09c;
                             }
@@ -216,14 +216,17 @@
                         justify-content: center;
                         height: 100%;
                         padding: 0;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                        font-size: 24px;
-                        font-weight: 300;
-                        text-transform: uppercase;
-                        color: #036;
-                        outline: 0;
-                        cursor: pointer;
+
+                        a {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            font-size: 24px;
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            color: #036;
+                            outline: 0;
+                            cursor: pointer;
+                        }
 
                         &:not(:last-child) {
                             padding: 0 20px 0 0;
@@ -242,7 +245,7 @@
                             margin-right: 7px;
                         }
     
-                        &:hover {
+                        a:hover {
                             color: #999;
     
                             i.heroic-icon {
@@ -264,11 +267,15 @@
                                 }
                             }
                         }
-    
+
                         &.active,
                         &:active {
-                            color: #09c;
-    
+
+                            a {
+                                color: #09c;
+
+                            }
+
                             i.heroic-icon {
     
                                 &.home {

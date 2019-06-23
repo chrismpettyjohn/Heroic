@@ -25,6 +25,7 @@ const routes: Array<IParent> = [
 
 	// User Routes
 	{
+		// Home
 		component: Pages.User.Master,
 		guard: EGuard.User,
 		meta: {
@@ -41,8 +42,38 @@ const routes: Array<IParent> = [
 				path: 'logout'
 			}
 		]
+	},
+	{
+		// Community
+		component: Pages.User.Master,
+		guard: EGuard.User,
+		meta: {
+			group: 'community'
+		},
+		prefix: '',
+		routes: [
+			{
+				component: Pages.User.Community.Photos,
+				path: 'photos'
+			},
+			{
+				component: Pages.User.Community.Rooms,
+				path: 'rooms'
+			},
+			{
+				component: Pages.User.Community.Staff,
+				path: 'staff'
+			},
+			{
+				component: Pages.User.Community.Leaderboard,
+				path: 'leaderboard'
+			},
+			{
+				component: Pages.User.Community.Online,
+				path: 'online'
+			}
+		]
 	}
-
 ]
 
 export default routes
