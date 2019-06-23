@@ -10,6 +10,10 @@ const Default: Redux = {
 			staff: {
 				data: [],
 				loaded: false
+			},
+			leaderboard: {
+				data: [],
+				loaded: false
 			}
 		}
 	},

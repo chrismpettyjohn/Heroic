@@ -26,6 +26,9 @@ export default bindActions(store => ({
 			const user = {
 				id: 1,
 				avatar: '',
+				credits: 0,
+				pixels: 0,
+				points: 0,
 				username: 'Chris',
 				motto: 'I am a guest'
 			}
