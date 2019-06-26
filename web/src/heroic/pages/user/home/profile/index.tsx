@@ -20,7 +20,8 @@ const user: User = {
 	credits: 10,
 	pixels: 100,
 	points: 1,
-	online: 0
+	online: 0,
+	account_created: 1560056677
 }
 
 export default class extends PureComponent<Props> {

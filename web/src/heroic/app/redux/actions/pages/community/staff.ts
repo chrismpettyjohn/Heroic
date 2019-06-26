@@ -21,7 +21,8 @@ export default bindActions(store => ({
 						online: 1,
 						username: 'Chris',
 						motto: 'Heroic 4 Rocks',
-						avatar: 'ch-3185-110.hd-3103-19.sh-3089-1408.hr-125-61.lg-3057-110.he-8394-110.fa-1205-110'
+						avatar: 'ch-3185-110.hd-3103-19.sh-3089-1408.hr-125-61.lg-3057-110.he-8394-110.fa-1205-110',
+						account_created: 1560056677
 					}
 				]
 			}

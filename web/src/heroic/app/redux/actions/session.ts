@@ -31,7 +31,8 @@ export default bindActions(store => ({
 				points: 0,
 				online: 1,
 				username: 'Chris',
-				motto: 'I am a guest'
+				motto: 'I am a guest',
+				account_created: 1560056677
 			}
 
 			Storage.set('session', user)

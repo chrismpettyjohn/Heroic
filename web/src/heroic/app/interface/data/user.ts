@@ -6,5 +6,6 @@ export default interface User {
 	username: string,
 	motto: string
 	avatar: string,
-	online: number
+	online: number,
+	account_created: number
 }
