@@ -2,7 +2,6 @@ import Profile from './profile'
 import {PropTypes} from 'react-router-dom'
 import React, {PureComponent} from 'react'
 import User from 'heroic/app/interface/data/user'
-import Container, {ContainerContent} from 'heroic/components/layout/container'
 
 interface Props extends PropTypes {
 

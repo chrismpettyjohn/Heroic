@@ -18,6 +18,14 @@ const Default: Redux = {
 			online: {
 				data: [],
 				loaded: false
+			},
+			rooms: {
+				data: [],
+				loaded: false
+			},
+			photos: {
+				data: [],
+				loaded: false
 			}
 		}
 	},

@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from 'heroic/components/base/card'
 import Alert from 'heroic/components/base/alert'
 import {Column, Row} from 'heroic/components/layout/grid'
 import SubHeader from 'heroic/components/layout/sub-header'
