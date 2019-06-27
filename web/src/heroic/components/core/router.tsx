@@ -41,7 +41,6 @@ export default class extends PureComponent<{}> {
 
 	render () {
 		const {ready,routes} = this.state
-		console.log(routes)
 		return !ready
 			? null
 			: (

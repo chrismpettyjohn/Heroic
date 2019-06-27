@@ -1,19 +1,31 @@
+import List from './list'
+import Item from './item'
 import React, {PureComponent} from 'react'
 import Redux from 'heroic/app/interface/redux'
 import Stateful from 'heroic/app/redux/stateful'
-import PhotoCard from 'heroic/components/base/cards/photo'
+import Photo from 'heroic/app/interface/data/photo'
 import SubHeader from 'heroic/components/layout/sub-header'
 import PhotoActions from 'heroic/app/redux/actions/pages/community/photos'
 import Container, {ContainerContent, ContainerHeader} from 'heroic/components/layout/container'
 
-class Rooms extends PureComponent<Redux> {
+interface Props extends Omit<Redux, 'match'> {
+	match: {
+		params: {
+			photo?: string
+		}
+	}
+}
+
+class Rooms extends PureComponent<Props> {
 
 	componentDidMount () {
 		PhotoActions.init()
 	}
 
 	render () {
+		const {photo = '0'} = this.props.match.params
 		const {data, loaded} = this.props.pages.community.photos
+		const active: Photo | undefined = data.find(x => x.id === parseInt(photo))
 		return (
 			<Container>
 				<ContainerHeader>
@@ -23,13 +35,13 @@ class Rooms extends PureComponent<Redux> {
 					</SubHeader>
 				</ContainerHeader>
 				<ContainerContent>
-					<div className="heroic-photo-list">
-						{
-							!loaded
-								? <p>Loading</p>
-								: data.map(photo => <PhotoCard key={photo.id} photo={photo}/>)
-						}
-					</div>
+					{
+						!loaded
+							? <p>Loading</p>
+							: !!active
+							? <Item photo={active!}/>
+							: <List photos={data}/>
+					}
 				</ContainerContent>
 			</Container>
 		)

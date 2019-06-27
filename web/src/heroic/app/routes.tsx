@@ -69,17 +69,12 @@ const routes: Array<IParent> = [
 			{
 				component: Pages.User.Community.Photos,
 				title: 'Photos',
-				path: 'photos'
+				path: 'photos/:photo?'
 			},
 			{
-				component: Pages.User.Community.Rooms.List,
+				component: Pages.User.Community.Rooms,
 				title: 'Rooms',
-				path: 'rooms'
-			},
-			{
-				component: Pages.User.Community.Rooms.Item,
-				title: 'Room',
-				path: 'rooms/:room'
+				path: 'rooms/:room?'
 			},
 			{
 				component: Pages.User.Community.Staff,
