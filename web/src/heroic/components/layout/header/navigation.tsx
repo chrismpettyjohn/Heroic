@@ -24,7 +24,7 @@ const Navigation = ({ group, match }: Interface ) => {
 								route = group.children[0]
 								return (
 									<li className={ currentGroup!.group === group.group ? 'active' : '' } key={i}>
-										<Link to={route.link}>
+										<Link to={`/${route.link}`}>
 											<i className={`heroic-icon ${group.icon}`}/>
 											{group.text}
 										</Link>
@@ -47,7 +47,7 @@ const Navigation = ({ group, match }: Interface ) => {
 							currentGroup
 								? currentGroup.children.map((route, i) => (
 									<li className={ activeURL === route.link ? 'active' : '' } key={i}>
-										<Link to={route.link}>{route.text}</Link>
+										<Link to={`/${route.link}`}>{route.text}</Link>
 									</li>
 								))
 								: null
