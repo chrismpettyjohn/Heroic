@@ -7,6 +7,10 @@ const Default: IRedux = {
 	},
 	pages: {
 		community: {
+			news: {
+				data: [],
+				loaded: false
+			},
 			staff: {
 				data: [],
 				loaded: false

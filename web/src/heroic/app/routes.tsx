@@ -82,6 +82,11 @@ const routes: Array<IParent> = [
 				path: 'rooms/:room?'
 			},
 			{
+				component: Pages.User.Community.News,
+				title: 'News',
+				path: 'news/:article?'
+			},
+			{
 				component: Pages.User.Community.Staff,
 				title: 'Staff',
 				path: 'staff'
@@ -95,7 +100,7 @@ const routes: Array<IParent> = [
 				component: Pages.User.Community.Online,
 				title: 'Online',
 				path: 'online'
-			}
+			},
 		]
 	}
 ]

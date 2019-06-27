@@ -34,6 +34,10 @@ const routes: Array<IParent> = [
 				link: 'rooms'
 			},
 			{
+				text: 'News',
+				link: 'news'
+			},
+			{
 				text: 'Staff',
 				link: 'staff'
 			},

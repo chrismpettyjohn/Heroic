@@ -1,6 +1,6 @@
 import Pages from './pages'
 import User from './data/user'
-import Article from './data/article'
+import Article from './data/news/article'
 import {RouteComponentProps} from 'react-router'
 
 export interface IRedux {
