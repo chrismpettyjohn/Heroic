@@ -3,10 +3,10 @@ import Redux from 'heroic/app/interface/redux'
 import Stateful from 'heroic/app/redux/stateful'
 import RoomCard from 'heroic/components/base/cards/room'
 import RoomActions from 'heroic/app/redux/actions/pages/community/rooms'
-import Container, {ContainerContent, ContainerHeader} from "../../../components/layout/container";
-import SubHeader from "../../../components/layout/sub-header";
+import Container, {ContainerContent, ContainerHeader} from "../../../../components/layout/container";
+import SubHeader from "../../../../components/layout/sub-header";
 
-class Rooms extends PureComponent<Redux> {
+class List extends PureComponent<Redux> {
 
 	componentDidMount () {
 		RoomActions.init()
@@ -37,4 +37,4 @@ class Rooms extends PureComponent<Redux> {
 
 }
 
-export default Stateful(Rooms)
+export default Stateful(List)

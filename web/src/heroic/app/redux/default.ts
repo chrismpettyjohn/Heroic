@@ -1,6 +1,6 @@
-import Redux from 'heroic/app/interface/redux'
+import {IRedux} from 'heroic/app/interface/redux'
 
-const Default: Redux = {
+const Default: IRedux = {
 	core: {
 		articles: [],
 		loading: true

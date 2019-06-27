@@ -41,6 +41,7 @@ export default class extends PureComponent<{}> {
 
 	render () {
 		const {ready,routes} = this.state
+		console.log(routes)
 		return !ready
 			? null
 			: (
@@ -52,6 +53,7 @@ export default class extends PureComponent<{}> {
 										const Component = route.parent ? route.parent : route.component
 										return <Guard component={<Component route={route} {...props}/>} guard={route.guard} page={route.title}/>
 									}}
+									exact={true}
 									key={route.path}
 									path={`/${route.path}`}/>)
 						)

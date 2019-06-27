@@ -1,9 +1,9 @@
 import Pages from './pages'
 import User from './data/user'
 import Article from './data/article'
-import {RouteComponentProps} from 'react-router-dom'
+import {RouteComponentProps} from 'react-router'
 
-export default interface IRedux extends RouteComponentProps {
+export interface IRedux {
 	core: {
 		articles: Article[],
 		loading: boolean
@@ -22,4 +22,8 @@ export default interface IRedux extends RouteComponentProps {
 export type Page = {
 	data: any[],
 	loaded: boolean
+}
+
+export default interface Connect extends IRedux, RouteComponentProps {
+
 }
