@@ -36,6 +36,11 @@ const routes: Array<IParent> = [
 		prefix: '',
 		routes: [
 			{
+				component: Pages.User.Home.About,
+				title: 'About',
+				path: 'about'
+			},
+			{
 				component: Pages.User.Home.Me,
 				title: 'Home',
 				path: 'me'

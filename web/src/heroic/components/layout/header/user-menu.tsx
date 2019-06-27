@@ -12,6 +12,10 @@ class UserMenu extends Component {
 		{
 			text: 'Logout',
 			link: 'logout'
+		},
+		{
+			text: 'About Heroic',
+			link: 'about'
 		}
 	]
 
@@ -57,7 +61,7 @@ class UserMenu extends Component {
 						{
 							links.map(link => (
 								<li key={link.link}>
-									<Link to={link.link}>
+									<Link to={`/${link.link}`}>
 										{link.text}
 									</Link>
 								</li>
