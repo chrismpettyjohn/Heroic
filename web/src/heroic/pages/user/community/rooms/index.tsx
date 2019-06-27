@@ -30,7 +30,7 @@ class Rooms extends PureComponent<Props> {
 			<Container>
 				<ContainerHeader>
 					<SubHeader>
-						<h2>Room</h2>
+						<h2>Rooms</h2>
 						<p>Have a look at some of the great rooms</p>
 					</SubHeader>
 				</ContainerHeader>
