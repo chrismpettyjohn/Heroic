@@ -6,6 +6,7 @@
 trigger:
 - master
 - dev
+- origin/*
 
 pool:
   vmImage: 'ubuntu-latest'
