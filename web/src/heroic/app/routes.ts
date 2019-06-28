@@ -102,7 +102,54 @@ const routes: Array<IParent> = [
 				path: 'online'
 			},
 		]
-	}
+	},
+	// Hangout
+	{
+		component: Pages.User.Master,
+		guard: EGuard.User,
+		meta: {
+			group: 'hangout'
+		},
+		prefix: 'hangout',
+		routes: [
+			{
+				component: Pages.User.Hangout.List,
+				title: 'Hangouts',
+				path: ''
+			},
+			{
+				component: Pages.User.Hangout.Item,
+				title: 'Hangouts',
+				path: ':post'
+			}
+		]
+	},
+	// Shop
+	{
+		component: Pages.User.Master,
+		guard: EGuard.User,
+		meta: {
+			group: 'shop'
+		},
+		prefix: 'shop',
+		routes: [
+			{
+				component: Pages.User.Shop.List,
+				title: 'Shop',
+				path: ''
+			},
+			{
+				component: Pages.User.Shop.History,
+				title: 'Shop - My History',
+				path: 'history'
+			},
+			{
+				component: Pages.User.Shop.Checkout,
+				title: 'Shop - Checkout',
+				path: 'checkout'
+			}
+		]
+	},
 ]
 
 export default routes

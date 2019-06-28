@@ -52,24 +52,28 @@ const routes: Array<IParent> = [
 		]
 	},
 	{
-		group: 'hangouts',
+		group: 'hangout',
 		icon: 'comment',
 		text: 'Hangouts',
 		children: [
 			{
-				text: 'Home',
-				link: 'home'
+				text: 'Latest Posts',
+				link: 'hangout'
 			}
 		]
 	},
 	{
-		group: 'store',
+		group: 'shop',
 		icon: 'shopping-cart',
-		text: 'Store',
+		text: 'Shop',
 		children: [
 			{
-				text: 'Home',
-				link: 'home'
+				text: 'Buy',
+				link: 'shop'
+			},
+			{
+				text: 'My History',
+				link: 'shop/history'
 			}
 		]
 	}
