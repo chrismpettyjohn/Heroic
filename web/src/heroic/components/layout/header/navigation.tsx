@@ -25,7 +25,7 @@ const Navigation = ({ group, match }: Interface ) => {
 								return (
 									<li className={ currentGroup!.group === group.group ? 'active' : '' } key={i}>
 										<Link to={`/${route.link}`}>
-											<i className={`heroic-icon ${group.icon}`}/>
+											<i className={`fa fa-${group.icon} mr-2`}/>
 											{group.text}
 										</Link>
 									</li>

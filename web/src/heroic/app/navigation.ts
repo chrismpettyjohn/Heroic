@@ -22,7 +22,7 @@ const routes: Array<IParent> = [
 	},
 	{
 		group: 'community',
-		icon: 'community',
+		icon: 'user-friends',
 		text: 'Community',
 		children: [
 			{
@@ -48,6 +48,28 @@ const routes: Array<IParent> = [
 			{
 				text: 'Online',
 				link: 'online'
+			}
+		]
+	},
+	{
+		group: 'hangouts',
+		icon: 'comment',
+		text: 'Hangouts',
+		children: [
+			{
+				text: 'Home',
+				link: 'home'
+			}
+		]
+	},
+	{
+		group: 'store',
+		icon: 'shopping-cart',
+		text: 'Store',
+		children: [
+			{
+				text: 'Home',
+				link: 'home'
 			}
 		]
 	}
