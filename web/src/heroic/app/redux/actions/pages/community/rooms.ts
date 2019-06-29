@@ -16,7 +16,7 @@ export default bindActions(store => ({
 				users: 5,
 				users_max: 10,
 				guild_id: 1,
-				tags: '',
+				tags: 'test,hotel',
 				is_public: 0,
 				is_staff_picked: 0,
 				owner: {
