@@ -12,7 +12,7 @@ const Photo =  ({ article, history }: Props) => {
 	}
 	return (
 		<div className="article">
-			<img alt={`${article.title} image`}src={`/img/news/${article.image}_thumb.png`} onClick={onClick}/>
+			<img alt={`${article.title} image`} src={`/images/news/${article.image}_thumb.png`} onClick={onClick}/>
 				<h3>{article.title}</h3>
 				<p>{article.description}</p>
 		</div>

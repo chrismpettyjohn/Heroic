@@ -7,7 +7,7 @@ import Container, {ContainerContent, ContainerHeader} from 'heroic/components/la
 export default () => (
 	<Container>
 		<ContainerHeader>
-			<SubHeader  >
+			<SubHeader>
 			<div className="profile-info">
 				<div>
 					<div className="habbo-avatar" style={{ backgroundImage: 'url(https://www.habbo.com/habbo-imaging/avatarimage?figure=ch-3185-110.hd-3103-19.sh-3089-1408.hr-125-61.lg-3057-110.he-8394-110.fa-1205-110&headonly=0&size=l&direction=2&head_direction=3&action=std&gesture=sml)'}}/>

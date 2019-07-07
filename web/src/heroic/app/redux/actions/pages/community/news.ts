@@ -28,7 +28,7 @@ export default bindActions(store => ({
 				campaign: {
 					name: 'Test'
 				},
-				image: 'julyhabbo18',
+				image: 'lpromo_12janeventcom',
 				timestamp: Date()
 			}
 		]
