@@ -14,9 +14,9 @@ interface State {
 
 const user: User = {
 	id: 1,
-	username: 'Chiru',
-	motto: 'Cyclone is better than u',
-	avatar: '',
+	username: 'Chris',
+	motto: 'We love Chris',
+	avatar: 'ch-3185-110.hd-3103-19.sh-3089-1408.hr-125-61.lg-3057-110.he-8394-110.fa-1205-110',
 	credits: 10,
 	pixels: 100,
 	points: 1,

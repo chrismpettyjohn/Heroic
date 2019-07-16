@@ -48,7 +48,7 @@ class UserMenu extends Component {
 					<div className="menu-container">
 						<i className="heroic-icon arrow"/>
 						<div className="menu-username">
-							LeChris
+							Chris
 						</div>
 					</div>
 					<div>
