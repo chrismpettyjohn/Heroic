@@ -1,7 +1,7 @@
 import Base, {Endpoint} from "../base";
 import * as Express from "express";
 
-export default class Session extends Base {
+export default class SessionController extends Base {
 
 	static create = (request: Express.Request, response: Express.Response) => {
 		return response.send("Welcome to login controller")
@@ -32,12 +32,12 @@ export default class Session extends Base {
 			{
 				type: 'post',
 				path: '',
-				method: Session.create
+				method: SessionController.create
 			},
 			{
 				type: 'get',
 				path: '',
-				method: Session.read
+				method: SessionController.read
 			}
 		]
 	}

@@ -1,27 +1,31 @@
 {
-  "name": "api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node -r ts-node/register src/main.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/express": "^4.17.0",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "mysql2": "^1.6.5",
-    "winston": "^3.2.1"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^6.1.1",
-    "@types/node": "^12.6.3",
-    "@types/winston": "^2.4.4",
-    "ts-node": "^8.3.0",
-    "typeorm": "^0.2.18",
-    "typescript": "^3.5.3"
-  }
+   "name": "api",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "start": "ts-node src/main.ts"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "@types/express": "^4.17.0",
+      "bcryptjs": "^2.4.3",
+      "dotenv": "^8.0.0",
+      "express": "^4.17.1",
+      "mysql2": "^1.6.5",
+      "reflect-metadata": "^0.1.10",
+      "winston": "^3.2.1",
+      "typeorm": "0.2.18",
+      "mysql": "^2.14.1"
+   },
+   "devDependencies": {
+      "@types/dotenv": "^6.1.1",
+      "@types/node": "^8.0.29",
+      "@types/winston": "^2.4.4",
+      "ts-node": "3.3.0",
+      "typeorm": "^0.2.18",
+      "typescript": "3.3.3333"
+   }
 }
