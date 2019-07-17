@@ -1,7 +1,7 @@
-import {sign} from 'utility/jwt'
 import UserService from './users'
 import {isSame} from 'utility/bcrypt'
 import {Logging} from 'utility/logging'
+import {GenerateJWT} from 'utility/jwt'
 import {Users} from 'db/entity/user/users'
 
 export default {
@@ -12,7 +12,7 @@ export default {
 			const user: Users = await UserService.read('username', username)
 
 			if (isSame(password, user.password)) {
-				return sign({ id: user.id })
+				return GenerateJWT({ id: user.id })
 			}
 			else {
 				return false

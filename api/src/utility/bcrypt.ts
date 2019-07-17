@@ -1,12 +1,13 @@
-import Bcrypt from 'bcryptjs'
+import * as Crypt from 'bcryptjs'
 
 export const hash = (text: string): string => {
-	return Bcrypt.hashSync(text, process.env.PASS_SALT)
+	return Crypt.hashSync(text, Crypt.genSaltSync(8))
 }
 
 export const isSame = (input: string, hashed: string): boolean => {
-	return Bcrypt.compare(input, hashed, (error: any, result: boolean) => {
+	return Crypt.compareSync(input, hashed, (error: any, result: boolean) => {
 		if (error) throw error
+		console.log(result)
 		return result
 	})
 }

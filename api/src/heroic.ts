@@ -1,14 +1,21 @@
-import HTTP from "http/server";
+import {HTTPServer} from 'http/server'
 import {Logging} from 'utility/logging'
 
 export default class Heroic {
 
+	static HTTP: HTTPServer;
+
 	constructor () {
 		Logging.info("Heroic 4 by LeChris")
-		new HTTP()
+		Heroic.HTTP = new HTTPServer()
+		this.init()
 	}
 
-	stop = async (): Promise<void> => {
+	private init = async (): Promise<void>  => {
+		Heroic.HTTP.start()
+	}
+
+	public stop = async (): Promise<void> => {
 
 	}
 

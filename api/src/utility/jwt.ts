@@ -1,6 +1,6 @@
-import JWT from 'jsonwebtoken'
+import * as JWT from 'jsonwebtoken'
 
-export const sign = (payload: object): string => {
+export const GenerateJWT = (payload: object): string => {
 	return JWT.sign(payload, process.env.JWT_SECRET)
 }
 

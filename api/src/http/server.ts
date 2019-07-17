@@ -1,41 +1,30 @@
-import * as Express from "express";
-import {Logging} from 'utility/logging'
+import {ServerLoader, ServerSettings, GlobalAcceptMimesMiddleware} from "@tsed/common";
+import * as CookieParser from 'cookie-parser'
+import * as BodyParser from 'body-parser'
+import * as Compression from 'compression'
+import * as MethodOverride from 'method-override'
+const rootDir = __dirname;
 
-export default class HTTP {
-
-	static server: any;
-	static controllers: number = 0;
-
-	constructor () {
-		HTTP.server = Express()
-		this.initService()
+@ServerSettings({
+	rootDir,
+	acceptMimes: ["application/json"],
+	logger: {
+		level: 'error'
 	}
+})
+export class HTTPServer extends ServerLoader {
 
-	initService = async (): Promise<void> => {
-		await Promise.all([
-			this.initMiddleware(),
-			this.initControllers()
-		])
-		await this.initInstance()
-	}
-
-	initMiddleware = async () : Promise<void> => {
-
-	}
-
-	initControllers = async (): Promise<void> => {
-		await require('./controllers')
-		Logging.info(`HTTP service has loaded ${HTTP.controllers} controllers`)
-	}
-
-	initInstance = async (): Promise<void> => {
-		try {
-			await HTTP.server.listen(process.env.HTTP_PORT)
-			Logging.info(`HTTP service has started on port ${process.env.HTTP_PORT}`)
-		}
-		catch (error) {
-			Logging.danger(`HTTP service failed to start due to: ${error}`)
-		}
+	public $onMountingMiddlewares(): void|Promise<any> {
+		this
+			.use(GlobalAcceptMimesMiddleware)
+			.use(CookieParser())
+			.use(Compression({}))
+			.use(MethodOverride())
+			.use(BodyParser.json())
+			.use(BodyParser.urlencoded({
+				extended: true
+			}));
+		return null;
 	}
 
 }
