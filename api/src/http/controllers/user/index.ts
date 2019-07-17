@@ -1,5 +1,5 @@
-import Users from './users'
+import User from './user'
 import Session from './session'
 
-new Users()
+new User()
 new Session()

@@ -1,13 +1,11 @@
 import * as Express from "express";
 import Base, {Endpoint} from "../base";
 import {Users} from "../../../db/entity/user/users";
-import UsersService from "../../../service/user/users";
 
 export default class UsersController extends Base {
 
 	static list = async (request: Express.Request, response: Express.Response) => {
-		const result: Users[] = await UsersService.list()
-		return response.json(result)
+		return response.send('hi')
 	}
 
 	name () {

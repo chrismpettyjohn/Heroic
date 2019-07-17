@@ -5,6 +5,13 @@ const UsersRepository: Repository<Users> = getRepository(Users)
 
 export default {
 
-	list: async (): Promise<Users[]> => UsersRepository.find()
+	list: async (): Promise<Users[]> => UsersRepository.find(),
+
+	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOneOrFail({
+		where: {
+			[key]: value
+		},
+		select: ['id', 'password']
+	})
 
 }

@@ -1,5 +1,5 @@
 import * as Express from "express";
-import Logger from "../utility/logger";
+import {Logging} from 'utility/logging'
 
 export default class HTTP {
 
@@ -25,16 +25,16 @@ export default class HTTP {
 
 	initControllers = async (): Promise<void> => {
 		await require('./controllers')
-		Logger.info(`HTTP service has loaded ${HTTP.controllers} controllers`)
+		Logging.info(`HTTP service has loaded ${HTTP.controllers} controllers`)
 	}
 
 	initInstance = async (): Promise<void> => {
 		try {
 			await HTTP.server.listen(process.env.HTTP_PORT)
-			Logger.info(`HTTP service has started on port ${process.env.HTTP_PORT}`)
+			Logging.info(`HTTP service has started on port ${process.env.HTTP_PORT}`)
 		}
 		catch (error) {
-			Logger.error(`HTTP service failed to start due to: ${error}`)
+			Logging.danger(`HTTP service failed to start due to: ${error}`)
 		}
 	}
 

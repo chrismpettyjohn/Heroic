@@ -1,10 +1,10 @@
-import HTTP from "./http/server";
-import Logger from "./utility/logger";
+import HTTP from "http/server";
+import {Logging} from 'utility/logging'
 
 export default class Heroic {
 
 	constructor () {
-		Logger.info("Heroic 4 by LeChris")
+		Logging.info("Heroic 4 by LeChris")
 		new HTTP()
 	}
 
