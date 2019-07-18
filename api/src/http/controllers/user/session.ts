@@ -1,22 +1,18 @@
 import * as Express from "express";
-import {Controller, Get, Post} from '@tsed/common'
+import {Logging} from 'utility/logging';
+import SessionService from 'service/user/session'
+import {Controller, Get, Post, UseBefore} from '@tsed/common'
+import {SessionMiddleware} from 'http/middleware/user/session'
 
 @Controller('/session')
 export default class SessionController {
 
-
 	@Post('')
-	async createSession (request: Express.Request, response: Express.Response) {
-		return response.send('Hello world')
-	}
-
-}
-
-
-
-/*
-try {
+	async create ({ body }: Express.Request, response: Express.Response) {
+		try {
 			const {username = '', password = ''} = body
+
+			console.log(body)
 
 			if (username === '' || password === '') {
 				return response.sendStatus(400)
@@ -36,4 +32,15 @@ try {
 			Logging.danger(`Session Controller - Create failed with error ${e}`)
 			return response.sendStatus(500)
 		}
- */
+	}
+
+	@Get('')
+	@UseBefore(SessionMiddleware)
+	async read ({ session }: any, response: Express.Response) {
+		return response.json(session)
+	}
+
+
+
+
+}

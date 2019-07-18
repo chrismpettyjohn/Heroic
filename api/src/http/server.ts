@@ -10,7 +10,10 @@ const rootDir = __dirname;
 	acceptMimes: ["application/json"],
 	logger: {
 		level: 'error'
-	}
+	},
+	componentsScan: [
+		`${rootDir}/middleware/**/**.ts`
+	]
 })
 export class HTTPServer extends ServerLoader {
 

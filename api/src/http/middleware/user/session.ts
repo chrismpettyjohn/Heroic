@@ -1,27 +1,34 @@
-import * as Express from 'express'
-import BaseMiddleware from '../base'
+import {ParseJWT} from 'utility/jwt'
+import {Middleware} from '@tsed/common'
+import {Logging} from 'utility/logging'
+import UserService from 'service/user/users'
+import {Users} from 'db/entity/user/users'
 
-export default class Session extends BaseMiddleware {
 
-	constructor () {
-		super()
-	}
+/*
+Note to self:
+I think the request is being made static (It won't reset) I tried removing headers on Insomnia and they still show on here.  Interesting.
+ */
+@Middleware()
+export class SessionMiddleware {
 
-	handle (request: Express.Request, response: Express.Response, next: Express.NextFunction) {
-		console.log('Test')
-		return next(request)
-	}
-
-	key (): string {
-		return 'session'
-	}
-
-	name (): string {
-		return 'Session'
-	}
-
-	description (): string {
-		return 'Only allow requests with a valid bearer token'
+	async use (request, response, next) {
+		try {
+			if (!request.headers.authorization) {
+				return response.sendStatus(403)
+			}
+			else {
+				console.log(request.headers.authorization)
+				const token: any = ParseJWT(request.headers.authorization.split('Bearer ')[1])
+				const user: Users = await UserService.read('id', token.id)
+				request.session = user
+				return next()
+			}
+		}
+		catch (error) {
+			Logging.warning(`Session Middleware - use error occurred: ${error}`)
+			return response.sendStatus(403)
+		}
 	}
 
 }
