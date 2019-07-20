@@ -2,6 +2,7 @@ import * as Moment from "moment";
 import * as Express from "express";
 import {Logging} from 'utility/logging';
 import UserService from 'service/user/users'
+import {getRepository, Repository} from "typeorm";
 import {Controller, Get, Post } from '@tsed/common'
 import {Users} from "../../../db/entity/user/users";
 
@@ -26,7 +27,6 @@ export default class UserController {
 		}
 	}
 
-
 	@Get('')
 	async list ({ query: { username } }: Express.Request, response: Express.Response)
 	{
@@ -39,6 +39,24 @@ export default class UserController {
 		}
 		catch (e) {
 			Logging.danger(`Users List - Failed to return list due to ${e}`)
+			return response.sendStatus(500)
+		}
+	}
+
+	@Get('/leaderboard')
+	async leaderboard (request: Express.Request, response: Express.Response)
+	{
+		try {
+			const UserRepository: Repository<Users> = getRepository(Users)
+			const result: Record<string, Users[]> = {
+				credits: await this.getLeaderboard('credits'),
+				pixels: await this.getLeaderboard('pixels'),
+				points: await this.getLeaderboard('points')
+			}
+			return response.json(result)
+		}
+		catch (e) {
+			Logging.danger(`User Leaderboard - Failed to return - ${e}`)
 			return response.sendStatus(500)
 		}
 	}
@@ -61,6 +79,15 @@ export default class UserController {
 			Logging.danger(`User Read - Failed to return user for ${user} - ${e}`)
 			return response.sendStatus(500)
 		}
+	}
+
+	private getLeaderboard = async (currency: string): Promise<Users[]> => {
+		const UserRepository: Repository<Users> = getRepository(Users)
+		return UserRepository
+			.createQueryBuilder('users')
+			.orderBy(currency)
+			.limit(15)
+			.getMany()
 	}
 
 }
