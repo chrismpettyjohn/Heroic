@@ -1,6 +1,11 @@
-import {Entity, PrimaryGeneratedColumn, Column, Unique } from "typeorm";
+import {Bans} from "./bans";
+import {Badges} from "./badges";
+import * as Moment from "moment";
+import {Currency} from "./currency";
+import {Settings} from "./settings";
+import {FavoriteRooms} from "./favorite-rooms";
+import {Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, OneToOne } from "typeorm";
 import { IsEnum, IsNumber, IsAlphanumeric, IsEmail } from 'class-validator'
-
 
 export enum UserOnlineStatus {
 	Offline = 0,
@@ -27,7 +32,7 @@ export class Users {
 	@IsEmail()
 	mail: string
 
-	@Column()
+	@Column({ default: Moment().unix() })
 	@IsNumber()
 	account_created: number
 
@@ -77,5 +82,20 @@ export class Users {
 	@Column()
 	@IsNumber()
 	home_room: number
+
+	@OneToMany(type => Bans, bans => bans.user_id)
+	bans: Bans[]
+
+	@OneToMany(type => Badges, badges => badges.user_id)
+	badges: Badges[]
+
+	@OneToMany(type => Currency, currency => currency.user_id)
+	currency: Currency[]
+
+	@OneToOne(type => Settings, settings => settings.user_id)
+	settings: Settings
+
+	@OneToMany(type => FavoriteRooms, favorite => favorite.user_id)
+	favoriteRooms: FavoriteRooms[]
 
 }
