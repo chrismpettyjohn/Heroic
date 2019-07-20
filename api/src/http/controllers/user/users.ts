@@ -4,7 +4,7 @@ import {Logging} from 'utility/logging';
 import UserService from 'service/user/users'
 import {getRepository, Repository} from "typeorm";
 import {Controller, Get, Post } from '@tsed/common'
-import {Users} from "../../../db/entity/user/users";
+import {Users, UserOnlineStatus} from "../../../db/entity/user/users";
 
 @Controller('/users')
 export default class UserController {
@@ -47,16 +47,29 @@ export default class UserController {
 	async leaderboard (request: Express.Request, response: Express.Response)
 	{
 		try {
-			const UserRepository: Repository<Users> = getRepository(Users)
 			const result: Record<string, Users[]> = {
 				credits: await this.getLeaderboard('credits'),
 				pixels: await this.getLeaderboard('pixels'),
 				points: await this.getLeaderboard('points')
 			}
+			Logging.info('User Leaderboard - Returned without issue')
 			return response.json(result)
 		}
 		catch (e) {
 			Logging.danger(`User Leaderboard - Failed to return - ${e}`)
+			return response.sendStatus(500)
+		}
+	}
+
+	@Get('/online')
+	async online (request: Express.Request, response: Express.Response)
+	{
+		try {
+			const result: Users[] = await UserService.query('online', '1')
+			return response.json(result)
+		}
+		catch (e) {
+			Logging.danger(`User Online - Failed to return - ${e}`)
 			return response.sendStatus(500)
 		}
 	}

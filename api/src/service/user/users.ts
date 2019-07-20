@@ -17,6 +17,12 @@ export default {
 		.where('users.username = :username', { username: username })
 		.getOne(),
 
-	search: async (username: string): Promise<Users[]> => UsersRepository.find({ username: Like(`%${username}%`) })
+	search: async (username: string): Promise<Users[]> => UsersRepository.find({ username: Like(`%${username}%`) }),
+
+	query: async (key: string, value: any): Promise<Users[]> => UsersRepository.find({
+		where: {
+			[key]: value
+		}
+	})
 
 }
