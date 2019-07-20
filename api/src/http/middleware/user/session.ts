@@ -4,11 +4,6 @@ import {Logging} from 'utility/logging'
 import UserService from 'service/user/users'
 import {Users} from 'db/entity/user/users'
 
-
-/*
-Note to self:
-I think the request is being made static (It won't reset) I tried removing headers on Insomnia and they still show on here.  Interesting.
- */
 @Middleware()
 export class SessionMiddleware {
 
@@ -18,7 +13,6 @@ export class SessionMiddleware {
 				return response.sendStatus(403)
 			}
 			else {
-				console.log(request.headers.authorization)
 				const token: any = ParseJWT(request.headers.authorization.split('Bearer ')[1])
 				const user: Users = await UserService.read('id', token.id)
 				request.session = user
