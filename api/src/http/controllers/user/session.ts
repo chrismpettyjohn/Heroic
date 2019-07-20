@@ -8,11 +8,9 @@ import {SessionMiddleware} from 'http/middleware/user/session'
 export default class SessionController {
 
 	@Post('')
-	async create ({ body }: Express.Request, response: Express.Response) {
+	async create ({ body: { user} }: Express.Request, response: Express.Response) {
 		try {
-			const {username = '', password = ''} = body
-
-			console.log(body)
+			const {username = '', password = ''} = user
 
 			if (username === '' || password === '') {
 				return response.sendStatus(400)
