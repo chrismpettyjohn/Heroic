@@ -2,6 +2,7 @@ import * as CookieParser from 'cookie-parser'
 import * as BodyParser from 'body-parser'
 import * as Compression from 'compression'
 import * as MethodOverride from 'method-override'
+import {BanMiddleware} from "./middleware/user/ban";
 import {GlobalMiddleware} from "./middleware/global";
 import {ServerLoader, ServerSettings, GlobalAcceptMimesMiddleware} from "@tsed/common";
 import {$log} from "ts-log-debug";
@@ -31,6 +32,7 @@ export class HTTPServer extends ServerLoader {
 				extended: true
 			}))
 			.use(GlobalMiddleware)
+			.use(BanMiddleware)
 		return null;
 	}
 
