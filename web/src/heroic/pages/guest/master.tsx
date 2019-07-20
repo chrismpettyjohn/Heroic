@@ -9,7 +9,14 @@ export default (props) => {
 					<props.route.component/>
 				</div>
 				<div className="flex flex-8 justify-center align-center login-right">
-					<div className="right-inner">
+				</div>
+			</div>
+		)
+	)
+}
+
+/*
+<div className="right-inner">
 						<h6>0 Online</h6>
 						<h2>Latest News</h2>
 						<div className="flex flex-row flex-wrap">
@@ -50,8 +57,4 @@ export default (props) => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		)
-	)
-}
+ */
