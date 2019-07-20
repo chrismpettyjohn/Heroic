@@ -5,6 +5,8 @@ const UsersRepository: Repository<Users> = getRepository(Users)
 
 export default {
 
+	create: async (user: Users): Promise<Users> => UsersRepository.save(user),
+
 	list: async (): Promise<Users[]> => UsersRepository.find(),
 
 	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOne({ [key]: value }),

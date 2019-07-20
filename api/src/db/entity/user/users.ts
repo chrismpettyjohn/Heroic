@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, Unique } from "typeorm";
 import { IsEnum, IsNumber, IsAlphanumeric, IsEmail } from 'class-validator'
 
 
@@ -9,6 +9,7 @@ export enum UserOnlineStatus {
 }
 
 @Entity()
+@Unique(['id', 'username', 'mail'])
 export class Users {
 
 	@PrimaryGeneratedColumn()
@@ -63,5 +64,18 @@ export class Users {
 	@Column()
 	@IsEnum(UserOnlineStatus)
 	online: UserOnlineStatus
+
+	@Column({ select: false })
+	ip_register: string
+
+	@Column({ select: false })
+	ip_current: string
+
+	@Column({ select: false })
+	machine_id: string
+
+	@Column()
+	@IsNumber()
+	home_room: number
 
 }

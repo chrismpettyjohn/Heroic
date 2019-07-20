@@ -1,11 +1,31 @@
+import * as Moment from "moment";
 import * as Express from "express";
 import {Logging} from 'utility/logging';
 import UserService from 'service/user/users'
-import {Controller, Get } from '@tsed/common'
+import {Controller, Get, Post } from '@tsed/common'
 import {Users} from "../../../db/entity/user/users";
 
 @Controller('/users')
 export default class UserController {
+
+	@Post('')
+	async create ({ body: { user }, ip }: Express.Request, response: Express.Response)
+	{
+		try {
+			const result: Users = await UserService.create({
+				...user,
+				account_created: Moment().unix(),
+				ip_register: ip,
+				ip_current: ip
+			})
+			return response.json(result)
+		}
+		catch (e) {
+			Logging.danger(`Users Create - Failed to create user ${user} due to ${e}`)
+			return response.sendStatus(500)
+		}
+	}
+
 
 	@Get('')
 	async list ({ query: { username } }: Express.Request, response: Express.Response)
