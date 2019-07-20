@@ -8,7 +8,7 @@ import {Controller, Get } from '@tsed/common'
 export default class CameraController {
 
 	@Get('')
-	async list ({ query: { rank } }: Express.Request, response: Express.Response)
+	async list (request: Express.Request, response: Express.Response)
 	{
 		try {
 			const result: Camera[] = await CameraService.list()
