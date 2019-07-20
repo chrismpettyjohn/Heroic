@@ -8,12 +8,20 @@ interface Props extends RouteComponentProps {
 }
 
 const Portrait = ({ user, history }: Props) => {
-	const source = getSource({ figure: user.avatar })
+	const source = getSource({ figure: user.look })
 	return (
 		<div className="habbo-portrait" style={{ backgroundImage: `url(${source})` }} onClick={() => history.push(`/profile/${user.username}`)}>
 			<i className={user.online === 1 ? 'online' : 'offline'}/>
 		</div>
 	)
 }
+
+const Avatar = ({ user, history }: Props) => {
+	const source = getSource({ figure: user.look, size: 'l', direction: 2, headDirection: 3, action: 'std', gesture: 'sml' })
+	return <div className="habbo-avatar" style={{ backgroundImage: `url(${source})` }} onClick={() => history.push(`/profile/${user.username}`)}/>
+}
+
+export const AvatarComponent = withRouter(Avatar)
+
 
 export default withRouter(Portrait)

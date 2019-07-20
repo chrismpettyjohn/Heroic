@@ -11,11 +11,11 @@ export class Camera {
 	@IsNumber()
 	id!: number
 
-	@OneToOne(type => Users, users => users.id)
+	@OneToOne(type => Users, { eager: true })
 	@JoinColumn({ name: "user_id" })
 	user: Users
 
-	@OneToOne(type => Rooms, rooms => rooms.id)
+	@OneToOne(type => Rooms, { eager: true })
 	@JoinColumn({ name: "room_id" })
 	room: Rooms
 

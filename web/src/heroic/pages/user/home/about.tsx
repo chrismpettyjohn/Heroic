@@ -19,13 +19,13 @@ const developers: User[] = [
 	{
 		username: 'LeChris',
 		motto: 'Lead Maintainer',
-		avatar: 'hr-893-42.hd-209-1.ch-210-1408.lg-3023-1408.ca-3423-1408-85%2Cs-2.g-1.d-2.h-2.a-0%2C9e19dbddafefbfd86940b5acfbca368a',
+		look: 'hr-893-42.hd-209-1.ch-210-1408.lg-3023-1408.ca-3423-1408-85%2Cs-2.g-1.d-2.h-2.a-0%2C9e19dbddafefbfd86940b5acfbca368a',
 		...base
 	},
 	{
 		username: 'billsonnn',
 		motto: 'UI Designer',
-		avatar: 'hr-3090-35.hd-180-1.ch-3321-64.lg-3626-64-64.he-3681-64-81%2Cs-0.g-1.d-2.h-2.a-0%2C5a375d9f2925b491237b309ed1be5f3b',
+		look: 'hr-3090-35.hd-180-1.ch-3321-64.lg-3626-64-64.he-3681-64-81%2Cs-0.g-1.d-2.h-2.a-0%2C5a375d9f2925b491237b309ed1be5f3b',
 		...base
 	}
 ]

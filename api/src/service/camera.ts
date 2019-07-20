@@ -7,6 +7,6 @@ export default {
 
 	list: async (): Promise<Camera[]> => CameraRepository.find(),
 
-	read: async (id: number): Promise<Camera> => CameraRepository.findOne(id),
+	read: async (id: number): Promise<Camera> => CameraRepository.findOne()
 
 }

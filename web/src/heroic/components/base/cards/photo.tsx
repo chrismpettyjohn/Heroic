@@ -9,7 +9,7 @@ interface Props extends RouteComponentProps{
 }
 
 const Photo =  ({ photo , history}: Props) => {
-	const date = Moment(photo.timestamp).format('MMMM DD, YYYY')
+	const date = Moment.unix(photo.timestamp).format('MMMM DD, YYYY')
 	return (
 		<div className="heroic-card" onClick={() => history.push(`/photos/${photo.id}`)}>
 			<div className="heroic-card-content">

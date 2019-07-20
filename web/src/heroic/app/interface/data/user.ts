@@ -5,7 +5,7 @@ export default interface User {
 	points: number,
 	username: string,
 	motto: string
-	avatar: string,
+	look: string,
 	online: number,
 	account_created: number
 }

@@ -26,7 +26,7 @@ export default bindActions(store => ({
 					pixels: 100,
 					points: 100,
 					motto: 'I love Redux',
-					avatar: '',
+					look: '',
 					online: 1,
 					account_created: 1560056677
 				}

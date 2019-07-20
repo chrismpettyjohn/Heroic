@@ -15,7 +15,7 @@ export interface IRedux {
 	session: {
 		active: boolean,
 		ready: boolean,
-		user: User | null
+		user: User| null
 	}
 }
 
