@@ -17,8 +17,8 @@ export default ({ room }: Props) => (
 			<Column size={6}>
 				<h2 className="mb-3">{room.name}</h2>
 				<Row>
-					<Portrait user={room.owner}/>
-					<h5 className="ml-2 mt-3">{room.owner.username}</h5>
+					<Portrait user={room.user}/>
+					<h5 className="ml-2 mt-3">{room.user.username}</h5>
 				</Row>
 			</Column>
 		</Row>

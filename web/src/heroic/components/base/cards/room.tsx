@@ -22,7 +22,7 @@ const Room = ({ history, room }: Props) => {
 					<div>
 						<div className="heroic-room-thumbnail" style={{ backgroundImage: `url(https://arcturus.pw/camera/Chris/thumbnail_${room.id}.png)` }} onClick={navigate}/>
 					</div>
-					<UserCard user={room.owner}/>
+					<UserCard user={room.user}/>
 				</div>
 			</div>
 		</div>

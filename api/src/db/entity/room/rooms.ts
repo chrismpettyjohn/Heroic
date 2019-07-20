@@ -61,4 +61,7 @@ export class Rooms {
 	@Column()
 	readonly score: number
 
+	@Column()
+	tags: string
+
 }

@@ -12,5 +12,5 @@ export default interface Room {
 	tags: string,
 	is_public: number,
 	is_staff_picked: number,
-	owner: User
+	user: User
 }
