@@ -3,8 +3,9 @@ import {Badges} from "./badges";
 import * as Moment from "moment";
 import {Currency} from "./currency";
 import {Settings} from "./settings";
+import {Permissions } from "../permissions";
 import {FavoriteRooms} from "./favorite-rooms";
-import {Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, OneToOne } from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, OneToOne, JoinColumn } from "typeorm";
 import { IsEnum, IsNumber, IsAlphanumeric, IsEmail } from 'class-validator'
 
 export enum UserOnlineStatus {
@@ -51,8 +52,9 @@ export class Users {
 	@Column()
 	look: string
 
-	@Column()
-	rank: number
+	@OneToOne(type => Permissions, rank => rank.id)
+	@JoinColumn({ name: "rank" })
+	rank: Permissions
 
 	@Column()
 	@IsNumber()

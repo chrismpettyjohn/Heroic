@@ -1,12 +1,9 @@
+import {Boolean} from "interface/common";
 import {IsEnum, IsNumber} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-export enum Boolean {
-	True = 1,
-	False = 0
-}
 
-@Entity()
+@Entity("users_settings")
 export class Settings {
 
 	@PrimaryGeneratedColumn()
