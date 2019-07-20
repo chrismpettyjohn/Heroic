@@ -18,7 +18,7 @@ export default class PermissionsController {
 			return response.json(result)
 		}
 		catch (e) {
-			Logging.danger(`Users List - Failed to return list due to ${e}`)
+			Logging.danger(`Permissions List - Failed to return list due to ${e}`)
 			return response.sendStatus(500)
 		}
 	}
