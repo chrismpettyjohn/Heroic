@@ -9,7 +9,7 @@ export default {
 	// Returns a signed JWT
 	start: async (username: string, password: string): Promise<string|false> => {
 		try {
-			const user: Users = await UserService.read('username', username)
+			const user: Users = await UserService.getPassword(username)
 
 			if (isSame(password, user.password)) {
 				return GenerateJWT({ id: user.id })

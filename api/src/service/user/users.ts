@@ -9,6 +9,12 @@ export default {
 
 	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOne({ [key]: value }),
 
+	getPassword: async (username: string): Promise<Users> => UsersRepository
+		.createQueryBuilder('users')
+		.addSelect('users.password')
+		.where('users.username = :username', { username: username })
+		.getOne(),
+
 	search: async (username: string): Promise<Users[]> => UsersRepository.find({ username: Like(`%${username}%`) })
 
 }
