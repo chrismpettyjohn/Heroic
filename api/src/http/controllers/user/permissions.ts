@@ -1,7 +1,7 @@
 import * as Express from "express";
 import {Logging} from 'utility/logging';
+import {Controller, Get } from '@tsed/common'
 import {Permissions} from "db/entity/permissions";
-import {Controller, Get, Post } from '@tsed/common'
 import PermissionService from 'service/user/permissions'
 
 @Controller('/permissions')
