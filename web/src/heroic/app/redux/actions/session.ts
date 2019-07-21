@@ -36,12 +36,17 @@ export default bindActions(store => ({
 
 		const token: string = await API.post('session', request)
 
+		console.log(token)
+		console.log(!token)
+
 		if (!token) {
 			throw new Error('Invalid Credentials')
 		}
 		else {
 			setToken(token)
 			const user: User = await API.get('session')
+
+			console.log(user)
 
 			Storage.set('session', token)
 

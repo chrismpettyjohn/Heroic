@@ -12,6 +12,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "moment": "^2.24.0",
+    "moxios": "^0.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-onclickoutside": "^6.8.0",
@@ -33,6 +34,7 @@
   "browserslist": [],
   "devDependencies": {
     "jest-enzyme": "^7.0.2",
+    "jest-mock-axios": "^3.0.0",
     "node-sass": "^4.12.0"
   },
   "jest": {
