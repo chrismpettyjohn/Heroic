@@ -25,12 +25,22 @@ export default ({ user }: Props) => {
 									<div className="container-header">
 										Badges
 									</div>
-									<div className="grid-list across-3">
-										<div className="grid-item">
-											<div className="grid-image" style={{ backgroundImage: 'url(https://nitrots.co/assets/c_images/album1584/ADM.gif)' }}/>
-											<div className="grid-text">ADM</div>
-										</div>
-									</div>
+									{
+										user.badges!.length > 0
+											? (
+												<div className="grid-list across-3">
+													{
+														user.badges!.map(badge => (
+															<div className="grid-item" key={badge.id}>
+																<div className="grid-image" style={{ backgroundImage: `url(https://nitrots.co/assets/c_images/album1584/${badge.badge_code}gif)` }}/>
+																<div className="grid-text">{badge.badge_code}</div>
+															</div>
+														))
+													}
+												</div>
+											)
+											: <p>I don't have any badges</p>
+									}
 								</div>
 							</div>
 						</div>
@@ -43,12 +53,22 @@ export default ({ user }: Props) => {
 									<div className="container-header">
 										Friends
 									</div>
-									<div className="grid-list across-3">
-										<div className="grid-item">
-											<div className="grid-image" style={{ backgroundImage: 'url(https://nitrots.co/assets/c_images/album1584/ADM.gif)' }}/>
-											<div className="grid-text">ADM</div>
-										</div>
-									</div>
+									{
+										user.friendships!.length > 0
+											? (
+												<div className="grid-list across-3">
+													{
+														user.friendships!.map(friendship => (
+															<div className="grid-item" key={friendship.id}>
+																<div className="grid-image" style={{ backgroundImage: `url(https://nitrots.co/assets/c_images/album1584/${friendship.id}gif)` }}/>
+																<div className="grid-text">{friendship.receiver!.username}</div>
+															</div>
+														))
+													}
+												</div>
+											)
+											: <p>I don't have any friends</p>
+									}
 								</div>
 							</div>
 						</div>
@@ -62,12 +82,22 @@ export default ({ user }: Props) => {
 									<div className="container-header">
 										Rooms
 									</div>
-									<div className="grid-list across-3">
-										<div className="grid-item">
-											<div className="grid-image" style={{ backgroundImage: 'url(https://nitrots.co/assets/c_images/album1584/ADM.gif)' }}/>
-											<div className="grid-text">ADM</div>
-										</div>
-									</div>
+									{
+										user.rooms!.length > 0
+											? (
+												<div className="grid-list across-3">
+													{
+														user.rooms!.map(room => (
+															<div className="grid-item" key={room.id}>
+																<div className="grid-image" style={{ backgroundImage: `url(https://nitrots.co/assets/c_images/album1584/${room.id}gif)` }}/>
+																<div className="grid-text">{room.name}</div>
+															</div>
+														))
+													}
+												</div>
+											)
+											: <p>I don't have any rooms</p>
+									}
 								</div>
 							</div>
 						</div>
@@ -80,12 +110,22 @@ export default ({ user }: Props) => {
 									<div className="container-header">
 										Groups
 									</div>
-									<div className="grid-list across-3">
-										<div className="grid-item">
-											<div className="grid-image" style={{ backgroundImage: 'url(https://nitrots.co/assets/c_images/album1584/ADM.gif)' }}/>
-											<div className="grid-text">ADM</div>
-										</div>
-									</div>
+									{
+										user.guilds!.length > 0
+											? (
+												<div className="grid-list across-3">
+													{
+														user.guilds!.map(guild => (
+															<div className="grid-item" key={guild.id}>
+																<div className="grid-image" style={{ backgroundImage: `url(https://nitrots.co/assets/c_images/album1584/${guild.id}gif)` }}/>
+																<div className="grid-text">{guild.name}</div>
+															</div>
+														))
+													}
+												</div>
+											)
+											: <p>I don't belong to any guilds</p>
+									}
 								</div>
 							</div>
 						</div>

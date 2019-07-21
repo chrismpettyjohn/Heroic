@@ -20,7 +20,7 @@ export class Rooms {
 	@IsNumber()
 	owner_id: number
 
-	@OneToOne(type => Users, users => users.id, { eager: true })
+	@OneToOne(type => Users, users => users.id)
 	@JoinColumn({ name: "owner_id" })
 	user: Users
 

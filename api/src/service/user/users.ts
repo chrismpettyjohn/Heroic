@@ -9,7 +9,10 @@ export default {
 
 	list: async (): Promise<Users[]> => UsersRepository.find(),
 
-	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOne({ [key]: value }),
+	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOne({
+		[key]: value,
+		relations: ['badges', 'friendships', 'guilds', 'rooms']
+	}),
 
 	getPassword: async (username: string): Promise<Users> => UsersRepository
 		.createQueryBuilder('users')

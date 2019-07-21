@@ -3,10 +3,13 @@ import {Badges} from "./badges";
 import * as Moment from "moment";
 import {Currency} from "./currency";
 import {Settings} from "./settings";
+import {Rooms} from "../room/rooms";
+import {Guilds} from '../guild/guilds'
 import {Permissions } from "../permissions";
 import {FavoriteRooms} from "./favorite-rooms";
-import {Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, OneToOne, JoinColumn } from "typeorm";
+import {Friendships} from '../messenger/friendships'
 import { IsEnum, IsNumber, IsAlphanumeric, IsEmail } from 'class-validator'
+import {Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, OneToOne, JoinColumn } from "typeorm";
 
 export enum UserOnlineStatus {
 	Offline = 0,
@@ -88,7 +91,7 @@ export class Users {
 	@OneToMany(type => Bans, bans => bans.user_id)
 	bans: Bans[]
 
-	@OneToMany(type => Badges, badges => badges.user_id)
+	@OneToMany(type => Badges, badges => badges.user)
 	badges: Badges[]
 
 	@OneToMany(type => Currency, currency => currency.user_id)
@@ -99,5 +102,14 @@ export class Users {
 
 	@OneToMany(type => FavoriteRooms, favorite => favorite.user_id)
 	favoriteRooms: FavoriteRooms[]
+
+	@OneToMany(type => Friendships, friendships => friendships.sender)
+	friendships: Friendships[]
+
+	@OneToMany(type => Guilds, guilds => guilds.user)
+	guilds: Guilds[]
+
+	@OneToMany(type => Rooms, rooms => rooms.user)
+	rooms: Rooms[]
 
 }
