@@ -1,10 +1,6 @@
 import {IRedux} from 'heroic/app/interface/redux'
 
 const Default: IRedux = {
-	core: {
-		articles: [],
-		loading: true
-	},
 	pages: {
 		community: {
 			news: {

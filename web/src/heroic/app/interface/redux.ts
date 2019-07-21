@@ -1,13 +1,8 @@
 import Pages from './pages'
 import User from './data/user'
-import Article from './data/news/article'
 import {RouteComponentProps} from 'react-router'
 
 export interface IRedux {
-	core: {
-		articles: Article[],
-		loading: boolean
-	},
 	pages: Pages,
 	website: {
 		SITE_NAME: string

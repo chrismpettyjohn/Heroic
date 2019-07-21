@@ -3,10 +3,9 @@ import Item from './item'
 import React, {PureComponent} from 'react'
 import Redux from 'heroic/app/interface/redux'
 import Stateful from 'heroic/app/redux/stateful'
-import SubHeader from 'heroic/components/layout/sub-header'
 import Article from 'heroic/app/interface/data/news/article'
 import NewsActions from 'heroic/app/redux/actions/pages/community/news'
-import Container, {ContainerContent, ContainerHeader} from 'heroic/components/layout/container'
+import Container, {ContainerContent} from 'heroic/components/layout/container'
 
 interface Props extends Omit<Redux, 'match'> {
 	match: {
@@ -28,12 +27,6 @@ class News extends PureComponent<Props> {
 		const active: Article | undefined = data.find(x => x.id === parseInt(article))
 		return (
 			<Container>
-				<ContainerHeader>
-					<SubHeader>
-						<h2>News</h2>
-						<p>Yay</p>
-					</SubHeader>
-				</ContainerHeader>
 				<ContainerContent>
 					{
 						!loaded
