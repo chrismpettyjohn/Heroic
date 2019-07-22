@@ -10,7 +10,9 @@ export default {
 	list: async (): Promise<Users[]> => UsersRepository.find(),
 
 	read: async (key: string, value: string): Promise<Users> => UsersRepository.findOne({
-		[key]: value,
+		where: {
+			[key]: value,
+		},
 		relations: ['badges', 'friendships', 'guilds', 'rooms']
 	}),
 
