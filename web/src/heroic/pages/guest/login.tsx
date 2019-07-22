@@ -8,7 +8,8 @@ interface State {
 	error: string | null,
 	username: string,
 	password: string,
-	pending: boolean
+	pending: boolean,
+	loading: boolean
 }
 
 class Login extends Component<RouteComponentProps> {
@@ -17,7 +18,8 @@ class Login extends Component<RouteComponentProps> {
 		error: null,
 		username: '',
 		password: '',
-		pending: false
+		pending: false,
+		loading: false
 	}
 
 	onChange = (key: string, value: string | boolean): void => {
@@ -44,10 +46,10 @@ class Login extends Component<RouteComponentProps> {
 	isDisabled = (): boolean => this.state.username === '' || this.state.password === ''
 
 	render () {
-		const {username, password} = this.state
+		const {username, password, pending} = this.state
 		return (
 			<div className="left-inner">
-				<h1>Welcome to Habfort</h1>
+				<h1>Welcome to Heroic</h1>
 				<p>A strange place with even stranger people!</p>
 				<form onSubmit={this.onSubmit}>
 					<div className="form-group">
@@ -58,8 +60,12 @@ class Login extends Component<RouteComponentProps> {
 						<label>Password</label>
 						<Input column="password" type="password" value={password} onChange={this.onChange} />
 					</div>
-					<button className="btn btn-green w-100" disabled={this.isDisabled()} type="submit">
-						Let's go!
+					<button className="btn btn-green w-100" disabled={this.isDisabled() || pending} type="submit">
+						{
+							!pending
+								? "Let's go!"
+								: <i className="fa fa-spinner fa-spin"/>
+						}
 					</button>
 				</form>
 				<Link className="link" to="/register">Or Join Today...</Link>
