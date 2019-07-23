@@ -14,7 +14,7 @@ export class Friendships {
 	@IsNumber()
 	user_one_id: number
 
-	@OneToOne(type => Users)
+	@OneToOne(type => Users, { eager: true })
 	@JoinColumn({ name: "user_one_id" })
 	sender: Users
 
@@ -22,7 +22,7 @@ export class Friendships {
 	@IsNumber()
 	user_two_id: number
 
-	@OneToOne(type => Users)
+	@OneToOne(type => Users, { eager: true })
 	@JoinColumn({ name: "user_two_id" })
 	receiver: Users
 

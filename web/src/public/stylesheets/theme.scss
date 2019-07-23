@@ -155,3 +155,22 @@ body {
 .mouse-pointer {
   cursor: pointer;
 }
+
+
+.heroic-same-size-master {
+  display: flex;
+  width: 100%;
+}
+
+.heroic-profile {
+  flex: 1;
+}
+
+.heroic-profile-row {
+  flex-wrap: wrap;
+}
+
+.heroic-profile-column {
+  flex: 1;
+  padding: 20px;
+}
