@@ -21,7 +21,7 @@ $log.level = 'error'
 })
 export class HTTPServer extends ServerLoader {
 
-	public $onMountingMiddlewares(): void|Promise<any> {
+	public $onMountingMiddlewares(): void {
 		this
 			.use(GlobalAcceptMimesMiddleware)
 			.use(CookieParser())
@@ -33,7 +33,6 @@ export class HTTPServer extends ServerLoader {
 			}))
 			.use(GlobalMiddleware)
 			.use(BanMiddleware)
-		return null;
 	}
 
 }
