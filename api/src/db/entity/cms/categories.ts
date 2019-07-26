@@ -1,6 +1,6 @@
 import * as Moment from "moment";
 import {Articles} from "./articles";
-import {IsAlphanumeric, IsNumber} from 'class-validator'
+import {IsAlphanumeric} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
 @Entity("cms_categories")
@@ -8,7 +8,6 @@ import {Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 export class Categories {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
@@ -19,7 +18,6 @@ export class Categories {
 	content: string
 
 	@Column({ default: Moment().unix() })
-	@IsNumber()
 	timestamp: number
 
 	@OneToMany(type => Articles, articles => articles.category_id)

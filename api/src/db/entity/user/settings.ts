@@ -1,5 +1,5 @@
 import {Boolean} from "interface/common";
-import {IsEnum, IsNumber} from 'class-validator'
+import {IsEnum} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 
@@ -7,35 +7,27 @@ import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 export class Settings {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
-	@IsNumber()
 	user_id: number
 
 	@Column()
-	@IsNumber()
 	credits: number
 
 	@Column()
-	@IsNumber()
 	achievement_score: number
 
 	@Column()
-	@IsNumber()
 	daily_respect_points: number
 
 	@Column()
-	@IsNumber()
 	daily_pet_respect_points: number
 
 	@Column()
-	@IsNumber()
 	respects_given: number
 
 	@Column()
-	@IsNumber()
 	guild_id: number
 
 	@Column()
@@ -51,27 +43,21 @@ export class Settings {
 	is_citizen: Boolean
 
 	@Column()
-	@IsNumber()
 	citizen_level: number
 
 	@Column()
-	@IsNumber()
 	helper_level: number
 
 	@Column()
-	@IsNumber()
 	cfh_send:number
 
 	@Column()
-	@IsNumber()
 	cfh_abusive: number
 
 	@Column()
-	@IsNumber()
 	cfh_warnings: number
 
 	@Column()
-	@IsNumber()
 	cfh_bans: number
 
 	@Column()
@@ -87,15 +73,12 @@ export class Settings {
 	block_roominvites: Boolean
 
 	@Column()
-	@IsNumber()
 	volume_system: number
 
 	@Column()
-	@IsNumber()
 	volume_furni: number
 
 	@Column()
-	@IsNumber()
 	volume_trax: number
 
 	@Column()
@@ -107,38 +90,30 @@ export class Settings {
 	block_camera_follow: Boolean
 
 	@Column()
-	@IsNumber()
 	chat_color: number
 
 	@Column()
-	@IsNumber()
 	home_room: number
 
 	@Column()
-	@IsNumber()
 	online_time: number
 
 	@Column()
 	tags: string
 
 	@Column()
-	@IsNumber()
 	club_expire_timestamp: number
 
 	@Column()
-	@IsNumber()
 	login_streak: number
 
 	@Column()
-	@IsNumber()
 	rent_space_id: number
 
 	@Column()
-	@IsNumber()
 	rent_space_endtime: number
 
 	@Column()
-	@IsNumber()
 	hof_points: number
 
 	@Column()
@@ -146,11 +121,9 @@ export class Settings {
 	block_alerts: Boolean
 
 	@Column()
-	@IsNumber()
 	talent_track_citizenship_level: number
 
 	@Column()
-	@IsNumber()
 	talent_track_helpers_level: number
 
 	@Column()
@@ -166,7 +139,6 @@ export class Settings {
 	nux: Boolean
 
 	@Column()
-	@IsNumber()
 	mute_end_timestmap: number
 
 	@Column()

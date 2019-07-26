@@ -1,5 +1,5 @@
 import * as Moment from "moment"
-import { IsEnum, IsNumber} from 'class-validator'
+import { IsEnum} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 
@@ -14,11 +14,9 @@ export enum BanType {
 export class Bans {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
-	@IsNumber()
 	user_id: number
 
 	@Column({ select: false })
@@ -28,15 +26,12 @@ export class Bans {
 	machine_id: string
 
 	@Column()
-	@IsNumber()
 	user_staff_id: number
 
 	@Column({ default: Moment().unix() })
-	@IsNumber()
 	timestamp: number
 
 	@Column({ default: Moment().add(60, 'days').unix() })
-	@IsNumber()
 	ban_expire: number
 
 	@Column({ default: 'Banned Via HK' })
@@ -47,7 +42,6 @@ export class Bans {
 	type: BanType
 
 	@Column()
-	@IsNumber()
 	cfh_topic: number
 
 }

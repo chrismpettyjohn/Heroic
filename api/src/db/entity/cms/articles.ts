@@ -1,7 +1,7 @@
 import * as Moment from "moment";
 import {Users} from "../user/users";
 import {Categories} from "./categories";
-import {IsAlphanumeric, IsNumber} from 'class-validator'
+import {IsAlphanumeric} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
 
 @Entity("cms_articles")
@@ -9,7 +9,6 @@ import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typ
 export class Articles {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
@@ -26,11 +25,9 @@ export class Articles {
 	image: string
 
 	@Column({ default: Moment().unix() })
-	@IsNumber()
 	timestamp: number
 
 	@Column()
-	@IsNumber()
 	category_id: number
 
 	@OneToOne(type => Categories, { eager: true })
@@ -38,7 +35,6 @@ export class Articles {
 	category: Categories
 
 	@Column()
-	@IsNumber()
 	user_id: number
 
 	@OneToOne(type => Users, { eager: true })

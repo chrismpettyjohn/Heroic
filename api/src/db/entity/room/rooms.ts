@@ -1,5 +1,5 @@
 import {Users} from "../user/users";
-import { IsEnum, IsNumber } from 'class-validator'
+import { IsEnum} from 'class-validator'
 import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
 
 export enum RoomState {
@@ -13,11 +13,9 @@ export enum RoomState {
 export class Rooms {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
-	@IsNumber()
 	owner_id: number
 
 	@OneToOne(type => Users, users => users.id)
@@ -47,15 +45,12 @@ export class Rooms {
 	readonly users: number
 
 	@Column()
-	@IsNumber()
 	users_max: number
 
 	@Column()
-	@IsNumber()
 	guild_id: number
 
 	@Column()
-	@IsNumber()
 	category: number
 
 	@Column()

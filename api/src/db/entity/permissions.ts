@@ -1,6 +1,6 @@
 import {Users} from "./user/users";
 import {Boolean} from "interface/common";
-import {IsAlpha, IsAlphanumeric, IsEnum, IsNumber} from 'class-validator'
+import {IsAlpha, IsAlphanumeric, IsEnum} from 'class-validator'
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
 export enum RankType {
@@ -14,7 +14,6 @@ export enum RankType {
 export class Permissions {
 
 	@PrimaryGeneratedColumn()
-	@IsNumber()
 	id!: number
 
 	@Column()
@@ -34,11 +33,9 @@ export class Permissions {
 	rank_badge: string
 
 	@Column()
-	@IsNumber()
 	level: number
 
 	@Column()
-	@IsNumber()
 	room_effect: number
 
 	@Column()
