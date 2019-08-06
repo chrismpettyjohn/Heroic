@@ -1,0 +1,10 @@
+import * as Moment from 'moment';
+import {UserEntity} from './entity';
+
+export const UserExample: UserEntity = {
+  id: null,
+  username: 'Chris',
+  mail: 'johndoe@gmail.com',
+  password: '123',
+  accountCreated: Moment().unix(),
+};
