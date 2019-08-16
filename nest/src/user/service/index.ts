@@ -1,6 +1,6 @@
 import { omit } from 'lodash';
+import { UserEntity } from '../entity';
 import { Repository, Like } from 'typeorm';
-import { UserEntity } from './entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 

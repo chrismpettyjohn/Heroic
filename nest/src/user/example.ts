@@ -6,5 +6,5 @@ export const UserExample: UserEntity = {
   username: 'Chris',
   mail: 'chris@gmail.com',
   password: 'johndoe',
-  accountCreated: Moment().unix()
+  account_created: Moment().unix()
 };

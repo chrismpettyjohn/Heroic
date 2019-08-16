@@ -17,7 +17,7 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column({ name: 'account_created'})
-  accountCreated: number;
+  @Column()
+  account_created: number;
 
 }

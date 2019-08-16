@@ -13,7 +13,10 @@ import { SecurityModule} from './security/module';
       username: 'root',
       password: '',
       database: 'heroic',
-      entities: [`${__dirname}/**/entity.ts`],
+      entities: [
+        `${__dirname}/**/entity.ts`,
+        `${__dirname}/**/entity/*.ts`
+      ],
       synchronize: false,
     }),
     AuthModule,
