@@ -5,9 +5,10 @@ import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: false }),
+    new FastifyAdapter({ logger: false })
   );
-  await app.listen(8080, '0.0.0.0');
+  app.enableCors();
+  await app.listen(80, '0.0.0.0');
 }
 
 bootstrap();

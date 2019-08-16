@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import {UserModule} from './user/module';
+import { UserModule } from './user/module';
+import { AuthModule } from './auth/module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,8 +15,8 @@ import { AuthModule } from './auth/auth.module';
       entities: [`${__dirname}/**/entity.ts`],
       synchronize: false,
     }),
-    UserModule,
     AuthModule,
+    UserModule,
   ],
 })
 

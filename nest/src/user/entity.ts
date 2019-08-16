@@ -14,7 +14,7 @@ export class UserEntity {
   @IsEmail()
   mail: string;
 
-  @Column({ select: false })
+  @Column()
   password: string;
 
   @Column({ name: 'account_created'})
