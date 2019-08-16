@@ -8,7 +8,7 @@ async function bootstrap() {
     new FastifyAdapter({ logger: false })
   );
   app.enableCors();
-  await app.listen(80, '0.0.0.0');
+  await app.listen(8080, '0.0.0.0');
 }
 
 bootstrap();
