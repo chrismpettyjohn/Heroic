@@ -1,9 +1,0 @@
-export TYPEORM_CONNECTION="mysql"
-export TYPEORM_SYNCHRONIZE=false
-export TYPEORM_LOGGING=false
-export TYPEORM_ENTITIES="src/db/entity/**/*.ts"
-export TYPEORM_MIGRATIONS="src/db/migration/**/*.ts"
-export TYPEORM_SUBSCRIBERS="src/db/subscriber/**/*.ts"
-export TYPEORM_ENTITIES_DIR="src/db/entity"
-export TYPEORM_MIGRATIONS_DIR="src/db/migration"
-export TYPEORM_SUBSCRIBERS_DIR="src/db/subscriber"
