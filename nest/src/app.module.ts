@@ -8,11 +8,11 @@ import { SecurityModule} from './security/module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'heroic',
+      host: process.env.DATABASE_HOST || '127.0.0.1',
+      port: parseInt(process.env.DATABASE_PORT) || 3306,
+      username: process.env.DATABASE_USER || 'root',
+      password: process.env.DATABASE_PASS || '',
+      database: process.env.DATABASE_NAME || '',
       entities: [
         `${__dirname}/**/entity.ts`,
         `${__dirname}/**/entity/*.ts`

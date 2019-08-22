@@ -1,7 +1,11 @@
+import 'dotenv/config';
 import * as RequestIP from 'request-ip';
 import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
+
+const httpPort = process.env.HTTP_PORT || 80;
+const httpListen = process.env.HTTP_LISTEN || '0.0.0.0';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -10,7 +14,7 @@ async function bootstrap() {
   );
   app.enableCors();
   app.use(RequestIP.mw())
-  await app.listen(8080, '0.0.0.0');
+  await app.listen(httpPort, httpListen);
 }
 
 bootstrap();
