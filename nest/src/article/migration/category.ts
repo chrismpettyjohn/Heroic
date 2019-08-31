@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class CategoryMigration implements MigrationInterface {
+export class Category1567216000284 implements MigrationInterface {
 
   async up(queryRunner: QueryRunner): Promise<any> {
     // Create heroic_articles_categories

@@ -1,0 +1,17 @@
+# Dynamic
+export const TYPEORM_HOST="localhost"
+export const TYPEORM_USERNAME="root"
+export const TYPERORM_PASSWORD=
+export const TYPEORM_DATABASE="morningstar"
+
+# Static
+export TYPEORM_CONNECTION="mysql"
+export TYPEORM_SYNCHRONIZE=false
+export TYPEORM_LOGGING=false
+export TYPEORM_ENTITIES="src/**/entity/**/*.ts"
+export TYPEORM_MIGRATIONS="src/**/migration/**/*.ts"
+export TYPEORM_SUBSCRIBERS="src/**/subscriber/**/*.ts"
+export TYPEORM_ENTITIES_DIR="src/**/entity"
+export TYPEORM_MIGRATIONS_DIR="src/**/migration"
+export TYPEORM_SUBSCRIBERS_DIR="src/**/subscriber"
+

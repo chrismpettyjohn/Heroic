@@ -13,16 +13,7 @@ import { SecurityModule} from './security/module';
       port: parseInt(process.env.DATABASE_PORT) || 3306,
       username: process.env.DATABASE_USER || 'root',
       password: process.env.DATABASE_PASS || '',
-      database: process.env.DATABASE_NAME || '',
-      entities: [
-        `${__dirname}/**/entity.ts`,
-        `${__dirname}/**/entity/*.ts`
-      ],
-      migrations: [
-        `${__dirname}/**/migration.ts`,
-        `${__dirname}/**/migration/*.ts`
-      ],
-      synchronize: false,
+      database: process.env.DATABASE_NAME || ''
     }),
     AuthModule,
     UserModule,
