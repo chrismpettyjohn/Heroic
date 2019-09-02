@@ -1,41 +1,83 @@
 import { omit } from 'lodash';
+import {getManager} from 'typeorm'
 import { UserEntity } from '../entity';
+import {validate} from 'class-validator'
 import { Repository, Like } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { NotFoundException, BadRequestException, InternalServerErrorException } from '@nestjs/common';
 
 @Injectable()
 export class UserService {
 
   constructor(@InjectRepository(UserEntity) private readonly repository: Repository<UserEntity>) { }
 
+  async createOne(username: string, email: string, password: string): Promise<UserEntity> {
+
+    const user = new UserEntity()
+    user.username = username
+    user.mail = email
+    user.password = password
+
+    const errors = await validate(user)
+
+    if (errors.length > 0) {
+      throw new BadRequestException('Validation failed')
+    }
+    else {
+      await getManager().save(user)
+      return user
+    }
+
+  }
+
   async findAll(): Promise<UserEntity[]> {
     const result: UserEntity[] = await this.repository.find({
       cache: true
     })
-    return result.map(user => omit(user, 'password'))
+    if (result.length === 0) {
+      throw new NotFoundException('User not found')
+    }
+    else {
+      return result.map(user => omit(user, 'password'))
+    }
   }
 
   async findByID(id: number): Promise<UserEntity> {
-    const result: UserEntity = await this.repository.findOne(id)
-    return omit(result, 'password')
+    try {
+      const result: UserEntity = await this.repository.findOneOrFail(id)
+      return omit(result, 'password')
+    }
+    catch (e) {
+      throw new NotFoundException('User not found')
+    }
   }
 
   async findByUsername(username: string): Promise<UserEntity> {
-    const result: UserEntity = await this.repository.findOne({
-      where: {
-        username
-      }
-    })
-    return omit(result, 'password')
+    try {
+      const result: UserEntity = await this.repository.findOneOrFail({
+        where: {
+          username
+        }
+      })
+      return omit(result, 'password')
+    }
+    catch (e) {
+      throw new NotFoundException('User not found')
+    }
   }
 
-  findByUsernameWithPassword(username: string): Promise<UserEntity> {
-    return this.repository.findOne({
-      where: {
-        username
-      }
-    })
+  async findByUsernameWithPassword(username: string): Promise<UserEntity> {
+    try {
+      return await this.repository.findOneOrFail({
+        where: {
+          username
+        }
+      })
+    }
+    catch (e) {
+      throw new NotFoundException('User not found')
+    }
   }
 
   async searchByUsername(username: string): Promise<UserEntity[]> {
@@ -44,7 +86,13 @@ export class UserService {
         username: Like(`%${username}%`)
       }
     })
-    return result.map(user => omit(user, 'password'))
+
+    if (result.length === 0) {
+      throw new NotFoundException('User Not Found')
+    }
+    else {
+      return result.map(user => omit(user, 'password'))
+    }
   }
 
 }

@@ -1,12 +1,17 @@
 import { UserEntity } from './entity';
 import { UserService } from './service';
 import { AuthGuard } from '@nestjs/passport';
-import { Controller, Get, UseGuards, Query, Param} from '@nestjs/common';
+import { Controller, Get, Post, UseGuards, Query, Param } from '@nestjs/common';
 
 @Controller('users')
 export class UserController {
 
   constructor(private readonly service: UserService) {}
+
+  @Post('')
+  async createOne(username: string, email: string, password: string): Promise<UserEntity> {
+    return this.service.createOne(username, email, password)
+  }
 
   @UseGuards(AuthGuard('jwt'))
   @Get('')

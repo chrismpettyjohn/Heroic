@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import * as RequestIP from 'request-ip';
 import { AppModule } from './app.module';
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 
 const httpPort = process.env.HTTP_PORT || 80;
