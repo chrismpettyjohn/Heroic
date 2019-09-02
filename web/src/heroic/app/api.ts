@@ -1,9 +1,8 @@
 import Axios from 'axios'
 
 export const API = Axios.create({
-	baseURL: '/rest/'
+	baseURL: '/api/'
 })
-
 
 API.interceptors.response.use(response => {
 	return response.data
@@ -11,6 +10,7 @@ API.interceptors.response.use(response => {
 
 
 export const setToken = (token?: string|null) => {
+	console.log(token)
 	API.defaults.headers['Authorization'] = token
 		? `Bearer ${token}`
 		: null

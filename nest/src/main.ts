@@ -12,6 +12,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter({ logger: false })
   );
+  app.setGlobalPrefix('api');
   app.enableCors();
   app.use(RequestIP.mw())
   await app.listen(httpPort, httpListen);

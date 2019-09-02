@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import React, {Component} from 'react'
+import React, {Component,Fragment} from 'react'
 import Input from 'heroic/components/base/form/input'
 import SessionActions from 'heroic/app/redux/actions/session'
 import {withRouter, RouteComponentProps} from 'react-router-dom'
@@ -34,7 +34,7 @@ class Login extends Component<RouteComponentProps> {
 
 		try {
 			this.onChange('pending', true)
-			await SessionActions.attempt(username, password)
+
 			this.props.history.push('/me')
 		}
 		catch (e) {
@@ -48,7 +48,7 @@ class Login extends Component<RouteComponentProps> {
 	render () {
 		const {username, password, pending} = this.state
 		return (
-			<div className="left-inner">
+			<Fragment>
 				<h1>Welcome to Heroic</h1>
 				<p>A strange place with even stranger people!</p>
 				<form onSubmit={this.onSubmit}>
@@ -69,7 +69,7 @@ class Login extends Component<RouteComponentProps> {
 					</button>
 				</form>
 				<Link className="link" to="/register">Or Join Today...</Link>
-			</div>
+			</Fragment>
 		)
 	}
 

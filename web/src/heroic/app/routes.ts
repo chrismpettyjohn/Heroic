@@ -5,17 +5,17 @@ const routes: Array<IParent> = [
 
 	// Guest Routes
 	{
-		component: Pages.Guest.Master,
+		component: Pages.GuestMaster,
 		guard: EGuard.Everyone,
 		prefix: '',
 		routes: [
 			{
-				component: Pages.Guest.Login,
+				component: Pages.Auth.Login,
 				title: 'Login',
 				path: 'login'
 			},
 			{
-				component: Pages.Guest.Register,
+				component: Pages.Auth.Register,
 				title: 'Register',
 				path: 'register'
 			}
@@ -28,7 +28,7 @@ const routes: Array<IParent> = [
 	// User Routes
 	{
 		// Home
-		component: Pages.User.Master,
+		component: Pages.UserMaster,
 		guard: EGuard.User,
 		meta: {
 			group: 'home'
@@ -36,27 +36,27 @@ const routes: Array<IParent> = [
 		prefix: '',
 		routes: [
 			{
-				component: Pages.User.Home.About,
+				component: Pages.Home.About,
 				title: 'About',
 				path: 'about'
 			},
 			{
-				component: Pages.User.Home.Me,
+				component: Pages.Home.Me,
 				title: 'Home',
 				path: 'me'
 			},
 			{
-				component: Pages.User.Home.Profile,
+				component: Pages.Home.Profile,
 				title: 'Profile',
 				path: 'profile/:username?'
 			},
 			{
-				component: Pages.User.Home.Settings,
+				component: Pages.Home.Settings,
 				title: 'Account Settings',
 				path: 'settings'
 			},
 			{
-				component: Pages.User.Home.Logout,
+				component: Pages.Home.Logout,
 				title: 'Logout',
 				path: 'logout'
 			}
@@ -64,7 +64,7 @@ const routes: Array<IParent> = [
 	},
 	{
 		// Community
-		component: Pages.User.Master,
+		component: Pages.UserMaster,
 		guard: EGuard.User,
 		meta: {
 			group: 'community'
@@ -72,32 +72,32 @@ const routes: Array<IParent> = [
 		prefix: '',
 		routes: [
 			{
-				component: Pages.User.Community.Photos,
+				component: Pages.Community.Photos,
 				title: 'Photos',
 				path: 'photos/:photo?'
 			},
 			{
-				component: Pages.User.Community.Rooms,
+				component: Pages.Community.Rooms,
 				title: 'Rooms',
 				path: 'rooms/:room?'
 			},
 			{
-				component: Pages.User.Community.News,
+				component: Pages.Community.News,
 				title: 'News',
 				path: 'news/:article?'
 			},
 			{
-				component: Pages.User.Community.Staff,
+				component: Pages.Community.Staff,
 				title: 'Staff',
 				path: 'staff'
 			},
 			{
-				component: Pages.User.Community.Leaderboard,
+				component: Pages.Community.Leaderboard,
 				title: 'Leaderboard',
 				path: 'leaderboard'
 			},
 			{
-				component: Pages.User.Community.Online,
+				component: Pages.Community.Online,
 				title: 'Online',
 				path: 'online'
 			},
@@ -105,7 +105,7 @@ const routes: Array<IParent> = [
 	},
 	// Hangout
 	{
-		component: Pages.User.Master,
+		component: Pages.UserMaster,
 		guard: EGuard.User,
 		meta: {
 			group: 'hangout'
@@ -113,12 +113,12 @@ const routes: Array<IParent> = [
 		prefix: 'hangout',
 		routes: [
 			{
-				component: Pages.User.Hangout.List,
+				component: Pages.Hangout.List,
 				title: 'Hangouts',
 				path: ''
 			},
 			{
-				component: Pages.User.Hangout.Item,
+				component: Pages.Hangout.Item,
 				title: 'Hangouts',
 				path: ':post'
 			}
@@ -126,7 +126,7 @@ const routes: Array<IParent> = [
 	},
 	// Shop
 	{
-		component: Pages.User.Master,
+		component: Pages.UserMaster,
 		guard: EGuard.User,
 		meta: {
 			group: 'shop'
@@ -134,17 +134,17 @@ const routes: Array<IParent> = [
 		prefix: 'shop',
 		routes: [
 			{
-				component: Pages.User.Shop.List,
+				component: Pages.Shop.List,
 				title: 'Shop',
 				path: ''
 			},
 			{
-				component: Pages.User.Shop.History,
+				component: Pages.Shop.History,
 				title: 'Shop - My History',
 				path: 'history'
 			},
 			{
-				component: Pages.User.Shop.Checkout,
+				component: Pages.Shop.Checkout,
 				title: 'Shop - Checkout',
 				path: 'checkout'
 			}
