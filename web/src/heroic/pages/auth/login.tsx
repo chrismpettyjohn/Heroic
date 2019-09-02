@@ -1,74 +1,93 @@
+import {toast} from 'react-toastify'
 import {Link} from 'react-router-dom'
 import React, {Component,Fragment} from 'react'
-import Input from 'heroic/components/base/form/input'
+import {IUser} from '../../../../../interface/user'
+import {SessionService} from '../../app/service/session'
+import {FormGroup} from 'heroic/components/base/form/group'
 import SessionActions from 'heroic/app/redux/actions/session'
 import {withRouter, RouteComponentProps} from 'react-router-dom'
 
 interface State {
-	error: string | null,
-	username: string,
-	password: string,
-	pending: boolean,
 	loading: boolean
+	user: {
+		username: string
+		password: string
+	}
 }
 
-class Login extends Component<RouteComponentProps> {
+
+class Login extends Component<RouteComponentProps, State> {
 
 	state: State = {
-		error: null,
-		username: '',
-		password: '',
-		pending: false,
-		loading: false
+		loading: false,
+		user: {
+			username: '',
+			password: ''
+		}
 	}
 
-	onChange = (key: string, value: string | boolean): void => {
+	onChange = (column: string, value: string): void => {
 		this.setState({
-			[key]: value
+			user: {
+				...this.state.user,
+				[column]: value
+			}
 		})
 	}
 
-	onSubmit = async (event): Promise<void> => {
-		event.preventDefault()
-		const {username, password} = this.state
-
+	onSubmit = async (): Promise<void> => {
+		const {user} = this.state
 		try {
-			this.onChange('pending', true)
-
+			this.setState({ loading: true })
+			const { access_token } = await SessionService.authenticateWithCredentials(user.username, user.password)
+			const userResponse: IUser = await SessionService.authenticateWithJWT(access_token)
+			SessionActions.login(userResponse)
 			this.props.history.push('/me')
 		}
 		catch (e) {
-			this.onChange('pending', false)
+			this.setState({ loading: false })
+			toast.error('Login Failed.  Please recheck the username and password and try again.', {
+				position: toast.POSITION.TOP_LEFT
+			})
 		}
 	}
 
-
-	isDisabled = (): boolean => this.state.username === '' || this.state.password === ''
+	isDisabled = (): boolean => {
+		const {user} = this.state
+		const required: string[] = ['username', 'password']
+		return required.filter(column => user[column] === '').length > 0
+	}
 
 	render () {
-		const {username, password, pending} = this.state
+		const {loading, user} = this.state
 		return (
 			<Fragment>
 				<h1>Welcome to Heroic</h1>
 				<p>A strange place with even stranger people!</p>
-				<form onSubmit={this.onSubmit}>
-					<div className="form-group">
-						<label>Username</label>
-						<Input column="username" type="text" value={username} onChange={this.onChange} />
-					</div>
-					<div className="form-group">
-						<label>Password</label>
-						<Input column="password" type="password" value={password} onChange={this.onChange} />
-					</div>
-					<button className="btn btn-green w-100" disabled={this.isDisabled() || pending} type="submit">
+				<FormGroup
+					disabled={this.isDisabled()}
+					rows={[
 						{
-							!pending
-								? "Let's go!"
-								: <i className="fa fa-spinner fa-spin"/>
-						}
-					</button>
-				</form>
-				<Link className="link" to="/register">Or Join Today...</Link>
+							type: 'text',
+							label: 'Username',
+							column: 'username',
+							value: user.username,
+							onChange: this.onChange
+						},
+						{
+							type: 'password',
+							label: 'Password',
+							column: 'password',
+							value: user.password,
+							onChange: this.onChange
+						},
+					]}
+					loading={loading}
+					onSubmit={this.onSubmit}
+				/>
+				<Link className="link" to="/register">
+					Or Join Today...
+				</Link>
 			</Fragment>
 		)
 	}

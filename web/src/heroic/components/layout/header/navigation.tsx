@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Routes from 'heroic/app/navigation'
 import {withRouter} from 'react-router-dom'
+import Routes from 'heroic/app/config/navigation'
 
 interface Interface {
 	group: string,

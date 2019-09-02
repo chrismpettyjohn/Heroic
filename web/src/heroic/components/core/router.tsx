@@ -1,8 +1,8 @@
 import Guard from './guard'
 import Core from 'heroic/pages/core'
-import Routes from 'heroic/app/routes'
 import React, {PureComponent} from 'react'
 import {Switch,Route} from 'react-router-dom'
+import Routes from 'heroic/app/config/routes'
 import {IState,IParent,IRoute} from 'heroic/app/interface/router'
 
 export default class extends PureComponent<{}> {

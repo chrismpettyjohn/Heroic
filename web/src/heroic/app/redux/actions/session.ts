@@ -30,6 +30,14 @@ const SessionActions = bindActions(store => ({
     session
   }),
 
+  login: (store: Redux, user: IUser) => ({
+    session: {
+      active: true,
+      ready: true,
+      user
+    }
+  }),
+
 	logout: () => {
 		Storage.del('auth');
 		store.setState({

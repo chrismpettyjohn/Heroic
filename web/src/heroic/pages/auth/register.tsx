@@ -1,109 +1,95 @@
 import {Link} from 'react-router-dom'
-import React, { Component, Fragment } from 'react'
-import Input from 'heroic/components/base/form/input'
+import React, {Component,Fragment} from 'react'
+import {FormGroup} from 'heroic/components/base/form/group'
 import SessionActions from 'heroic/app/redux/actions/session'
 import {withRouter, RouteComponentProps} from 'react-router-dom'
 
 interface State {
-	error: string | null
+	loading: boolean
 	user: {
+		email: string
 		username: string
 		password: string
 		passwordAgain: string
-		email: string
 	}
-	pending: boolean
-	loading: boolean
 }
 
-type Field = {
-	column: string
-	type: string
-	pretty: string
-}
 
-class Register extends Component<RouteComponentProps> {
-
-	fields: Field[] = [
-		{
-			column: 'username',
-			type: 'text',
-			pretty: 'Username'
-		},
-		{
-			column: 'email',
-			type: 'email',
-			pretty: 'Email'
-		},
-		{
-			column: 'password',
-			type: 'password',
-			pretty: 'Password'
-		},
-		{
-			column: 'passwordAgain',
-			type: 'password',
-			pretty: 'Password Again'
-		}
-	]
+class Login extends Component<RouteComponentProps, State> {
 
 	state: State = {
-		error: null,
+		loading: false,
 		user: {
+			email: '',
 			username: '',
 			password: '',
-			passwordAgain: '',
-			email: ''
-		},
-		pending: false,
-		loading: false
+			passwordAgain: ''
+		}
 	}
 
-	onChange = (key: string, value: string | boolean): void => {
+	onChange = (column: string, value: string): void => {
 		this.setState({
-			[key]: value
+			user: {
+				[column]: value,
+				...this.state.user
+			}
 		})
 	}
 
-	onSubmit = async (event): Promise<void> => {
-		event.preventDefault()
+	onSubmit = async (): Promise<void> => {
+		try {
+		}
+		catch (e) {
+		}
 	}
 
 	isDisabled = (): boolean => {
 		const {user} = this.state
-		const required: string[] = ['username', 'password', 'password_again', 'email']
-		return required.filter(x => user[x] !== '').length > 0
+		const required: string[] = ['username', 'password']
+		return required.filter(column => user[column] === '').length > 0
 	}
 
 	render () {
-		const {user, pending} = this.state
-
+		const {loading, user} = this.state
 		return (
 			<Fragment>
 				<h1>Welcome to Heroic</h1>
 				<p>A strange place with even stranger people!</p>
-				<form onSubmit={this.onSubmit}>
-					{
-						this.fields.map(field => (
-							<div className="form-group" key={field.column}>
-								<label>{field.pretty}</label>
-								<Input
-									column={field.column}
-									type={field.type}
-									value={user[field.column]}
-									onChange={this.onChange}
-								/>
-							</div>
-						))
-					}
-					<button className="btn btn-green w-100" disabled={this.isDisabled() || pending} type="submit">
+				<FormGroup
+					disabled={false}
+					rows={[
 						{
-							!pending
-								? "Let's go!"
-								: <i className="fa fa-spinner fa-spin"/>
+							type: 'text',
+							label: 'Username',
+							column: 'username',
+							value: user.username,
+							onChange: this.onChange
+						},
+						{
+							type: 'email',
+							label: 'Email',
+							column: 'email',
+							value: user.email,
+							onChange: this.onChange
+						},
+						{
+							type: 'password',
+							label: 'Password',
+							column: 'password',
+							value: user.password,
+							onChange: this.onChange
+						},
+						{
+							type: 'password',
+							label: 'Password Again',
+							column: 'passwordAgain',
+							value: user.passwordAgain,
+							onChange: this.onChange
 						}
-					</button>
-				</form>
+					]}
+					loading={loading}
+					onSubmit={this.onSubmit}
+				/>
 				<Link className="link" to="/login">
 					Already A Member?
 				</Link>
@@ -111,7 +97,6 @@ class Register extends Component<RouteComponentProps> {
 		)
 	}
 
-
 }
 
-export default withRouter(Register)
+export default withRouter(Login)

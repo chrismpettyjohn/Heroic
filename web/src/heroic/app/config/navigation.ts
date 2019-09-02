@@ -1,4 +1,4 @@
-import {IParent} from './interface/navigation'
+import {IParent} from 'heroic/app/interface/navigation'
 
 const routes: Array<IParent> = [
 	{

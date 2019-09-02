@@ -4,14 +4,18 @@ import {RouteComponentProps} from 'react-router'
 
 export interface IRedux {
 	pages: Pages,
-	website: {
-		SITE_NAME: string
-	},
-	session: {
-		active: boolean,
-		ready: boolean,
-		user: User| null
-	}
+	website: IWebsite
+	session: ISession
+}
+
+export interface IWebsite {
+	SITE_NAME: string
+}
+
+export interface ISession {
+	active: boolean,
+	ready: boolean,
+	user: User| null
 }
 
 export type Page = {

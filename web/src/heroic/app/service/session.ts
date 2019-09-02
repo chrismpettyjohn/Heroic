@@ -6,10 +6,8 @@ import {JWTResponse} from '../../../../../interface/auth/response'
 export const authenticateWithCredentials = async (username: string, password: string): Promise<JWTResponse> => {
   try {
     return await API.post('auth', {
-      params: {
-        username,
-        password
-      }
+      username,
+      password
     })
   }
   catch (e) {
@@ -21,7 +19,7 @@ export const authenticateWithJWT = async (jwt: string): Promise<IUser> => {
   try {
     const user: IUser = await API.get('auth', {
       headers: {
-        Authorization: jwt
+        Authorization: `Bearer ${jwt}`
       }
     })
     setToken(jwt)

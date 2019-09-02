@@ -1,12 +1,13 @@
 import Pages from 'heroic/pages'
-import {EGuard,IParent} from 'heroic/app/interface/router'
+import { Guards } from './guards'
+import {IParent} from 'heroic/app/interface/router'
 
 const routes: Array<IParent> = [
 
 	// Guest Routes
 	{
 		component: Pages.GuestMaster,
-		guard: EGuard.Everyone,
+		guard: Guards.All,
 		prefix: '',
 		routes: [
 			{
@@ -29,7 +30,7 @@ const routes: Array<IParent> = [
 	{
 		// Home
 		component: Pages.UserMaster,
-		guard: EGuard.User,
+		guard: Guards.Player,
 		meta: {
 			group: 'home'
 		},
@@ -65,7 +66,7 @@ const routes: Array<IParent> = [
 	{
 		// Community
 		component: Pages.UserMaster,
-		guard: EGuard.User,
+		guard: Guards.Player,
 		meta: {
 			group: 'community'
 		},
@@ -106,7 +107,7 @@ const routes: Array<IParent> = [
 	// Hangout
 	{
 		component: Pages.UserMaster,
-		guard: EGuard.User,
+		guard: Guards.Player,
 		meta: {
 			group: 'hangout'
 		},
@@ -127,7 +128,7 @@ const routes: Array<IParent> = [
 	// Shop
 	{
 		component: Pages.UserMaster,
-		guard: EGuard.User,
+		guard: Guards.Player,
 		meta: {
 			group: 'shop'
 		},

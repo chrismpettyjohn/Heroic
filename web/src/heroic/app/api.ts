@@ -10,7 +10,6 @@ API.interceptors.response.use(response => {
 
 
 export const setToken = (token?: string|null) => {
-	console.log(token)
 	API.defaults.headers['Authorization'] = token
 		? `Bearer ${token}`
 		: null

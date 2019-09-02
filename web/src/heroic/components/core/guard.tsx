@@ -1,36 +1,26 @@
 import React from 'react'
 import Redux from 'heroic/app/interface/redux'
+import {IGuard} from '../../app/config/guards'
 import Stateful from 'heroic/app/redux/stateful'
 import NotAllowed from 'heroic/pages/core/not-allowed'
 
 interface Interface extends Redux {
-	component: any,
-	guard: string,
+	component: any
+	guard: IGuard
 	page: string
 }
 
-const Guard = ({ component, guard, session: { active }, website: { SITE_NAME }, page }: Interface) => {
-	document.title = `${SITE_NAME} - ${page}`
-	switch (guard) {
-		case 'admin':
-			return <NotAllowed/>
+const Guard = ({ component, guard, session, website: { SITE_NAME }, page }: Interface) => {
 
-		case 'everyone':
-			return component
-
-		case 'guest':
-			return active
-				? <NotAllowed/>
-				: component
-
-		case 'user':
-			return active
-				? component
-				: <NotAllowed/>
-
-		default:
-			return <NotAllowed/>
+	if (guard(session)) {
+		document.title = `${SITE_NAME} - ${page}`
+		return component
 	}
+	else {
+		document.title = `${SITE_NAME} - Not Allowed`
+		return <NotAllowed/>
+	}
+
 }
 
 
