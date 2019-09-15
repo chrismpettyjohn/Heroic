@@ -26,6 +26,9 @@ module.exports = {
 		"src/"
 	],
 	
+	setupFiles: ["<rootDir>/setupTests.ts"],
+	
+	
 	testEnvironment: "node",
 	
 	transform: {

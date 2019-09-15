@@ -1,6 +1,6 @@
 import {omit} from 'lodash';
 import {getManager} from 'typeorm';
-import {UserEntity} from '../entity';
+import {UserEntity, UserEntityGeneric} from '../entity';
 import {validate} from 'class-validator';
 import {Repository, Like} from 'typeorm';
 import {Injectable} from '@nestjs/common';
@@ -10,8 +10,7 @@ import {NotFoundException, BadRequestException} from '@nestjs/common';
 @Injectable()
 export class UserService {
   
-  constructor(@InjectRepository(UserEntity) private readonly repository: Repository<UserEntity>) {
-  }
+  constructor(@InjectRepository(UserEntity) private readonly repository: Repository<UserEntity>) { }
   
   async createOne(username: string, email: string, password: string): Promise<UserEntity> {
     
@@ -31,7 +30,7 @@ export class UserService {
     
   }
   
-  async findAll(): Promise<UserEntity[]> {
+  async findAll(): Promise<UserEntityGeneric[]> {
     const result: UserEntity[] = await this.repository.find({
       cache: true,
     });
@@ -42,7 +41,7 @@ export class UserService {
     }
   }
   
-  async findByID(id: number): Promise<UserEntity> {
+  async findByID(id: number): Promise<UserEntityGeneric> {
     try {
       const result: UserEntity = await this.repository.findOneOrFail(id);
       return omit(result, 'password');
@@ -51,7 +50,7 @@ export class UserService {
     }
   }
   
-  async findByUsername(username: string): Promise<UserEntity> {
+  async findByUsername(username: string): Promise<UserEntityGeneric> {
     try {
       const result: UserEntity = await this.repository.findOneOrFail({
         where: {
@@ -76,7 +75,7 @@ export class UserService {
     }
   }
   
-  async searchByUsername(username: string): Promise<UserEntity[]> {
+  async searchByUsername(username: string): Promise<UserEntityGeneric[]> {
     const result: UserEntity[] = await this.repository.find({
       where: {
         username: Like(`%${username}%`),

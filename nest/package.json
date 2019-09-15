@@ -10,11 +10,11 @@
     "prestart:prod": "rimraf dist && npm run build",
     "start:prod": ". env/typeorm && node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test": ". env/typeorm && tsc && jest",
+    "test:watch": ". env/typeorm && tsc && jest --watch",
+    "test:cov": ". env/typeorm && tsc && jest --coverage",
+    "test:debug": ". env/typeorm && tsc && node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": ". env/typeorm && tsc && jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^6.6.7",
@@ -24,6 +24,7 @@
     "@nestjs/platform-fastify": "^6.6.7",
     "@nestjs/typeorm": "^6.1.3",
     "@types/bcryptjs": "^2.4.2",
+    "@types/lodash": "^4.14.138",
     "@types/request-ip": "0.0.34",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.10.0",
