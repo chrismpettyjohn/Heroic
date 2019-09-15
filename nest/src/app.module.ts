@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { UserModule } from './user/module';
-import { AuthModule } from './auth/module';
-import { ArticleModule} from './article/module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { SecurityModule} from './security/module';
+import {Module} from '@nestjs/common';
+import {UserModule} from './user/module';
+import {AuthModule} from './auth/module';
+import {ArticleModule} from './article/module';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {SecurityModule} from './security/module';
 
 @Module({
   imports: [
@@ -11,8 +11,9 @@ import { SecurityModule} from './security/module';
     AuthModule,
     UserModule,
     ArticleModule,
-    SecurityModule
+    SecurityModule,
   ],
 })
 
-export class AppModule {}
+export class AppModule {
+}

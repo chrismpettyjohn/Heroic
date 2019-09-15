@@ -1,30 +1,32 @@
-import { Module } from '@nestjs/common';
-import { ArticleEntity} from './entity';
-import { ArticleService} from './service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ArticleController} from './controller';
-import { CategoryEntity} from './entity/category';
-import { CategoryService} from './service/category';
-import { CategoryController} from './controller/category';
+import {Module} from '@nestjs/common';
+import {ArticleEntity} from './entity';
+import {ArticleService} from './service';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {ArticleController} from './controller';
+import {CategoryEntity} from './entity/category';
+import {CategoryService} from './service/category';
+import {CategoryController} from './controller/category';
+
 @Module({
   controllers: [
     ArticleController,
-    CategoryController
+    CategoryController,
   ],
   exports: [
     ArticleService,
-    CategoryService
+    CategoryService,
   ],
   imports: [
     TypeOrmModule.forFeature([
       ArticleEntity,
-      CategoryEntity
+      CategoryEntity,
     ]),
   ],
   providers: [
     ArticleService,
-    CategoryService
+    CategoryService,
   ],
 })
 
-export class ArticleModule { }
+export class ArticleModule {
+}

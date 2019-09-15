@@ -1,29 +1,30 @@
-import { UserEntity} from './entity';
-import { BanEntity} from './entity/ban';
-import { UserService } from './service';
-import { Module } from '@nestjs/common';
-import { BanService} from './service/ban';
-import { CoreModule} from '../core/module';
-import { UserController} from './controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import {UserEntity} from './entity';
+import {BanEntity} from './entity/ban';
+import {UserService} from './service';
+import {Module} from '@nestjs/common';
+import {BanService} from './service/ban';
+import {CoreModule} from '../core/module';
+import {UserController} from './controller';
+import {TypeOrmModule} from '@nestjs/typeorm';
 
 @Module({
   controllers: [UserController],
   exports: [
     BanService,
-    UserService
+    UserService,
   ],
   imports: [
     CoreModule,
     TypeOrmModule.forFeature([
       UserEntity,
-      BanEntity
+      BanEntity,
     ]),
   ],
   providers: [
     BanService,
-    UserService
+    UserService,
   ],
 })
 
-export class UserModule { }
+export class UserModule {
+}
