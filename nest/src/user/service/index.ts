@@ -31,9 +31,7 @@ export class UserService {
   }
   
   async findAll(): Promise<UserEntityGeneric[]> {
-    const result: UserEntity[] = await this.repository.find({
-      cache: true,
-    });
+    const result: UserEntity[] = await this.repository.find();
     if (result.length === 0) {
       throw new NotFoundException('User not found');
     } else {

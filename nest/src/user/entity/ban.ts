@@ -4,7 +4,6 @@ import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 export class BanEntity {
   
   constructor() {
-    this.id = 0;
     this.user_id = 0;
     this.ip = '';
     this.machine_id = '';
@@ -17,7 +16,7 @@ export class BanEntity {
   }
   
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
   
   @Column()
   user_id: number;

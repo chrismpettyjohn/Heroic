@@ -5,7 +5,6 @@ import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 export class UserEntity {
   
   constructor() {
-    this.id = 0;
     this.username = '';
     this.mail = '';
     this.password = '';
@@ -13,7 +12,7 @@ export class UserEntity {
   }
   
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
   
   @Column({unique: true})
   username: string;
