@@ -1,5 +1,12 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 
+export enum BanType {
+  Account = 'account',
+  IP = 'ip',
+  Machine = 'machine',
+  Super = 'super',
+}
+
 @Entity('bans')
 export class BanEntity {
   
@@ -11,8 +18,8 @@ export class BanEntity {
     this.timestamp = 0;
     this.ban_expire = 0;
     this.ban_reason = '';
-    this.type = '';
-    this.cfh_topic = '';
+    this.type = BanType.Account;
+    this.cfh_topic = 0;
   }
   
   @PrimaryGeneratedColumn()
@@ -40,9 +47,9 @@ export class BanEntity {
   ban_reason: string;
   
   @Column()
-  type: string;
+  type: BanType;
   
   @Column()
-  cfh_topic: string;
+  cfh_topic: number;
   
 }
