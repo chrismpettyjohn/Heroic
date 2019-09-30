@@ -23,7 +23,7 @@ export class ArticleController {
   
   @UseGuards(AuthGuard('jwt'))
   @Get('like')
-  async search(@Query() query): Promise<ArticleEntity[]> {
+  async search(@Query() query: any): Promise<ArticleEntity[]> {
     return this.service.findLike(query.title);
   }
   

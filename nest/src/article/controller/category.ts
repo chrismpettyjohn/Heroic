@@ -23,7 +23,7 @@ export class CategoryController {
   
   @UseGuards(AuthGuard('jwt'))
   @Get('like')
-  async search(@Query() query): Promise<CategoryEntity[]> {
+  async search(@Query() query: any): Promise<CategoryEntity[]> {
     return this.service.findLike(query.title);
   }
   
